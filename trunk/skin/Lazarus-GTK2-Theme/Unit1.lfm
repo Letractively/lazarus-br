@@ -1,0 +1,125 @@
+object Form1: TForm1
+  Left = 265
+  Height = 302
+  Top = 185
+  Width = 451
+  ActiveControl = ComboBox1
+  Caption = 'Form1'
+  ClientHeight = 275
+  ClientWidth = 451
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Button1: TButton
+    Left = 24
+    Height = 25
+    Top = 72
+    Width = 75
+    Caption = 'Button1'
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 33
+    Height = 27
+    Top = 26
+    Width = 144
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object Memo1: TMemo
+    Left = 16
+    Height = 90
+    Top = 120
+    Width = 150
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 2
+  end
+  object ComboBox1: TComboBox
+    Left = 200
+    Height = 29
+    Top = 24
+    Width = 232
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Teste1'
+      'Teste2'
+      'Teste3'
+    )
+    TabOrder = 3
+    Text = 'Teste1'
+  end
+  object ListBox1: TListBox
+    Left = 192
+    Height = 80
+    Top = 72
+    Width = 100
+    Items.Strings = (
+      'Item1'
+      'Item2'
+      'Item3'
+      'Item4'
+    )
+    ItemHeight = 23
+    TabOrder = 4
+  end
+  object ProgressBar1: TProgressBar
+    Left = 203
+    Height = 20
+    Top = 183
+    Width = 221
+    Position = 50
+    TabOrder = 5
+  end
+  object CheckBox1: TCheckBox
+    Left = 24
+    Height = 22
+    Top = 240
+    Width = 97
+    Caption = 'CheckBox1'
+    TabOrder = 6
+  end
+  object RadioButton1: TRadioButton
+    Left = 136
+    Height = 22
+    Top = 240
+    Width = 112
+    Caption = 'RadioButton1'
+    Checked = True
+    State = cbChecked
+    TabOrder = 7
+  end
+  object RadioButton2: TRadioButton
+    Left = 256
+    Height = 22
+    Top = 240
+    Width = 112
+    Caption = 'RadioButton2'
+    TabOrder = 8
+    TabStop = False
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 111
+    Height = 25
+    Top = 72
+    Width = 63
+    Color = clBtnFace
+    NumGlyphs = 0
+  end
+  object MainMenu1: TMainMenu
+    left = 364
+    top = 88
+    object MenuItem1: TMenuItem
+      Caption = 'New Item1'
+      object MenuItem3: TMenuItem
+        Caption = 'New Item4'
+      end
+      object MenuItem2: TMenuItem
+        Caption = 'New Item5'
+      end
+    end
+  end
+end
