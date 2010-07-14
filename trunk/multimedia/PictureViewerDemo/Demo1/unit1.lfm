@@ -1,0 +1,51 @@
+object Form1: TForm1
+  Left = 248
+  Height = 405
+  Top = 157
+  Width = 704
+  ActiveControl = DirectoryEdit1
+  Caption = 'Form1'
+  ClientHeight = 405
+  ClientWidth = 704
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Image1: TImage
+    Left = 16
+    Height = 210
+    Top = 16
+    Width = 672
+    Stretch = True
+  end
+  object FileListBox1: TFileListBox
+    Left = 16
+    Height = 72
+    Top = 272
+    Width = 672
+    Directory = 'C:\Documents and Settings\All Users\Documentos\Minhas imagens\Amostras de imagens'
+    ItemHeight = 0
+    Mask = '*.bmp;*.xmp;*.png;*.pbm;*.pgm;*.ppm;*.ico;*.icns;*.cur;*.jpg;*.jpeg;*.jpe;*.jfif'
+    OnClick = FileListBox1Click
+    TabOrder = 0
+    TopIndex = -1
+  end
+  object DirectoryEdit1: TDirectoryEdit
+    Left = 16
+    Height = 27
+    Top = 240
+    Width = 648
+    Directory = 'C:\Documents and Settings\All Users\Documentos\Minhas imagens\Amostras de imagens'
+    ShowHidden = False
+    ButtonWidth = 23
+    NumGlyphs = 0
+    MaxLength = 0
+    TabOrder = 1
+    OnChange = DirectoryEdit1Change
+  end
+  object Edit1: TEdit
+    Left = 16
+    Height = 27
+    Top = 360
+    Width = 672
+    TabOrder = 2
+  end
+end
