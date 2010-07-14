@@ -1,0 +1,9 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TMainDataModule','FORMDATA',[
+  'TPF0'#15'TMainDataModule'#14'MainDataModule'#8'OnCreate'#7#16'DataModuleCrea'
+  +'te'#14'OldCreateOrder'#8#6'Height'#2'b'#16'HorizontalOffset'#3#243#0#14'Ver'
+  +'ticalOffset'#3#219#0#5'Width'#2'y'#0#11'TDatasource'#14'MainDataSource'#7'D'
+  +'ataSet'#7#7'MainDbf'#4'left'#2'0'#3'top'#2'0'#0#0#4'TDbf'#7'MainDbf'#9'Inde'
+  +'xDefs'#14#0#10'TableLevel'#2#4#13'FilterOptions'#11#0#4'left'#2'0'#0#0#0
+]);
