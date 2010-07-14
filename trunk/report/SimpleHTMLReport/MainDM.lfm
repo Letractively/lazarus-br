@@ -1,0 +1,19 @@
+object MainDataModule: TMainDataModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 98
+  HorizontalOffset = 243
+  VerticalOffset = 219
+  Width = 121
+  object MainDataSource: TDatasource
+    DataSet = MainDbf
+    left = 48
+    top = 48
+  end
+  object MainDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 48
+  end
+end
