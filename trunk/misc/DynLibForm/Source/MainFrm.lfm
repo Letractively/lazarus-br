@@ -1,0 +1,20 @@
+object MainForm: TMainForm
+  Left = 290
+  Height = 240
+  Top = 184
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object ShowMyLibFormButton: TButton
+    Left = 96
+    Height = 25
+    Top = 104
+    Width = 131
+    Caption = '&Show my lib Form'
+    OnClick = ShowMyLibFormButtonClick
+    TabOrder = 0
+  end
+end

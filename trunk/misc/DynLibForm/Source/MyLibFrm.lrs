@@ -1,0 +1,20 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TMyLibForm','FORMDATA',[
+  'TPF0'#10'TMyLibForm'#9'MyLibForm'#4'Left'#3#253#0#6'Height'#3#240#0#3'Top'#3
+  +#194#0#5'Width'#3'@'#1#7'Caption'#6#9'MyLibForm'#12'ClientHeight'#3#240#0#11
+  +'ClientWidth'#3'@'#1#8'Position'#7#15'poDesktopCenter'#10'LCLVersion'#6#6'0.'
+  +'9.29'#0#6'TLabel'#6'Label1'#4'Left'#2#18#6'Height'#2#16#3'Top'#2#12#5'Width'
+  +#2'#'#7'Caption'#6#6'Label1'#11'ParentColor'#8#0#0#5'TEdit'#5'Edit1'#4'Left'
+  +#2'H'#6'Height'#2#23#3'Top'#2#8#5'Width'#2'P'#8'TabOrder'#2#0#4'Text'#6#5'Ed'
+  +'it1'#0#0#5'TMemo'#5'Memo1'#4'Left'#2#16#6'Height'#2'Z'#3'Top'#2'('#5'Width'
+  +#3#150#0#13'Lines.Strings'#1#6#5'Memo1'#0#8'TabOrder'#2#1#0#0#9'TComboBox'#9
+  +'ComboBox1'#4'Left'#2'('#6'Height'#2#23#3'Top'#3#136#0#5'Width'#2'd'#10'Item'
+  +'Height'#2#15#8'TabOrder'#2#2#4'Text'#6#9'ComboBox1'#0#0#7'TBitBtn'#7'BitBtn'
+  +'1'#4'Left'#3#232#0#6'Height'#2#30#3'Top'#3#200#0#5'Width'#2'K'#7'Caption'#6
+  +#3'&OK'#7'Default'#9#4'Kind'#7#4'bkOK'#11'ModalResult'#2#1#8'TabOrder'#2#3#0
+  +#0#9'TGroupBox'#9'GroupBox1'#4'Left'#3#184#0#6'Height'#2'{'#3'Top'#2#7#5'Wid'
+  +'th'#3#129#0#7'Caption'#6#9'GroupBox1'#8'TabOrder'#2#4#0#0#9'TCheckBox'#9'Ch'
+  +'eckBox1'#4'Left'#3#200#0#6'Height'#2#19#3'Top'#3#144#0#5'Width'#2'N'#7'Capt'
+  +'ion'#6#9'CheckBox1'#8'TabOrder'#2#5#0#0#0
+]);
