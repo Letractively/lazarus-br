@@ -1,0 +1,20 @@
+object MainForm: TMainForm
+  Left = 290
+  Height = 240
+  Top = 183
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object ProvokeErrorButton: TButton
+    Left = 112
+    Height = 25
+    Top = 96
+    Width = 102
+    Caption = '&Provoke error'
+    OnClick = ProvokeErrorButtonClick
+    TabOrder = 0
+  end
+end
