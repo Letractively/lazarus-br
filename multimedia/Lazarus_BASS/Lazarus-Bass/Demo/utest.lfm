@@ -1,0 +1,241 @@
+object Form1: TForm1
+  Left = 305
+  Height = 206
+  Top = 282
+  Width = 525
+  HorzScrollBar.Page = 524
+  VertScrollBar.Page = 235
+  ActiveControl = ListBox3
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'BassTest'
+  ClientHeight = 206
+  ClientWidth = 525
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Label1: TLabel
+    Left = 288
+    Height = 14
+    Top = 164
+    Width = 161
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'CPU%'
+    ParentColor = False
+  end
+  object GroupBox1: TGroupBox
+    Left = 176
+    Height = 137
+    Top = 8
+    Width = 164
+    Caption = 'Music'
+    ClientHeight = 118
+    ClientWidth = 160
+    TabOrder = 0
+    object ListBox1: TListBox
+      Left = 8
+      Height = 57
+      Top = 0
+      Width = 145
+      ItemHeight = 0
+      TabOrder = 0
+      TopIndex = -1
+    end
+    object Button4: TButton
+      Left = 8
+      Height = 22
+      Top = 62
+      Width = 41
+      Caption = 'Play'
+      OnClick = Button4Click
+      TabOrder = 1
+    end
+    object Button5: TButton
+      Left = 56
+      Height = 22
+      Top = 62
+      Width = 41
+      Caption = 'Stop'
+      OnClick = Button5Click
+      TabOrder = 2
+    end
+    object Button6: TButton
+      Left = 104
+      Height = 22
+      Top = 62
+      Width = 49
+      Caption = 'Restart'
+      OnClick = Button6Click
+      TabOrder = 3
+    end
+    object Button7: TButton
+      Left = 8
+      Height = 25
+      Top = 88
+      Width = 65
+      Caption = 'Add...'
+      OnClick = Button7Click
+      TabOrder = 4
+    end
+    object Button8: TButton
+      Left = 80
+      Height = 25
+      Top = 88
+      Width = 73
+      Caption = 'Remove'
+      OnClick = Button8Click
+      TabOrder = 5
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 137
+    Top = 8
+    Width = 164
+    Caption = 'Stream'
+    ClientHeight = 118
+    ClientWidth = 160
+    TabOrder = 1
+    object ListBox3: TListBox
+      Left = 8
+      Height = 57
+      Top = 0
+      Width = 145
+      ItemHeight = 0
+      TabOrder = 0
+      TopIndex = -1
+    end
+    object Button3: TButton
+      Left = 8
+      Height = 22
+      Top = 62
+      Width = 41
+      Caption = 'Play'
+      OnClick = Button3Click
+      TabOrder = 1
+    end
+    object Button12: TButton
+      Left = 56
+      Height = 22
+      Top = 62
+      Width = 41
+      Caption = 'Stop'
+      OnClick = Button12Click
+      TabOrder = 2
+    end
+    object Button13: TButton
+      Left = 104
+      Height = 22
+      Top = 62
+      Width = 49
+      Caption = 'Restart'
+      OnClick = Button13Click
+      TabOrder = 3
+    end
+    object Button14: TButton
+      Left = 80
+      Height = 25
+      Top = 88
+      Width = 73
+      Caption = 'Remove'
+      OnClick = Button14Click
+      TabOrder = 5
+    end
+    object Button15: TButton
+      Left = 8
+      Height = 25
+      Top = 88
+      Width = 65
+      Caption = 'Add...'
+      OnClick = Button15Click
+      TabOrder = 4
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 344
+    Height = 137
+    Top = 8
+    Width = 164
+    Caption = 'Sample'
+    ClientHeight = 118
+    ClientWidth = 160
+    TabOrder = 2
+    object ListBox2: TListBox
+      Left = 8
+      Height = 57
+      Top = 0
+      Width = 147
+      ItemHeight = 0
+      TabOrder = 0
+      TopIndex = -1
+    end
+    object Button9: TButton
+      Left = 8
+      Height = 22
+      Top = 62
+      Width = 147
+      Caption = 'Play'
+      OnClick = Button9Click
+      TabOrder = 1
+    end
+    object Button10: TButton
+      Left = 8
+      Height = 25
+      Top = 88
+      Width = 65
+      Caption = 'Add...'
+      OnClick = Button10Click
+      TabOrder = 2
+    end
+    object Button11: TButton
+      Left = 80
+      Height = 25
+      Top = 88
+      Width = 75
+      Caption = 'Remove'
+      OnClick = Button11Click
+      TabOrder = 3
+    end
+  end
+  object Button1: TButton
+    Left = 64
+    Height = 24
+    Top = 160
+    Width = 116
+    Caption = 'Stop Everything'
+    OnClick = Button1Click
+    TabOrder = 3
+  end
+  object Button2: TButton
+    Left = 187
+    Height = 24
+    Top = 160
+    Width = 69
+    Caption = 'Resume'
+    OnClick = Button2Click
+    TabOrder = 4
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Music modules (xm/mod/s3m/it/mtm)|*.xm;*.mod;*.s3m;*.it;*.mtm|All files|*.*'
+    left = 256
+    top = 40
+  end
+  object Timer1: TTimer
+    Interval = 250
+    OnTimer = Timer1Timer
+    left = 32
+    top = 152
+  end
+  object OpenDialog2: TOpenDialog
+    Filter = 'Streamable files (wav/ogg/mp3)|*.wav;*.mp3;*.ogg|All files|*.*'
+    left = 88
+    top = 40
+  end
+  object OpenDialog3: TOpenDialog
+    Filter = 'Wave audio (*.wav)|*.wav|All files|*.*'
+    left = 408
+    top = 40
+  end
+end
