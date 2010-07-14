@@ -1,0 +1,70 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TMainForm','FORMDATA',[
+  'TPF0'#9'TMainForm'#8'MainForm'#4'Left'#3#246#0#6'Height'#3#250#0#3'Top'#3#157
+  +#0#5'Width'#3'^'#1#11'BorderIcons'#11#12'biSystemMenu'#0#11'BorderStyle'#7#8
+  +'bsDialog'#7'Caption'#6#20'Lazarus and DBLookup'#12'ClientHeight'#3#250#0#11
+  +'ClientWidth'#3'^'#1#5'Color'#7#7'clWhite'#7'OnClose'#7#9'FormClose'#8'OnCre'
+  +'ate'#7#10'FormCreate'#6'OnShow'#7#8'FormShow'#8'Position'#7#15'poDesktopCen'
+  +'ter'#10'LCLVersion'#6#6'0.9.29'#0#12'TDBNavigator'#15'MainDBNavigator'#4'Le'
+  +'ft'#2#0#6'Height'#2#25#3'Top'#2#0#5'Width'#3'^'#1#5'Align'#7#5'alTop'#10'Be'
+  +'velOuter'#7#6'bvNone'#12'ClientHeight'#2#25#11'ClientWidth'#3'^'#1#10'DataS'
+  +'ource'#7#18'ProdutosDataSource'#8'TabOrder'#2#0#0#0#12'TPageControl'#15'Mai'
+  +'nPageControl'#4'Left'#2#0#6'Height'#3#225#0#3'Top'#2#25#5'Width'#3'^'#1#10
+  +'ActivePage'#7#16'ProdutosTabSheet'#5'Align'#7#8'alClient'#8'TabIndex'#2#0#8
+  +'TabOrder'#2#1#13'OnPageChanged'#7#26'MainPageControlPageChanged'#0#9'TTabSh'
+  +'eet'#16'ProdutosTabSheet'#7'Caption'#6#8'Produtos'#12'ClientHeight'#3#197#0
+  +#11'ClientWidth'#3'V'#1#0#6'TLabel'#12'ProdutoLabel'#4'Left'#2#12#6'Height'#2
+  +#16#3'Top'#2#17#5'Width'#2','#7'Caption'#6#7'Produto'#12'FocusControl'#7#11
+  +'ProdutoEdit'#11'ParentColor'#8#0#0#6'TLabel'#10'ValorLabel'#4'Left'#3#253#0
+  +#6'Height'#2#16#3'Top'#2#17#5'Width'#2#28#7'Caption'#6#5'Valor'#12'FocusCont'
+  +'rol'#7#9'ValorEdit'#11'ParentColor'#8#0#0#7'TDBEdit'#11'ProdutoEdit'#4'Left'
+  +#2#12#6'Height'#2#23#3'Top'#2'!'#5'Width'#3#233#0#9'DataField'#6#4'NOME'#10
+  +'DataSource'#7#18'ProdutosDataSource'#8'CharCase'#7#8'ecNormal'#9'MaxLength'
+  +#2#30#8'TabOrder'#2#0#0#0#7'TDBEdit'#9'ValorEdit'#4'Left'#3#253#0#6'Height'#2
+  +#23#3'Top'#2'!'#5'Width'#2'P'#9'DataField'#6#5'VALOR'#10'DataSource'#7#18'Pr'
+  +'odutosDataSource'#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#8'TabOrder'#2#1
+  +#0#0#0#9'TTabSheet'#15'PedidosTabSheet'#7'Caption'#6#7'Pedidos'#12'ClientHei'
+  +'ght'#3#190#0#11'ClientWidth'#3'X'#1#10'ImageIndex'#2#1#0#7'TDBGrid'#13'Pedi'
+  +'dosDBGrid'#4'Left'#2#0#6'Height'#3#190#0#3'Top'#2#0#5'Width'#3'X'#1#5'Align'
+  +#7#8'alClient'#7'Columns'#14#0#10'DataSource'#7#17'PedidosDataSource'#8'TabO'
+  +'rder'#2#0#16'TitleFont.Height'#2#245#14'TitleFont.Name'#6#6'Tahoma'#14'OnSe'
+  +'lectEditor'#7#25'PedidosDBGridSelectEditor'#0#0#17'TDBLookupComboBox'#23'Pr'
+  +'odutoDBLookupComboBox'#4'Left'#2'l'#6'Height'#2#23#3'Top'#2#25#5'Width'#2'd'
+  +#9'DataField'#6#11'NOMEPRODUTO'#10'DataSource'#7#17'PedidosDataSource'#8'Key'
+  +'Field'#6#4'NOME'#9'ListField'#6#4'NOME'#14'ListFieldIndex'#2#1#10'ListSourc'
+  +'e'#7#18'ProdutosDataSource'#11'LookupCache'#8#8'TabOrder'#2#1#7'Visible'#8#0
+  +#0#0#0#12'TZConnection'#15'MainZConnection'#4'left'#2' '#3'top'#3#136#0#0#0#7
+  +'TZQuery'#14'ProdutosZQuery'#10'Connection'#7#15'MainZConnection'#14'AutoCal'
+  +'cFields'#8#11'SQL.Strings'#1#6'#select Id, Nome, Valor from Produto'#6#11'o'
+  +'rder by Id'#0#6'Params'#14#0#4'left'#2'x'#3'top'#3#136#0#0#13'TLongintField'
+  +#16'ProdutosZQueryID'#12'DisplayWidth'#2#10#9'FieldKind'#7#6'fkData'#9'Field'
+  +'Name'#6#2'ID'#5'Index'#2#0#11'LookupCache'#8#13'ProviderFlags'#11#10'pfInUp'
+  +'date'#9'pfInWhere'#0#8'ReadOnly'#8#8'Required'#8#7'Visible'#8#0#0#12'TStrin'
+  +'gField'#18'ProdutosZQueryNOME'#12'DisplayLabel'#6#4'Nome'#12'DisplayWidth'#2
+  +#30#9'FieldKind'#7#6'fkData'#9'FieldName'#6#4'NOME'#5'Index'#2#1#11'LookupCa'
+  +'che'#8#13'ProviderFlags'#11#10'pfInUpdate'#9'pfInWhere'#0#8'ReadOnly'#8#8'R'
+  +'equired'#8#4'Size'#2#30#0#0#11'TFloatField'#19'ProdutosZQueryVALOR'#12'Disp'
+  +'layLabel'#6#5'Valor'#12'DisplayWidth'#2#10#9'FieldKind'#7#6'fkData'#9'Field'
+  +'Name'#6#5'VALOR'#5'Index'#2#2#11'LookupCache'#8#13'ProviderFlags'#11#10'pfI'
+  +'nUpdate'#9'pfInWhere'#0#8'ReadOnly'#8#8'Required'#8#8'Currency'#9#8'MaxValu'
+  +'e'#5#0#0#0#0#0#0#0#0#0#0#8'MinValue'#5#0#0#0#0#0#0#0#0#0#0#9'Precision'#2#2
+  +#0#0#0#7'TZQuery'#13'PedidosZQuery'#10'Connection'#7#15'MainZConnection'#14
+  +'AutoCalcFields'#8#11'SQL.Strings'#1#6')select Id, NomeProduto, Valor from P'
+  +'edido'#6#11'order by Id'#0#6'Params'#14#0#4'left'#3#224#0#3'top'#3#136#0#0
+  +#13'TLongintField'#15'PedidosZQueryID'#12'DisplayWidth'#2#10#9'FieldKind'#7#6
+  +'fkData'#9'FieldName'#6#2'ID'#5'Index'#2#0#11'LookupCache'#8#13'ProviderFlag'
+  +'s'#11#10'pfInUpdate'#9'pfInWhere'#0#8'ReadOnly'#8#8'Required'#8#7'Visible'#8
+  +#0#0#12'TStringField'#24'PedidosZQueryNOMEPRODUTO'#12'DisplayLabel'#6#7'Prod'
+  +'uto'#12'DisplayWidth'#2#30#9'FieldKind'#7#6'fkData'#9'FieldName'#6#11'NOMEP'
+  +'RODUTO'#5'Index'#2#1#11'LookupCache'#8#13'ProviderFlags'#11#10'pfInUpdate'#9
+  +'pfInWhere'#0#8'ReadOnly'#8#8'Required'#8#10'OnValidate'#7' PedidosZQueryNOM'
+  +'EPRODUTOValidate'#4'Size'#2#30#0#0#11'TFloatField'#18'PedidosZQueryVALOR'#12
+  +'DisplayLabel'#6#5'Valor'#12'DisplayWidth'#2#10#9'FieldKind'#7#6'fkData'#9'F'
+  +'ieldName'#6#5'VALOR'#5'Index'#2#2#11'LookupCache'#8#13'ProviderFlags'#11#10
+  +'pfInUpdate'#9'pfInWhere'#0#8'ReadOnly'#8#8'Required'#8#8'Currency'#9#8'MaxV'
+  +'alue'#5#0#0#0#0#0#0#0#0#0#0#8'MinValue'#5#0#0#0#0#0#0#0#0#0#0#9'Precision'#2
+  +#2#0#0#0#11'TDatasource'#18'ProdutosDataSource'#7'DataSet'#7#14'ProdutosZQue'
+  ,'ry'#4'left'#2'x'#3'top'#3#192#0#0#0#11'TDatasource'#17'PedidosDataSource'#7
+  +'DataSet'#7#13'PedidosZQuery'#4'left'#3#224#0#3'top'#3#192#0#0#0#0
+]);
