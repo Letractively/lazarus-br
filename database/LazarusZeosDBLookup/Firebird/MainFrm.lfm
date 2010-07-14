@@ -1,0 +1,232 @@
+object MainForm: TMainForm
+  Left = 246
+  Height = 250
+  Top = 157
+  Width = 350
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Lazarus and DBLookup'
+  ClientHeight = 250
+  ClientWidth = 350
+  Color = clWhite
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object MainDBNavigator: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 350
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 350
+    DataSource = ProdutosDataSource
+    TabOrder = 0
+  end
+  object MainPageControl: TPageControl
+    Left = 0
+    Height = 225
+    Top = 25
+    Width = 350
+    ActivePage = ProdutosTabSheet
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 1
+    OnPageChanged = MainPageControlPageChanged
+    object ProdutosTabSheet: TTabSheet
+      Caption = 'Produtos'
+      ClientHeight = 197
+      ClientWidth = 342
+      object ProdutoLabel: TLabel
+        Left = 12
+        Height = 16
+        Top = 17
+        Width = 44
+        Caption = 'Produto'
+        FocusControl = ProdutoEdit
+        ParentColor = False
+      end
+      object ValorLabel: TLabel
+        Left = 253
+        Height = 16
+        Top = 17
+        Width = 28
+        Caption = 'Valor'
+        FocusControl = ValorEdit
+        ParentColor = False
+      end
+      object ProdutoEdit: TDBEdit
+        Left = 12
+        Height = 23
+        Top = 33
+        Width = 233
+        DataField = 'NOME'
+        DataSource = ProdutosDataSource
+        CharCase = ecNormal
+        MaxLength = 30
+        TabOrder = 0
+      end
+      object ValorEdit: TDBEdit
+        Left = 253
+        Height = 23
+        Top = 33
+        Width = 80
+        DataField = 'VALOR'
+        DataSource = ProdutosDataSource
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 1
+      end
+    end
+    object PedidosTabSheet: TTabSheet
+      Caption = 'Pedidos'
+      ClientHeight = 190
+      ClientWidth = 344
+      ImageIndex = 1
+      object PedidosDBGrid: TDBGrid
+        Left = 0
+        Height = 190
+        Top = 0
+        Width = 344
+        Align = alClient
+        Columns = <>
+        DataSource = PedidosDataSource
+        TabOrder = 0
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        OnSelectEditor = PedidosDBGridSelectEditor
+      end
+      object ProdutoDBLookupComboBox: TDBLookupComboBox
+        Left = 108
+        Height = 23
+        Top = 25
+        Width = 100
+        DataField = 'NOMEPRODUTO'
+        DataSource = PedidosDataSource
+        KeyField = 'NOME'
+        ListField = 'NOME'
+        ListFieldIndex = 1
+        ListSource = ProdutosDataSource
+        LookupCache = False
+        TabOrder = 1
+        Visible = False
+      end
+    end
+  end
+  object MainZConnection: TZConnection
+    left = 32
+    top = 136
+  end
+  object ProdutosZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select Id, Nome, Valor from Produto'
+      'order by Id'
+    )
+    Params = <>
+    left = 120
+    top = 136
+    object ProdutosZQueryID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object ProdutosZQueryNOME: TStringField
+      DisplayLabel = 'Nome'
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object ProdutosZQueryVALOR: TFloatField
+      DisplayLabel = 'Valor'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object PedidosZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select Id, NomeProduto, Valor from Pedido'
+      'order by Id'
+    )
+    Params = <>
+    left = 224
+    top = 136
+    object PedidosZQueryID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object PedidosZQueryNOMEPRODUTO: TStringField
+      DisplayLabel = 'Produto'
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'NOMEPRODUTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = PedidosZQueryNOMEPRODUTOValidate
+      Size = 30
+    end
+    object PedidosZQueryVALOR: TFloatField
+      DisplayLabel = 'Valor'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object ProdutosDataSource: TDatasource
+    DataSet = ProdutosZQuery
+    left = 120
+    top = 192
+  end
+  object PedidosDataSource: TDatasource
+    DataSet = PedidosZQuery
+    left = 224
+    top = 192
+  end
+end
