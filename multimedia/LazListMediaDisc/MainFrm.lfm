@@ -1,0 +1,35 @@
+object MainForm: TMainForm
+  Left = 290
+  Height = 230
+  Top = 185
+  Width = 320
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'MainForm'
+  ClientHeight = 230
+  ClientWidth = 320
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object AvailableDiscsLabel: TLabel
+    Left = 0
+    Height = 16
+    Top = 0
+    Width = 320
+    Align = alTop
+    Alignment = taCenter
+    Caption = 'Available discs (double click to open)'
+    FocusControl = AvailableDiscsListBox
+    ParentColor = False
+  end
+  object AvailableDiscsListBox: TListBox
+    Left = 0
+    Height = 214
+    Top = 16
+    Width = 320
+    Align = alClient
+    ItemHeight = 0
+    OnDblClick = AvailableDiscsListBoxDblClick
+    TabOrder = 0
+  end
+end
