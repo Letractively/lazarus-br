@@ -1,0 +1,27 @@
+object Form2: TForm2
+  Left = 357
+  Height = 226
+  Top = 210
+  Width = 320
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Form2'
+  ClientHeight = 226
+  ClientWidth = 320
+  LCLVersion = '0.9.29'
+  object Image1: TImage
+    Left = 8
+    Height = 176
+    Top = 8
+    Width = 304
+  end
+  object Button1: TButton
+    Left = 120
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Fechar'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end

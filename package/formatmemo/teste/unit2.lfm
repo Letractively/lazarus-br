@@ -1,0 +1,309 @@
+object Formatar: TFormatar
+  Left = 250
+  Height = 399
+  Top = 221
+  Width = 714
+  ActiveControl = FMemo1
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Formatar'
+  ClientHeight = 399
+  ClientWidth = 714
+  LCLVersion = '0.9.29'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 176
+    Top = 8
+    Width = 696
+    ClientHeight = 172
+    ClientWidth = 690
+    TabOrder = 0
+    object FMemo1: TFMemo
+      Left = 7
+      Height = 160
+      Top = 7
+      Width = 676
+      ReadOnly = True
+      TabOrder = 0
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 136
+    Top = 192
+    Width = 696
+    ClientHeight = 132
+    ClientWidth = 690
+    TabOrder = 1
+    object Button1: TButton
+      Left = 87
+      Height = 25
+      Top = 7
+      Width = 144
+      Caption = '...'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object ColorBox1: TColorBox
+      Left = 87
+      Height = 25
+      Top = 40
+      Width = 144
+      ItemHeight = 0
+      OnSelect = ColorBox1Select
+      TabOrder = 1
+    end
+    object Label1: TLabel
+      Left = 7
+      Height = 16
+      Top = 16
+      Width = 29
+      Caption = 'Font'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 7
+      Height = 16
+      Top = 49
+      Width = 65
+      Caption = 'Font Color'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 7
+      Height = 16
+      Top = 82
+      Width = 67
+      Caption = 'Back Color'
+      ParentColor = False
+    end
+    object ColorBox2: TColorBox
+      Left = 87
+      Height = 25
+      Top = 73
+      Width = 144
+      ItemHeight = 0
+      OnSelect = ColorBox2Select
+      TabOrder = 2
+    end
+    object GroupBox3: TGroupBox
+      Left = 245
+      Height = 119
+      Top = 7
+      Width = 144
+      Caption = 'Underline'
+      ClientHeight = 102
+      ClientWidth = 138
+      TabOrder = 3
+      object RadioButton1: TRadioButton
+        Left = 5
+        Height = 20
+        Top = 9
+        Width = 56
+        Caption = 'None'
+        Checked = True
+        OnChange = RadioButton1Change
+        State = cbChecked
+        TabOrder = 0
+      end
+      object RadioButton2: TRadioButton
+        Tag = 1
+        Left = 5
+        Height = 20
+        Top = 38
+        Width = 61
+        Caption = 'Single'
+        OnChange = RadioButton1Change
+        TabOrder = 1
+        TabStop = False
+      end
+      object RadioButton3: TRadioButton
+        Tag = 2
+        Left = 5
+        Height = 20
+        Top = 69
+        Width = 67
+        Caption = 'Double'
+        OnChange = RadioButton1Change
+        TabOrder = 2
+        TabStop = False
+      end
+      object RadioButton4: TRadioButton
+        Tag = 3
+        Left = 77
+        Height = 20
+        Top = 9
+        Width = 46
+        Caption = 'Low'
+        OnChange = RadioButton1Change
+        TabOrder = 3
+        TabStop = False
+      end
+      object RadioButton5: TRadioButton
+        Tag = 4
+        Left = 77
+        Height = 20
+        Top = 38
+        Width = 54
+        Caption = 'Error'
+        OnChange = RadioButton1Change
+        TabOrder = 4
+        TabStop = False
+      end
+    end
+    object GroupBox4: TGroupBox
+      Left = 397
+      Height = 119
+      Top = 7
+      Width = 192
+      Caption = 'Weight'
+      ClientHeight = 102
+      ClientWidth = 186
+      TabOrder = 4
+      object RadioButton6: TRadioButton
+        Left = 7
+        Height = 20
+        Top = 9
+        Width = 83
+        Caption = 'UltraLight'
+        Checked = True
+        OnChange = RadioButton6Change
+        State = cbChecked
+        TabOrder = 0
+      end
+      object RadioButton7: TRadioButton
+        Tag = 1
+        Left = 9
+        Height = 20
+        Top = 39
+        Width = 53
+        Caption = 'Light'
+        OnChange = RadioButton6Change
+        TabOrder = 1
+        TabStop = False
+      end
+      object RadioButton8: TRadioButton
+        Tag = 2
+        Left = 7
+        Height = 20
+        Top = 69
+        Width = 67
+        Caption = 'Normal'
+        OnChange = RadioButton6Change
+        TabOrder = 2
+        TabStop = False
+      end
+      object RadioButton9: TRadioButton
+        Tag = 3
+        Left = 101
+        Height = 20
+        Top = 9
+        Width = 50
+        Caption = 'Bold'
+        OnChange = RadioButton6Change
+        TabOrder = 3
+        TabStop = False
+      end
+      object RadioButton10: TRadioButton
+        Tag = 4
+        Left = 101
+        Height = 20
+        Top = 40
+        Width = 80
+        Caption = 'UltraBold'
+        OnChange = RadioButton6Change
+        TabOrder = 4
+        TabStop = False
+      end
+      object RadioButton11: TRadioButton
+        Tag = 5
+        Left = 101
+        Height = 20
+        Top = 69
+        Width = 60
+        Caption = 'Heavy'
+        OnChange = RadioButton6Change
+        TabOrder = 5
+        TabStop = False
+      end
+    end
+    object GroupBox5: TGroupBox
+      Left = 597
+      Height = 119
+      Top = 7
+      Width = 86
+      Caption = 'Justification'
+      ClientHeight = 102
+      ClientWidth = 80
+      TabOrder = 5
+      object RadioButton12: TRadioButton
+        Left = 3
+        Height = 20
+        Top = 1
+        Width = 46
+        Caption = 'Left'
+        Checked = True
+        OnChange = RadioButton12Change
+        State = cbChecked
+        TabOrder = 0
+      end
+      object RadioButton13: TRadioButton
+        Tag = 1
+        Left = 3
+        Height = 20
+        Top = 28
+        Width = 65
+        Caption = 'Center'
+        OnChange = RadioButton12Change
+        TabOrder = 1
+        TabStop = False
+      end
+      object RadioButton14: TRadioButton
+        Tag = 2
+        Left = 3
+        Height = 20
+        Top = 53
+        Width = 55
+        Caption = 'Right'
+        OnChange = RadioButton12Change
+        TabOrder = 2
+        TabStop = False
+      end
+    end
+  end
+  object GroupBox6: TGroupBox
+    Left = 8
+    Height = 57
+    Top = 336
+    Width = 696
+    ClientHeight = 53
+    ClientWidth = 690
+    TabOrder = 2
+    object Button2: TButton
+      Left = 7
+      Height = 25
+      Top = 14
+      Width = 75
+      Caption = 'Ok'
+      Default = True
+      OnClick = Button2Click
+      TabOrder = 0
+    end
+    object Button3: TButton
+      Left = 608
+      Height = 25
+      Top = 14
+      Width = 75
+      Cancel = True
+      Caption = 'Cancelar'
+      OnClick = Button3Click
+      TabOrder = 1
+    end
+  end
+  object FDialog: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    left = 48
+    top = 200
+  end
+end
