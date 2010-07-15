@@ -1,0 +1,15 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TMainForm','FORMDATA',[
+  'TPF0'#9'TMainForm'#8'MainForm'#4'Left'#3'"'#1#6'Height'#3#230#0#3'Top'#3#185
+  +#0#5'Width'#3'@'#1#11'BorderIcons'#11#12'biSystemMenu'#10'biMinimize'#0#11'B'
+  +'orderStyle'#7#8'bsSingle'#7'Caption'#6#8'MainForm'#12'ClientHeight'#3#230#0
+  +#11'ClientWidth'#3'@'#1#8'OnCreate'#7#10'FormCreate'#8'Position'#7#15'poDesk'
+  +'topCenter'#10'LCLVersion'#6#6'0.9.29'#0#6'TLabel'#19'AvailableDiscsLabel'#4
+  +'Left'#2#0#6'Height'#2#16#3'Top'#2#0#5'Width'#3'@'#1#5'Align'#7#5'alTop'#9'A'
+  +'lignment'#7#8'taCenter'#7'Caption'#6'&Available discs (double click to open'
+  +')'#12'FocusControl'#7#21'AvailableDiscsListBox'#11'ParentColor'#8#0#0#8'TLi'
+  +'stBox'#21'AvailableDiscsListBox'#4'Left'#2#0#6'Height'#3#214#0#3'Top'#2#16#5
+  +'Width'#3'@'#1#5'Align'#7#8'alClient'#10'ItemHeight'#2#0#10'OnDblClick'#7#29
+  +'AvailableDiscsListBoxDblClick'#8'TabOrder'#2#0#0#0#0
+]);
