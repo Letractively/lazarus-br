@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Package Version="3">
+    <Name Value="FormatMemo"/>
+    <Author Value="Elson Junio G. Silva (elsonjunio@yahoo.com.br)"/>
+    <CompilerOptions>
+      <Version Value="9"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="gtk2/"/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Other>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="Pacote para trabalhar com textos, além de obter textos formatados é possível a inclusão de imagens junto ao texto. (GNU/Linux usando GTK+)"/>
+    <License Value="This library is free software; you can redistribute it and/or modify it
+under the terms of the GNU Library General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at your
+option) any later version with the following modification:
+
+As a special exception, the copyright holders of this library give you
+permission to link this library with independent modules to produce an
+executable, regardless of the license terms of these independent modules,and
+to copy and distribute the resulting executable under terms of your choice,
+provided that you also meet, for each linked independent module, the terms
+and conditions of the license of that module. An independent module is a
+module which is not derived from or based on this library. If you modify
+this library, you may extend this exception to your version of the library,
+but you are not obligated to do so. If you do not wish to do so, delete this
+exception statement from your version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU Library General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.   "/>
+    <Version Release="1" Build="2"/>
+    <Files Count="3">
+      <Item1>
+        <Filename Value="fmemo.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="FMemo"/>
+      </Item1>
+      <Item2>
+        <Filename Value="gtk2/fmemo_gkt2.pas"/>
+        <UnitName Value="FMemo_GKT2"/>
+      </Item2>
+      <Item3>
+        <Filename Value="fmemo_type.pas"/>
+        <UnitName Value="FMemo_Type"/>
+      </Item3>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)/"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
