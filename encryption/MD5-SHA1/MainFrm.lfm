@@ -1,0 +1,95 @@
+object MainForm: TMainForm
+  Left = 239
+  Height = 260
+  Top = 144
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 260
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object CryptEdit: TEdit
+    AnchorSideTop.Control = MD5RadioButton
+    AnchorSideTop.Side = asrBottom
+    Left = 8
+    Height = 23
+    Top = 43
+    Width = 304
+    BorderSpacing.Top = 10
+    TabOrder = 2
+    Text = 'My text'
+  end
+  object CryptButton: TButton
+    AnchorSideLeft.Control = CryptEdit
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = CryptEdit
+    AnchorSideTop.Side = asrBottom
+    Left = 123
+    Height = 25
+    Top = 86
+    Width = 75
+    BorderSpacing.Top = 20
+    Caption = 'Crypt'
+    OnClick = CryptButtonClick
+    TabOrder = 3
+  end
+  object CryptedEdit: TEdit
+    AnchorSideLeft.Control = CryptEdit
+    AnchorSideTop.Control = CryptButton
+    AnchorSideTop.Side = asrBottom
+    Left = 8
+    Height = 23
+    Top = 131
+    Width = 304
+    BorderSpacing.Top = 20
+    Color = clBtnFace
+    ReadOnly = True
+    TabOrder = 4
+  end
+  object DeCryptButton: TButton
+    AnchorSideLeft.Control = CryptButton
+    AnchorSideTop.Control = CryptedEdit
+    AnchorSideTop.Side = asrBottom
+    Left = 123
+    Height = 25
+    Top = 174
+    Width = 75
+    BorderSpacing.Top = 20
+    Caption = 'DeCrypt'
+    OnClick = DeCryptButtonClick
+    TabOrder = 5
+  end
+  object DeCryptEdit: TEdit
+    AnchorSideLeft.Control = CryptEdit
+    AnchorSideTop.Control = DeCryptButton
+    AnchorSideTop.Side = asrBottom
+    Left = 8
+    Height = 23
+    Top = 219
+    Width = 304
+    BorderSpacing.Top = 20
+    ReadOnly = True
+    TabOrder = 6
+  end
+  object MD5RadioButton: TRadioButton
+    Left = 96
+    Height = 19
+    Top = 14
+    Width = 45
+    Caption = 'MD5'
+    Checked = True
+    OnChange = MD5RadioButtonChange
+    State = cbChecked
+    TabOrder = 0
+  end
+  object SHA1RadioButton: TRadioButton
+    AnchorSideTop.Control = MD5RadioButton
+    Left = 184
+    Height = 19
+    Top = 14
+    Width = 49
+    Caption = 'SHA1'
+    TabOrder = 1
+    TabStop = False
+  end
+end
