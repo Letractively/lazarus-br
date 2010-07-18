@@ -1,0 +1,29 @@
+object MainForm: TMainForm
+  Left = 249
+  Height = 135
+  Top = 159
+  Width = 259
+  Caption = 'Delegação de código - 1'
+  ClientHeight = 135
+  ClientWidth = 259
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object ValorContabilButton: TButton
+    Left = 72
+    Height = 25
+    Top = 32
+    Width = 122
+    Caption = 'Valor &contábil'
+    OnClick = ValorContabilButtonClick
+    TabOrder = 0
+  end
+  object ValorDescontoButton: TButton
+    Left = 72
+    Height = 25
+    Top = 82
+    Width = 122
+    Caption = 'Valor com &desconto'
+    OnClick = ValorDescontoButtonClick
+    TabOrder = 1
+  end
+end
