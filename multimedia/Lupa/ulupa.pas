@@ -5,8 +5,7 @@ unit ulupa;
 interface
 
 uses
-  Classes, SysUtils, LResources, Forms, Graphics, ExtCtrls, StdCtrls, ComCtrls,
-  Buttons;
+  Classes, SysUtils, Forms, Graphics, ExtCtrls, StdCtrls, ComCtrls, Buttons;
 
 type
 
@@ -31,6 +30,8 @@ var
 
 implementation
 
+{$R *.lfm}
+
 { TfrmMain }
 
 uses
@@ -43,6 +44,7 @@ begin
   DoubleBuffered := True;
 end;
 
+{$HINTS OFF}
 procedure TfrmMain.tmrLupaTimer(Sender: TObject);
 var
   Pt: TPoint;
@@ -63,8 +65,6 @@ begin
     FreeAndNil(Canv);
   end;
 end;
-
-initialization
-  {$I ulupa.lrs}
+{$HINTS ON}
 
 end.

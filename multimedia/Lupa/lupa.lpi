@@ -10,6 +10,7 @@
       <MainUnit Value="0"/>
       <TargetFileExt Value=".exe"/>
       <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
