@@ -1,0 +1,27 @@
+object MainForm: TMainForm
+  Left = 240
+  Height = 240
+  Top = 152
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Edit1: TEdit
+    Left = 64
+    Height = 23
+    Top = 96
+    Width = 80
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 188
+    Height = 23
+    Top = 96
+    Width = 80
+    TabOrder = 1
+    Text = 'Edit2'
+  end
+end
