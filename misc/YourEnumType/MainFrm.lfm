@@ -1,0 +1,29 @@
+object MainForm: TMainForm
+  Left = 240
+  Height = 240
+  Top = 152
+  Width = 285
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 285
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object ListBox1: TListBox
+    Left = 8
+    Height = 224
+    Top = 8
+    Width = 184
+    ItemHeight = 0
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 200
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'List'
+    Default = True
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end
