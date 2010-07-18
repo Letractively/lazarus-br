@@ -5,7 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  SysUtils, LResources, Forms, Dialogs, StdCtrls, Buttons;
+  SysUtils, Forms, Dialogs, StdCtrls, Buttons;
 
 type
 
@@ -25,6 +25,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+{$R *.lfm}
 
 uses
   Math;
@@ -47,10 +49,10 @@ const
     'A é igual a B.', 'A é maior que B.');
 begin
   case CompareValue(StrToFloatDef(ValueAEdit.Text, 0),
-    StrToFloatDef(ValueBEdit.Text, 0)) of
-  LessThanValue: ShowMessage(AResult[0]);
-  EqualsValue: ShowMessage(AResult[1]);
-  GreaterThanValue: ShowMessage(AResult[2]);
+      StrToFloatDef(ValueBEdit.Text, 0)) of
+    LessThanValue: ShowMessage(AResult[0]);
+    EqualsValue: ShowMessage(AResult[1]);
+    GreaterThanValue: ShowMessage(AResult[2]);
   end;
 end;
 
@@ -59,7 +61,5 @@ begin
   TCustomEdit(Sender).Text := FormatFloatNumbers(TCustomEdit(Sender).Text);
 end;
 
-initialization
-  {$I MainFrm.lrs}
-
 end.
+
