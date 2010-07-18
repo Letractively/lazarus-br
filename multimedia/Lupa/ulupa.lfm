@@ -1,0 +1,106 @@
+object frmMain: TfrmMain
+  Left = 252
+  Height = 219
+  Top = 164
+  Width = 216
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Lupa'
+  ClientHeight = 219
+  ClientWidth = 216
+  FormStyle = fsStayOnTop
+  OnCreate = FormCreate
+  LCLVersion = '0.9.29'
+  object imgLupa: TImage
+    Left = 0
+    Height = 150
+    Top = 69
+    Width = 216
+    Align = alClient
+  end
+  object grpZoom: TGroupBox
+    Left = 0
+    Height = 69
+    Top = 0
+    Width = 216
+    Align = alTop
+    Caption = '  Zoom '
+    ClientHeight = 51
+    ClientWidth = 212
+    TabOrder = 0
+    object lbl2x: TLabel
+      Left = 9
+      Height = 14
+      Top = 34
+      Width = 15
+      Caption = '2 x'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lbl4x: TLabel
+      Left = 41
+      Height = 14
+      Top = 34
+      Width = 15
+      Caption = '4 x'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lbl6x: TLabel
+      Left = 73
+      Height = 14
+      Top = 34
+      Width = 15
+      Caption = '6 x'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lbl8x: TLabel
+      Left = 102
+      Height = 14
+      Top = 34
+      Width = 15
+      Caption = '8 x'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object tkrZoom: TTrackBar
+      Left = 6
+      Height = 33
+      Top = 2
+      Width = 115
+      Max = 4
+      Min = 1
+      PageSize = 1
+      Position = 1
+      TabOrder = 0
+    end
+    object CloseBitBtn: TBitBtn
+      Left = 129
+      Height = 30
+      Top = 10
+      Width = 75
+      Caption = '&Fechar'
+      Kind = bkClose
+      TabOrder = 1
+    end
+  end
+  object tmrLupa: TTimer
+    Interval = 100
+    OnTimer = tmrLupaTimer
+    left = 24
+    top = 16
+  end
+end
