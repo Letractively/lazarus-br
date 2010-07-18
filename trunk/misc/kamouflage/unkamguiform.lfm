@@ -1,0 +1,269 @@
+object frmKamguiform: TfrmKamguiform
+  Left = 299
+  Height = 417
+  Top = 93
+  Width = 499
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Kamouflage'
+  ClientHeight = 417
+  ClientWidth = 499
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Panel1: TPanel
+    Left = 0
+    Height = 218
+    Top = 0
+    Width = 499
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 218
+    ClientWidth = 499
+    TabOrder = 0
+    object GroupBox1: TGroupBox
+      Left = 0
+      Height = 218
+      Top = 0
+      Width = 499
+      Align = alClient
+      Caption = 'Camouflage file'
+      ClientHeight = 200
+      ClientWidth = 495
+      TabOrder = 0
+      object Label1: TLabel
+        Left = 6
+        Height = 16
+        Top = 8
+        Width = 99
+        Caption = 'File to camouflage'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        Left = 6
+        Height = 16
+        Top = 56
+        Width = 164
+        Caption = 'Image that will camouflage file'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 6
+        Height = 16
+        Top = 104
+        Width = 142
+        Caption = 'Resulting camouflaged file'
+        ParentColor = False
+      end
+      object Label8: TLabel
+        Left = 12
+        Height = 16
+        Top = 382
+        Width = 35
+        Caption = 'Label8'
+        ParentColor = False
+      end
+      object edtFtc: TEdit
+        Left = 6
+        Height = 23
+        Top = 24
+        Width = 384
+        TabOrder = 0
+      end
+      object btnBrowseFtc: TButton
+        Left = 409
+        Height = 25
+        Top = 22
+        Width = 75
+        BorderSpacing.InnerBorder = 4
+        Caption = 'Browse'
+        OnClick = btnBrowseFtcClick
+        TabOrder = 1
+      end
+      object edtImgCmflg: TEdit
+        Left = 6
+        Height = 23
+        Top = 72
+        Width = 384
+        TabOrder = 2
+      end
+      object btnBrowseCmflgImg: TButton
+        Left = 409
+        Height = 25
+        Top = 72
+        Width = 75
+        BorderSpacing.InnerBorder = 4
+        Caption = 'Browse'
+        OnClick = btnBrowseCmflgImgClick
+        TabOrder = 3
+      end
+      object edtDestCmflg: TEdit
+        Left = 6
+        Height = 23
+        Top = 120
+        Width = 384
+        TabOrder = 4
+      end
+      object btnBrowseCmflgImg1: TButton
+        Left = 409
+        Height = 25
+        Top = 118
+        Width = 75
+        BorderSpacing.InnerBorder = 4
+        Caption = 'Browse'
+        OnClick = btnBrowseCmflgImg1Click
+        TabOrder = 5
+      end
+      object btnExecCamouflage: TButton
+        Left = 6
+        Height = 25
+        Top = 160
+        Width = 133
+        BorderSpacing.InnerBorder = 4
+        Caption = 'Execute'
+        OnClick = btnExecCamouflageClick
+        TabOrder = 6
+      end
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 0
+    Height = 165
+    Top = 218
+    Width = 499
+    Align = alClient
+    Caption = 'Decamouflage hidden file'
+    ClientHeight = 147
+    ClientWidth = 495
+    TabOrder = 1
+    object Label5: TLabel
+      Left = 6
+      Height = 16
+      Top = 7
+      Width = 92
+      Caption = 'Camouflaged file'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 6
+      Height = 16
+      Top = 54
+      Width = 169
+      Caption = 'Path to extract camouflaged file'
+      ParentColor = False
+    end
+    object edtSourceCmflg: TEdit
+      Left = 6
+      Height = 23
+      Top = 22
+      Width = 384
+      TabOrder = 0
+    end
+    object btnBrowseCmflgFile: TButton
+      Left = 409
+      Height = 25
+      Top = 20
+      Width = 75
+      BorderSpacing.InnerBorder = 4
+      Caption = 'Browse'
+      OnClick = btnBrowseCmflgFileClick
+      TabOrder = 1
+    end
+    object edtDestDecamouflage: TEdit
+      Left = 6
+      Height = 23
+      Top = 69
+      Width = 384
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object btnBrowseDecmflgPath: TButton
+      Left = 409
+      Height = 25
+      Top = 67
+      Width = 75
+      BorderSpacing.InnerBorder = 4
+      Caption = 'Browse'
+      OnClick = btnBrowseDecmflgPathClick
+      TabOrder = 3
+    end
+    object btnExecCamouflage1: TButton
+      Left = 6
+      Height = 25
+      Top = 110
+      Width = 133
+      BorderSpacing.InnerBorder = 4
+      Caption = 'Execute'
+      OnClick = btnExecCamouflage1Click
+      TabOrder = 4
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 34
+    Top = 383
+    Width = 499
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 499
+    TabOrder = 2
+    object Label7: TLabel
+      Left = 8
+      Height = 16
+      Top = 2
+      Width = 135
+      Caption = 'Programmed by Emil Beli'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 8
+      Height = 16
+      Top = 17
+      Width = 220
+      Caption = 'COPYLEFT Varnus Technologies Ltd, 2007'
+      ParentColor = False
+    end
+    object Panel3: TPanel
+      Left = 385
+      Height = 34
+      Top = 0
+      Width = 114
+      Align = alRight
+      BevelOuter = bvNone
+      ClientHeight = 34
+      ClientWidth = 114
+      TabOrder = 0
+      object BitBtn1: TBitBtn
+        Left = 35
+        Height = 22
+        Top = 7
+        Width = 75
+        Caption = '&Close'
+        Kind = bkClose
+        NumGlyphs = 0
+        OnClick = BitBtn1Click
+        TabOrder = 0
+      end
+    end
+  end
+  object OpenDialogAllFiles: TOpenDialog
+    Filter = 'All files (*.*)|*.*'
+    FilterIndex = 0
+    left = 173
+    top = 166
+  end
+  object OpenDialogImages: TOpenDialog
+    Filter = 'Image files (*.jpg;*.bmp;*.png;*.gif;*.tif;*.tga;*.psd;*.ico;*.pcd;*.emf;*.wmf;*.eps)|*.jpg;*.bmp;*.png;*.gif;*.tif;*.tga;*.psd;*.ico;*.pcd;*.emf;*.wmf;*.eps|Movie files (*.avi;*.mpg;*.mpeg;*.qt;*.wma;*.mov)|*.avi;*.mpg;*.mpeg;*.qt;*.wma;*.mov|Sound files'
+    FilterIndex = 0
+    left = 224
+    top = 169
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    FilterIndex = 0
+    left = 328
+    top = 176
+  end
+end
