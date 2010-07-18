@@ -5,7 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  LResources, Forms, StdCtrls, SysUtils;
+  Forms, StdCtrls, SysUtils;
 
 type
 
@@ -21,6 +21,8 @@ var
 
 implementation
 
+{$R *.lfm}
+
 uses
   DisableDefaultDialogError;
 
@@ -32,8 +34,8 @@ begin
 end;
 
 initialization
-  {$I MainFrm.lrs}
   //TDisableDefaultDialogError.Register;
   TDisableDefaultDialogError.Register(ndtAsterick);
 
 end.
+
