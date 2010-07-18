@@ -1,0 +1,23 @@
+object MainForm: TMainForm
+  Left = 251
+  Height = 129
+  Top = 160
+  Width = 193
+  Caption = 'MainForm'
+  ClientHeight = 129
+  ClientWidth = 193
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object ExecutarBitBtn: TBitBtn
+    Left = 46
+    Height = 30
+    Top = 49
+    Width = 100
+    Caption = '&Executar'
+    Default = True
+    Kind = bkOK
+    ModalResult = 1
+    OnClick = ExecutarBitBtnClick
+    TabOrder = 0
+  end
+end
