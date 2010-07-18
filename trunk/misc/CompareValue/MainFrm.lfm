@@ -1,0 +1,59 @@
+object MainForm: TMainForm
+  Left = 246
+  Height = 300
+  Top = 156
+  Width = 400
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'CompareValue'
+  ClientHeight = 300
+  ClientWidth = 400
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object ValueALabel: TLabel
+    Left = 76
+    Height = 16
+    Top = 88
+    Width = 39
+    Caption = 'Valor A'
+    FocusControl = ValueAEdit
+    ParentColor = False
+  end
+  object ValueBLabel: TLabel
+    Left = 220
+    Height = 16
+    Top = 88
+    Width = 38
+    Caption = 'Valor B'
+    FocusControl = ValueBEdit
+    ParentColor = False
+  end
+  object ValueAEdit: TEdit
+    Left = 76
+    Height = 23
+    Top = 109
+    Width = 104
+    OnChange = ValueAEditChange
+    TabOrder = 0
+    Text = '0'
+  end
+  object ValueBEdit: TEdit
+    Left = 220
+    Height = 23
+    Top = 109
+    Width = 104
+    TabOrder = 1
+    Text = '0'
+  end
+  object CompareBitBtn: TBitBtn
+    Left = 76
+    Height = 40
+    Top = 160
+    Width = 248
+    Caption = '&Comparar'
+    Default = True
+    Kind = bkOK
+    OnClick = CompareBitBtnClick
+    TabOrder = 2
+  end
+end
