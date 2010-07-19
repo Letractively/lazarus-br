@@ -3,7 +3,6 @@ object Form1: TForm1
   Height = 405
   Top = 157
   Width = 704
-  ActiveControl = DirectoryEdit1
   Caption = 'Form1'
   ClientHeight = 405
   ClientWidth = 704
@@ -26,14 +25,12 @@ object Form1: TForm1
     Mask = '*.bmp;*.xmp;*.png;*.pbm;*.pgm;*.ppm;*.ico;*.icns;*.cur;*.jpg;*.jpeg;*.jpe;*.jfif'
     OnClick = FileListBox1Click
     TabOrder = 0
-    TopIndex = -1
   end
   object DirectoryEdit1: TDirectoryEdit
     Left = 16
-    Height = 27
+    Height = 23
     Top = 240
     Width = 648
-    Directory = 'C:\Documents and Settings\All Users\Documentos\Minhas imagens\Amostras de imagens'
     ShowHidden = False
     ButtonWidth = 23
     NumGlyphs = 0
@@ -43,9 +40,9 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     Left = 16
-    Height = 27
+    Height = 23
     Top = 360
     Width = 672
     TabOrder = 2
   end
-end
+end

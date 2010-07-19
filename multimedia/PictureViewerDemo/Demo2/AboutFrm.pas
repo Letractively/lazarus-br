@@ -5,7 +5,7 @@ unit AboutFrm;
 interface
 
 uses
-  LResources, Forms, ExtCtrls, Buttons;
+  Forms, ExtCtrls, Buttons;
 
 type
 
@@ -21,6 +21,8 @@ type
 
 implementation
 
+{$R *.lfm}
+
 { TAboutForm }
 
 procedure TAboutForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -32,9 +34,6 @@ class procedure TAboutForm.Execute;
 begin
   Create(nil).ShowModal;
 end;
-
-initialization
-  {$I AboutFrm.lrs}
 
 end.
 

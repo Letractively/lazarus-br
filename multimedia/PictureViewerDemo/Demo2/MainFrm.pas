@@ -5,7 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  LResources, Forms, Controls, Menus, ActnList, StdActns, ComCtrls, ExtCtrls,
+  Forms, Controls, Menus, ActnList, StdActns, ComCtrls, ExtCtrls,
   ExtDlgs;
 
 type
@@ -42,6 +42,8 @@ var
 
 implementation
 
+{$R *.lfm}
+
 { TMainForm }
 
 uses
@@ -73,9 +75,6 @@ procedure TMainForm.FormDropFiles(Sender: TObject; const FileNames: array of str
 begin
   LoadPicture(FileNames[0]);
 end;
-
-initialization
-  {$I MainFrm.lrs}
 
 end.
 
