@@ -1,0 +1,19 @@
+object dmMod3: TdmMod3
+  OldCreateOrder = False
+  Height = 300
+  HorizontalOffset = 720
+  VerticalOffset = 375
+  Width = 400
+  object SpiderAction1: TSpiderAction
+    Path = '/mod3ac1'
+    OnRequest = SpiderAction1Request
+    left = 56
+    top = 63
+  end
+  object SpiderAction2: TSpiderAction
+    Path = '/cookies'
+    OnRequest = SpiderAction2Request
+    left = 56
+    top = 115
+  end
+end
