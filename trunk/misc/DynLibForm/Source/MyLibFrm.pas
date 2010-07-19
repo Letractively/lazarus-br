@@ -5,7 +5,7 @@ unit MyLibFrm;
 interface
 
 uses
-  LResources, Forms, StdCtrls, Buttons;
+  Forms, StdCtrls, Buttons;
 
 type
 
@@ -23,7 +23,6 @@ type
 
 implementation
 
-initialization
-  {$I MyLibFrm.lrs}
+{$R *.lfm}
 
 end.

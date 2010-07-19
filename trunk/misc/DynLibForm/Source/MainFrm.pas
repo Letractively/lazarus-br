@@ -27,6 +27,8 @@ var
 
 implementation
 
+{$R *.lfm}
+
 type
   TShowMyLibForm = procedure; cdecl;
 
@@ -68,9 +70,6 @@ begin
   if not ShowMyLibForm then
     raise Exception.Create('Error in "libmyform.' + SharedSuffix + '".');
 end;
-
-initialization
-  {$I MainFrm.lrs}
 
 end.
 
