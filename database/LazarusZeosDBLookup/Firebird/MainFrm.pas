@@ -5,8 +5,8 @@ unit MainFrm;
 interface
 
 uses
-  LResources, Forms, DBCtrls, ComCtrls, StdCtrls, DBGrids, DB,
-  ZDataset, ZConnection, SysUtils, ZDbcIntfs, Controls;
+  Forms, DBCtrls, ComCtrls, StdCtrls, DBGrids, DB, ZDataset, ZConnection,
+  SysUtils, ZDbcIntfs, Controls;
 
 type
 
@@ -50,6 +50,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+{$R *.lfm}
 
 { TMainForm }
 
@@ -126,7 +128,6 @@ begin
 end;
 
 initialization
-  {$I MainFrm.lrs}
   CurrencyFormat := 2;
   CurrencyString := 'R$';
   DecimalSeparator := ',';

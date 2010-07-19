@@ -2,12 +2,15 @@
 <CONFIG>
   <ProjectOptions>
     <PathDelim Value="\"/>
-    <Version Value="7"/>
+    <Version Value="8"/>
     <General>
+      <Flags>
+        <SaveOnlyProjectUnits Value="True"/>
+      </Flags>
       <MainUnit Value="0"/>
       <TargetFileExt Value=".exe"/>
-      <Title Value="lazarusdblookup"/>
       <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
@@ -38,7 +41,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="13">
+    <Units Count="2">
       <Unit0>
         <Filename Value="lazarusdblookup.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -61,121 +64,9 @@
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
-      <Unit2>
-        <Filename Value="..\lazarus\components\zeos7\src\plain\ZPlainLoader.pas"/>
-        <UnitName Value="ZPlainLoader"/>
-        <TopLine Value="201"/>
-        <CursorPos X="1" Y="213"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit2>
-      <Unit3>
-        <Filename Value="..\Units\LazarusDBLookupUtils.pas"/>
-        <UnitName Value="LazarusDBLookupUtils"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="28"/>
-      </Unit3>
-      <Unit4>
-        <Filename Value="..\Units\LazarusDBLookupConsts.pas"/>
-        <UnitName Value="LazarusDBLookupConsts"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="28"/>
-      </Unit4>
-      <Unit5>
-        <Filename Value="..\lazarus\components\zeos7\src\component\ZAbstractDataset.pas"/>
-        <UnitName Value="ZAbstractDataset"/>
-        <TopLine Value="176"/>
-        <CursorPos X="20" Y="188"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="..\lazarus\fpc\2.2.4\source\packages\fcl-db\src\base\db.pas"/>
-        <UnitName Value="db"/>
-        <TopLine Value="1342"/>
-        <CursorPos X="47" Y="1354"/>
-        <UsageCount Value="10"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="..\lazarus\components\zeos7\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <UnitName Value="ZDbcInterbase6Utils"/>
-        <TopLine Value="806"/>
-        <CursorPos X="1" Y="818"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="..\lazarus\components\zeos7\src\component\ZAbstractRODataset.pas"/>
-        <UnitName Value="ZAbstractRODataset"/>
-        <TopLine Value="812"/>
-        <CursorPos X="1" Y="824"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="..\lazarus\components\zeos7\src\component\ZConnection.pas"/>
-        <UnitName Value="ZConnection"/>
-        <TopLine Value="225"/>
-        <CursorPos X="46" Y="237"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="..\lazarus\components\zeos7\src\dbc\ZDbcIntfs.pas"/>
-        <UnitName Value="ZDbcIntfs"/>
-        <TopLine Value="41"/>
-        <CursorPos X="15" Y="54"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="..\lazarus\lcl\include\dbedit.inc"/>
-        <TopLine Value="157"/>
-        <CursorPos X="1" Y="169"/>
-        <UsageCount Value="10"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="C:\home\silvioprog\Lazarus\Components\zeos7\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <UnitName Value="ZDbcInterbase6Utils"/>
-        <TopLine Value="804"/>
-        <CursorPos X="1" Y="818"/>
-        <SyntaxHighlighter Value="Delphi"/>
-        <UsageCount Value="10"/>
-      </Unit12>
     </Units>
-    <JumpHistory Count="7" HistoryIndex="6">
-      <Position1>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="139" Column="28" TopLine="128"/>
-      </Position1>
-      <Position2>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="136" Column="1" TopLine="126"/>
-      </Position2>
-      <Position3>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="154" Column="28" TopLine="127"/>
-      </Position3>
-      <Position4>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="157" Column="1" TopLine="130"/>
-      </Position4>
-      <Position5>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position5>
-      <Position6>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="21" Column="1" TopLine="1"/>
-      </Position6>
-      <Position7>
-        <Filename Value="MainFrm.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position7>
-    </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="9"/>
@@ -196,6 +87,9 @@
       </Options>
     </Linking>
     <Other>
+      <CompilerMessages>
+        <UseMsgFile Value="True"/>
+      </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
   </CompilerOptions>
