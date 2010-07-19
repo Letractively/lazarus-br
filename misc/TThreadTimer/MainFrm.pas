@@ -5,7 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  SysUtils, Classes, Forms, LResources, StdCtrls;
+  SysUtils, Classes, Forms, StdCtrls;
 
 type
 
@@ -48,6 +48,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+{$R *.lfm}
 
 { TThreadTimer }
 
@@ -116,9 +118,6 @@ procedure TMainForm.ClockCheckBoxClick(Sender: TObject);
 begin
   FTimer.Enabled := ClockCheckBox.Checked;
 end;
-
-initialization
-  {$I MainFrm.lrs}
 
 end.
 
