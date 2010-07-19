@@ -1,11 +1,11 @@
-unit Unit1; 
+unit Unit1;
 
 {$mode objfpc}
 
 interface
 
 uses
-  LResources, Forms, StdCtrls;
+  Forms, StdCtrls;
 
 type
 
@@ -17,8 +17,7 @@ type
 
 implementation
 
-initialization
-  {$I Unit1.lrs}
+{$R *.lfm}
 
 end.
 
