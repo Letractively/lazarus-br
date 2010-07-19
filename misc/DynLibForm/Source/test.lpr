@@ -13,7 +13,7 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
-  Interfaces, Forms, MainFrm, LResources;
+  Interfaces, Forms, MainFrm;
 
 begin
 {$ifdef heaptrc}
