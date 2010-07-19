@@ -1,0 +1,12 @@
+object BaseForm: TBaseForm
+  Left = 236
+  Height = 100
+  Top = 102
+  Width = 200
+  KeyPreview = True
+  OnClose = FormClose
+  OnShow = FormShow
+  OnUTF8KeyPress = FormUTF8KeyPress
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+end

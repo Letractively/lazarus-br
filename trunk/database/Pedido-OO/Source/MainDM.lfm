@@ -1,0 +1,26 @@
+object MainDataModule: TMainDataModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 107
+  HorizontalOffset = 250
+  VerticalOffset = 176
+  Width = 136
+  object MainSQLTransaction: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = MainPQConnection
+    left = 56
+    top = 56
+  end
+  object MainPQConnection: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'postgres'
+    KeepConnection = False
+    Password = 'postgres'
+    Transaction = MainSQLTransaction
+    UserName = 'postgres'
+    HostName = 'localhost'
+    left = 56
+  end
+end

@@ -1,0 +1,30 @@
+Um projeto didático
+===================
+
+Este projeto esta altamente acoplado, pois o objetivo dos autores (Silvio Clécio e João Morais)
+foi apenas mostrar algumas habilidades com OO.
+
+Projeto Pedidos
+===============
+
+Este pacote contém as seguintes pastas:
+
+- SQL, com o script de criação das tabelas e geradores para o banco de dados (PostgreSQL).
+- Projeto, com os fontes do projeto solicitado.
+
+Descrição
+=========
+
+O projeto Pedidos permite o cadastro de produtos e pedidos, bem como a consulta dos dados.
+
+Antes de executar o sistema é necessário abrir a unit MainDM e configurar o 
+conector do banco de dados.
+
+A opção F5 dá acesso a interface para entrada dos dados do produto.
+
+A opção F6 dá acesso a interface para entrada dos dados do pedido.
+
+As opções F7 e F8 são para acesso as interfaces de consulta dos dados, como sugere os títu-
+los dos menus.
+
+A opção Alt+F4 fecha o sistema.

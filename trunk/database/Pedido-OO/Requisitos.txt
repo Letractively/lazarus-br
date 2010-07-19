@@ -1,0 +1,16 @@
+====================================================
+
+Pedido: (Master)
+
+NumeroPedido, Data, TotalGeral
+
+----------------------------------------------------
+
+Produto: (Detail)
+
+Descricao, Unidade, Preco, Quantidade, TotalProduto
+
+====================================================
+
+A soma dos itens que bater com o total do pedido tem
+que ter uma critica se o produto existe.
