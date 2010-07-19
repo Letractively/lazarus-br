@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  LResources, Forms, StdCtrls, ExtCtrls, EditBtn, FileCtrl;
+  Forms, StdCtrls, ExtCtrls, EditBtn, FileCtrl;
 
 type
 
@@ -34,6 +34,8 @@ const
 
 implementation
 
+{$R *.lfm}
+
 { TForm1 }
 
 procedure TForm1.FileListBox1Click(Sender: TObject);
@@ -50,9 +52,6 @@ procedure TForm1.DirectoryEdit1Change(Sender: TObject);
 begin
   FileListBox1.Directory := DirectoryEdit1.Text;
 end;
-
-initialization
-  {$I unit1.lrs}
 
 end.
 
