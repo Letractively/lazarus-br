@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
   Buttons, ComCtrls, ExtCtrls, MPlayerCtrl;
 
 type
@@ -34,6 +34,8 @@ var
   Form1: TForm1; 
 
 implementation
+
+{$R *.lfm}
 
 { TForm1 }
 
@@ -73,9 +75,6 @@ begin
     StatusBar1.SimpleText:=MPlayerControl1.Filename;
   end;
 end;
-
-initialization
-  {$I unit1.lrs}
 
 end.
 
