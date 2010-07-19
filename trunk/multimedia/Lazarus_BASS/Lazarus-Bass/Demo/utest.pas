@@ -8,7 +8,7 @@ unit uTest;
 interface
 
 uses
-  SysUtils, LResources, Forms, Dialogs, StdCtrls, LCLType, ExtCtrls,
+  SysUtils, Forms, Dialogs, StdCtrls, LCLType, ExtCtrls,
   {$IFDEF USE_DYNAMIC_BASS}lazdynamic_bass{$ELSE}bass{$ENDIF};
 
 type
@@ -74,6 +74,8 @@ var
   Form1: TForm1; 
 
 implementation
+
+{$R *.lfm}
 
 { TForm1 }
 
@@ -340,8 +342,5 @@ begin
   //MessageBox(Handle, PChar(s), nil, 0);
 end;
 
-initialization
-  {$I utest.lrs}
-
 end.
-
+
