@@ -5,7 +5,7 @@ unit SimpleHTMLReportFrm;
 interface
 
 uses
-  LResources, Forms, Menus, IpHtml;
+  Forms, Menus, IpHtml;
 
 type
 
@@ -27,6 +27,8 @@ type
 
 implementation
 
+{$R *.lfm}
+
 { TSimpleHTMLReportForm }
 
 procedure TSimpleHTMLReportForm.PrintMenuItemClick(Sender: TObject);
@@ -44,9 +46,6 @@ procedure TSimpleHTMLReportForm.CloseMenuItemClick(Sender: TObject);
 begin
   Close;
 end;
-
-initialization
-  {$I SimpleHTMLReportFrm.lrs}
 
 end.
 

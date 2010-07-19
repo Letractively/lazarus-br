@@ -5,7 +5,7 @@ unit MainDM;
 interface
 
 uses
-  Classes, DB, dbf, LResources, SysUtils;
+  Classes, DB, dbf, SysUtils;
 
 type
 
@@ -27,6 +27,8 @@ var
 
 implementation
 
+{$R *.lfm}
+
 { TMainDataModule }
 
 procedure TMainDataModule.DataModuleCreate(Sender: TObject);
@@ -46,9 +48,6 @@ begin
   end;
   MainDbf.Open;
 end;
-
-initialization
-  {$I MainDM.lrs}
 
 end.
 
