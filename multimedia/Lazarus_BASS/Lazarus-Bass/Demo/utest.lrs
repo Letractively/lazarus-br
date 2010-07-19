@@ -2,60 +2,59 @@
 
 LazarusResources.Add('TForm1','FORMDATA',[
   'TPF0'#6'TForm1'#5'Form1'#4'Left'#3'1'#1#6'Height'#3#206#0#3'Top'#3#26#1#5'Wi'
-  +'dth'#3#13#2#18'HorzScrollBar.Page'#3#12#2#18'VertScrollBar.Page'#3#235#0#13
-  +'ActiveControl'#7#8'ListBox3'#11'BorderIcons'#11#12'biSystemMenu'#0#11'Borde'
-  +'rStyle'#7#8'bsDialog'#7'Caption'#6#8'BassTest'#12'ClientHeight'#3#206#0#11
-  +'ClientWidth'#3#13#2#7'OnClose'#7#9'FormClose'#8'OnCreate'#7#10'FormCreate'#8
-  +'Position'#7#15'poDesktopCenter'#10'LCLVersion'#6#6'0.9.29'#0#6'TLabel'#6'La'
-  +'bel1'#4'Left'#3' '#1#6'Height'#2#14#3'Top'#3#164#0#5'Width'#3#161#0#9'Align'
-  +'ment'#7#8'taCenter'#8'AutoSize'#8#7'Caption'#6#4'CPU%'#11'ParentColor'#8#0#0
-  +#9'TGroupBox'#9'GroupBox1'#4'Left'#3#176#0#6'Height'#3#137#0#3'Top'#2#8#5'Wi'
-  +'dth'#3#164#0#7'Caption'#6#5'Music'#12'ClientHeight'#2'v'#11'ClientWidth'#3
-  +#160#0#8'TabOrder'#2#0#0#8'TListBox'#8'ListBox1'#4'Left'#2#8#6'Height'#2'9'#3
-  +'Top'#2#0#5'Width'#3#145#0#10'ItemHeight'#2#0#8'TabOrder'#2#0#8'TopIndex'#2
-  +#255#0#0#7'TButton'#7'Button4'#4'Left'#2#8#6'Height'#2#22#3'Top'#2'>'#5'Widt'
-  +'h'#2')'#7'Caption'#6#4'Play'#7'OnClick'#7#12'Button4Click'#8'TabOrder'#2#1#0
-  +#0#7'TButton'#7'Button5'#4'Left'#2'8'#6'Height'#2#22#3'Top'#2'>'#5'Width'#2
-  +')'#7'Caption'#6#4'Stop'#7'OnClick'#7#12'Button5Click'#8'TabOrder'#2#2#0#0#7
-  +'TButton'#7'Button6'#4'Left'#2'h'#6'Height'#2#22#3'Top'#2'>'#5'Width'#2'1'#7
-  +'Caption'#6#7'Restart'#7'OnClick'#7#12'Button6Click'#8'TabOrder'#2#3#0#0#7'T'
-  +'Button'#7'Button7'#4'Left'#2#8#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'A'#7'C'
-  +'aption'#6#6'Add...'#7'OnClick'#7#12'Button7Click'#8'TabOrder'#2#4#0#0#7'TBu'
-  +'tton'#7'Button8'#4'Left'#2'P'#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'I'#7'Ca'
-  +'ption'#6#6'Remove'#7'OnClick'#7#12'Button8Click'#8'TabOrder'#2#5#0#0#0#9'TG'
-  +'roupBox'#9'GroupBox2'#4'Left'#2#8#6'Height'#3#137#0#3'Top'#2#8#5'Width'#3
-  +#164#0#7'Caption'#6#6'Stream'#12'ClientHeight'#2'v'#11'ClientWidth'#3#160#0#8
-  +'TabOrder'#2#1#0#8'TListBox'#8'ListBox3'#4'Left'#2#8#6'Height'#2'9'#3'Top'#2
-  +#0#5'Width'#3#145#0#10'ItemHeight'#2#0#8'TabOrder'#2#0#8'TopIndex'#2#255#0#0
-  +#7'TButton'#7'Button3'#4'Left'#2#8#6'Height'#2#22#3'Top'#2'>'#5'Width'#2')'#7
-  +'Caption'#6#4'Play'#7'OnClick'#7#12'Button3Click'#8'TabOrder'#2#1#0#0#7'TBut'
-  +'ton'#8'Button12'#4'Left'#2'8'#6'Height'#2#22#3'Top'#2'>'#5'Width'#2')'#7'Ca'
-  +'ption'#6#4'Stop'#7'OnClick'#7#13'Button12Click'#8'TabOrder'#2#2#0#0#7'TButt'
-  +'on'#8'Button13'#4'Left'#2'h'#6'Height'#2#22#3'Top'#2'>'#5'Width'#2'1'#7'Cap'
-  +'tion'#6#7'Restart'#7'OnClick'#7#13'Button13Click'#8'TabOrder'#2#3#0#0#7'TBu'
-  +'tton'#8'Button14'#4'Left'#2'P'#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'I'#7'C'
-  +'aption'#6#6'Remove'#7'OnClick'#7#13'Button14Click'#8'TabOrder'#2#5#0#0#7'TB'
-  +'utton'#8'Button15'#4'Left'#2#8#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'A'#7'C'
-  +'aption'#6#6'Add...'#7'OnClick'#7#13'Button15Click'#8'TabOrder'#2#4#0#0#0#9
-  +'TGroupBox'#9'GroupBox3'#4'Left'#3'X'#1#6'Height'#3#137#0#3'Top'#2#8#5'Width'
-  +#3#164#0#7'Caption'#6#6'Sample'#12'ClientHeight'#2'v'#11'ClientWidth'#3#160#0
-  +#8'TabOrder'#2#2#0#8'TListBox'#8'ListBox2'#4'Left'#2#8#6'Height'#2'9'#3'Top'
-  +#2#0#5'Width'#3#147#0#10'ItemHeight'#2#0#8'TabOrder'#2#0#8'TopIndex'#2#255#0
-  +#0#7'TButton'#7'Button9'#4'Left'#2#8#6'Height'#2#22#3'Top'#2'>'#5'Width'#3
-  +#147#0#7'Caption'#6#4'Play'#7'OnClick'#7#12'Button9Click'#8'TabOrder'#2#1#0#0
-  +#7'TButton'#8'Button10'#4'Left'#2#8#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'A'
-  +#7'Caption'#6#6'Add...'#7'OnClick'#7#13'Button10Click'#8'TabOrder'#2#2#0#0#7
-  +'TButton'#8'Button11'#4'Left'#2'P'#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'K'#7
-  +'Caption'#6#6'Remove'#7'OnClick'#7#13'Button11Click'#8'TabOrder'#2#3#0#0#0#7
-  +'TButton'#7'Button1'#4'Left'#2'@'#6'Height'#2#24#3'Top'#3#160#0#5'Width'#2't'
-  +#7'Caption'#6#15'Stop Everything'#7'OnClick'#7#12'Button1Click'#8'TabOrder'#2
-  +#3#0#0#7'TButton'#7'Button2'#4'Left'#3#187#0#6'Height'#2#24#3'Top'#3#160#0#5
-  +'Width'#2'E'#7'Caption'#6#6'Resume'#7'OnClick'#7#12'Button2Click'#8'TabOrder'
-  +#2#4#0#0#11'TOpenDialog'#11'OpenDialog1'#6'Filter'#6'KMusic modules (xm/mod/'
-  +'s3m/it/mtm)|*.xm;*.mod;*.s3m;*.it;*.mtm|All files|*.*'#4'left'#3#0#1#3'top'
-  +#2'('#0#0#6'TTimer'#6'Timer1'#8'Interval'#3#250#0#7'OnTimer'#7#11'Timer1Time'
-  +'r'#4'left'#2' '#3'top'#3#152#0#0#0#11'TOpenDialog'#11'OpenDialog2'#6'Filter'
-  +#6'>Streamable files (wav/ogg/mp3)|*.wav;*.mp3;*.ogg|All files|*.*'#4'left'#2
-  +'X'#3'top'#2'('#0#0#11'TOpenDialog'#11'OpenDialog3'#6'Filter'#6'&Wave audio '
-  +'(*.wav)|*.wav|All files|*.*'#4'left'#3#152#1#3'top'#2'('#0#0#0
-]);
+  +'dth'#3#13#2#18'HorzScrollBar.Page'#3#12#2#18'VertScrollBar.Page'#3#235#0#11
+  +'BorderIcons'#11#12'biSystemMenu'#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'
+  +#6#8'BassTest'#12'ClientHeight'#3#206#0#11'ClientWidth'#3#13#2#7'OnClose'#7#9
+  +'FormClose'#8'OnCreate'#7#10'FormCreate'#8'Position'#7#15'poDesktopCenter'#10
+  +'LCLVersion'#6#6'0.9.29'#0#6'TLabel'#6'Label1'#4'Left'#3' '#1#6'Height'#2#14
+  +#3'Top'#3#164#0#5'Width'#3#161#0#9'Alignment'#7#8'taCenter'#8'AutoSize'#8#7
+  +'Caption'#6#4'CPU%'#11'ParentColor'#8#0#0#9'TGroupBox'#9'GroupBox1'#4'Left'#3
+  +#176#0#6'Height'#3#137#0#3'Top'#2#8#5'Width'#3#164#0#7'Caption'#6#5'Music'#12
+  +'ClientHeight'#2'w'#11'ClientWidth'#3#160#0#8'TabOrder'#2#0#0#8'TListBox'#8
+  +'ListBox1'#4'Left'#2#8#6'Height'#2'9'#3'Top'#2#0#5'Width'#3#145#0#10'ItemHei'
+  +'ght'#2#0#8'TabOrder'#2#0#0#0#7'TButton'#7'Button4'#4'Left'#2#8#6'Height'#2
+  +#22#3'Top'#2'>'#5'Width'#2')'#7'Caption'#6#4'Play'#7'OnClick'#7#12'Button4Cl'
+  +'ick'#8'TabOrder'#2#1#0#0#7'TButton'#7'Button5'#4'Left'#2'8'#6'Height'#2#22#3
+  +'Top'#2'>'#5'Width'#2')'#7'Caption'#6#4'Stop'#7'OnClick'#7#12'Button5Click'#8
+  +'TabOrder'#2#2#0#0#7'TButton'#7'Button6'#4'Left'#2'h'#6'Height'#2#22#3'Top'#2
+  +'>'#5'Width'#2'1'#7'Caption'#6#7'Restart'#7'OnClick'#7#12'Button6Click'#8'Ta'
+  +'bOrder'#2#3#0#0#7'TButton'#7'Button7'#4'Left'#2#8#6'Height'#2#25#3'Top'#2'X'
+  +#5'Width'#2'A'#7'Caption'#6#6'Add...'#7'OnClick'#7#12'Button7Click'#8'TabOrd'
+  +'er'#2#4#0#0#7'TButton'#7'Button8'#4'Left'#2'P'#6'Height'#2#25#3'Top'#2'X'#5
+  +'Width'#2'I'#7'Caption'#6#6'Remove'#7'OnClick'#7#12'Button8Click'#8'TabOrder'
+  +#2#5#0#0#0#9'TGroupBox'#9'GroupBox2'#4'Left'#2#8#6'Height'#3#137#0#3'Top'#2#8
+  +#5'Width'#3#164#0#7'Caption'#6#6'Stream'#12'ClientHeight'#2'w'#11'ClientWidt'
+  +'h'#3#160#0#8'TabOrder'#2#1#0#8'TListBox'#8'ListBox3'#4'Left'#2#8#6'Height'#2
+  +'9'#3'Top'#2#0#5'Width'#3#145#0#10'ItemHeight'#2#0#8'TabOrder'#2#0#0#0#7'TBu'
+  +'tton'#7'Button3'#4'Left'#2#8#6'Height'#2#22#3'Top'#2'>'#5'Width'#2')'#7'Cap'
+  +'tion'#6#4'Play'#7'OnClick'#7#12'Button3Click'#8'TabOrder'#2#1#0#0#7'TButton'
+  +#8'Button12'#4'Left'#2'8'#6'Height'#2#22#3'Top'#2'>'#5'Width'#2')'#7'Caption'
+  +#6#4'Stop'#7'OnClick'#7#13'Button12Click'#8'TabOrder'#2#2#0#0#7'TButton'#8'B'
+  +'utton13'#4'Left'#2'h'#6'Height'#2#22#3'Top'#2'>'#5'Width'#2'1'#7'Caption'#6
+  +#7'Restart'#7'OnClick'#7#13'Button13Click'#8'TabOrder'#2#3#0#0#7'TButton'#8
+  +'Button14'#4'Left'#2'P'#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'I'#7'Caption'#6
+  +#6'Remove'#7'OnClick'#7#13'Button14Click'#8'TabOrder'#2#5#0#0#7'TButton'#8'B'
+  +'utton15'#4'Left'#2#8#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'A'#7'Caption'#6#6
+  +'Add...'#7'OnClick'#7#13'Button15Click'#8'TabOrder'#2#4#0#0#0#9'TGroupBox'#9
+  +'GroupBox3'#4'Left'#3'X'#1#6'Height'#3#137#0#3'Top'#2#8#5'Width'#3#164#0#7'C'
+  +'aption'#6#6'Sample'#12'ClientHeight'#2'w'#11'ClientWidth'#3#160#0#8'TabOrde'
+  +'r'#2#2#0#8'TListBox'#8'ListBox2'#4'Left'#2#8#6'Height'#2'9'#3'Top'#2#0#5'Wi'
+  +'dth'#3#147#0#10'ItemHeight'#2#0#8'TabOrder'#2#0#0#0#7'TButton'#7'Button9'#4
+  +'Left'#2#8#6'Height'#2#22#3'Top'#2'>'#5'Width'#3#147#0#7'Caption'#6#4'Play'#7
+  +'OnClick'#7#12'Button9Click'#8'TabOrder'#2#1#0#0#7'TButton'#8'Button10'#4'Le'
+  +'ft'#2#8#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'A'#7'Caption'#6#6'Add...'#7'O'
+  +'nClick'#7#13'Button10Click'#8'TabOrder'#2#2#0#0#7'TButton'#8'Button11'#4'Le'
+  +'ft'#2'P'#6'Height'#2#25#3'Top'#2'X'#5'Width'#2'K'#7'Caption'#6#6'Remove'#7
+  +'OnClick'#7#13'Button11Click'#8'TabOrder'#2#3#0#0#0#7'TButton'#7'Button1'#4
+  +'Left'#2'@'#6'Height'#2#24#3'Top'#3#160#0#5'Width'#2't'#7'Caption'#6#15'Stop'
+  +' Everything'#7'OnClick'#7#12'Button1Click'#8'TabOrder'#2#3#0#0#7'TButton'#7
+  +'Button2'#4'Left'#3#187#0#6'Height'#2#24#3'Top'#3#160#0#5'Width'#2'E'#7'Capt'
+  +'ion'#6#6'Resume'#7'OnClick'#7#12'Button2Click'#8'TabOrder'#2#4#0#0#11'TOpen'
+  +'Dialog'#11'OpenDialog1'#6'Filter'#6'KMusic modules (xm/mod/s3m/it/mtm)|*.xm'
+  +';*.mod;*.s3m;*.it;*.mtm|All files|*.*'#4'left'#3#0#1#3'top'#2'('#0#0#6'TTim'
+  +'er'#6'Timer1'#8'Interval'#3#250#0#7'OnTimer'#7#11'Timer1Timer'#4'left'#2' '
+  +#3'top'#3#152#0#0#0#11'TOpenDialog'#11'OpenDialog2'#6'Filter'#6'>Streamable '
+  +'files (wav/ogg/mp3)|*.wav;*.mp3;*.ogg|All files|*.*'#4'left'#2'X'#3'top'#2
+  +'('#0#0#11'TOpenDialog'#11'OpenDialog3'#6'Filter'#6'&Wave audio (*.wav)|*.wa'
+  +'v|All files|*.*'#4'left'#3#152#1#3'top'#2'('#0#0#0
+]);

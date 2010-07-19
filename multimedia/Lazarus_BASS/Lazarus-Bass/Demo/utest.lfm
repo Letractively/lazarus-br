@@ -5,7 +5,6 @@ object Form1: TForm1
   Width = 525
   HorzScrollBar.Page = 524
   VertScrollBar.Page = 235
-  ActiveControl = ListBox3
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'BassTest'
@@ -31,7 +30,7 @@ object Form1: TForm1
     Top = 8
     Width = 164
     Caption = 'Music'
-    ClientHeight = 118
+    ClientHeight = 119
     ClientWidth = 160
     TabOrder = 0
     object ListBox1: TListBox
@@ -41,7 +40,6 @@ object Form1: TForm1
       Width = 145
       ItemHeight = 0
       TabOrder = 0
-      TopIndex = -1
     end
     object Button4: TButton
       Left = 8
@@ -95,7 +93,7 @@ object Form1: TForm1
     Top = 8
     Width = 164
     Caption = 'Stream'
-    ClientHeight = 118
+    ClientHeight = 119
     ClientWidth = 160
     TabOrder = 1
     object ListBox3: TListBox
@@ -105,7 +103,6 @@ object Form1: TForm1
       Width = 145
       ItemHeight = 0
       TabOrder = 0
-      TopIndex = -1
     end
     object Button3: TButton
       Left = 8
@@ -159,7 +156,7 @@ object Form1: TForm1
     Top = 8
     Width = 164
     Caption = 'Sample'
-    ClientHeight = 118
+    ClientHeight = 119
     ClientWidth = 160
     TabOrder = 2
     object ListBox2: TListBox
@@ -169,7 +166,6 @@ object Form1: TForm1
       Width = 147
       ItemHeight = 0
       TabOrder = 0
-      TopIndex = -1
     end
     object Button9: TButton
       Left = 8
@@ -238,4 +234,4 @@ object Form1: TForm1
     left = 408
     top = 40
   end
-end
+end
