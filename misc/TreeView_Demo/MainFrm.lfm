@@ -1,0 +1,48 @@
+object MainForm: TMainForm
+  Left = 251
+  Height = 240
+  Top = 162
+  Width = 300
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'TreeView'
+  ClientHeight = 240
+  ClientWidth = 300
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object MainTreeView: TTreeView
+    Left = 0
+    Height = 192
+    Top = 0
+    Width = 300
+    Align = alClient
+    AutoExpand = True
+    DefaultItemHeight = 17
+    ParentFont = False
+    TabOrder = 0
+    Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips]
+  end
+  object ButtonPanel: TPanel
+    Left = 0
+    Height = 48
+    Top = 192
+    Width = 300
+    Align = alBottom
+    ClientHeight = 48
+    ClientWidth = 300
+    TabOrder = 1
+    object LoadButton: TBitBtn
+      Left = 203
+      Height = 46
+      Top = 1
+      Width = 96
+      Align = alRight
+      Caption = '&Load'
+      Kind = bkRetry
+      ModalResult = 4
+      NumGlyphs = 0
+      OnClick = LoadButtonClick
+      TabOrder = 0
+    end
+  end
+end
