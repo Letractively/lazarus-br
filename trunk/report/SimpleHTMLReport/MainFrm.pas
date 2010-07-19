@@ -5,8 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  LResources, Forms, ExtCtrls, Buttons, DbCtrls, StdCtrls, DBGrids,
-  Ipfilebroker, OSPrinters;
+  Forms, ExtCtrls, Buttons, DbCtrls, StdCtrls, DBGrids, Ipfilebroker;
 
 type
 
@@ -32,6 +31,8 @@ var
 
 implementation
 
+{$R *.lfm}
+
 uses
   MainDM, SimpleHTMLReport;
 
@@ -54,9 +55,6 @@ begin
     VSimpleHTMLReport.Free;
   end;
 end;
-
-initialization
-  {$I MainFrm.lrs}
 
 end.
 

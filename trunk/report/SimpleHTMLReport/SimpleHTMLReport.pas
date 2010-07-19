@@ -37,12 +37,12 @@ function OpenURL(AURL: string): Boolean;
 implementation
 
 uses
-{$ifdef mswindows}
+{$IFDEF MSWINDOWS}
   Windows,
-{$endif}
-{$ifdef unix}
+{$ENDIF}
+{$IFDEF UNIX}
   UTF8Process,
-{$endif}
+{$ENDIF}
   SimpleHTMLReportTemplate, SimpleHTMLReportFrm, FileUtil, SysUtils;
 
 var
