@@ -1,0 +1,89 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 300
+  HorizontalOffset = 750
+  VerticalOffset = 334
+  Width = 567
+  object SpiderCGI1: TSpiderCGI
+    OnRequest = SpiderCGI1Request
+    left = 72
+    top = 40
+  end
+  object saAdd: TSpiderAction
+    Path = '/add'
+    OnRequest = saAddRequest
+    left = 76
+    top = 106
+  end
+  object sfAdd: TSpiderForm
+    Method = 'POST'
+    PutInTable = True
+    left = 160
+    top = 106
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    AutoCalcFields = False
+    Database = IBConnection1
+    Transaction = SQLTransaction1
+    ReadOnly = False
+    Params = <>
+    left = 480
+    top = 152
+  end
+  object IBConnection1: TIBConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = '/home/motaz/firebird/news.fdb'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'sysdba'
+    left = 480
+    top = 24
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = IBConnection1
+    left = 480
+    top = 88
+  end
+  object sqNews: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    AutoCalcFields = False
+    Database = IBConnection1
+    Transaction = SQLTransaction1
+    ReadOnly = False
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 232
+    top = 40
+  end
+  object stNews: TSpiderTable
+    Border = 0
+    TableExtraParams = 'width=60%'
+    ColumnCount = 0
+    HeaderColor = '#DDDDFF'
+    DataSet = sqNews
+    RowColor = '#F0F0FF'
+    OnDrawDataCell = stNewsDrawDataCell
+    left = 160
+    top = 40
+  end
+  object saDetail: TSpiderAction
+    Path = '/detail'
+    OnRequest = saDetailRequest
+    left = 76
+    top = 192
+  end
+  object sfSearch: TSpiderForm
+    Method = 'POST'
+    PutInTable = False
+    left = 311
+    top = 40
+  end
+end
