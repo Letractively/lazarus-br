@@ -5,7 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  Classes, SysUtils, LResources, Forms, Controls, StdCtrls, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, StdCtrls, ExtCtrls;
 
 type
 
@@ -34,6 +34,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+{$R *.lfm}
 
 uses
   Unit1, Unit2;
@@ -115,9 +117,6 @@ begin
     end;
   end;
 end;
-
-initialization
-  {$I MainFrm.lrs}
 
 end.
 
