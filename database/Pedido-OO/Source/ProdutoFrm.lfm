@@ -1,0 +1,73 @@
+inherited ProdutoForm: TProdutoForm
+  Left = 250
+  Caption = 'ProdutoForm'
+  OnClose = FormClose
+  OnShow = FormShow
+  OnUTF8KeyPress = FormUTF8KeyPress
+  inherited ClientPanel: TPanel
+    object DescricaoEdit: TLabeledEdit[0]
+      Left = 24
+      Height = 27
+      Top = 48
+      Width = 258
+      EditLabel.AnchorSideLeft.Control = DescricaoEdit
+      EditLabel.AnchorSideBottom.Control = DescricaoEdit
+      EditLabel.Left = 24
+      EditLabel.Height = 18
+      EditLabel.Top = 27
+      EditLabel.Width = 65
+      EditLabel.Caption = 'Descrição'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+    end
+    object UnidadeLabel: TLabel[1]
+      Left = 24
+      Height = 18
+      Top = 85
+      Width = 55
+      Caption = 'Unidade'
+      FocusControl = UnidadeComboBox
+      ParentColor = False
+    end
+    object UnidadeComboBox: TComboBox[2]
+      Left = 24
+      Height = 31
+      Top = 104
+      Width = 96
+      AutoDropDown = True
+      ItemHeight = 0
+      Items.Strings = (
+        'un'
+        'kg'
+        'mtr'
+        'lts'
+      )
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object PrecoEdit: TLabeledEdit[3]
+      Left = 136
+      Height = 27
+      Top = 106
+      Width = 146
+      EditLabel.AnchorSideLeft.Control = PrecoEdit
+      EditLabel.AnchorSideBottom.Control = PrecoEdit
+      EditLabel.Left = 136
+      EditLabel.Height = 18
+      EditLabel.Top = 85
+      EditLabel.Width = 37
+      EditLabel.Caption = 'Preço'
+      EditLabel.ParentColor = False
+      TabOrder = 2
+      OnExit = PrecoEditExit
+    end
+  end
+  inherited ButtonsPanel: TPanel
+    inherited SalvarButton: TButton
+      OnClick = SalvarButtonClick
+    end
+    inherited CancelarButton: TButton
+      Left = 221
+    end
+  end
+end

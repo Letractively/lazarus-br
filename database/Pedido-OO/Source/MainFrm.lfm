@@ -1,0 +1,54 @@
+object MainForm: TMainForm
+  Left = 248
+  Height = 300
+  Top = 196
+  Width = 400
+  Caption = 'Cadastro simples de produtos e pedidos'
+  Menu = MainMenu
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object MainMenu: TMainMenu
+    left = 32
+    top = 16
+    object ArquivosMenuGroup: TMenuItem
+      Caption = 'Arquivo'
+      object SairMenuItem: TMenuItem
+        Caption = 'Sair'
+        ShortCut = 32883
+        OnClick = SairMenuItemClick
+      end
+    end
+    object CadastroMenuGroup: TMenuItem
+      Caption = 'Cadastro'
+      object CadastroProdutosMenuItem: TMenuItem
+        Caption = 'Produto'
+        ShortCut = 116
+        OnClick = CadastroProdutosMenuItemClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object CadastroPedidoMenuItem: TMenuItem
+        Caption = 'Pedido'
+        ShortCut = 117
+        OnClick = CadastroPedidoMenuItemClick
+      end
+    end
+    object ConsultaMenuGroup: TMenuItem
+      Caption = 'Consulta'
+      object ConsultaProdutoMenuItem: TMenuItem
+        Caption = 'Produto'
+        ShortCut = 118
+        OnClick = ConsultaProdutoMenuItemClick
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object ConsultaPedidoMenuItem: TMenuItem
+        Caption = 'Pedido'
+        ShortCut = 119
+        OnClick = ConsultaPedidoMenuItemClick
+      end
+    end
+  end
+end

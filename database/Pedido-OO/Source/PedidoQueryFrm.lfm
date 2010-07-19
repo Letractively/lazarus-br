@@ -1,0 +1,140 @@
+inherited PedidoQueryForm: TPedidoQueryForm
+  Height = 297
+  Top = 191
+  Width = 380
+  Caption = 'Pedido'
+  ClientHeight = 297
+  ClientWidth = 380
+  OnClose = FormClose
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  OnUTF8KeyPress = FormUTF8KeyPress
+  inherited ButtonsPanel: TPanel
+    Top = 259
+    Width = 380
+    ClientWidth = 380
+    inherited SeparatorPanel1: TPanel
+      Width = 380
+    end
+    inherited FecharButton: TButton
+      Left = 302
+      Top = 8
+    end
+    inherited EditarButton: TButton
+      Left = 145
+      Top = 8
+      OnClick = nil
+    end
+    inherited ExcluirButton: TButton
+      Left = 224
+      Top = 8
+      OnClick = nil
+    end
+  end
+  inherited QueryPanel: TPanel
+    Height = 80
+    Width = 380
+    Alignment = taLeftJustify
+    ClientHeight = 80
+    ClientWidth = 380
+    inherited PesquisarButton: TButton
+      Left = 302
+      Top = 47
+      OnClick = PesquisarButtonClick
+      TabOrder = 1
+    end
+    object TipoPesquisaGroupBox: TGroupBox[1]
+      Left = 8
+      Height = 64
+      Top = 8
+      Width = 288
+      Caption = ' Pesquisar por intervalo de datas '
+      ClientHeight = 45
+      ClientWidth = 284
+      TabOrder = 0
+      object DeEdit: TLabeledEdit
+        Left = 42
+        Height = 27
+        Top = 7
+        Width = 88
+        EditLabel.AnchorSideLeft.Control = DeEdit
+        EditLabel.AnchorSideTop.Control = DeEdit
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = DeEdit
+        EditLabel.AnchorSideBottom.Control = DeEdit
+        EditLabel.Left = 16
+        EditLabel.Height = 18
+        EditLabel.Top = 11
+        EditLabel.Width = 23
+        EditLabel.Caption = 'De:'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        TabOrder = 0
+        OnExit = DeEditExit
+      end
+      object AteEdit: TLabeledEdit
+        Left = 178
+        Height = 27
+        Top = 7
+        Width = 88
+        EditLabel.AnchorSideLeft.Control = AteEdit
+        EditLabel.AnchorSideTop.Control = AteEdit
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = AteEdit
+        EditLabel.AnchorSideBottom.Control = AteEdit
+        EditLabel.Left = 148
+        EditLabel.Height = 18
+        EditLabel.Top = 11
+        EditLabel.Width = 27
+        EditLabel.Caption = 'Até:'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        TabOrder = 1
+        OnExit = DeEditExit
+      end
+    end
+    object SugerirButton: TButton[2]
+      Left = 302
+      Height = 25
+      Top = 18
+      Width = 75
+      Caption = '&Sugerir'
+      OnClick = SugerirButtonClick
+      TabOrder = 2
+    end
+  end
+  inherited ClientPanel: TPanel
+    Height = 179
+    Top = 80
+    Width = 380
+    ClientHeight = 179
+    ClientWidth = 380
+    object PedidoListView: TListView[0]
+      Left = 8
+      Height = 160
+      Top = 8
+      Width = 363
+      Columns = <      
+        item
+          Caption = 'Número do pedido'
+          Width = 128
+        end      
+        item
+          Caption = 'Data'
+          Width = 80
+        end      
+        item
+          Caption = 'Total geral'
+          Width = 135
+        end>
+      ColumnClick = False
+      ItemIndex = -1
+      MultiSelect = True
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 0
+      ViewStyle = vsReport
+      OnDblClick = EditarButtonClick
+    end
+  end
+end

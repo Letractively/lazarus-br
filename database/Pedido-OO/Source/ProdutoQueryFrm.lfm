@@ -1,0 +1,122 @@
+inherited ProdutoQueryForm: TProdutoQueryForm
+  Left = 246
+  Height = 353
+  Top = 171
+  Width = 400
+  Caption = 'Produto'
+  ClientHeight = 353
+  ClientWidth = 400
+  OnClose = FormClose
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  OnUTF8KeyPress = FormUTF8KeyPress
+  inherited ButtonsPanel: TPanel
+    Top = 315
+    Width = 400
+    ClientWidth = 400
+    inherited SeparatorPanel1: TPanel
+      Width = 400
+    end
+    inherited FecharButton: TButton
+      Left = 322
+      Top = 7
+    end
+    inherited EditarButton: TButton
+      Left = 165
+      Top = 7
+      OnClick = EditarButtonClick
+    end
+    inherited ExcluirButton: TButton
+      Left = 244
+      Top = 7
+      OnClick = ExcluirButtonClick
+    end
+  end
+  inherited QueryPanel: TPanel
+    Height = 120
+    Width = 400
+    ClientHeight = 120
+    ClientWidth = 400
+    inherited PesquisarButton: TButton
+      Left = 312
+      Top = 88
+      OnClick = PesquisarButtonClick
+    end
+    object TipoPesquisaRadioGroup: TRadioGroup[1]
+      Left = 9
+      Height = 53
+      Top = 8
+      Width = 378
+      AutoFill = True
+      Caption = ' Tipo de pesquisa '
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 3
+      ClientHeight = 34
+      ClientWidth = 374
+      Columns = 3
+      ItemIndex = 0
+      Items.Strings = (
+        'Aproximada'
+        'Exata'
+        'Lista'
+      )
+      OnClick = TipoPesquisaRadioGroupClick
+      TabOrder = 1
+    end
+    object DescricaoEdit: TLabeledEdit[2]
+      Left = 8
+      Height = 27
+      Top = 88
+      Width = 297
+      EditLabel.AnchorSideLeft.Control = DescricaoEdit
+      EditLabel.AnchorSideBottom.Control = DescricaoEdit
+      EditLabel.Left = 8
+      EditLabel.Height = 18
+      EditLabel.Top = 67
+      EditLabel.Width = 65
+      EditLabel.Caption = 'Descrição'
+      EditLabel.ParentColor = False
+      TabOrder = 2
+    end
+  end
+  inherited ClientPanel: TPanel
+    Height = 195
+    Top = 120
+    Width = 400
+    ClientHeight = 195
+    ClientWidth = 400
+    object ProdutoListView: TListView[0]
+      Left = 9
+      Height = 184
+      Top = 2
+      Width = 378
+      Columns = <      
+        item
+          Caption = 'Descrição'
+          Width = 220
+        end      
+        item
+          Caption = 'Unid.'
+          Width = 40
+        end      
+        item
+          Caption = 'Preço'
+          Width = 98
+        end>
+      ColumnClick = False
+      ItemIndex = -1
+      MultiSelect = True
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 0
+      ViewStyle = vsReport
+      OnDblClick = EditarButtonClick
+    end
+  end
+end

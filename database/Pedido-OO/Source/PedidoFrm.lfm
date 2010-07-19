@@ -1,0 +1,158 @@
+inherited PedidoForm: TPedidoForm
+  Left = 247
+  Height = 294
+  Top = 172
+  Width = 438
+  Caption = 'PedidoForm'
+  ClientHeight = 294
+  ClientWidth = 438
+  OnClose = FormClose
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  OnUTF8KeyPress = FormUTF8KeyPress
+  inherited ClientPanel: TPanel
+    Height = 256
+    Width = 438
+    ClientHeight = 256
+    ClientWidth = 438
+    object ProdutoListView: TListView[0]
+      Left = 10
+      Height = 140
+      Top = 76
+      Width = 425
+      Columns = <      
+        item
+          Caption = 'Descrição'
+          Width = 186
+        end      
+        item
+          Caption = 'Unid.'
+          Width = 42
+        end      
+        item
+          Caption = 'Preço'
+          Width = 70
+        end      
+        item
+          Caption = 'Qtd.'
+          Width = 42
+        end      
+        item
+          Caption = 'Total'
+          Width = 65
+        end>
+      ColumnClick = False
+      ItemIndex = -1
+      MultiSelect = True
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 3
+      ViewStyle = vsReport
+      OnDblClick = EditarButtonClick
+    end
+    object ProdutosLabel: TLabel[1]
+      Left = 8
+      Height = 18
+      Top = 56
+      Width = 58
+      Caption = 'Produtos'
+      FocusControl = ProdutoListView
+      ParentColor = False
+    end
+    object NumeroPedidoEdit: TLabeledEdit[2]
+      Cursor = crArrow
+      Left = 8
+      Height = 27
+      Top = 24
+      Width = 106
+      Color = clSilver
+      EditLabel.AnchorSideLeft.Control = NumeroPedidoEdit
+      EditLabel.AnchorSideBottom.Control = NumeroPedidoEdit
+      EditLabel.Left = 8
+      EditLabel.Height = 18
+      EditLabel.Top = 3
+      EditLabel.Width = 104
+      EditLabel.Caption = 'Núm. do pedido'
+      EditLabel.ParentColor = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object DataEdit: TLabeledEdit[3]
+      Left = 128
+      Height = 27
+      Top = 24
+      Width = 83
+      EditLabel.AnchorSideLeft.Control = DataEdit
+      EditLabel.AnchorSideBottom.Control = DataEdit
+      EditLabel.Left = 128
+      EditLabel.Height = 18
+      EditLabel.Top = 3
+      EditLabel.Width = 32
+      EditLabel.Caption = 'Data'
+      EditLabel.ParentColor = False
+      TabOrder = 1
+      OnExit = DataEditExit
+    end
+    object TotalGeralEdit: TLabeledEdit[4]
+      Left = 336
+      Height = 27
+      Top = 24
+      Width = 97
+      Color = clSilver
+      EditLabel.AnchorSideLeft.Control = TotalGeralEdit
+      EditLabel.AnchorSideBottom.Control = TotalGeralEdit
+      EditLabel.Left = 336
+      EditLabel.Height = 18
+      EditLabel.Top = 3
+      EditLabel.Width = 69
+      EditLabel.Caption = 'Total geral'
+      EditLabel.ParentColor = False
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object IncluirProdutoButton: TButton[5]
+      Left = 200
+      Height = 25
+      Top = 224
+      Width = 75
+      Caption = 'Incluir'
+      Default = True
+      OnClick = IncluirProdutoButtonClick
+      TabOrder = 4
+    end
+    object ExcluirProdutoButton: TButton[6]
+      Left = 360
+      Height = 25
+      Top = 224
+      Width = 75
+      Caption = 'Excluir'
+      OnClick = ExcluirProdutoButtonClick
+      TabOrder = 6
+    end
+    object EditarButton: TButton[7]
+      Left = 280
+      Height = 25
+      Top = 224
+      Width = 75
+      Caption = 'Editar'
+      OnClick = EditarButtonClick
+      TabOrder = 5
+    end
+  end
+  inherited ButtonsPanel: TPanel
+    Top = 256
+    Width = 438
+    ClientWidth = 438
+    inherited SeparatorPanel: TPanel
+      Width = 438
+    end
+    inherited SalvarButton: TButton
+      Left = 280
+      Default = False
+      OnClick = SalvarButtonClick
+    end
+    inherited CancelarButton: TButton
+      Left = 360
+    end
+  end
+end

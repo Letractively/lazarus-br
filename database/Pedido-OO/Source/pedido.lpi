@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="8"/>
+    <General>
+      <Flags>
+        <SaveOnlyProjectUnits Value="True"/>
+        <UseDefaultCompilerOptions Value="True"/>
+      </Flags>
+      <MainUnit Value="0"/>
+      <TargetFileExt Value=""/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <VersionInfo>
+      <Language Value="0421"/>
+      <CharSet Value="03A4"/>
+      <StringTable Comments="" CompanyName="" FileDescription="" FileVersion="0.0.0.0" InternalName="" LegalCopyright="" LegalTrademarks="" OriginalFilename="" ProductName="" ProductVersion=""/>
+    </VersionInfo>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="SQLDBLaz"/>
+        <MinVersion Major="1" Release="1" Valid="True"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="11">
+      <Unit0>
+        <Filename Value="pedido.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="pedido"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="48"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="MainFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MainFrm"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="MainDM.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainDataModule"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="MainDM"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="48"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="CustomEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CustomEditForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CustomEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="46"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="ProdutoFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProdutoForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ProdutoFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="46"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="PedidoFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PedidoForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PedidoFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="42"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="PedidoProdutoFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PedidoProdutoForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PedidoProdutoFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="39"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="CustomQueryFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CustomQueryForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CustomQueryFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="34"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="BaseFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BaseForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="BaseFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="34"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="ProdutoQueryFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProdutoQueryForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ProdutoQueryFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="34"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="PedidoQueryFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PedidoQueryForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PedidoQueryFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="30"/>
+      </Unit10>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="9"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)/"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <UseAnsiStrings Value="False"/>
+      </SyntaxOptions>
+    </Parsing>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <UseMsgFile Value="True"/>
+      </CompilerMessages>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
