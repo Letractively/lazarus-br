@@ -1,0 +1,35 @@
+object CustomEditForm: TCustomEditForm
+  Left = 251
+  Height = 137
+  Top = 181
+  Width = 241
+  ActiveControl = SalvarButton
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'CustomEditForm'
+  ClientHeight = 137
+  ClientWidth = 241
+  OnClose = FormClose
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object CancelarButton: TButton
+    Left = 160
+    Height = 25
+    Top = 104
+    Width = 75
+    Cancel = True
+    Caption = 'Cancelar'
+    ModalResult = 2
+    TabOrder = 1
+  end
+  object SalvarButton: TButton
+    Left = 80
+    Height = 25
+    Top = 104
+    Width = 75
+    Caption = 'Salvar'
+    Default = True
+    OnClick = SalvarButtonClick
+    TabOrder = 0
+  end
+end

@@ -1,0 +1,126 @@
+object MainForm: TMainForm
+  Left = 251
+  Height = 260
+  Top = 184
+  Width = 442
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Usuarios - Exemplo de uso do componente ListView'
+  ClientHeight = 260
+  ClientWidth = 442
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object UsuariosListaLabel: TLabel
+    Left = 16
+    Height = 16
+    Top = 8
+    Width = 91
+    Caption = 'Lista de usuarios:'
+    ParentColor = False
+  end
+  object SairButton: TButton
+    Left = 352
+    Height = 25
+    Top = 224
+    Width = 75
+    Caption = 'Sair'
+    OnClick = SairButtonClick
+    TabOrder = 4
+  end
+  object ExcluirButton: TButton
+    Left = 176
+    Height = 25
+    Top = 224
+    Width = 75
+    Action = ExcluirAction
+    TabOrder = 2
+  end
+  object EditarButton: TButton
+    Left = 96
+    Height = 25
+    Top = 224
+    Width = 75
+    Action = EditarAction
+    TabOrder = 1
+  end
+  object InserirButton: TButton
+    Left = 16
+    Height = 25
+    Top = 224
+    Width = 75
+    Action = InserirAction
+    Default = True
+    TabOrder = 0
+  end
+  object UsuarioListaListView: TListView
+    Left = 16
+    Height = 191
+    Top = 24
+    Width = 409
+    Columns = <    
+      item
+        Caption = 'Nome'
+        Width = 200
+      end    
+      item
+        Caption = 'E-mail'
+        Width = 200
+      end>
+    ColumnClick = False
+    ItemIndex = -1
+    MultiSelect = True
+    PopupMenu = EditarPopupMenu
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 3
+    ViewStyle = vsReport
+    OnClick = UsuarioListaListViewClick
+    OnDblClick = EditarActionExecute
+  end
+  object EditarPopupMenu: TPopupMenu
+    left = 48
+    top = 56
+    object InserirMenuItem: TMenuItem
+      Action = InserirAction
+      Default = True
+      OnClick = InserirActionExecute
+    end
+    object EditarMenuItem: TMenuItem
+      Action = EditarAction
+      OnClick = EditarActionExecute
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object ExcluirMenuItem: TMenuItem
+      Action = ExcluirAction
+      OnClick = ExcluirActionExecute
+    end
+  end
+  object EditarActionList: TActionList
+    left = 176
+    top = 56
+    object InserirAction: TAction
+      Category = 'Edicao'
+      Caption = '&Inserir'
+      OnExecute = InserirActionExecute
+      ShortCut = 45
+    end
+    object EditarAction: TAction
+      Category = 'Edicao'
+      Caption = '&Editar'
+      Enabled = False
+      OnExecute = EditarActionExecute
+      ShortCut = 113
+    end
+    object ExcluirAction: TAction
+      Category = 'Edicao'
+      Caption = 'E&xcluir'
+      Enabled = False
+      OnExecute = ExcluirActionExecute
+      ShortCut = 8238
+    end
+  end
+end

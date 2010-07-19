@@ -1,0 +1,56 @@
+inherited UsuarioForm: TUsuarioForm
+  Height = 144
+  Width = 289
+  ActiveControl = NomeEdit
+  Caption = 'Usuario'
+  ClientHeight = 144
+  ClientWidth = 289
+  OnClose = nil
+  inherited CancelarButton: TButton
+    Left = 198
+    TabOrder = 3
+  end
+  inherited SalvarButton: TButton
+    Left = 120
+    OnClick = SalvarButtonClick
+    TabOrder = 2
+  end
+  object NomeEdit: TLabeledEdit[2]
+    Left = 56
+    Height = 27
+    Top = 16
+    Width = 217
+    EditLabel.AnchorSideLeft.Control = NomeEdit
+    EditLabel.AnchorSideTop.Control = NomeEdit
+    EditLabel.AnchorSideTop.Side = asrCenter
+    EditLabel.AnchorSideRight.Control = NomeEdit
+    EditLabel.AnchorSideBottom.Control = NomeEdit
+    EditLabel.Left = 13
+    EditLabel.Height = 18
+    EditLabel.Top = 20
+    EditLabel.Width = 40
+    EditLabel.Caption = 'Nome'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 0
+  end
+  object EmailEdit: TLabeledEdit[3]
+    Left = 56
+    Height = 27
+    Top = 56
+    Width = 217
+    EditLabel.AnchorSideLeft.Control = EmailEdit
+    EditLabel.AnchorSideTop.Control = EmailEdit
+    EditLabel.AnchorSideTop.Side = asrCenter
+    EditLabel.AnchorSideRight.Control = EmailEdit
+    EditLabel.AnchorSideBottom.Control = EmailEdit
+    EditLabel.Left = 15
+    EditLabel.Height = 18
+    EditLabel.Top = 60
+    EditLabel.Width = 38
+    EditLabel.Caption = 'Email'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 1
+  end
+end
