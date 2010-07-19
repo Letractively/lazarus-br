@@ -1,0 +1,81 @@
+object MainForm: TMainForm
+  Left = 290
+  Height = 240
+  Top = 184
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object MainDBNavigator: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 320
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 320
+    DataSource = TestDataSource
+    TabOrder = 0
+  end
+  object MainDBGrid: TDBGrid
+    Left = 0
+    Height = 215
+    Top = 25
+    Width = 320
+    Align = alClient
+    Columns = <    
+      item
+        Title.Caption = 'Field test'
+        Width = 200
+        FieldName = 'fieldtest'
+      end>
+    DataSource = TestDataSource
+    TabOrder = 1
+  end
+  object MainZConnection: TZConnection
+    left = 48
+    top = 58
+  end
+  object TestZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select * from testprocessor'
+      'order by oid'
+    )
+    Params = <>
+    left = 152
+    top = 58
+    object TestZQueryoid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TestZQueryfieldtest: TStringField
+      DisplayLabel = 'Field test'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fieldtest'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+  end
+  object TestDataSource: TDatasource
+    DataSet = TestZQuery
+    left = 248
+    top = 58
+  end
+end
