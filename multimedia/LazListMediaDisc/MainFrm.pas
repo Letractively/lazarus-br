@@ -1,5 +1,5 @@
 (*
-  LazListMediaDisc.pas, List media discs
+  LazListMediaDisc.pas, List media discs.
   Copyright (C) 2010-2012 Silvio Clécio - admin@silvioprog.com.br
 
   http://blog.silvioprog.com.br
@@ -19,7 +19,7 @@ unit MainFrm;
 interface
 
 uses
-  LResources, Forms, StdCtrls, LazListMediaDisc;
+  Forms, StdCtrls, LazListMediaDisc;
 
 type
 
@@ -38,6 +38,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+{$R *.lfm}
 
 { TMainForm }
 
@@ -58,7 +60,5 @@ begin
   AvailableDiscsListBox.Items.EndUpdate;
 end;
 
-initialization
-  {$I MainFrm.lrs}
-
 end.
+

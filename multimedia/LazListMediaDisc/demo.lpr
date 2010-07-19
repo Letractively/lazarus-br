@@ -1,5 +1,5 @@
 (*
-  LazListMediaDisc.pas, List media discs
+  LazListMediaDisc.pas, List media discs.
   Copyright (C) 2010-2012 Silvio Clécio - admin@silvioprog.com.br
 
   http://blog.silvioprog.com.br
@@ -20,10 +20,9 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
-  Interfaces, Forms, MainFrm, LResources, LazListMediaDisc;
+  Interfaces, Forms, MainFrm;
 
 begin
-//  {$I demo.lrs}
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
