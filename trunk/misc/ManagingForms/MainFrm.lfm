@@ -1,0 +1,21 @@
+object MainForm: TMainForm
+  Left = 261
+  Height = 240
+  Top = 152
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object OpenForm1Button: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 92
+    AutoSize = True
+    Caption = '&Open Form1'
+    OnClick = OpenForm1ButtonClick
+    TabOrder = 0
+  end
+end
