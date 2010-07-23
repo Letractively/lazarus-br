@@ -1,0 +1,19 @@
+object MainFPWebModule: TMainFPWebModule
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'DefaultAction'
+      Default = True
+      OnRequest = TFPWebActions0Request
+    end  
+    item
+      Name = 'LoginAction'
+      Default = False
+      OnRequest = TFPWebActions1Request
+    end>
+  CreateSession = False
+  Height = 47
+  HorizontalOffset = 282
+  VerticalOffset = 174
+  Width = 116
+end
