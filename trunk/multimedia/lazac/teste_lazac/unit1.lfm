@@ -1,0 +1,46 @@
+object Form1: TForm1
+  Left = 340
+  Height = 146
+  Top = 184
+  Width = 320
+  ActiveControl = Button1
+  Caption = 'Play Wave PCM'
+  ClientHeight = 146
+  ClientWidth = 320
+  LCLVersion = '0.9.29'
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 15
+    Width = 30
+    Caption = '...'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 48
+    Height = 23
+    Top = 19
+    Width = 264
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 48
+    Height = 25
+    Top = 56
+    Width = 72
+    Caption = 'Play'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object ODialog: TOpenDialog
+    Filter = 'Wave PCM (*.wav)|*.wav'
+    left = 8
+    top = 96
+  end
+  object LazAC1: TLazAC
+    left = 56
+    top = 96
+  end
+end

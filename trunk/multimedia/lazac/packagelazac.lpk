@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Package Version="3">
+    <PathDelim Value="\"/>
+    <Name Value="PackageLazAC"/>
+    <CompilerOptions>
+      <Version Value="9"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="libao\"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Other>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Files Count="6">
+      <Item1>
+        <Filename Value="wavtypes.pas"/>
+        <UnitName Value="WAVTypes"/>
+      </Item1>
+      <Item2>
+        <Filename Value="wavproc.pas"/>
+        <UnitName Value="WavProc"/>
+      </Item2>
+      <Item3>
+        <Filename Value="libao\plugin.pp"/>
+        <UnitName Value="plugin"/>
+      </Item3>
+      <Item4>
+        <Filename Value="libao\ao.pas"/>
+        <UnitName Value="ao"/>
+      </Item4>
+      <Item5>
+        <Filename Value="libao\os_types.pp"/>
+        <UnitName Value="os_types"/>
+      </Item5>
+      <Item6>
+        <Filename Value="lazac.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="LazAC"/>
+      </Item6>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
