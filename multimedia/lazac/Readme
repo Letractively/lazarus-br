@@ -1,14 +1,0 @@
-LazAC é um componete para reprodução de WAVE com codificação PCM, LazAC faz uso da biblioteca AO (http://xiph.org/ao/) uma biblioteca de áudio multi-plataforma.
-O pacote contém funções básicas como Abrir Arquivo/Play/Pause/Stop/Fechar Arquivo.
-
----:::PERIGO:::---
-
-Para usar LazAC no Linux é preciso habilitar cthreads no projeto, para isso aconselho a usar {$DEFINE UseCThreads} no inicio do projeto. Consulte o projeto teste.
-
-
-
-
-Elson Junio G. Silva (elsonjunio@yahoo.com.br)
-
-Agradeço ao Silvio Clecio pelo apóio.
-
