@@ -1,0 +1,46 @@
+inherited BancoViewForm: TBancoViewForm
+  Left = 267
+  Top = 167
+  ActiveControl = nil
+  Caption = 'Banco'
+  inherited ListDBGridPanel: TPanel
+    PopupMenu = DataPopupMenu
+    inherited ListDBGrid: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Código'
+          Width = 100
+          FieldName = 'codigo'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Nome'
+          Width = 160
+          FieldName = 'nome'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Agência'
+          Width = 100
+          FieldName = 'agencia'
+        end>
+      DataSource = MainDataModule.BancoDataSource
+      PopupMenu = DataPopupMenu
+    end
+  end
+  inherited DataPanel: TPanel
+    PopupMenu = DataPopupMenu
+  end
+  inherited TopPanel: TPanel
+    inherited SearchPanel: TPanel
+      PopupMenu = MiscPopupMenu
+      inherited SearchBitBtn: TBitBtn
+        Top = 3
+      end
+      inherited SearchEdit: TEdit
+        Top = 5
+      end
+    end
+  end
+end

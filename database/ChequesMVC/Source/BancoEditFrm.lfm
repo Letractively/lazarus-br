@@ -1,0 +1,70 @@
+inherited BancoEditForm: TBancoEditForm
+  Left = 261
+  Top = 159
+  ActiveControl = nil
+  Caption = 'Banco'
+  inherited ClientPanel: TPanel
+    object CodigoDBEdit: TDBEdit[1]
+      Left = 72
+      Height = 21
+      Top = 56
+      Width = 136
+      DataField = 'codigo'
+      DataSource = MainDataModule.BancoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object NomeDBEdit: TDBEdit[2]
+      Left = 72
+      Height = 21
+      Top = 16
+      Width = 224
+      DataField = 'nome'
+      DataSource = MainDataModule.BancoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object AgenciaDBEdit: TDBEdit[3]
+      Left = 72
+      Height = 21
+      Top = 96
+      Width = 136
+      DataField = 'agencia'
+      DataSource = MainDataModule.BancoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object CodigoLabel: TLabel[4]
+      Left = 22
+      Height = 14
+      Top = 61
+      Width = 34
+      Caption = 'Código'
+      FocusControl = CodigoDBEdit
+      ParentColor = False
+    end
+    object NomeLabel: TLabel[5]
+      Left = 28
+      Height = 14
+      Top = 22
+      Width = 28
+      Caption = 'Nome'
+      FocusControl = NomeDBEdit
+      Font.Color = clMaroon
+      ParentColor = False
+      ParentFont = False
+    end
+    object AgenciaLabel: TLabel[6]
+      Left = 15
+      Height = 14
+      Top = 101
+      Width = 39
+      Caption = 'Agência'
+      FocusControl = AgenciaDBEdit
+      ParentColor = False
+    end
+  end
+end

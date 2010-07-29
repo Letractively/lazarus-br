@@ -1,0 +1,25 @@
+Package: cheques
+Version: 2.1
+Section: Email
+Priority: optional
+Homepage: http://groups.google.com.br/group/lazarus-br
+Architecture: all
+Installed-Size: 4800
+Essential: no
+Maintainer: Everaldo <arcanjoebc@gmail.com>
+Depends: libx11-6, libgtk2.0-0, libglib2.0-0, libpango1.0-0, libc6-i686, libc6, libatk1.0-0, libxcb1, libxcomposite1, libxdamage1, libxfixes3, libcairo2, libfreetype6, libfontconfig1, libxext6, libxrender1, libxinerama1, libxi6, libxrandr2, libxcursor1, libpcre3, libxau6, libxdmcp6, libselinux1, zlib1g, libpixman-1-0, libdirectfb-1.2-0, libpng12-0, libxcb-render-util0, libxcb-render0, libexpat1
+Description: Cheques 2.1 - Controle pessoal de cheques.
+ Cheques 2.1, Controle pessoal de cheques.
+ Copyright (C) 2010-2012 Everaldo - arcanjoebc@gmail.com
+ .
+ See the LICENSE in http://www.gnu.org/licenses/lgpl-2.1.txt, for details about the copyright.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ Powerfull contributors:
+ - Silvio Clecio > http://blog.silvioprog.com.br
+ - Joao Morais > http://blog.joaomorais.com.br
+ - Luiz Americo > http://lazarusroad.blogspot.com
+
