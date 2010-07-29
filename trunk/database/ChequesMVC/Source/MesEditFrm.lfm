@@ -1,0 +1,39 @@
+inherited MesEditForm: TMesEditForm
+  Left = 249
+  Top = 191
+  ActiveControl = nil
+  Caption = 'Mês'
+  inherited ClientPanel: TPanel
+    object NomeLabel: TLabel[1]
+      Left = 24
+      Height = 14
+      Top = 38
+      Width = 28
+      Caption = 'Nome'
+      FocusControl = NomeDBEdit
+      Font.Color = clMaroon
+      ParentColor = False
+      ParentFont = False
+    end
+    object NomeDBEdit: TDBEdit[2]
+      Left = 72
+      Height = 21
+      Top = 32
+      Width = 136
+      DataField = 'nome'
+      DataSource = MainDataModule.MesDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+  end
+  inherited ButtomPanel: TPanel
+    inherited OKBitBtn: TBitBtn
+      ModalResult = 1
+    end
+    inherited CancelBitBtn: TBitBtn
+      Cancel = True
+      ModalResult = 2
+    end
+  end
+end

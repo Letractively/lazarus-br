@@ -1,0 +1,153 @@
+inherited DestinoEditForm: TDestinoEditForm
+  Left = 278
+  Height = 268
+  Top = 175
+  Width = 400
+  ActiveControl = ClientPanel
+  Caption = 'Destino'
+  ClientHeight = 268
+  ClientWidth = 400
+  inherited ClientPanel: TPanel
+    Height = 218
+    Width = 400
+    ClientHeight = 218
+    ClientWidth = 400
+    inherited RequiredFieldInfoLabel: TLabel
+      Top = 204
+      Width = 398
+    end
+    object NomeDBEdit: TDBEdit[1]
+      Left = 80
+      Height = 27
+      Top = 8
+      Width = 304
+      DataField = 'nome'
+      DataSource = MainDataModule.DestinoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object EnderecoDBEdit: TDBEdit[2]
+      Left = 80
+      Height = 27
+      Top = 40
+      Width = 244
+      DataField = 'endereco'
+      DataSource = MainDataModule.DestinoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object CPFDBEdit: TDBEdit[3]
+      Left = 80
+      Height = 27
+      Top = 72
+      Width = 128
+      DataField = 'cpf'
+      DataSource = MainDataModule.DestinoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object TelefoneDBEdit: TDBEdit[4]
+      Left = 80
+      Height = 27
+      Top = 104
+      Width = 96
+      DataField = 'telefone'
+      DataSource = MainDataModule.DestinoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object CelularDBEdit: TDBEdit[5]
+      Left = 80
+      Height = 27
+      Top = 136
+      Width = 96
+      DataField = 'celular'
+      DataSource = MainDataModule.DestinoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+    end
+    object EmailDBEdit: TDBEdit[6]
+      Left = 80
+      Height = 27
+      Top = 168
+      Width = 304
+      DataField = 'email'
+      DataSource = MainDataModule.DestinoDataSource
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+    end
+    object NomeLabel: TLabel[7]
+      Left = 35
+      Height = 18
+      Top = 13
+      Width = 40
+      Caption = 'Nome'
+      FocusControl = NomeDBEdit
+      Font.Color = clMaroon
+      ParentColor = False
+      ParentFont = False
+    end
+    object EnderecoLabel: TLabel[8]
+      Left = 14
+      Height = 18
+      Top = 45
+      Width = 61
+      Caption = 'Endereço'
+      FocusControl = EnderecoDBEdit
+      ParentColor = False
+    end
+    object CPFLabel: TLabel[9]
+      Left = 49
+      Height = 18
+      Top = 77
+      Width = 26
+      Caption = 'CPF'
+      FocusControl = CPFDBEdit
+      ParentColor = False
+    end
+    object TelefoneLabel: TLabel[10]
+      Left = 19
+      Height = 18
+      Top = 109
+      Width = 56
+      Caption = 'Telefone'
+      FocusControl = TelefoneDBEdit
+      ParentColor = False
+    end
+    object CelularLabel: TLabel[11]
+      Left = 28
+      Height = 18
+      Top = 141
+      Width = 47
+      Caption = 'Celular'
+      FocusControl = CelularDBEdit
+      ParentColor = False
+    end
+    object EmailLabel: TLabel[12]
+      Left = 32
+      Height = 18
+      Top = 173
+      Width = 43
+      Caption = 'E-mail'
+      FocusControl = EmailDBEdit
+      ParentColor = False
+    end
+  end
+  inherited ButtomPanel: TPanel
+    Top = 218
+    Width = 400
+    ClientWidth = 400
+    inherited OKBitBtn: TBitBtn
+      Left = 224
+    end
+    inherited CancelBitBtn: TBitBtn
+      Left = 296
+    end
+  end
+end

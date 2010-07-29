@@ -1,0 +1,383 @@
+object MainDataModule: TMainDataModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 244
+  HorizontalOffset = 251
+  VerticalOffset = 160
+  Width = 359
+  object MainZConnection: TZConnection
+    left = 48
+  end
+  object ContaZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select * from conta'
+      'order by oid'
+    )
+    Params = <>
+    left = 152
+    object ContaZQueryoid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ContaZQuerynome: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object ContaDataSource: TDatasource
+    DataSet = ContaZQuery
+    left = 272
+  end
+  object BancoZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select * from banco'
+      'order by oid'
+    )
+    Params = <>
+    left = 152
+    top = 48
+    object BancoZQueryoid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object BancoZQuerycodigo: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'codigo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object BancoZQuerynome: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object BancoZQueryagencia: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'agencia'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+  end
+  object BancoDataSource: TDatasource
+    DataSet = BancoZQuery
+    left = 272
+    top = 48
+  end
+  object ChequeZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select (select nome from banco where oid = oidbanco) as banco, oidbanco,'
+      '(select nome from conta where oid = oidconta) as conta, oidconta,'
+      '(select nome from destino where oid = oiddestino) as destino, oiddestino,'
+      'numero, vencimento,'
+      '(select nome from mes where oid = oidmes) as mes, oidmes,'
+      'valor, pago from cheque'
+      'order by oid'
+    )
+    Params = <>
+    left = 152
+    top = 192
+    object ChequeZQuerybanco: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'banco'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ChequeZQueryoidbanco: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oidbanco'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ChequeZQueryconta: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'conta'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 10
+    end
+    object ChequeZQueryoidconta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oidconta'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ChequeZQuerydestino: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'destino'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 50
+    end
+    object ChequeZQueryoiddestino: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oiddestino'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ChequeZQuerynumero: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'numero'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object ChequeZQueryvencimento: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'vencimento'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ChequeZQuerymes: TStringField
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'mes'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 9
+    end
+    object ChequeZQueryoidmes: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oidmes'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ChequeZQueryvalor: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'valor'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 1114114
+    end
+    object ChequeZQuerypago: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'pago'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+  end
+  object ChequeDataSource: TDatasource
+    DataSet = ChequeZQuery
+    left = 272
+    top = 192
+  end
+  object MesZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select * from mes'
+      'order by oid'
+    )
+    Params = <>
+    left = 152
+    top = 96
+    object MesZQueryoid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object MesZQuerynome: TStringField
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 9
+    end
+  end
+  object MesDataSource: TDatasource
+    DataSet = MesZQuery
+    left = 272
+    top = 96
+  end
+  object DestinoZQuery: TZQuery
+    Connection = MainZConnection
+    AutoCalcFields = False
+    SQL.Strings = (
+      'select * from destino'
+      'order by oid'
+    )
+    Params = <>
+    left = 152
+    top = 144
+    object DestinoZQueryoid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'oid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object DestinoZQuerynome: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object DestinoZQueryendereco: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'endereco'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object DestinoZQuerycpf: TStringField
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'cpf'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object DestinoZQuerytelefone: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'telefone'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object DestinoZQuerycelular: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'celular'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object DestinoZQueryemail: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'email'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object DestinoDataSource: TDatasource
+    DataSet = DestinoZQuery
+    left = 272
+    top = 144
+  end
+end

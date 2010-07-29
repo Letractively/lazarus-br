@@ -1,0 +1,6 @@
+database=Data\cheques.db3
+hostname=
+password=
+port=
+protocol=sqlite-3
+user=

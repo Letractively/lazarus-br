@@ -1,0 +1,5 @@
+Cheques 2.1 - Controle pessoal de cheques
+=========================================
+
+TODO: Escrever um leiame completo sobre o projeto, releases, instalação, autores
+e etc.

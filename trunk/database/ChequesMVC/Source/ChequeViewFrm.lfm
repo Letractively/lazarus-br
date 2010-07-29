@@ -1,0 +1,111 @@
+inherited ChequeViewForm: TChequeViewForm
+  Left = 262
+  Height = 400
+  Top = 188
+  Width = 494
+  ActiveControl = nil
+  ClientHeight = 400
+  ClientWidth = 494
+  inherited ListDBGridPanel: TPanel
+    Height = 308
+    Width = 494
+    ClientHeight = 308
+    ClientWidth = 494
+    PopupMenu = DataPopupMenu
+    inherited ListDBGrid: TDBGrid
+      Height = 306
+      Width = 492
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Número'
+          Width = 80
+          FieldName = 'numero'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Pago'
+          Width = 40
+          FieldName = 'pago'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Valor'
+          Width = 90
+          FieldName = 'valor'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Vencimento'
+          Width = 84
+          FieldName = 'vencimento'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Mês'
+          Width = 70
+          FieldName = 'mes'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Destino'
+          Width = 200
+          FieldName = 'destino'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Banco'
+          Width = 100
+          FieldName = 'banco'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Conta'
+          Width = 90
+          FieldName = 'conta'
+        end>
+      DataSource = MainDataModule.ChequeDataSource
+      PopupMenu = DataPopupMenu
+    end
+  end
+  inherited DataPanel: TPanel
+    Top = 350
+    Width = 494
+    ClientWidth = 494
+    PopupMenu = DataPopupMenu
+    inherited DeleteBitBtn: TBitBtn
+      Left = 332
+    end
+    inherited EditBitBtn: TBitBtn
+      Left = 255
+    end
+    inherited InsertBitBtn: TBitBtn
+      Left = 178
+    end
+    inherited CloseBitBtn: TBitBtn
+      Left = 409
+    end
+    inherited PrintBitBtn: TBitBtn
+      Left = 80
+    end
+  end
+  inherited TopPanel: TPanel
+    Width = 494
+    ClientWidth = 494
+    inherited SearchPanel: TPanel
+      Width = 365
+      ClientWidth = 365
+      PopupMenu = MiscPopupMenu
+      inherited SearchBitBtn: TBitBtn
+        Left = 264
+      end
+      inherited SearchEdit: TEdit
+        Width = 252
+      end
+    end
+  end
+  inherited DataPopupMenu: TPopupMenu
+    left = 80
+    top = 304
+  end
+end

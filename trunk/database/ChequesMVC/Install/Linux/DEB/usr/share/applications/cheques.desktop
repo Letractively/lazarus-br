@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Cheques
+Version=2.1
+Encoding=UTF-8
+Comment=Cheques 2.1 - Controle pessoal de cheques.
+Exec=/usr/bin/cheques
+Icon=/opt/Cheques/Media/cheques24.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Documentation;Office

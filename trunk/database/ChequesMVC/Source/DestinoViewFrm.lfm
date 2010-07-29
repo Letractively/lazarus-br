@@ -1,0 +1,58 @@
+inherited DestinoViewForm: TDestinoViewForm
+  Left = 290
+  Top = 183
+  ActiveControl = nil
+  Caption = 'Destino'
+  inherited ListDBGridPanel: TPanel
+    PopupMenu = DataPopupMenu
+    inherited ListDBGrid: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Nome'
+          Width = 200
+          FieldName = 'nome'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Endereço'
+          Width = 170
+          FieldName = 'endereco'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CPF'
+          Width = 72
+          FieldName = 'cpf'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Telefone'
+          Width = 70
+          FieldName = 'telefone'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Celular'
+          Width = 70
+          FieldName = 'celular'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'E-mail'
+          Width = 170
+          FieldName = 'email'
+        end>
+      DataSource = MainDataModule.DestinoDataSource
+      PopupMenu = DataPopupMenu
+    end
+  end
+  inherited DataPanel: TPanel
+    PopupMenu = DataPopupMenu
+  end
+  inherited TopPanel: TPanel
+    inherited SearchPanel: TPanel
+      PopupMenu = MiscPopupMenu
+    end
+  end
+end

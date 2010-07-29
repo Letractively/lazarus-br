@@ -1,0 +1,31 @@
+inherited MesViewForm: TMesViewForm
+  Left = 290
+  Top = 184
+  ActiveControl = nil
+  Caption = 'Mês'
+  inherited ListDBGridPanel: TPanel
+    PopupMenu = DataPopupMenu
+    inherited ListDBGrid: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'Nome'
+          Width = 200
+          FieldName = 'nome'
+        end>
+      DataSource = MainDataModule.MesDataSource
+      PopupMenu = DataPopupMenu
+    end
+  end
+  inherited DataPanel: TPanel
+    PopupMenu = DataPopupMenu
+  end
+  inherited TopPanel: TPanel
+    inherited SearchPanel: TPanel
+      PopupMenu = MiscPopupMenu
+      inherited SearchBitBtn: TBitBtn
+        Left = 189
+      end
+    end
+  end
+end

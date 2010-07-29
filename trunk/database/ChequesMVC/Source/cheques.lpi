@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="8"/>
+    <General>
+      <Flags>
+        <SaveOnlyProjectUnits Value="True"/>
+        <AlwaysBuild Value="False"/>
+      </Flags>
+      <MainUnit Value="0"/>
+      <TargetFileExt Value=""/>
+      <Title Value="Cheques 2.1"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+      <Icon Value="0"/>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <VersionInfo>
+      <Language Value="0403"/>
+      <CharSet Value="04E2"/>
+      <StringTable Comments="" CompanyName="" FileDescription="" FileVersion="0.0.0.0" InternalName="" LegalCopyright="" LegalTrademarks="" OriginalFilename="" ProductName="" ProductVersion=""/>
+    </VersionInfo>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="3">
+      <Item1>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="zcomponent"/>
+        <MinVersion Major="6" Minor="6" Release="6" Valid="True"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="LCL"/>
+      </Item3>
+    </RequiredPackages>
+    <Units Count="30">
+      <Unit0>
+        <Filename Value="cheques.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="cheques"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="MainFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MainFrm"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="MainDM.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="MainDM"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="ChequeClasses.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ChequeClasses"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="ChequeUtils.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ChequeUtils"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="ChequeExceptionHandle.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ChequeExceptionHandle"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="BaseFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BaseForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="BaseFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="111"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="DataMVCIntf.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DataMVCIntf"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="110"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="CustomViewFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CustomViewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CustomViewFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="110"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="MesViewFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MesViewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MesViewFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="110"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="MesMVC.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MesMVC"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="110"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="CustomEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CustomEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CustomEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="109"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="CustomMVC.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CustomView"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CustomMVC"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="109"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="MesEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MesEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MesEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="78"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="ContaEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ContaEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ContaEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="71"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="ContaViewFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ContaViewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ContaViewFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="71"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="ContaMVC.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ContaMVC"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="50" Y="3"/>
+        <UsageCount Value="71"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="BancoEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BancoEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="BancoEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="70"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="BancoViewFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BancoViewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="BancoViewFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="70"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="BancoMVC.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="BancoMVC"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="69"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="DestinoEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DestinoEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DestinoEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="59"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="DestinoViewFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DestinoViewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DestinoViewFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="59"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="DestinoMVC.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DestinoMVC"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="58"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="ChequeEditFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ChequeEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ChequeEditFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="58"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="ChequeViewFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ChequeViewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ChequeViewFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="58"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="ChequeMVC.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ChequeMVC"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="58"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="ReportTemplate.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ReportTemplate"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="41"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="ChequeConsts.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ChequeConsts"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="31"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="AboutFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AboutForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="AboutFrm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="27"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="Version.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Version"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="27"/>
+      </Unit29>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="9"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)/"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <UseAnsiStrings Value="False"/>
+      </SyntaxOptions>
+    </Parsing>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <UseMsgFile Value="True"/>
+      </CompilerMessages>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
