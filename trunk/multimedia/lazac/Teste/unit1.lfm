@@ -1,0 +1,130 @@
+object Form1: TForm1
+  Left = 250
+  Height = 287
+  Top = 156
+  Width = 648
+  ActiveControl = Button1
+  Caption = 'Form1'
+  ClientHeight = 287
+  ClientWidth = 648
+  LCLVersion = '0.9.29'
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 39
+    Caption = '...'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 56
+    Height = 23
+    Top = 10
+    Width = 256
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 56
+    Height = 25
+    Top = 112
+    Width = 75
+    Caption = 'Play'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Button3: TButton
+    Left = 152
+    Height = 25
+    Top = 112
+    Width = 75
+    Caption = 'Pause'
+    OnClick = Button3Click
+    TabOrder = 3
+  end
+  object Button4: TButton
+    Left = 237
+    Height = 25
+    Top = 112
+    Width = 75
+    Caption = 'Stop'
+    OnClick = Button4Click
+    TabOrder = 4
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 16
+    Top = 160
+    Width = 58
+    Caption = 'Duração:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 80
+    Height = 16
+    Top = 160
+    Width = 5
+    Caption = ' '
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 16
+    Top = 179
+    Width = 45
+    Caption = 'Tempo:'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 80
+    Height = 16
+    Top = 179
+    Width = 5
+    Caption = ' '
+    ParentColor = False
+  end
+  object TrackBar1: TTrackBar
+    Left = 56
+    Height = 42
+    Top = 35
+    Width = 260
+    Position = 0
+    TickStyle = tsNone
+    OnMouseDown = TrackBar1MouseDown
+    OnMouseUp = TrackBar1MouseUp
+    TabOrder = 5
+  end
+  object GroupBox1: TGroupBox
+    Left = 344
+    Height = 233
+    Top = 8
+    Width = 297
+    ClientHeight = 229
+    ClientWidth = 291
+    TabOrder = 6
+    object Memo1: TMemo
+      Left = 5
+      Height = 218
+      Top = 6
+      Width = 280
+      ReadOnly = True
+      TabOrder = 0
+    end
+  end
+  object ODialog: TOpenDialog
+    Filter = 'Wave PCM (*.wav)|*.wav|OggVorbis (*.ogg)|*.ogg'
+    left = 32
+    top = 208
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    left = 80
+    top = 208
+  end
+  object LazAC1: TLazAC
+    left = 128
+    top = 208
+  end
+end
