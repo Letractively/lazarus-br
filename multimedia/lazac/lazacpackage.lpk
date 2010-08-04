@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Package Version="3">
+    <Name Value="LazACPackage"/>
+    <Author Value="Elson Junio G. Silva"/>
+    <CompilerOptions>
+      <Version Value="9"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="oggvorbis/;libao/"/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Other>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="Pacote para reprodução de áudio no formato Wave(PCM) e Ogg.
+Usa libao para reprodução e libvorbis para descompreção do áudio ogg."/>
+    <License Value="
+"/>
+    <Version Release="2"/>
+    <Files Count="13">
+      <Item1>
+        <Filename Value="auxvorbisfile.pas"/>
+        <UnitName Value="AuxVorbisFile"/>
+      </Item1>
+      <Item2>
+        <Filename Value="lazac.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="lazac"/>
+      </Item2>
+      <Item3>
+        <Filename Value="lazac.res"/>
+        <Type Value="Text"/>
+      </Item3>
+      <Item4>
+        <Filename Value="lazac_ao.pas"/>
+        <UnitName Value="LazAC_AO"/>
+      </Item4>
+      <Item5>
+        <Filename Value="lazac_ogg.pas"/>
+        <UnitName Value="LazAC_Ogg"/>
+      </Item5>
+      <Item6>
+        <Filename Value="lazac_proc.pas"/>
+        <UnitName Value="LazAC_Proc"/>
+      </Item6>
+      <Item7>
+        <Filename Value="lazac_wav.pas"/>
+        <UnitName Value="LazAC_Wav"/>
+      </Item7>
+      <Item8>
+        <Filename Value="wavtypes.pas"/>
+        <UnitName Value="WAVTypes"/>
+      </Item8>
+      <Item9>
+        <Filename Value="oggvorbis/ogglib.pas"/>
+        <UnitName Value="Ogglib"/>
+      </Item9>
+      <Item10>
+        <Filename Value="oggvorbis/vorbislib.pas"/>
+        <UnitName Value="Vorbislib"/>
+      </Item10>
+      <Item11>
+        <Filename Value="libao/ao.pas"/>
+        <UnitName Value="ao"/>
+      </Item11>
+      <Item12>
+        <Filename Value="libao/os_types.pp"/>
+        <UnitName Value="os_types"/>
+      </Item12>
+      <Item13>
+        <Filename Value="lazac_type.pas"/>
+        <UnitName Value="lazac_type"/>
+      </Item13>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)/"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
