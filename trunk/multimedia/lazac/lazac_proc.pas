@@ -69,13 +69,15 @@ implementation
 
 procedure TLazACCustom.DestroyAOProc;
 begin
+  {Procedimento para destruir AOProc}
   if (AOProc = nil) then Exit;
-  AOProc.Free;
-  AOProc:= nil;
+  AOProc.Free;//Graças aos 300ms ele não vai definir
+  AOProc:= nil;//nil a AOProc antes da thread encerrar
 end;
 
 function TLazACCustom.GetStatus: acStatus;
 begin
+  {Recebe Status de AOProc}
   Result:=acStatus(wStop);
   if (AOProc= nil) then Exit;
   Result:= acStatus(AOProc.Status);
@@ -83,6 +85,7 @@ end;
 
 procedure TLazACCustom.Play;
 begin
+  //Play...
   if (AOProc= nil) then Exit;
   AOProc.Play;
 end;
@@ -90,6 +93,9 @@ end;
 function TLazACCustom.Play(sFile: String): Boolean;
 begin
 Result:= False;
+  //Play direto no arquivo
+  //é preferível usar Open/Play/Stop/Close
+  //este procedimento pode causar alguns erros
   if OpenFile(sFile) then
     begin
       Self.Play;
@@ -99,18 +105,21 @@ end;
 
 procedure TLazACCustom.Pause;
 begin
+  //Pause
   if (AOProc= nil) then Exit;
   AOProc.Pause;
 end;
 
 procedure TLazACCustom.Stop;
 begin
+  //Stop
   if (AOProc= nil) then Exit;
   AOProc.Stop;
 end;
 
 function TLazACCustom.GetTotalTime: Double;
 begin
+  //Recebe o tempo total de audio do arquivo
   Result:= 0;
   if (AOProc= nil) then Exit;
   AOProc.GetTotalTime(Result);
@@ -119,6 +128,7 @@ end;
 function TLazACCustom.GetTime: Double;
 begin
   Result:= 0;
+  //recebe o tempo de reprodução
   if (AOProc= nil) then Exit;
   AOProc.GetTime(Result);
 end;
@@ -128,21 +138,32 @@ var
   Ext:String;
 begin
 Result:= False;
+  //Responsável pela criação de AOProc usando
+  //TOggProc para arquivos OGG ou TWavProc para arquivos WAV
+
   if not(FileExists(sFile)) then Exit;
+  //pega a extenção do arquivo
   Ext:= UTF8UpperCase(UTF8Copy(sFile, UTF8Length(sFile) - 3, 4));
+  //se AOPRoc não estiver vazio destroy aoProc
   if (AOProc<>nil) then DestroyAOProc;
   //--
+  //Cria AOproc
   if (Ext='.OGG') then AOProc:= TOggProc.Create;
   if (Ext='.WAV') then AOProc:= TWavProc.Create;
   //--
+  //Se AOProc for igual a nil é por que o arquivo
+  //não tem uma extenção correspondente
   if (AOProc= nil) then Exit;
   //--
+  //se o arquivo é inválido
   if not(AOProc.OpenFile(sFile)) then
     begin
+      //Destroy AOProc
       DestroyAOProc;
-      Exit;
+      Exit; //Sai
     end;
   //--
+  //Pega os Comments do arquivo
   FInfos.Text := AOProc.Comments.Text;
 Result:=True;
 end;
@@ -150,6 +171,7 @@ end;
 function TLazACCustom.Close: Boolean;
 begin
 Result:=False;
+  {Fecha o arquivo e finaliza AOProc}
   if (AOProc= nil) then Exit;
   Result:= AOProc.Close;
   DestroyAOProc;
@@ -158,8 +180,9 @@ end;
 function TLazACCustom.SeekTime(const Time: Double): Boolean;
 begin
   Result:=False;
-    if (AOProc= nil) then Exit;
-    Result:= AOProc.SeekTime(Time);
+  //Define posição em Tempo
+  if (AOProc= nil) then Exit;
+  Result:= AOProc.SeekTime(Time);
 end;
 
 constructor TLazACCustom.Create(AOwner: TComponent);

@@ -67,24 +67,30 @@ var
   I:Integer;
   comment: PChar;
 begin
-Result:= False;
+{Evento de reconhecimento e leitura de FileStream}
 
+Result:= False;
+  // ov_open_callbacks da VorbisFile, isso vincula as funções de callback
+  //que dará condições da biblioteca trabalhar com o filestream
   Ret:= ov_open_callbacks(FileStream, OggFile, nil, 0, Fov_callbacks);
-  if (Ret < 0) then Exit;
+  if (Ret < 0) then Exit; //Se tiver erro sai
   //--
+  //Recebe informações do arquivo OGG
   VorbisInfo:= ov_info(OggFile, -1)^;
   VorbisComment:=ov_comment(OggFile, -1)^;
 
   //--------------------------------------------------------------
+  //Define a forma que AO deve abrir o dispositivo de reprodução
   Sample_Format.bits:=16;
   Sample_Format.channels:=VorbisInfo.channels;
   Sample_Format.rate:=VorbisInfo.rate;
   Sample_Format.byte_format:= AO_FMT_LITTLE;
   //--
-  FileInfo.Clear;
-  FileInfo.Add('file=' + FileStream.FileName);
+  FileInfo.Clear; //Limpa os dados de FileInfo
+  FileInfo.Add('file=' + FileStream.FileName);//Adiciona em FileInfo o nome do arquivo
   for I:= 0 to VorbisComment.comments do
     begin
+    //Adciona em FileInfo os comentário do arquivo
     comment:= PChar(VorbisComment.user_comments[I]);
     FileInfo.Add(comment);
     end;
@@ -95,28 +101,21 @@ end;
 function TOggProc.OnSeekTime(const Time: Double): Boolean;
 begin
 Result:=True;
+  {Posiciona em um tempo no arquivo}
+
   if (FStatus=wStop) then Exit;
-//{$IFDEF WINDOWS}
-{  PlayThread.OnTerminate:=nil;
-  PlayThread.Terminate;
-  ao_close(Device);
-  ao_shutdown;
-  FStatus:=wStop; }
-//{$ENDIF}
   //--
   if (Time < 1) then
     ov_pcm_seek(OggFile, 1)
   else
     ov_time_seek(OggFile, Time);
   //--
-//{$IFDEF WINDOWS}
-//  Play;
-//{$ENDIF}
 end;
 
 procedure TOggProc.OnResetAudio;
 begin
   Section:=0;
+  {posiciona o início dos dados PCM}
   ov_pcm_seek(OggFile, 1);
 end;
 
@@ -124,28 +123,40 @@ procedure TOggProc.OnGetBuffer(var Buffer: PChar; var Size: DWord);
 var
   BufferSize:Integer;
 begin
+  {Faz a leitura do Buffer
+  o tamanho 4096 é muito usada
+  mas a biblioteca pode retonar o buffer em tamanho
+  diferente do informado}
   BufferSize:= 4096;
+  //Aloca o buffer no tamanho 4096
   Buffer:= AllocMem(BufferSize);
+  //Recebe os dados de OggFile em Buffer no tamanho de BufferSize,
+  //0 para little endian, 2 para receber 16-bit/samples, 1 para Signed data
+  //ao pé da letra Dados Assinados, ponteiro para bitstream
+
   Size:= ov_read(OggFile, Buffer, BufferSize, cbool(0), 2, cbool(1), @Section);
 end;
 
 procedure TOggProc.OnGetTotalTime(var Time: Double);
 begin
+  {retorna o tempo total}
   Time:=0;
   Time:= ov_time_total(OggFile, -1);
 end;
 
 procedure TOggProc.OnGetTime(var Time: Double);
 begin
+  {retorna o tempo corrente}
   Time:=0;
   Time:= ov_time_tell(OggFile);
 end;
 
 constructor TOggProc.Create;
 begin
-  InitHandleVorbisFile;
+  InitHandleVorbisFile;//inicialisa a biblioteca VorbisFile
   inherited Create;
   Section:=0;
+  //Vincula eventos à procedimentos
   OnReadHeaderEvent:= @OnReadHeader;
   OnGetTotalTimeEvent:= @OnGetTotalTime;
   OnGetTimeEvent:= @OnGetTime;
