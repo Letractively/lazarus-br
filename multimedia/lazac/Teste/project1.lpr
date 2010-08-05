@@ -1,7 +1,8 @@
 program project1;
 
 {$mode objfpc}{$H+}
-{$DEFINE UseCThreads}
+{$DEFINE UseCThreads}  //Isso ativa a cthread em Unix sem precisar decomentar
+                       //as Linha abaixo
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,

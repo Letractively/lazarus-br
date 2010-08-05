@@ -69,8 +69,12 @@ begin
   Memo1.Text:= LazAC1.Comments.Text;
 
   //--
+  //Recebe o tempo total em Segundos e treansforma em Milesegundo
+  //Trunc separa a parte inteira do Double
   MSec:= Trunc(LazAC1.GetTotalTime) * 1000;
+  //Transforma Milesegundos em TimeStamp
   STime:= MSecsToTimeStamp(MSec);
+  //Transforma TimeStamp em TDateTime
   Label2.Caption:= FormatDateTime('hh:mm:ss', TimeStampToDateTime(STime));
   //--
 end;
@@ -111,6 +115,7 @@ begin
   else
     begin
       ///--
+      //Processo semelhante ao  do procedimento Button1Click
       MSec:= Trunc(LazAC1.GetTime) * 1000;
       STime:= MSecsToTimeStamp(MSec);
       Label4.Caption:= FormatDateTime('hh:mm:ss', TimeStampToDateTime(STime));

@@ -34,7 +34,7 @@ interface
 
 uses
   Classes, SysUtils; 
-
+//Tipo usado para como retorno de Status do TLazACCustom
 type acStatus=(acPlay, acStop, acPause);
 
 
