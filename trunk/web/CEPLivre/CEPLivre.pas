@@ -48,14 +48,16 @@ type
     FProxyUser: string;
     FUTF8: Boolean;
   protected
-    function HTTPGetString(const AURL: string; const AResponse: TStrings): Boolean;
+    function HTTPGetString(const AURL: string; const AResponse: TStrings;
+      out AResultCode: Integer): Boolean;
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
   published
-    function Consultar(const ACEP: ShortString = '';
-      const ACidade: ShortString = ''; const ALogradouro: ShortString = '';
+    function Consultar(out ACodigoRespostaHTTP: Integer;
+      const ACEP: ShortString = ''; const ACidade: ShortString = '';
+      const ALogradouro: ShortString = '';
       const ATipoConsulta: TTipoConsulta = tcCEP): Boolean;
     property ProxyHost: string read FProxyHost write FProxyHost;
     property ProxyPort: string read FProxyPort write FProxyPort;
@@ -84,8 +86,8 @@ begin
   inherited Destroy;
 end;
 
-function TCEPLivre.HTTPGetString(const AURL: string;
-  const AResponse: TStrings): Boolean;
+function TCEPLivre.HTTPGetString(const AURL: string; const AResponse: TStrings;
+  out AResultCode: Integer): Boolean;
 var
   VHTTPSend: THTTPSend;
 begin
@@ -96,6 +98,7 @@ begin
     VHTTPSend.ProxyPort := FProxyPort;
     VHTTPSend.ProxyUser := FProxyUser;
     Result := VHTTPSend.HTTPMethod('GET', AURL) and (VHTTPSend.ResultCode = 200);
+    AResultCode := VHTTPSend.ResultCode;
     if Result then
       AResponse.LoadFromStream(VHTTPSend.Document);
   finally
@@ -111,7 +114,8 @@ begin
     FDataSet := nil;
 end;
 
-function TCEPLivre.Consultar(const ACEP: ShortString; const ACidade: ShortString;
+function TCEPLivre.Consultar(out ACodigoRespostaHTTP: Integer;
+  const ACEP: ShortString; const ACidade: ShortString;
   const ALogradouro: ShortString; const ATipoConsulta: TTipoConsulta): Boolean;
 var
   I: Integer;
@@ -122,10 +126,12 @@ begin
   VMemoryStream := TMemoryStream.Create;
   try
     if ATipoConsulta = tcCEP then
-      Result := HTTPGetString(Format(CURLConsultaPorCEP, [ACEP]), VHTTPResult)
+      Result := HTTPGetString(Format(CURLConsultaPorCEP, [ACEP]), VHTTPResult,
+        ACodigoRespostaHTTP)
     else
       Result := HTTPGetString(Format(CURLConsultaPorLogradouro,
-        [EncodeURL(ALogradouro), EncodeURL(ACidade)]), VHTTPResult);
+        [EncodeURL(ALogradouro), EncodeURL(ACidade)]), VHTTPResult,
+        ACodigoRespostaHTTP);
     if Result then
     begin
       if FUTF8 then
