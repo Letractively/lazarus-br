@@ -26,7 +26,7 @@ interface
 
 uses
   Classes, Forms, ComCtrls, StdCtrls, ExtCtrls, MaskEdit, CEPLivre, DB, Dialogs,
-  DBGrids, Buttons;
+  DBGrids, Buttons, SysUtils;
 
 type
 
@@ -117,6 +117,7 @@ end;
 procedure TMainForm.ConsultarButtonClick(Sender: TObject);
 var
   B: Boolean;
+  VCodigoRespostaHTTP: Integer;
 begin
   if (TipoConsultaComboBox.ItemIndex = 1) then
     if (LogradouroEdit.Text = '') or (CidadeEdit.Text = '') then
@@ -129,12 +130,14 @@ begin
   try
     Application.ProcessMessages;
     if TipoConsultaComboBox.ItemIndex = 0 then
-      B := FCEPLivre.Consultar(CEPEdit.Text)
+      B := FCEPLivre.Consultar(VCodigoRespostaHTTP, CEPEdit.Text)
     else
-      B := FCEPLivre.Consultar('', CidadeEdit.Text, LogradouroEdit.Text, tcLogradouro);
+      B := FCEPLivre.Consultar(VCodigoRespostaHTTP, '', CidadeEdit.Text,
+        LogradouroEdit.Text, tcLogradouro);
     if not B then
-      MessageDlg('ERRO: Não foi possível obter os dados do servidor de CEPs.',
-        mtError, [mbClose], 0);
+      MessageDlg('ERRO: Não foi possível obter os dados do servidor de CEPs.' +
+        sLineBreak + sLineBreak + 'Código de reposta do HTTP: ' +
+        IntToStr(VCodigoRespostaHTTP), mtError, [mbClose], 0);
   finally
     StatusPanel.Hide;
   end;
