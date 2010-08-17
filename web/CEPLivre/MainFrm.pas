@@ -12,6 +12,12 @@
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 *)
 
+(*
+  Powerfull contributors
+  . Daniel Simões de Almeida
+  . Kingbizugo
+*)
+
 unit MainFrm;
 
 {$mode objfpc}{$H+}
@@ -71,6 +77,10 @@ constructor TMainForm.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   FCEPLivre := TCEPLivre.Create(nil);
+{ FCEPLivre.ProxyHost := '';
+  FCEPLivre.ProxyPass := '';
+  FCEPLivre.ProxyPort := '';
+  FCEPLivre.ProxyUser := '';}
   CEPDataCource.DataSet := FCEPLivre.DataSet;
 end;
 
@@ -88,7 +98,6 @@ end;
 procedure TMainForm.LogradouroEditChange(Sender: TObject);
 begin
   TipoConsultaComboBox.ItemIndex := 1;
-  CEPEdit.Clear;
 end;
 
 procedure TMainForm.SobreSpeedButtonClick(Sender: TObject);
@@ -109,6 +118,13 @@ procedure TMainForm.ConsultarButtonClick(Sender: TObject);
 var
   B: Boolean;
 begin
+  if (TipoConsultaComboBox.ItemIndex = 1) then
+    if (LogradouroEdit.Text = '') or (CidadeEdit.Text = '') then
+    begin
+      MessageDlg('Por favor, informe o logradouro e a cidade.', mtInformation,
+        [mbOK], 0);
+      Exit;
+    end;
   StatusPanel.Show;
   try
     Application.ProcessMessages;
@@ -131,15 +147,20 @@ begin
     Key := #0;
     ConsultarButton.Click;
   end;
-  if not (Key in ['0'..'9', 'a'..'z', #8, #32]) then
+  if not (Key in ['0'..'9', 'a'..'z', 'A'..'Z', #8, #32]) then
     Key := #0;
+  if CEPEdit.Focused then
+  begin
+    LogradouroEdit.Clear;
+    CidadeEdit.Clear;
+  end
+  else
+    CEPEdit.Clear;
 end;
 
 procedure TMainForm.CEPEditChange(Sender: TObject);
 begin
   TipoConsultaComboBox.ItemIndex := 0;
-  LogradouroEdit.Clear;
-  CidadeEdit.Clear;
 end;
 
 end.
