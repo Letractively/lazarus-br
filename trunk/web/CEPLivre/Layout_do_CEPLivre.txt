@@ -1,0 +1,2 @@
+tipo_logradouro,tipo_logradouro_id,logradouro,bairro,cidade,sigla,estado,estado_id,cep,codigo_ibge
+Av.,2,Paulista,Bela Vista,São Paulo,SP,São Paulo,1,01311-000,3550308
