@@ -12,6 +12,12 @@
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 *)
 
+(*
+  Powerfull contributors
+  . Daniel Simões de Almeida
+  . Kingbizugo
+*)
+
 unit CEPLivre;
 
 {$mode objfpc}{$H+}
@@ -36,12 +42,14 @@ type
   TCEPLivre = class(TComponent)
   private
     FDataSet: TSdfDataSet;
-    FHTTP: THTTPSend;
     FProxyHost: string;
     FProxyPass: string;
     FProxyPort: string;
     FProxyUser: string;
     FUTF8: Boolean;
+  protected
+    function HTTPGetString(const AURL: string; const AResponse: TStrings): Boolean;
+    procedure Notification(AComponent: TComponent; Operation: TOperation); override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -53,7 +61,6 @@ type
     property ProxyPort: string read FProxyPort write FProxyPort;
     property ProxyUser: string read FProxyUser write FProxyUser;
     property ProxyPass: string read FProxyPass write FProxyPass;
-    property HTTP: THTTPSend read FHTTP write FHTTP;
     property DataSet: TSdfDataSet read FDataSet write FDataSet;
     property UTF8: Boolean read FUTF8 write FUTF8 default True;
   end;
@@ -65,12 +72,7 @@ implementation
 constructor TCEPLivre.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
-  FHTTP := THTTPSend.Create;
   FDataSet := TSdfDataSet.Create(nil);
-  FHTTP.ProxyHost := FProxyHost;
-  FHTTP.ProxyPass := FProxyPass;
-  FHTTP.ProxyPort := FProxyPort;
-  FHTTP.ProxyUser := FProxyUser;
   FDataSet.FileMustExist := True;
   FDataSet.FirstLineAsSchema := True;
   FUTF8 := True;
@@ -78,9 +80,35 @@ end;
 
 destructor TCEPLivre.Destroy;
 begin
-  FHTTP.Free;
   FDataSet.Free;
   inherited Destroy;
+end;
+
+function TCEPLivre.HTTPGetString(const AURL: string;
+  const AResponse: TStrings): Boolean;
+var
+  VHTTPSend: THTTPSend;
+begin
+  VHTTPSend := THTTPSend.Create;
+  try
+    VHTTPSend.ProxyHost := FProxyHost;
+    VHTTPSend.ProxyPass := FProxyPass;
+    VHTTPSend.ProxyPort := FProxyPort;
+    VHTTPSend.ProxyUser := FProxyUser;
+    Result := VHTTPSend.HTTPMethod('GET', AURL) and (VHTTPSend.ResultCode = 200);
+    if Result then
+      AResponse.LoadFromStream(VHTTPSend.Document);
+  finally
+    VHTTPSend.Free;
+  end;
+end;
+
+procedure TCEPLivre.Notification(AComponent: TComponent; Operation: TOperation
+  );
+begin
+  inherited Notification(AComponent, Operation);
+  if (Operation = opRemove) and (AComponent = FDataSet) then
+    FDataSet := nil;
 end;
 
 function TCEPLivre.Consultar(const ACEP: ShortString; const ACidade: ShortString;
@@ -94,9 +122,9 @@ begin
   VMemoryStream := TMemoryStream.Create;
   try
     if ATipoConsulta = tcCEP then
-      Result := HttpGetText(Format(CURLConsultaPorCEP, [ACEP]), VHTTPResult)
+      Result := HTTPGetString(Format(CURLConsultaPorCEP, [ACEP]), VHTTPResult)
     else
-      Result := HttpGetText(Format(CURLConsultaPorLogradouro,
+      Result := HTTPGetString(Format(CURLConsultaPorLogradouro,
         [EncodeURL(ALogradouro), EncodeURL(ACidade)]), VHTTPResult);
     if Result then
     begin
