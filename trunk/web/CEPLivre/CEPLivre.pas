@@ -48,22 +48,22 @@ type
     FProxyUser: string;
     FUTF8: Boolean;
   protected
-    function HTTPGetString(const AURL: string; const AResponse: TStrings;
-      out AResultCode: Integer): Boolean;
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
-  published
+    function HTTPGetString(const AURL: string; const AResponse: TStrings;
+      out AResultCode: Integer): Boolean;
     function Consultar(out ACodigoRespostaHTTP: Integer;
       const ACEP: ShortString = ''; const ACidade: ShortString = '';
       const ALogradouro: ShortString = '';
       const ATipoConsulta: TTipoConsulta = tcCEP): Boolean;
+  published
     property ProxyHost: string read FProxyHost write FProxyHost;
     property ProxyPort: string read FProxyPort write FProxyPort;
     property ProxyUser: string read FProxyUser write FProxyUser;
     property ProxyPass: string read FProxyPass write FProxyPass;
-    property DataSet: TSdfDataSet read FDataSet write FDataSet;
+    property DataSet: TSdfDataSet read FDataSet;
     property UTF8: Boolean read FUTF8 write FUTF8 default True;
   end;
 
