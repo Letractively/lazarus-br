@@ -42,6 +42,7 @@ type
   TCEPLivre = class(TComponent)
   private
     FDataSet: TSdfDataSet;
+    FOnSucesso: TNotifyEvent;
     FProxyHost: string;
     FProxyPass: string;
     FProxyPort: string;
@@ -65,6 +66,7 @@ type
     property ProxyPass: string read FProxyPass write FProxyPass;
     property DataSet: TSdfDataSet read FDataSet;
     property UTF8: Boolean read FUTF8 write FUTF8 default True;
+    property OnSucesso: TNotifyEvent read FOnSucesso write FOnSucesso;
   end;
 
 implementation
@@ -139,6 +141,8 @@ begin
           VHTTPResult.Strings[I] := AnsiToUtf8(VHTTPResult.Strings[I]);
       VHTTPResult.SaveToStream(VMemoryStream);
       FDataSet.LoadFromStream(VMemoryStream);
+      if Assigned(FOnSucesso) then
+        FOnSucesso(Self);
     end;
   finally
     VHTTPResult.Free;
