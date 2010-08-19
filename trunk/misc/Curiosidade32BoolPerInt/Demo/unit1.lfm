@@ -1,0 +1,59 @@
+object Form1: TForm1
+  Left = 584
+  Height = 273
+  Top = 243
+  Width = 362
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = '32 Bits por Integer (4bytes)'
+  ClientHeight = 273
+  ClientWidth = 362
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '0.9.28.3'
+  object Label1: TLabel
+    Left = 11
+    Height = 21
+    Top = 247
+    Width = 69
+    Caption = 'Mudar bit:'
+    ParentColor = False
+  end
+  object chklstBits: TCheckListBox
+    Left = 9
+    Height = 225
+    Top = 11
+    Width = 340
+    ItemHeight = 0
+    OnClick = chklstBitsClick
+    TabOrder = 0
+  end
+  object seChangeBit: TSpinEdit
+    Left = 85
+    Height = 28
+    Top = 240
+    Width = 60
+    MaxValue = 32
+    MinValue = 1
+    TabOrder = 1
+    Value = 1
+  end
+  object btnTrue: TButton
+    Left = 152
+    Height = 28
+    Top = 240
+    Width = 97
+    Caption = 'Verdadeiro'
+    OnClick = btnTrueClick
+    TabOrder = 2
+  end
+  object btnFalse: TButton
+    Left = 248
+    Height = 28
+    Top = 240
+    Width = 97
+    Caption = 'Falso'
+    OnClick = btnFalseClick
+    TabOrder = 3
+  end
+end

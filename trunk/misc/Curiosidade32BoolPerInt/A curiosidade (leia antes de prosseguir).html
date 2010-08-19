@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Curiosidade sobre um inteiro</title>
+</head>
+<body bgcolor="#ffffff" text="#000000">
+<big><big><b>Eu, amante do INTEGER, provavelmente como muitos outros...
+acho interessante saber como ele funciona internamente!<br>
+<br>
+<small>Notas do autor: </small></b><small>esse 'artigo',
+'curiosidade', ou at&eacute; mesmo 'tutorial', foi escrito com a ideia
+de
+mostrar opera&ccedil;&otilde;es de Bitwise, n&atilde;o muito
+conhecidas, porem utilizadas
+dia ap&oacute;s dia</small></big></big><big><big><small>, os experts
+v&atilde;o
+entender muito rapido, e at&eacute; mesmo, </small></big></big>achar
+essa
+curiosidade
+algo <font color="#ff99ff">'bobo'</font>, por outro lado, os fims
+reais desse pequeno artigo &eacute; mostrar uma curiosidade, como
+j&aacute; foi
+falado, no proprio titulo desta <b>CURIOSIDADE</b> (novamente,
+&eacute;
+apenas uma curiosidade!).<br>
+<br>
+<big><big><small><small>Autor:
+Bizugo/Biz/MegaNo0body/BMega/VariosOutrosApelidos = kingbizugo@gmail.co</small></small></big></big><big><big><small><small>m</small></small></big></big><br>
+<big><big><b><br>
+</b></big></big><big><big><b>Introdu&ccedil;&atilde;o, os Bits:</b></big></big><br>
+<br>
+Um <b>BYTE</b> tem <b>8 BITS</b>;<br>
+Um <b>BYTE </b>pode ter <b>256 valores diferentes (de 0 a 255)</b>;<br>
+Um <b>INTEGER </b>&eacute; formado de <b>4 BYTES</b>;<br>
+Um <b>CARDINAL </b>tambem &eacute; formado por <b>4 BYTES</b>;<br>
+Um <b>INTEGER/CARDINAL</b> que tem <b>4 BYTES</b> possue <b>4x8 BITS</b>
+ou seja, <b>32 BITS</b>;<br>
+<br>
+Um integer: 0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0000 &nbsp; 0000
+0000 o primeiro
+bit sendo 1
+significa que o integer &eacute; negativo<br>
+o segundo e todos os outros bits, de valor 1 ou 0, significam os
+valores em potencia<br>
+0100 0000 &nbsp; 0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0000 =
+1073741824<br>
+0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0010 = <font
+ color="#3366ff">(2^1)</font>
+= 2<br>
+0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0110 = <font
+ color="#3366ff">(2^2)</font><font color="#3366ff"> <font
+ color="#ff0000">+</font> </font><font color="#3366ff">(2^1)</font> = (<font
+ color="#3366ff">4</font>) <font color="#ff0000">+</font> (<font
+ color="#3366ff">2</font>) = 6<br>
+0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0000 &nbsp; 0000 0111 = <font
+ color="#3366ff">(2^2)
+<font color="#ff0000">+</font> (2^1)<font color="#ff0000"> +</font>
+(2^0)</font>
+= (<font color="#3366ff">4</font>) <font color="#ff0000">+</font> (<font
+ color="#3366ff">2</font>) <font color="#ff0000">+</font> (<font
+ color="#3366ff">1</font>) = 7<br>
+<br>
+(nota, separamos os bits de 4 em 4, facilitando a
+vizualiza&ccedil;&atilde;o)<br>
+<br>
+Um <b>BOOLEANO </b>&eacute; um <b>BIT</b>, <b>0</b> ou <b>1</b>;<br>
+Ent&atilde;o um <b>INTEGER/CARDINAL</b> tem <b>32 BOOLEANOS</b>
+dentro de si;<br>
+<br>
+<blockquote><big><big><b>Opera&ccedil;&otilde;es de Bitwise, para
+continuarmos!</b></big></big><br>
+</blockquote>
+<br>
+<big><b>Opera&ccedil;&atilde;o Bitwise Shift Left<br>
+</b></big><br>
+1 <b>shl </b>5 significa 1 <b>bitwise shift left</b> 5;<br>
+Em outras palavras, voc&ecirc; move o 1 cinco posi&ccedil;&otilde;es
+para a esquerda...<br>
+0000 0001 (1) <b>shl</b> 1 = 0000 0010<br>
+0000 0001 (1) <b>shl</b> 5 = 0010 0000 = 32<br>
+Ent&atilde;o...<br>
+1 <b>shl </b>5 = <font color="#3366ff">(2^5)</font> = 32<br>
+1 <b>shl</b> Index = <font color="#3366ff">(2^Index)</font> = uma flag<br>
+<br>
+<big><b>Opera&ccedil;&atilde;o Bitwise Shift Right<br>
+<br>
+</b><small>A opera&ccedil;&atilde;o Bitwise Shift Right faz exatamente?
+a mesma coisa
+que o Bitwise Shift Left, s&oacute; que a dire&ccedil;&atilde;o que o
+bit move &eacute; ao
+contrario...<br>
+</small></big>0010 0000 (32) <b>shr</b> 5 = 0000 0001 (1)&nbsp; = 1<br>
+&Eacute; exatamente a mesma coisa, s&oacute; que ao contrario!<br>
+<br>
+<big><b>Opera&ccedil;&atilde;os Bitwise AND/OR/AND NO</b></big><big><b>T</b></big><br>
+<big><br>
+</big>
+<ul>
+  <li><big>A opera&ccedil;&atilde;o <b>AND</b>:</big>
+1110 <b>AND </b>0100 = 0100</li>
+</ul>
+Ela simplesmente <br>
+1110 <b>AND </b>0110 = 0110<br>
+Dificil explicar com palavras...<br>
+1110 <b>AND </b>1110 = 1110<br>
+<big><br>
+</big>
+<ul>
+  <li><big>A opera&ccedil;&atilde;o <b>OR</b>:</big></li>
+</ul>
+1000 <b>OR</b> 0100 = 1100<br>
+1001 <b>OR</b> 0100 = 1101<br>
+1001 <b>OR</b> 0110 = 1111<br>
+Essa &eacute; mais facil explicar com palavras, a
+opera&ccedil;&atilde;o <b>OR</b> junta os
+bits<br>
+<big><br>
+</big>
+<ul>
+  <li><big>Combina&ccedil;&atilde;o de <b>AND + NOT</b>:</big></li>
+</ul>
+1110 <b>AND NOT</b> 0100 = 1010<br>
+1110 <b>AND NOT</b> 1100 = 0010<br>
+Nota, em vez de juntar, ele muda o valor do bit, de 0 para 1 e de 1
+para 0.<br>
+<br>
+<big><b>Agora voc&ecirc; talves entenda um pouco do que esse anexo
+faz...
+divirta-se :</b></big><big><b>)</b></big><br>
+<b>Curiosidade: 32 booleanos per 4 bytes (integer</b><b>)<br>
+<br>
+Use esta CURIOSIDADE com fims de aprender algo novo, por favor,
+respeite os direitos (se &eacute; que existem) do autor.<br>
+</b>
+<br>
+</body>
+</html>
