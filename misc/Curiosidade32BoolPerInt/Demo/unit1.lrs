@@ -1,0 +1,19 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TForm1','FORMDATA',[
+  'TPF0'#6'TForm1'#5'Form1'#4'Left'#3'H'#2#6'Height'#3#17#1#3'Top'#3#243#0#5'Wi'
+  +'dth'#3'j'#1#11'BorderIcons'#11#12'biSystemMenu'#10'biMinimize'#0#11'BorderS'
+  +'tyle'#7#8'bsSingle'#7'Caption'#6#28'32 Bits por Integer (4bytes)'#12'Client'
+  +'Height'#3#17#1#11'ClientWidth'#3'j'#1#8'OnCreate'#7#10'FormCreate'#9'OnDest'
+  +'roy'#7#11'FormDestroy'#10'LCLVersion'#6#8'0.9.28.3'#0#6'TLabel'#6'Label1'#4
+  +'Left'#2#11#6'Height'#2#21#3'Top'#3#247#0#5'Width'#2'E'#7'Caption'#6#10'Muda'
+  +'r bit:'#11'ParentColor'#8#0#0#13'TCheckListBox'#10'chklstBits'#4'Left'#2#9#6
+  +'Height'#3#225#0#3'Top'#2#11#5'Width'#3'T'#1#10'ItemHeight'#2#0#7'OnClick'#7
+  +#15'chklstBitsClick'#8'TabOrder'#2#0#0#0#9'TSpinEdit'#11'seChangeBit'#4'Left'
+  +#2'U'#6'Height'#2#28#3'Top'#3#240#0#5'Width'#2'<'#8'MaxValue'#2' '#8'MinValu'
+  +'e'#2#1#8'TabOrder'#2#1#5'Value'#2#1#0#0#7'TButton'#7'btnTrue'#4'Left'#3#152
+  +#0#6'Height'#2#28#3'Top'#3#240#0#5'Width'#2'a'#7'Caption'#6#10'Verdadeiro'#7
+  +'OnClick'#7#12'btnTrueClick'#8'TabOrder'#2#2#0#0#7'TButton'#8'btnFalse'#4'Le'
+  +'ft'#3#248#0#6'Height'#2#28#3'Top'#3#240#0#5'Width'#2'a'#7'Caption'#6#5'Fals'
+  +'o'#7'OnClick'#7#13'btnFalseClick'#8'TabOrder'#2#3#0#0#0
+]);

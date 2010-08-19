@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <PathDelim Value="\"/>
+    <Version Value="7"/>
+    <General>
+      <MainUnit Value="0"/>
+      <TargetFileExt Value=".exe"/>
+      <Icon Value="0"/>
+      <UseXPManifest Value="True"/>
+      <ActiveEditorIndexAtStart Value="0"/>
+    </General>
+    <VersionInfo>
+      <ProjectVersion Value=""/>
+      <Language Value=""/>
+      <CharSet Value=""/>
+    </VersionInfo>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="8">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="project1"/>
+        <UsageCount Value="20"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <CursorPos X="34" Y="78"/>
+        <TopLine Value="64"/>
+        <EditorIndex Value="0"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\..\..\..\lazarus\fpc\2.4.0\source\rtl\win32\classes.pp"/>
+        <UnitName Value="Classes"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\..\..\..\lazarus\fpc\2.4.0\source\rtl\win\sysutils.pp"/>
+        <UnitName Value="sysutils"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="7"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\..\..\lazarus\lcl\checklst.pas"/>
+        <UnitName Value="CheckLst"/>
+        <CursorPos X="36" Y="40"/>
+        <TopLine Value="25"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\..\lazarus\lcl\stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <CursorPos X="16" Y="488"/>
+        <TopLine Value="474"/>
+        <UsageCount Value="10"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\..\lazarus\fpc\2.4.0\source\rtl\objpas\classes\classesh.inc"/>
+        <CursorPos X="42" Y="209"/>
+        <TopLine Value="189"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\..\..\..\lazarus\lcl\interfaces\win32\win32listsl.inc"/>
+        <CursorPos X="1" Y="454"/>
+        <TopLine Value="439"/>
+        <UsageCount Value="10"/>
+      </Unit7>
+    </Units>
+    <JumpHistory Count="16" HistoryIndex="15">
+      <Position1>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="43" Column="27" TopLine="19"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="98" Column="98" TopLine="85"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="22" Column="84" TopLine="7"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="100" Column="58" TopLine="83"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="8" Column="16" TopLine="4"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="32" Column="23" TopLine="16"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="22" Column="77" TopLine="16"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="94" Column="32" TopLine="85"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="103" Column="29" TopLine="81"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="125" Column="65" TopLine="99"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="124" Column="50" TopLine="106"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="129" Column="43" TopLine="107"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="116" Column="11" TopLine="100"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="63" Column="3" TopLine="48"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="74" Column="32" TopLine="52"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit1.pp"/>
+        <Caret Line="64" Column="37" TopLine="49"/>
+      </Position16>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="8"/>
+    <PathDelim Value="\"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)\"/>
+    </SearchPaths>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
