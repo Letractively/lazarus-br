@@ -25,7 +25,7 @@ unit CEPLivre;
 interface
 
 uses
-  HTTPSend, SynaCode, SdfData, Classes, SysUtils;
+  HTTPSend, SynaCode, Classes, SysUtils, mysdfdata;
 
 const
   CURLConsultaPorCEP =
@@ -39,20 +39,19 @@ type
 
   { TCEPLivre }
 
-  TCEPLivre = class(TComponent)
+  TCEPLivre = class(TCustomSdfDataSet)
   private
-    FDataSet: TSdfDataSet;
     FOnSucesso: TNotifyEvent;
     FProxyHost: string;
     FProxyPass: string;
     FProxyPort: string;
     FProxyUser: string;
     FUTF8: Boolean;
-  protected
-    procedure Notification(AComponent: TComponent; Operation: TOperation); override;
+  public
+    property Delimiter;
+    property FirstLineAsSchema;
   public
     constructor Create(AOwner: TComponent); override;
-    destructor Destroy; override;
     function HTTPGetString(const AURL: string; const AResponse: TStrings;
       out AResultCode: Integer): Boolean;
     function Consultar(out ACodigoRespostaHTTP: Integer;
@@ -64,7 +63,6 @@ type
     property ProxyPort: string read FProxyPort write FProxyPort;
     property ProxyUser: string read FProxyUser write FProxyUser;
     property ProxyPass: string read FProxyPass write FProxyPass;
-    property DataSet: TSdfDataSet read FDataSet;
     property UTF8: Boolean read FUTF8 write FUTF8 default True;
     property OnSucesso: TNotifyEvent read FOnSucesso write FOnSucesso;
   end;
@@ -76,16 +74,9 @@ implementation
 constructor TCEPLivre.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
-  FDataSet := TSdfDataSet.Create(nil);
-  FDataSet.FileMustExist := True;
-  FDataSet.FirstLineAsSchema := True;
+  FileMustExist := True;
+  FirstLineAsSchema := True;
   FUTF8 := True;
-end;
-
-destructor TCEPLivre.Destroy;
-begin
-  FDataSet.Free;
-  inherited Destroy;
 end;
 
 function TCEPLivre.HTTPGetString(const AURL: string; const AResponse: TStrings;
@@ -106,14 +97,6 @@ begin
   finally
     VHTTPSend.Free;
   end;
-end;
-
-procedure TCEPLivre.Notification(AComponent: TComponent; Operation: TOperation
-  );
-begin
-  inherited Notification(AComponent, Operation);
-  if (Operation = opRemove) and (AComponent = FDataSet) then
-    FDataSet := nil;
 end;
 
 function TCEPLivre.Consultar(out ACodigoRespostaHTTP: Integer;
@@ -140,7 +123,7 @@ begin
         for I := 0 to Pred(VHTTPResult.Count) do
           VHTTPResult.Strings[I] := AnsiToUtf8(VHTTPResult.Strings[I]);
       VHTTPResult.SaveToStream(VMemoryStream);
-      FDataSet.LoadFromStream(VMemoryStream);
+      LoadFromStream(VMemoryStream);
       if Assigned(FOnSucesso) then
         FOnSucesso(Self);
     end;

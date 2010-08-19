@@ -22,7 +22,7 @@ This library is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."/>
     <Version Major="1"/>
-    <Files Count="3">
+    <Files Count="4">
       <Item1>
         <Filename Value="CEPLivreReg.pas"/>
         <HasRegisterProc Value="True"/>
@@ -36,6 +36,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."/>
         <Filename Value="CEPLivre.pas"/>
         <UnitName Value="CEPLivre"/>
       </Item3>
+      <Item4>
+        <Filename Value="mysdfdata.pp"/>
+        <UnitName Value="mysdfdata"/>
+      </Item4>
     </Files>
     <Type Value="DesignTime"/>
     <RequiredPkgs Count="3">
