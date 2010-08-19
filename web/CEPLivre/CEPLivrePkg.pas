@@ -7,7 +7,7 @@ unit CEPLivrePkg;
 interface
 
 uses
-  CEPLivreReg, CEPLivre, LazarusPackageIntf;
+  CEPLivreReg, CEPLivre, mysdfdata, LazarusPackageIntf;
 
 implementation
 

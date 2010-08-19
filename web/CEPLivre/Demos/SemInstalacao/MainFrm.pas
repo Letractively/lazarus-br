@@ -81,7 +81,7 @@ begin
   FCEPLivre.ProxyPass := '';
   FCEPLivre.ProxyPort := '';
   FCEPLivre.ProxyUser := '';}
-  CEPDataCource.DataSet := FCEPLivre.DataSet;
+  CEPDataCource.DataSet := FCEPLivre;
 end;
 
 destructor TMainForm.Destroy;
