@@ -67,5 +67,8 @@ O tipo de dados String tende a ser um pouco mais útil do que o tipo Char. No De
 
 Strings maiores de 255 caracteres são alocadas dinamicamente.
 
-*Fonte*
+*Fonte*:
 [http://delphiproject.blogspot.com]
+
+*Conversor de HTML to GoogleCode Wiki*:
+[http://toolserver.org/~diberri/cgi-bin/html2wiki]
