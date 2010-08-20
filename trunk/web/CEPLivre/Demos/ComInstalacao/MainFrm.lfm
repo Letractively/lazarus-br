@@ -216,7 +216,7 @@ object MainForm: TMainForm
             Width = 85
             FieldName = 'sigla'
           end>
-        DataSource = CEPDataCource
+        DataSource = CEPDataSource
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
         ReadOnly = True
         TabOrder = 1
@@ -434,7 +434,7 @@ object MainForm: TMainForm
       end
     end
   end
-  object CEPDataCource: TDatasource
+  object CEPDataSource: TDatasource
     DataSet = DemoCEPLivre
     left = 264
     top = 40
