@@ -40,7 +40,7 @@ type
     CEPPageControl: TPageControl;
     CEPTabSheet: TTabSheet;
     CidadeEdit: TEdit;
-    CEPDataCource: TDatasource;
+    CEPDataSource: TDatasource;
     CEPDBGrid: TDBGrid;
     LogoImage: TImage;
     SobreSpeedButton: TSpeedButton;
