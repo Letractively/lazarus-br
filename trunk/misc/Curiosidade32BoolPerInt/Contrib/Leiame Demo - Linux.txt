@@ -1,0 +1,1 @@
+Obrigado a Regina do grupo Lazarus-BR por enviar essa contribuição que faz o demo rodar em linux.
