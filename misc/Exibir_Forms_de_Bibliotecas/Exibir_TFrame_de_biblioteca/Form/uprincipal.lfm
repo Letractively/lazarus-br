@@ -1,0 +1,39 @@
+object Box: TBox
+  Left = 0
+  Height = 203
+  Top = 0
+  Width = 627
+  AutoScroll = True
+  ClientHeight = 203
+  ClientWidth = 627
+  Color = clBtnFace
+  ParentColor = False
+  TabOrder = 0
+  DesignLeft = 338
+  DesignTop = 170
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 12
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Memo1: TMemo
+    Left = 12
+    Height = 340
+    Top = 48
+    Width = 606
+    Lines.Strings = (
+      'TFrame é um contêiner de componentes, que pode ser aninhado em formulários ou outros frames(quadros).'
+      ''
+      'TFrame não tem todas as propriedades de um TFrom mas varios podem ser conseguidas, como o OnCreate'
+      'que pode ser conseguido usando o método Create.'
+      ''
+      ''
+      'Elson Junio'
+    )
+    TabOrder = 1
+  end
+end
