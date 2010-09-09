@@ -1,0 +1,21 @@
+object Form1: TForm1
+  Left = 371
+  Height = 240
+  Top = 152
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  LCLVersion = '0.9.29'
+  object Button1: TButton
+    Left = 240
+    Height = 25
+    Top = 13
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end
