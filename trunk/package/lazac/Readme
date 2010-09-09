@@ -1,4 +1,4 @@
-LazAC é um componete para reprodução de arquivos WAVE(PCM) e OggVorbis, LazAC faz uso da biblioteca AO (http://xiph.org/ao/) uma biblioteca de áudio multi-plataforma e do conjunto de bibliotecas Vorbis (http://www.xiph.org/vorbis/) estas bibliotecas para Windows podem ser conseguidas facilmente no pacote vorbis-tools na sessão de downloads.
+LazAC é um componete para reprodução de arquivos WAVE(PCM) e OggVorbis, LazAC faz uso da biblioteca AO (http://xiph.org/ao/) uma biblioteca de áudio multi-plataforma e do conjunto de bibliotecas Vorbis (http://www.xiph.org/vorbis/) estas bibliotecas para Windows podem ser conseguidas facilmente no pacote vorbis-tools na sessão de downloads (http://xiph.org/downloads/).
 As bibliotecas Vorbis só são nescessárias se o projeto for reproduzir arquivos Ogg, se for reproduzir somente WAVE as bibliotecas Vorbis não são necessárias.
 
 O pacote contém funções básicas como Open/Play/Pause/Stop/Close.
