@@ -5,7 +5,7 @@ unit SimpleHTMLReport;
 interface
 
 uses
-  DB, Classes, Forms;
+  DB, Classes, Forms, OSPrinters;
 
 type
 
@@ -69,7 +69,6 @@ var
   VSimpleHTMLReportForm: TSimpleHTMLReportForm;
   VSimpleHTMLReportTemplate: TSimpleHTMLReportTemplate;
 begin
-  VFileStream := TFileStream.Create(_HTMLTemp, fmCreate);
   VSimpleHTMLReportForm := TSimpleHTMLReportForm.Create(nil);
   VSimpleHTMLReportTemplate := TSimpleHTMLReportTemplate.Create;
   try
@@ -118,7 +117,12 @@ begin
       FDataSet.EnableControls;
     end;
     FTemplate := VSimpleHTMLReportTemplate.Template;
-    VFileStream.Write(Pointer(FTemplate)^, Length(FTemplate));
+    VFileStream := TFileStream.Create(_HTMLTemp, fmCreate);
+    try
+      VFileStream.Write(Pointer(FTemplate)^, Length(FTemplate));
+    finally
+      VFileStream.Free;
+    end;
     if FOpenInBrowser then
       OpenURL(_HTMLTemp)
     else
@@ -132,7 +136,6 @@ begin
       TSimpleHTMLReport.DeleteTempFile;
     end;
   finally
-    VFileStream.Free;
     VSimpleHTMLReportForm.Free;
     VSimpleHTMLReportTemplate.Free;
   end;
@@ -259,7 +262,7 @@ end;
 
 initialization
   TSimpleHTMLReport.DeleteTempFile;
-  _HTMLTemp := ExtractFilePath(ParamStrUTF8(0)) + 'shtmlr.html';
+  _HTMLTemp := GetTempDir + 'shtmlr.html';
 
 finalization
   TSimpleHTMLReport.DeleteTempFile;
