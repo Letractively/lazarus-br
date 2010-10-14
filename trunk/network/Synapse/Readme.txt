@@ -1,3 +1,0 @@
-This project deals with network communication by means of blocking (synchronous) sockets or with limited non-blocking mode. This project not using asynchronous sockets! The Project contains simple low level non-visual objects for easiest programming without problems. (no required multithread synchronisation, no need for windows message processing,…) Great for command line utilities, visual projects, NT services,… You can find more after reading about and features.
-
-Here you can found addition to Synapse project called SynaSer, too. This is library for blocking communication on serial ports. It is non-visual class as in Synapse, and programmer interface is very similar to Synapse.

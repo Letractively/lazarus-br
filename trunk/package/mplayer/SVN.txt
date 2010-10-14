@@ -1,0 +1,1 @@
+https://lazarus-ccr.svn.sourceforge.net/svnroot/lazarus-ccr/components/mplayer
