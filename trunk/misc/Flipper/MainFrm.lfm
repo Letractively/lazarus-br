@@ -1,0 +1,62 @@
+object MainForm: TMainForm
+  Left = 359
+  Height = 240
+  Top = 210
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object FlipButton: TButton
+    Left = 0
+    Height = 25
+    Top = 103
+    Width = 320
+    Align = alTop
+    AutoSize = True
+    Caption = '&Flip'
+    OnClick = FlipButtonClick
+    TabOrder = 0
+  end
+  object NormalMemo: TMemo
+    Left = 0
+    Height = 98
+    Top = 0
+    Width = 320
+    Align = alTop
+    Lines.Strings = (
+      'Put your text here...'
+    )
+    OnEnter = NormalMemoEnter
+    OnExit = NormalMemoExit
+    TabOrder = 1
+  end
+  object FlipMemo: TMemo
+    Left = 0
+    Height = 107
+    Top = 133
+    Width = 320
+    Align = alClient
+    TabOrder = 2
+  end
+  object NormalSplitter: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 98
+    Width = 320
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  object FlipSplitter: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 128
+    Width = 320
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+end
