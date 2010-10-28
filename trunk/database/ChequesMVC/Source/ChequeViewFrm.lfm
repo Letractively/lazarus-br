@@ -4,6 +4,7 @@ inherited ChequeViewForm: TChequeViewForm
   Top = 188
   Width = 494
   ActiveControl = nil
+  Caption = 'Cheque'
   ClientHeight = 400
   ClientWidth = 494
   inherited ListDBGridPanel: TPanel
@@ -11,7 +12,6 @@ inherited ChequeViewForm: TChequeViewForm
     Width = 494
     ClientHeight = 308
     ClientWidth = 494
-    PopupMenu = DataPopupMenu
     inherited ListDBGrid: TDBGrid
       Height = 306
       Width = 492
@@ -65,14 +65,12 @@ inherited ChequeViewForm: TChequeViewForm
           FieldName = 'conta'
         end>
       DataSource = MainDataModule.ChequeDataSource
-      PopupMenu = DataPopupMenu
     end
   end
   inherited DataPanel: TPanel
     Top = 350
     Width = 494
     ClientWidth = 494
-    PopupMenu = DataPopupMenu
     inherited DeleteBitBtn: TBitBtn
       Left = 332
     end
@@ -95,12 +93,18 @@ inherited ChequeViewForm: TChequeViewForm
     inherited SearchPanel: TPanel
       Width = 365
       ClientWidth = 365
-      PopupMenu = MiscPopupMenu
       inherited SearchBitBtn: TBitBtn
         Left = 264
       end
       inherited SearchEdit: TEdit
+        Height = 23
         Width = 252
+      end
+    end
+    inherited SearchTypePanel: TPanel
+      inherited SearchTypeComboBox: TComboBox
+        Height = 23
+        ItemHeight = 15
       end
     end
   end
