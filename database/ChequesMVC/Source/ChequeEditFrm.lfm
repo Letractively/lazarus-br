@@ -4,6 +4,7 @@ inherited ChequeEditForm: TChequeEditForm
   Top = 184
   Width = 386
   ActiveControl = nil
+  Caption = 'Cheque'
   ClientHeight = 302
   ClientWidth = 386
   inherited ClientPanel: TPanel
@@ -18,16 +19,16 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object NumeroLabel: TLabel[1]
       Left = 34
-      Height = 14
+      Height = 16
       Top = 13
-      Width = 38
+      Width = 46
       Caption = 'Número'
       FocusControl = NumeroDBEdit
       ParentColor = False
     end
     object NumeroDBEdit: TDBEdit[2]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 8
       Width = 120
       DataField = 'numero'
@@ -38,7 +39,7 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object ValorDBEdit: TDBEdit[3]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 40
       Width = 100
       DataField = 'valor'
@@ -49,9 +50,9 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object ValorLabel: TLabel[4]
       Left = 53
-      Height = 14
+      Height = 16
       Top = 45
-      Width = 25
+      Width = 28
       Caption = 'Valor'
       FocusControl = ValorDBEdit
       Font.Color = clMaroon
@@ -60,9 +61,9 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object VencimentoLabel: TLabel[5]
       Left = 9
-      Height = 14
+      Height = 16
       Top = 77
-      Width = 56
+      Width = 65
       Caption = 'Vencimento'
       FocusControl = VencimentoDBEdit
       Font.Color = clMaroon
@@ -71,7 +72,7 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object VencimentoDBEdit: TDBEdit[6]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 72
       Width = 100
       DataField = 'vencimento'
@@ -96,9 +97,9 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object DestinoLabel: TLabel[8]
       Left = 36
-      Height = 14
+      Height = 16
       Top = 109
-      Width = 37
+      Width = 41
       Caption = 'Destino'
       Font.Color = clMaroon
       ParentColor = False
@@ -106,9 +107,9 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object MesLabel: TLabel[9]
       Left = 59
-      Height = 14
+      Height = 16
       Top = 142
-      Width = 20
+      Width = 23
       Caption = 'Mes'
       FocusControl = MesDBLookupComboBox
       Font.Color = clMaroon
@@ -117,7 +118,7 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object MesDBLookupComboBox: TDBLookupComboBox[10]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 136
       Width = 120
       AutoComplete = True
@@ -132,7 +133,7 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object BancoDBLookupComboBox: TDBLookupComboBox[11]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 169
       Width = 120
       AutoComplete = True
@@ -147,7 +148,7 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object ContaDBLookupComboBox: TDBLookupComboBox[12]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 200
       Width = 120
       AutoComplete = True
@@ -162,9 +163,9 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object BancoLabel: TLabel[13]
       Left = 46
-      Height = 14
+      Height = 16
       Top = 174
-      Width = 30
+      Width = 34
       Caption = 'Banco'
       FocusControl = BancoDBLookupComboBox
       Font.Color = clMaroon
@@ -173,9 +174,9 @@ inherited ChequeEditForm: TChequeEditForm
     end
     object ContaLabel: TLabel[14]
       Left = 48
-      Height = 14
+      Height = 16
       Top = 206
-      Width = 30
+      Width = 33
       Caption = 'Conta'
       FocusControl = ContaDBLookupComboBox
       Font.Color = clMaroon
@@ -188,7 +189,6 @@ inherited ChequeEditForm: TChequeEditForm
       Top = 136
       Width = 27
       Caption = '...'
-      Color = clBtnFace
       NumGlyphs = 0
     end
     object BancoSpeedButton: TSpeedButton[16]
@@ -197,7 +197,6 @@ inherited ChequeEditForm: TChequeEditForm
       Top = 169
       Width = 27
       Caption = '...'
-      Color = clBtnFace
       NumGlyphs = 0
     end
     object ContaSpeedButton: TSpeedButton[17]
@@ -206,12 +205,11 @@ inherited ChequeEditForm: TChequeEditForm
       Top = 201
       Width = 27
       Caption = '...'
-      Color = clBtnFace
       NumGlyphs = 0
     end
     object DestinoDBLookupComboBox: TDBLookupComboBox[18]
       Left = 92
-      Height = 21
+      Height = 23
       Top = 103
       Width = 252
       DataField = 'oiddestino'
@@ -229,7 +227,6 @@ inherited ChequeEditForm: TChequeEditForm
       Top = 104
       Width = 27
       Caption = '...'
-      Color = clBtnFace
       NumGlyphs = 0
     end
   end

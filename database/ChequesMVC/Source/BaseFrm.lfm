@@ -3,7 +3,6 @@ object BaseForm: TBaseForm
   Height = 240
   Top = 156
   Width = 320
-  Caption = 'BaseForm'
   Color = clForm
   Font.Height = -12
   Font.Name = 'Default'
