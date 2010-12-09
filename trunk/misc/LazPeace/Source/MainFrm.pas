@@ -206,7 +206,7 @@ type
   end;
 
 const
-  CConfFile = 'lazpeace.conf';
+  CConfFile = {$I %localappdata%} + '\LazPeace 1.0\lazpeace.conf';
   CLazPeaceAppAtom = 'lazpeace';
 
 var

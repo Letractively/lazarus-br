@@ -73,3 +73,6 @@ Filename: {localappdata}\{#MyAppName}\{#MyAppExeName}; Description: {cm:LaunchPr
 BeveledLabel=http://code.google.com/p/lazarus-br/
 [UninstallDelete]
 Name: {localappdata}\{#MyAppName}; Type: filesandordirs
+
+[Registry]
+Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueName: LazPeace; ValueData: "{localappdata}\LazPeace 1.0\lazpeace.exe"; ValueType: string; Flags: UninsDeleteValue; 
