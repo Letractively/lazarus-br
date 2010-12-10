@@ -196,11 +196,11 @@ end;
 
 initialization
   TReportDataObject.DeleteTempFile;
-{$ifdef unix}
-  _HTMLTemp := '/tmp/' + CHTMLTempFileName;
-{$else}
-  _HTMLTemp := ExtractFilePath(ParamStr(0)) + CHTMLTempFileName;
-{$endif}
+  _HTMLTemp := GetTempDir + CHTMLTempFileName;
+  SXMLConfig := GetUserDir + '.cheques';
+  if not DirectoryExists(SXMLConfig) then
+    CreateDir(SXMLConfig);
+  SXMLConfig := SXMLConfig + DirectorySeparator + 'cheques.xml';
 
 finalization
   TReportDataObject.DeleteTempFile;
