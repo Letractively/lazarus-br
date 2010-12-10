@@ -24,7 +24,7 @@ unit MainFrm;
 interface
 
 uses
-  Forms, Controls, ComCtrls, Menus, XMLPropStorage;
+  Forms, Controls, ComCtrls, Menus, Classes, XMLPropStorage;
 
 type
 
@@ -73,6 +73,8 @@ type
     procedure ExitMenuItemClick(Sender: TObject);
     procedure HelpMenuItemClick(Sender: TObject);
     procedure MesMenuItemClick(Sender: TObject);
+  public
+    constructor Create(TheOwner: TComponent); override;
   end;
 
 var
@@ -83,7 +85,8 @@ implementation
 {$R *.lfm}
 
 uses
-  BaseFrm, MesMVC, ContaMVC, BancoMVC, DestinoMVC, ChequeMVC, AboutFrm;
+  BaseFrm, ChequeConsts, MesMVC, ContaMVC, BancoMVC, DestinoMVC, ChequeMVC,
+  AboutFrm;
 
 { TMainForm }
 
@@ -125,6 +128,12 @@ end;
 procedure TMainForm.MesMenuItemClick(Sender: TObject);
 begin
   TMesView.Execute;
+end;
+
+constructor TMainForm.Create(TheOwner: TComponent);
+begin
+  inherited Create(TheOwner);
+  MainXMLPropStorage.FileName := SXMLConfig;
 end;
 
 end.

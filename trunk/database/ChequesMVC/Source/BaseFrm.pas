@@ -77,6 +77,7 @@ begin
   inherited Create(TheOwner);
 {$ifdef SaveFormSettings}
   FXMLPropStorage := TXMLPropStorage.Create(Self);
+  FXMLPropStorage.FileName := SXMLConfig;
 {$endif}
   SessionProperties := CDefaultSessionProperties;
   ShowInTaskBar := stNever;

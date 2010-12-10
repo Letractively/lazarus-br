@@ -93,6 +93,9 @@ const
   CNao = 'Não';
   CSim = 'Sim';
 
+var
+  SXMLConfig: string = 'cheques.xml';
+
 implementation
 
 end.

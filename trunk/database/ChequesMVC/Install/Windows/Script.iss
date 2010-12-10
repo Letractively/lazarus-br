@@ -53,7 +53,7 @@ Name: brazilianportuguese; MessagesFile: compiler:Languages\BrazilianPortuguese.
 Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}
 
 [Files]
-Source: cheques.exe; DestDir: {app}; Flags: ignoreversion
+Source: ..\..\Source\cheques.exe; DestDir: {app}; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 Source: sqlite3.dll; DestDir: {app}
 Source: ..\Linux\DEB\opt\Cheques\Leia-me.txt; DestDir: {app}
