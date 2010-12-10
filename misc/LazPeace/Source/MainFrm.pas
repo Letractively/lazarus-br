@@ -206,7 +206,6 @@ type
   end;
 
 const
-  CConfFile = {$I %localappdata%} + '\LazPeace 1.0\lazpeace.conf';
   CLazPeaceAppAtom = 'lazpeace';
 
 var
@@ -223,6 +222,7 @@ var
   _PrintHTMLFileTmp: string = '';
   _PrintTXTFileTmp: string = '';
   _FirstStart: Boolean = True;
+  _ConfFile: string = '';
 
 procedure _Send;
 begin
@@ -418,6 +418,7 @@ end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+  _ConfFile := LSCurrentPath + 'lazpeace.conf';
   with MainZConnection do
   begin
     Database := ExtractFilePath(ParamStr(0)) + 'lazpeace.db3';
@@ -490,12 +491,10 @@ end;
 
 procedure TMainForm.MessageTimerTimer(Sender: TObject);
 begin
-  MessageTimer.Enabled := False;
   RandomizeMessage;
   TLSNotifierOS.Execute('LazPeace 1.0 (Clique para ler)',
     Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', Application.Icon,
-    npBottomRight, 10000, ntRound, Color, 100, 0, CLeftGain, CTopGain,
-    @HintClick);
+    npBottomRight, -1, ntRound, Color, 100, 0, CLeftGain, CTopGain, @HintClick);
   if FSendMsgToEmail and (FTimerMessageInterval > 30) then
     SendToEmailAction.Execute;
 end;
@@ -524,7 +523,7 @@ end;
 
 procedure TMainForm.Initialize;
 begin
-  if not FileExists(CConfFile) then
+  if not FileExists(_ConfFile) then
   begin
     Left := (LSGetWorkAreaRect(Handle).Right - Width) - 10;
     Top := (LSGetWorkAreaRect(Handle).Bottom - Height) - 10;
@@ -535,7 +534,7 @@ begin
 {$IFDEF UNIX}
   NumberEdit.BorderStyle := bsNone;
 {$ENDIF}
-  MainXMLPropStorage.FileName := CConfFile;
+  MainXMLPropStorage.FileName := _ConfFile;
   FCanClose := False;
   FCanRandomizeMessage := True;
   LoadOption;

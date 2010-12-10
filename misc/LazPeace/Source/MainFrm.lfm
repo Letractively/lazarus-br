@@ -3205,6 +3205,7 @@ object MainForm: TMainForm
     object CloseImage: TImage
       Left = 588
       Height = 18
+      Hint = 'Fechar para a bandeja do sistema'
       Top = 0
       Width = 10
       Align = alRight
@@ -4337,6 +4338,7 @@ object MainForm: TMainForm
   end
   object TrayIcon: TTrayIcon
     PopUpMenu = TrayIconPopupMenu
+    Hint = 'LazPeace 1.0'
     OnDblClick = TrayIconDblClick
     left = 312
     top = 184

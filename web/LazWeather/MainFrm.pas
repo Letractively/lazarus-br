@@ -41,6 +41,8 @@ var
   S: string;
   VHTML: TStringList;
 begin
+  TempLabel.Caption := '';
+  ConditionImage.Picture.Clear;
   VHTML := TStringList.Create;
   try
     if LSHTTPGetText(EncodeURL(Format(CURL, ['pt-br', 'br',
@@ -51,9 +53,12 @@ begin
         '<span id="ctl00_cphContent_lblCurrentTemp" style="display: block; ' +
         'font-weight: bold;font-size: 18px; line-height: 24px;">',
         '&deg;C</span>', S, True, False);
-      LSHTTPGetPicture(GetPart(
-        '<img id="ctl00_cphContent_imgCurConCondition" class="fltLeft" src="',
-        '"', S, True, False), ConditionImage.Picture);
+      try
+        LSHTTPGetPicture(GetPart(
+          '<img id="ctl00_cphContent_imgCurConCondition" class="fltLeft" src="',
+          '"', S, True, False), ConditionImage.Picture);
+      except
+      end;
     end
     else
       ShowMessage('Não foi possível obter a previsão do tempo para "' +
