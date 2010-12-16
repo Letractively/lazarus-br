@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls, Buttons, ActnList,
   StdCtrls, Menus, ComCtrls, ZConnection, ZDataset, DB, LCLType, StrUtils,
-  Graphics, LCLIntf, LCLProc, XMLPropStorage;
+  Graphics, LCLIntf, LCLProc, XMLPropStorage, FileUtil;
 
 type
 
@@ -790,8 +790,10 @@ begin
 end;
 
 initialization
-  _PrintHTMLFileTmp := ExtractFilePath(ParamStr(0)) + 'lazpeaceprint.html';
-  _PrintTXTFileTmp := ExtractFilePath(ParamStr(0)) + 'lazpeaceprint.txt';
+  _PrintHTMLFileTmp := ExtractShortPathNameUTF8(
+    ExtractFilePath(ParamStrUTF8(0))) + 'lazpeaceprint.html';
+  _PrintTXTFileTmp := ExtractShortPathNameUTF8(
+    ExtractFilePath(ParamStrUTF8(0))) + 'lazpeaceprint.txt';
   Randomize;
 
 finalization
