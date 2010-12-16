@@ -1,19 +1,19 @@
 object OptionForm: TOptionForm
   Left = 272
-  Height = 331
+  Height = 357
   Top = 143
   Width = 428
   ActiveControl = OptionPageControl
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Opções'
-  ClientHeight = 331
+  ClientHeight = 357
   ClientWidth = 428
   Position = poDesktopCenter
   LCLVersion = '0.9.29'
   object OptionPageControl: TPageControl
     Left = 0
-    Height = 293
+    Height = 319
     Top = 0
     Width = 428
     ActivePage = ConfigurationTabSheet
@@ -22,15 +22,15 @@ object OptionForm: TOptionForm
     TabOrder = 0
     object ConfigurationTabSheet: TTabSheet
       Caption = 'Configuração'
-      ClientHeight = 265
+      ClientHeight = 291
       ClientWidth = 420
       object ShiftCtrlFCheckBox: TCheckBox
         AnchorSideLeft.Side = asrCenter
         Left = 12
         Height = 19
-        Top = 16
-        Width = 293
-        Caption = 'Informar uso de remoção de filtro com Shift+Crtl+F'
+        Top = 9
+        Width = 288
+        Caption = 'Informar atalho para remoção do filtro de pesquisa'
         TabOrder = 0
       end
       object StartWithOSCheckBox: TCheckBox
@@ -39,24 +39,24 @@ object OptionForm: TOptionForm
         AnchorSideTop.Side = asrBottom
         Left = 12
         Height = 19
-        Top = 45
-        Width = 132
+        Top = 38
+        Width = 187
         BorderSpacing.Top = 10
-        Caption = 'Iniciar com o sistema'
+        Caption = 'Iniciar programa com o sistema'
         Enabled = False
         TabOrder = 1
       end
       object RandomMessageCheckBox: TCheckBox
         AnchorSideLeft.Control = StartWithOSCheckBox
-        AnchorSideTop.Control = StartWithOSCheckBox
+        AnchorSideTop.Control = RandomBookCheckBox
         AnchorSideTop.Side = asrBottom
         Left = 12
         Height = 19
-        Top = 74
-        Width = 170
+        Top = 96
+        Width = 119
         BorderSpacing.Top = 10
-        Caption = 'Sortear mensagem ao iniciar'
-        TabOrder = 2
+        Caption = 'Sortear mensagem'
+        TabOrder = 3
       end
       object StartInGotasLuzCheckBox: TCheckBox
         AnchorSideLeft.Control = RandomMessageCheckBox
@@ -64,24 +64,24 @@ object OptionForm: TOptionForm
         AnchorSideTop.Side = asrBottom
         Left = 12
         Height = 19
-        Top = 103
+        Top = 125
         Width = 172
         BorderSpacing.Top = 10
         Caption = 'Iniciar no livro "Gotas de luz"'
-        TabOrder = 3
+        TabOrder = 4
       end
       object TimerMessageEdit: TEdit
         AnchorSideLeft.Control = TimerMessageBeginLabe
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = StartInGotasLuzCheckBox
         AnchorSideTop.Side = asrBottom
-        Left = 153
+        Left = 180
         Height = 23
-        Top = 132
+        Top = 154
         Width = 51
         BorderSpacing.Top = 10
         OnChange = TimerMessageEditChange
-        TabOrder = 4
+        TabOrder = 5
         Text = '60'
       end
       object TimerMessageBeginLabe: TLabel
@@ -90,9 +90,9 @@ object OptionForm: TOptionForm
         AnchorSideTop.Side = asrCenter
         Left = 12
         Height = 16
-        Top = 135
-        Width = 141
-        Caption = 'Mostrar mensagem a cada'
+        Top = 157
+        Width = 168
+        Caption = 'Mostrar uma mensagem a cada'
         ParentColor = False
       end
       object TimerMessageEndLabe: TLabel
@@ -100,23 +100,23 @@ object OptionForm: TOptionForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = TimerMessageEdit
         AnchorSideTop.Side = asrCenter
-        Left = 221
+        Left = 248
         Height = 16
-        Top = 135
+        Top = 157
         Width = 108
         Caption = 'minutos (0 desativa)'
         ParentColor = False
       end
       object TimerMessageUpDown: TUpDown
-        Left = 204
+        Left = 231
         Height = 23
-        Top = 132
+        Top = 154
         Width = 17
         Associate = TimerMessageEdit
         Min = 0
         Max = 480
         Position = 60
-        TabOrder = 5
+        TabOrder = 6
         Wrap = False
       end
       object SendMsgToEmailCheckBox: TCheckBox
@@ -125,11 +125,11 @@ object OptionForm: TOptionForm
         AnchorSideTop.Side = asrBottom
         Left = 12
         Height = 19
-        Top = 165
-        Width = 326
+        Top = 187
+        Width = 353
         BorderSpacing.Top = 10
-        Caption = 'Enviar mensagem por e-mail (intervalo mínimo de 30min)'
-        TabOrder = 6
+        Caption = 'Enviar uma mensagem por e-mail (intervalo mínimo de 30min)'
+        TabOrder = 7
       end
       object PrintAsTXTCheckBox: TCheckBox
         AnchorSideLeft.Control = SendMsgToEmailCheckBox
@@ -137,23 +137,47 @@ object OptionForm: TOptionForm
         AnchorSideTop.Side = asrBottom
         Left = 12
         Height = 19
-        Top = 194
-        Width = 129
+        Top = 216
+        Width = 191
         BorderSpacing.Top = 10
-        Caption = '&Imprimir como texto'
-        TabOrder = 7
+        Caption = '&Imprimir mensagem como texto'
+        TabOrder = 8
+      end
+      object RandomBookCheckBox: TCheckBox
+        AnchorSideLeft.Control = StartWithOSCheckBox
+        AnchorSideTop.Control = StartWithOSCheckBox
+        AnchorSideTop.Side = asrBottom
+        Left = 12
+        Height = 19
+        Top = 67
+        Width = 83
+        BorderSpacing.Top = 10
+        Caption = 'Sortear livro'
+        TabOrder = 2
+      end
+      object PlaySoundCheckBox: TCheckBox
+        AnchorSideLeft.Control = PrintAsTXTCheckBox
+        AnchorSideTop.Control = PrintAsTXTCheckBox
+        AnchorSideTop.Side = asrBottom
+        Left = 12
+        Height = 19
+        Top = 245
+        Width = 212
+        BorderSpacing.Top = 10
+        Caption = 'Tocar som ao exibir uma mensagem'
+        TabOrder = 9
       end
     end
     object SMTPTabSheet: TTabSheet
       Caption = 'SMTP'
-      ClientHeight = 265
+      ClientHeight = 291
       ClientWidth = 420
       object SMTPConnectionGroupBox: TGroupBox
         AnchorSideLeft.Control = SMTPTabSheet
         AnchorSideLeft.Side = asrCenter
         Left = 42
         Height = 145
-        Top = 11
+        Top = 24
         Width = 336
         Caption = 'Conexão SMTP'
         ClientHeight = 127
@@ -308,7 +332,7 @@ object OptionForm: TOptionForm
         AnchorSideRight.Side = asrBottom
         Left = 42
         Height = 92
-        Top = 156
+        Top = 169
         Width = 336
         Anchors = [akTop, akLeft, akRight]
         Caption = 'E-mail'
@@ -368,7 +392,7 @@ object OptionForm: TOptionForm
   object BottomPanel: TPanel
     Left = 0
     Height = 38
-    Top = 293
+    Top = 319
     Width = 428
     Align = alBottom
     ClientHeight = 38
@@ -480,7 +504,8 @@ object OptionForm: TOptionForm
   end
   object OptionActionList: TActionList
     Images = MainForm.MainImageList
-    left = 224
+    left = 288
+    top = 56
     object OKAction: TAction
       Category = 'Option'
       Caption = '&OK'

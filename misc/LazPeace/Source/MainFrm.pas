@@ -16,6 +16,8 @@ type
   TMainForm = class(TForm)
     AboutAction: TAction;
     CloseImage: TImage;
+    OptionZQueryplaysound: TStringField;
+    OptionZQueryrandombook: TStringField;
     StatusLabel: TLabel;
     OptionZQueryfrommail: TStringField;
     OptionZQueryprintastxt: TStringField;
@@ -147,7 +149,9 @@ type
     procedure TrayIconDblClick(Sender: TObject);
   private
     FFromMail: string;
+    FPlaySound: Boolean;
     FPrintAsTXT: Boolean;
+    FRandomBook: Boolean;
     FSendMsgToEmail: Boolean;
     FToMail: string;
     FRandomMessage: Boolean;
@@ -162,7 +166,10 @@ type
     FStartInGotasLuz: Boolean;
     FTimerMessageInterval: Integer;
     FCanClose: Boolean;
+    FCanRandomizeBook: Boolean;
+    FOldCanRandomizeBook: Boolean;
     FCanRandomizeMessage: Boolean;
+    FOldCanRandomizeMessage: Boolean;
     FStatus: string;
     FThreadID: TThreadID;
     XPos, YPos, NewLeft, NewTop: Integer;
@@ -174,6 +181,8 @@ type
     procedure Initialize; virtual;
     procedure LoadOption; virtual;
     procedure SaveOption; virtual;
+    procedure SelectBook;
+    procedure RandomizeBook;
     procedure RandomizeMessage;
     procedure AddFavorite;
     procedure LoadFavorite;
@@ -190,6 +199,7 @@ type
     procedure HintClick(Sender: TObject);
     property ShiftCtrlF: Boolean read FShiftCtrlF write FShiftCtrlF;
     property StartWithOS: Boolean read FStartWithOS write FStartWithOS;
+    property RandomBook: Boolean read FRandomBook write FRandomBook;
     property RandomMessage: Boolean read FRandomMessage write FRandomMessage;
     property StartInGotasLuz: Boolean read FStartInGotasLuz write FStartInGotasLuz;
     property TimerMessageInterval: Integer read FTimerMessageInterval write FTimerMessageInterval;
@@ -203,6 +213,7 @@ type
     property ToMail: string read FToMail write FToMail;
     property SendMsgToEmail: Boolean read FSendMsgToEmail write FSendMsgToEmail;
     property PrintAsTXT: Boolean read FPrintAsTXT write FPrintAsTXT;
+    property PlaySound: Boolean read FPlaySound write FPlaySound;
   end;
 
 const
@@ -216,13 +227,15 @@ implementation
 {$R *.lfm}
 
 uses
-  LSForms, LSUtils, LSSMTPSend, LSNotifierOS, FindFrm, OptionFrm, FavoriteFrm;
+  LSForms, LSUtils, LSSMTPSend, LSNotifierOS, LSPlayWAV, FindFrm, OptionFrm,
+  FavoriteFrm;
 
 var
   _PrintHTMLFileTmp: string = '';
   _PrintTXTFileTmp: string = '';
   _FirstStart: Boolean = True;
   _ConfFile: string = '';
+  _WAVFile: string = '';
 
 procedure _Send;
 begin
@@ -240,28 +253,21 @@ end;
 { TMainForm }
 
 procedure TMainForm.BookRadioGroupClick(Sender: TObject);
-const
-  CPreSelect = 'select * from %s order by oid;';
 begin
-  MessageZReadOnlyQuery.Close;
-  case BookRadioGroup.ItemIndex of
-    0: MessageZReadOnlyQuery.SQL.Text := Format(CPreSelect, ['minutos']);
-    1: MessageZReadOnlyQuery.SQL.Text := Format(CPreSelect, ['gotas']);
-  end;
-  MessageZReadOnlyQuery.Open;
-  if FRandomMessage then
-    RandomizeMessage;
+  SelectBook;
 end;
 
 procedure TMainForm.DeleteFilterActionExecute(Sender: TObject);
 begin
-  BookRadioGroupClick(Sender);
+  SelectBook;
 end;
 
 procedure TMainForm.ExitActionExecute(Sender: TObject);
 begin
-  FCanClose := True;
-  Close;
+  FCanClose := MessageDlg('Deseja sair do programa?', mtConfirmation,
+    mbYesNo, 0) = mrYes;
+  if FCanClose then
+    Close;
 end;
 
 procedure TMainForm.DeleteFavoriteMenuItemClick(Sender: TObject);
@@ -418,13 +424,6 @@ end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  _ConfFile := LSCurrentPath + 'lazpeace.conf';
-  with MainZConnection do
-  begin
-    Database := ExtractFilePath(ParamStr(0)) + 'lazpeace.db3';
-    Protocol := 'sqlite-3';
-    Connect;
-  end;
   Initialize;
 end;
 
@@ -467,7 +466,10 @@ end;
 
 procedure TMainForm.RandomizeActionExecute(Sender: TObject);
 begin
+  RandomizeBook;
   RandomizeMessage;
+  if FPlaySound then
+    LSPlayWAVFile(_WAVFile);
 end;
 
 procedure TMainForm.RunOnceMonitorTimerTimer(Sender: TObject);
@@ -491,10 +493,17 @@ end;
 
 procedure TMainForm.MessageTimerTimer(Sender: TObject);
 begin
-  RandomizeMessage;
-  TLSNotifierOS.Execute('LazPeace 1.0 (Clique para ler)',
-    Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', Application.Icon,
-    npBottomRight, -1, ntRound, Color, 100, 0, CLeftGain, CTopGain, @HintClick);
+  if FRandomBook then
+    RandomizeBook;
+  if FRandomMessage then
+    RandomizeMessage;
+  if FPlaySound then
+    LSPlayWAVFile(_WAVFile);
+  if not Visible then
+    TLSNotifierOS.Execute('LazPeace 1.0 (Clique aqui para ler)',
+      Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', Application.Icon,
+      npBottomRight, -1, ntRound, Color, 100, 0, CLeftGain, CTopGain,
+      @HintClick);
   if FSendMsgToEmail and (FTimerMessageInterval > 30) then
     SendToEmailAction.Execute;
 end;
@@ -523,6 +532,14 @@ end;
 
 procedure TMainForm.Initialize;
 begin
+  _ConfFile := LSCurrentPath + 'lazpeace.conf';
+  _WAVFile := LSCurrentPath + 'sound.wav';
+  with MainZConnection do
+  begin
+    Database := ExtractFilePath(ParamStr(0)) + 'lazpeace.db3';
+    Protocol := 'sqlite-3';
+    Connect;
+  end;
   if not FileExists(_ConfFile) then
   begin
     Left := (LSGetWorkAreaRect(Handle).Right - Width) - 10;
@@ -536,12 +553,18 @@ begin
 {$ENDIF}
   MainXMLPropStorage.FileName := _ConfFile;
   FCanClose := False;
+  FCanRandomizeBook := True;
   FCanRandomizeMessage := True;
   LoadOption;
   LoadFavorite;
+  SelectBook;
   if FStartInGotasLuz then
-    BookRadioGroup.ItemIndex := 1;
-  BookRadioGroupClick(Self);
+    BookRadioGroup.ItemIndex := 1
+  else
+    if FRandomBook then
+      RandomizeBook;
+  if FRandomMessage then
+    RandomizeMessage;
 end;
 
 procedure TMainForm.LoadOption;
@@ -551,6 +574,7 @@ begin
     OptionZQuery.Open;
     FShiftCtrlF := OptionZQuery.FieldByName('shiftctrlf').AsBoolean;
     FStartWithOS := OptionZQuery.FieldByName('startwithos').AsBoolean;
+    FRandomBook := OptionZQuery.FieldByName('randombook').AsBoolean;
     FRandomMessage := OptionZQuery.FieldByName('randommessage').AsBoolean;
     FStartInGotasLuz := OptionZQuery.FieldByName('startingotasluz').AsBoolean;
     FTimerMessageInterval := StrToIntDef(OptionZQuery.FieldByName(
@@ -567,6 +591,7 @@ begin
     FToMail := OptionZQuery.FieldByName('tomail').AsString;
     FSendMsgToEmail := OptionZQuery.FieldByName('sendmsgtoemail').AsBoolean;
     FPrintAsTXT := OptionZQuery.FieldByName('printastxt').AsBoolean;
+    FPlaySound := OptionZQuery.FieldByName('playsound').AsBoolean;
     OptionZQuery.Close;
   end;
 end;
@@ -577,6 +602,7 @@ begin
   OptionZQuery.Edit;
   OptionZQuery.FieldByName('shiftctrlf').AsBoolean := FShiftCtrlF;
   OptionZQuery.FieldByName('startwithos').AsBoolean := FStartWithOS;
+  OptionZQuery.FieldByName('randombook').AsBoolean := FRandomBook;
   OptionZQuery.FieldByName('randommessage').AsBoolean := FRandomMessage;
   OptionZQuery.FieldByName('startingotasluz').AsBoolean := FStartInGotasLuz;
   OptionZQuery.FieldByName('timermessage').AsInteger := FTimerMessageInterval;
@@ -590,8 +616,30 @@ begin
   OptionZQuery.FieldByName('tomail').AsString := FToMail;
   OptionZQuery.FieldByName('sendmsgtoemail').AsBoolean := FSendMsgToEmail;
   OptionZQuery.FieldByName('printastxt').AsBoolean := FPrintAsTXT;
+  OptionZQuery.FieldByName('playsound').AsBoolean := FPlaySound;
   OptionZQuery.Post;
   OptionZQuery.Close;
+end;
+
+procedure TMainForm.SelectBook;
+const
+  CPreSelect = 'select * from %s order by oid;';
+var
+  VOldRecNo: Integer;
+begin
+  VOldRecNo := MessageZReadOnlyQuery.RecNo;
+  MessageZReadOnlyQuery.Close;
+  case BookRadioGroup.ItemIndex of
+    0: MessageZReadOnlyQuery.SQL.Text := Format(CPreSelect, ['minutos']);
+    1: MessageZReadOnlyQuery.SQL.Text := Format(CPreSelect, ['gotas']);
+  end;
+  MessageZReadOnlyQuery.Open;
+  MessageZReadOnlyQuery.RecNo := VOldRecNo;
+end;
+
+procedure TMainForm.RandomizeBook;
+begin
+  BookRadioGroup.ItemIndex := Random(2);
 end;
 
 procedure TMainForm.RandomizeMessage;
@@ -680,6 +728,7 @@ procedure TMainForm.ShowIconInTray;
 begin
   TrayIcon.Icon.Assign(Application.Icon);
   TrayIcon.Visible := True;
+  FCanRandomizeBook := True;
   FCanRandomizeMessage := True;
 end;
 
@@ -688,6 +737,7 @@ begin
   WindowState := wsNormal;
   Show;
   BringToFront;
+  FCanRandomizeBook := False;
   FCanRandomizeMessage := False;
 end;
 
@@ -713,6 +763,10 @@ end;
 
 procedure TMainForm.OnStart;
 begin
+  FOldCanRandomizeBook := FCanRandomizeBook;
+  FOldCanRandomizeMessage := FCanRandomizeMessage;
+  FCanRandomizeBook := False;
+  FCanRandomizeMessage := False;
   StatusLabel.Show;
   SendToEmailAction.Enabled := False;
 end;
@@ -722,6 +776,8 @@ begin
   SendToEmailAction.Enabled := True;
   StatusLabel.Hide;
   ShowMessage(AStatus);
+  FCanRandomizeBook := FOldCanRandomizeBook;
+  FCanRandomizeMessage := FOldCanRandomizeMessage;
 end;
 
 procedure TMainForm.HintClick(Sender: TObject);

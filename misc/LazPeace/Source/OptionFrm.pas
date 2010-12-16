@@ -14,6 +14,8 @@ type
   TOptionForm = class(TForm)
     CancelAction: TAction;
     CancelBitBtn: TBitBtn;
+    PlaySoundCheckBox: TCheckBox;
+    RandomBookCheckBox: TCheckBox;
     PrintAsTXTCheckBox: TCheckBox;
     SendMsgToEmailCheckBox: TCheckBox;
     FromEdit: TEdit;
@@ -87,6 +89,7 @@ begin
       MainForm.LoadOption;
       ShiftCtrlFCheckBox.Checked := MainForm.ShiftCtrlF;
       StartWithOSCheckBox.Checked := MainForm.StartWithOS;
+      RandomBookCheckBox.Checked := MainForm.RandomBook;
       RandomMessageCheckBox.Checked := MainForm.RandomMessage;
       StartInGotasLuzCheckBox.Checked := MainForm.StartInGotasLuz;
       TimerMessageUpDown.Position := MainForm.TimerMessageInterval;
@@ -100,10 +103,12 @@ begin
       ToEdit.Text := MainForm.ToMail;
       SendMsgToEmailCheckBox.Checked := MainForm.SendMsgToEmail;
       PrintAsTXTCheckBox.Checked := MainForm.PrintAsTXT;
+      PlaySoundCheckBox.Checked := MainForm.PlaySound;
       if ShowModal = mrOk then
       begin
         MainForm.ShiftCtrlF := ShiftCtrlFCheckBox.Checked;
         MainForm.StartWithOS := StartWithOSCheckBox.Checked;
+        MainForm.RandomBook := RandomBookCheckBox.Checked;
         MainForm.RandomMessage := RandomMessageCheckBox.Checked;
         MainForm.StartInGotasLuz := StartInGotasLuzCheckBox.Checked;
         MainForm.TimerMessageInterval := TimerMessageUpDown.Position;
@@ -117,6 +122,7 @@ begin
         MainForm.ToMail := ToEdit.Text;
         MainForm.SendMsgToEmail := SendMsgToEmailCheckBox.Checked;
         MainForm.PrintAsTXT := PrintAsTXTCheckBox.Checked;
+        MainForm.PlaySound := PlaySoundCheckBox.Checked;
         MainForm.SaveOption;
         MainForm.LoadOption;
       end;
