@@ -184,6 +184,7 @@ type
     procedure SelectBook;
     procedure RandomizeBook;
     procedure RandomizeMessage;
+    procedure Play;
     procedure AddFavorite;
     procedure LoadFavorite;
     procedure AddPopupFavorite(const ABook, AOidMessage: Integer;
@@ -468,8 +469,7 @@ procedure TMainForm.RandomizeActionExecute(Sender: TObject);
 begin
   RandomizeBook;
   RandomizeMessage;
-  if FPlaySound then
-    LSPlayWAVFile(_WAVFile);
+  Play;
 end;
 
 procedure TMainForm.RunOnceMonitorTimerTimer(Sender: TObject);
@@ -493,12 +493,9 @@ end;
 
 procedure TMainForm.MessageTimerTimer(Sender: TObject);
 begin
-  if FRandomBook then
-    RandomizeBook;
-  if FRandomMessage then
-    RandomizeMessage;
-  if FPlaySound then
-    LSPlayWAVFile(_WAVFile);
+  RandomizeBook;
+  RandomizeMessage;
+  Play;
   if not Visible then
     TLSNotifierOS.Execute('LazPeace 1.0 (Clique aqui para ler)',
       Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', Application.Icon,
@@ -561,10 +558,8 @@ begin
   if FStartInGotasLuz then
     BookRadioGroup.ItemIndex := 1
   else
-    if FRandomBook then
-      RandomizeBook;
-  if FRandomMessage then
-    RandomizeMessage;
+    RandomizeBook;
+  RandomizeMessage;
 end;
 
 procedure TMainForm.LoadOption;
@@ -639,12 +634,20 @@ end;
 
 procedure TMainForm.RandomizeBook;
 begin
-  BookRadioGroup.ItemIndex := Random(2);
+  if FRandomBook then
+    BookRadioGroup.ItemIndex := Random(2);
 end;
 
 procedure TMainForm.RandomizeMessage;
 begin
-  MessageZReadOnlyQuery.RecNo := Random(MessageZReadOnlyQuery.RecordCount);
+  if FRandomMessage then
+    MessageZReadOnlyQuery.RecNo := Random(MessageZReadOnlyQuery.RecordCount);
+end;
+
+procedure TMainForm.Play;
+begin
+  if FPlaySound then
+    LSPlayWAVFile(_WAVFile);
 end;
 
 procedure TMainForm.AddFavorite;
