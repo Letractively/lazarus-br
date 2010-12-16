@@ -61,7 +61,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="35" Y="14"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
       </Unit0>
       <Unit1>
         <Filename Value="MainFrm.pas"/>
@@ -74,7 +74,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -87,7 +87,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="51"/>
         <CursorPos X="34" Y="60"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="81"/>
       </Unit2>
       <Unit3>
         <Filename Value="OptionFrm.pas"/>
@@ -98,7 +98,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="70"/>
       </Unit3>
       <Unit4>
         <Filename Value="FavoriteFrm.pas"/>
@@ -109,7 +109,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="62"/>
       </Unit4>
     </Units>
   </ProjectOptions>

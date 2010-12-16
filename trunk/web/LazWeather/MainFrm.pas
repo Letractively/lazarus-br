@@ -52,7 +52,7 @@ begin
       TempLabel.Caption := GetPart(
         '<span id="ctl00_cphContent_lblCurrentTemp" style="display: block; ' +
         'font-weight: bold;font-size: 18px; line-height: 24px;">',
-        '&deg;C</span>', S, True, False);
+        '&deg;C</span>', S, True, False) + ' °C';
       try
         LSHTTPGetPicture(GetPart(
           '<img id="ctl00_cphContent_imgCurConCondition" class="fltLeft" src="',

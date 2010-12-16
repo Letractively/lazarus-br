@@ -58,6 +58,7 @@ Source: ..\..\Source\lazpeace.db3; DestDir: {localappdata}\{#MyAppName}
 Source: sqlite3.dll; DestDir: {localappdata}\{#MyAppName}
 Source: libeay32.dll; DestDir: {localappdata}\{#MyAppName}
 Source: ssleay32.dll; DestDir: {localappdata}\{#MyAppName}
+Source: ..\..\Source\sound.wav; DestDir: {localappdata}\{#MyAppName}; 
 
 [Icons]
 Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; 
@@ -75,4 +76,4 @@ BeveledLabel=http://code.google.com/p/lazarus-br/
 Name: {localappdata}\{#MyAppName}; Type: filesandordirs
 
 [Registry]
-Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueName: LazPeace; ValueData: "{localappdata}\LazPeace 1.0\lazpeace.exe"; ValueType: string; Flags: UninsDeleteValue; 
+Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueName: LazPeace; ValueData: "{localappdata}\LazPeace 1.0\lazpeace.exe"; ValueType: string; Flags: UninsDeleteValue;

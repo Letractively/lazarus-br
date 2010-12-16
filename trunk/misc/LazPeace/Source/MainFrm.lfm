@@ -4138,11 +4138,22 @@ object MainForm: TMainForm
       Required = False
       Size = 255
     end
+    object OptionZQueryrandombook: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'randombook'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
     object OptionZQueryrandommessage: TStringField
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'randommessage'
-      Index = 2
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4153,7 +4164,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'startingotasluz'
-      Index = 3
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4164,7 +4175,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'timermessage'
-      Index = 4
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4175,7 +4186,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'smtpuser'
-      Index = 5
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4186,7 +4197,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'smtppassword'
-      Index = 6
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4197,7 +4208,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'smtphost'
-      Index = 7
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4208,7 +4219,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'smtpport'
-      Index = 8
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4219,7 +4230,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'smtpssl'
-      Index = 9
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4230,7 +4241,7 @@ object MainForm: TMainForm
       DisplayWidth = 255
       FieldKind = fkData
       FieldName = 'smtptls'
-      Index = 10
+      Index = 11
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4241,7 +4252,7 @@ object MainForm: TMainForm
       DisplayWidth = 30
       FieldKind = fkData
       FieldName = 'frommail'
-      Index = 11
+      Index = 12
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4252,7 +4263,7 @@ object MainForm: TMainForm
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'tomail'
-      Index = 12
+      Index = 13
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4263,7 +4274,7 @@ object MainForm: TMainForm
       DisplayWidth = 1
       FieldKind = fkData
       FieldName = 'sendmsgtoemail'
-      Index = 13
+      Index = 14
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -4274,12 +4285,23 @@ object MainForm: TMainForm
       DisplayWidth = 1
       FieldKind = fkData
       FieldName = 'printastxt'
-      Index = 14
+      Index = 15
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 1
+    end
+    object OptionZQueryplaysound: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'playsound'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
     end
   end
   object FavoriteZQuery: TZQuery
