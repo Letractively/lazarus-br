@@ -48,7 +48,7 @@ ShowUndisplayableLanguages=true
 Name: brazilianportuguese; MessagesFile: compiler:Languages\BrazilianPortuguese.isl
 
 [Tasks]
-Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked; 
+Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; 
 Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}; 
 
 [Files]
