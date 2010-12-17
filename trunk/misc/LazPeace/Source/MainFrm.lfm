@@ -4469,6 +4469,7 @@ object MainForm: TMainForm
   end
   object MainXMLPropStorage: TXMLPropStorage
     StoredValues = <>
+    OnRestoreProperties = MainXMLPropStorageRestoreProperties
     left = 424
     top = 184
   end
