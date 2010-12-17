@@ -128,6 +128,7 @@ type
     procedure FormPaint(Sender: TObject);
     procedure FormWindowStateChange(Sender: TObject);
     procedure CloseImageClick(Sender: TObject);
+    procedure MainXMLPropStorageRestoreProperties(Sender: TObject);
     procedure MessageZReadOnlyQueryAfterScroll(DataSet: TDataSet);
     procedure NumberEditKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -228,8 +229,8 @@ implementation
 {$R *.lfm}
 
 uses
-  LSForms, LSUtils, LSSMTPSend, LSNotifierOS, LSPlayWAV, FindFrm, OptionFrm,
-  FavoriteFrm;
+  LSForms, LSUtils, LSSMTPSend, LSNotifierOS, LSPlayWAV, LSCrypt, FindFrm,
+  OptionFrm, FavoriteFrm;
 
 var
   _PrintHTMLFileTmp: string = '';
@@ -377,6 +378,11 @@ end;
 procedure TMainForm.CloseImageClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TMainForm.MainXMLPropStorageRestoreProperties(Sender: TObject);
+begin
+  MainXMLPropStorage.Save;
 end;
 
 procedure TMainForm.MessageZReadOnlyQueryAfterScroll(DataSet: TDataSet);
@@ -577,7 +583,8 @@ begin
     MessageTimer.Enabled := FTimerMessageInterval > 0;
     MessageTimer.Interval := (FTimerMessageInterval * 60) * 1000;
     FSMTPUser := OptionZQuery.FieldByName('smtpuser').AsString;
-    FSMTPPassword := OptionZQuery.FieldByName('smtppassword').AsString;
+    FSMTPPassword := LSCryptRC6MD5(OptionZQuery.FieldByName(
+      'smtppassword').AsString, LSGetPhysicalSerialOfCurrentDisk, ctDecrypt);
     FSMTPHost := OptionZQuery.FieldByName('smtphost').AsString;
     FSMTPPort := OptionZQuery.FieldByName('smtpport').AsInteger;
     FSMTPSSL := OptionZQuery.FieldByName('smtpssl').AsBoolean;
@@ -602,7 +609,8 @@ begin
   OptionZQuery.FieldByName('startingotasluz').AsBoolean := FStartInGotasLuz;
   OptionZQuery.FieldByName('timermessage').AsInteger := FTimerMessageInterval;
   OptionZQuery.FieldByName('smtpuser').AsString := FSMTPUser;
-  OptionZQuery.FieldByName('smtppassword').AsString := FSMTPPassword;
+  OptionZQuery.FieldByName('smtppassword').AsString := LSCryptRC6MD5(
+    FSMTPPassword, LSGetPhysicalSerialOfCurrentDisk);
   OptionZQuery.FieldByName('smtphost').AsString := FSMTPHost;
   OptionZQuery.FieldByName('smtpport').AsInteger := FSMTPPort;
   OptionZQuery.FieldByName('smtpssl').AsBoolean := FSMTPSSL;
