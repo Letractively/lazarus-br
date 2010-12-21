@@ -14,6 +14,7 @@ type
   TOptionForm = class(TForm)
     CancelAction: TAction;
     CancelBitBtn: TBitBtn;
+    InformMoreEmailsCheckBox: TCheckBox;
     PlaySoundCheckBox: TCheckBox;
     RandomBookCheckBox: TCheckBox;
     PrintAsTXTCheckBox: TCheckBox;
@@ -104,6 +105,7 @@ begin
       SendMsgToEmailCheckBox.Checked := MainForm.SendMsgToEmail;
       PrintAsTXTCheckBox.Checked := MainForm.PrintAsTXT;
       PlaySoundCheckBox.Checked := MainForm.PlaySound;
+      InformMoreEmailsCheckBox.Checked := MainForm.InformMoreEmails;
       if ShowModal = mrOk then
       begin
         MainForm.ShiftCtrlF := ShiftCtrlFCheckBox.Checked;
@@ -123,6 +125,7 @@ begin
         MainForm.SendMsgToEmail := SendMsgToEmailCheckBox.Checked;
         MainForm.PrintAsTXT := PrintAsTXTCheckBox.Checked;
         MainForm.PlaySound := PlaySoundCheckBox.Checked;
+        MainForm.InformMoreEmails := InformMoreEmailsCheckBox.Checked;
         MainForm.SaveOption;
         MainForm.LoadOption;
       end;

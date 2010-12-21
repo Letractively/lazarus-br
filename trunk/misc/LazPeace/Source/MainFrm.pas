@@ -16,6 +16,7 @@ type
   TMainForm = class(TForm)
     AboutAction: TAction;
     CloseImage: TImage;
+    OptionZQueryinformmoreemails: TStringField;
     OptionZQueryplaysound: TStringField;
     OptionZQueryrandombook: TStringField;
     StatusLabel: TLabel;
@@ -150,6 +151,7 @@ type
     procedure TrayIconDblClick(Sender: TObject);
   private
     FFromMail: string;
+    FInformMoreEmails: Boolean;
     FPlaySound: Boolean;
     FPrintAsTXT: Boolean;
     FRandomBook: Boolean;
@@ -173,6 +175,7 @@ type
     FOldCanRandomizeMessage: Boolean;
     FStatus: string;
     FThreadID: TThreadID;
+    FMoreEmails: string;
     XPos, YPos, NewLeft, NewTop: Integer;
     Moving: Boolean;
   protected
@@ -216,6 +219,7 @@ type
     property SendMsgToEmail: Boolean read FSendMsgToEmail write FSendMsgToEmail;
     property PrintAsTXT: Boolean read FPrintAsTXT write FPrintAsTXT;
     property PlaySound: Boolean read FPlaySound write FPlaySound;
+    property InformMoreEmails: Boolean read FInformMoreEmails write FInformMoreEmails;
   end;
 
 const
@@ -244,10 +248,10 @@ begin
   with MainForm do
   begin
     TThread.Synchronize(nil, @DoStart);
-    FStatus := LSSendMail(FFromMail, FToMail, Utf8ToAnsi(Copy(MessageMemo.Text,
-      1, 17)) + '...', GetHTMLMessage, 'unknow', '', '', FSMTPUser,
-      FSMTPPassword, FSMTPHost, IntToStr(FSMTPPort), nil, False, FSMTPSSL,
-      FSMTPTLS, mtHTML);
+    FStatus := LSSendMail(FFromMail, FToMail + ';' + FMoreEmails,
+      Utf8ToAnsi(Copy(MessageMemo.Text, 1, 17)) + '...', GetHTMLMessage,
+      'unknow', '', '', FSMTPUser, FSMTPPassword, FSMTPHost,
+      IntToStr(FSMTPPort), nil, False, FSMTPSSL, FSMTPTLS, mtHTML);
     TThread.Synchronize(nil, @DoStop);
   end;
 end;
@@ -492,7 +496,13 @@ end;
 procedure TMainForm.SendToEmailActionExecute(Sender: TObject);
 begin
   if IsOpenSSLAvailable then
-    Send
+  begin
+    if FInformMoreEmails then
+      FMoreEmails := InputBox('E-mails de destino',
+        'Informe o e-mail de destino:',
+        'destino1@gmail.com;destino2@gmail.com');
+    Send;
+  end
   else
     ShowMessage('Não foi possível encontrar as bobliotecas OpenSSL.');
 end;
@@ -594,6 +604,7 @@ begin
     FSendMsgToEmail := OptionZQuery.FieldByName('sendmsgtoemail').AsBoolean;
     FPrintAsTXT := OptionZQuery.FieldByName('printastxt').AsBoolean;
     FPlaySound := OptionZQuery.FieldByName('playsound').AsBoolean;
+    FInformMoreEmails := OptionZQuery.FieldByName('informmoreemails').AsBoolean;
     OptionZQuery.Close;
   end;
 end;
@@ -620,6 +631,7 @@ begin
   OptionZQuery.FieldByName('sendmsgtoemail').AsBoolean := FSendMsgToEmail;
   OptionZQuery.FieldByName('printastxt').AsBoolean := FPrintAsTXT;
   OptionZQuery.FieldByName('playsound').AsBoolean := FPlaySound;
+  OptionZQuery.FieldByName('informmoreemails').AsBoolean := FInformMoreEmails;
   OptionZQuery.Post;
   OptionZQuery.Close;
 end;

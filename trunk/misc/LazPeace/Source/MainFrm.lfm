@@ -4317,6 +4317,17 @@ object MainForm: TMainForm
       Required = False
       Size = 255
     end
+    object OptionZQueryinformmoreemails: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'informmoreemails'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
   end
   object FavoriteZQuery: TZQuery
     Connection = MainZConnection
