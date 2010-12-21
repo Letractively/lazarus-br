@@ -1,19 +1,19 @@
 object OptionForm: TOptionForm
   Left = 272
-  Height = 357
+  Height = 383
   Top = 143
   Width = 428
   ActiveControl = OptionPageControl
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Opções'
-  ClientHeight = 357
+  ClientHeight = 383
   ClientWidth = 428
   Position = poDesktopCenter
   LCLVersion = '0.9.29'
   object OptionPageControl: TPageControl
     Left = 0
-    Height = 319
+    Height = 345
     Top = 0
     Width = 428
     ActivePage = ConfigurationTabSheet
@@ -22,7 +22,7 @@ object OptionForm: TOptionForm
     TabOrder = 0
     object ConfigurationTabSheet: TTabSheet
       Caption = 'Configuração'
-      ClientHeight = 291
+      ClientHeight = 317
       ClientWidth = 420
       object ShiftCtrlFCheckBox: TCheckBox
         AnchorSideLeft.Side = asrCenter
@@ -166,6 +166,18 @@ object OptionForm: TOptionForm
         BorderSpacing.Top = 10
         Caption = 'Tocar som ao exibir uma mensagem'
         TabOrder = 9
+      end
+      object InformMoreEmailsCheckBox: TCheckBox
+        AnchorSideLeft.Control = PlaySoundCheckBox
+        AnchorSideTop.Control = PlaySoundCheckBox
+        AnchorSideTop.Side = asrBottom
+        Left = 12
+        Height = 19
+        Top = 274
+        Width = 266
+        BorderSpacing.Top = 10
+        Caption = 'Informar mais e-mails ao usar o botão "Enviar"'
+        TabOrder = 10
       end
     end
     object SMTPTabSheet: TTabSheet
@@ -392,7 +404,7 @@ object OptionForm: TOptionForm
   object BottomPanel: TPanel
     Left = 0
     Height = 38
-    Top = 319
+    Top = 345
     Width = 428
     Align = alBottom
     ClientHeight = 38
