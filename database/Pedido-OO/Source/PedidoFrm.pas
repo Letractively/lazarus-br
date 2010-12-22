@@ -47,7 +47,7 @@ uses
 
 procedure TPedidoForm.DataEditExit(Sender: TObject);
 begin
-  VerificaData(DataEdit);
+  VerificaData(TCustomEdit(DataEdit));
 end;
 
 procedure TPedidoForm.EditarButtonClick(Sender: TObject);
