@@ -36,7 +36,7 @@ implementation
 
 procedure TProdutoForm.PrecoEditExit(Sender: TObject);
 begin
-  VerificaValor(PrecoEdit);
+  VerificaValor(TCustomEdit(PrecoEdit));
 end;
 
 procedure TProdutoForm.FormShow(Sender: TObject);

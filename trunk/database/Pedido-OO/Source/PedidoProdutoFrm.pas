@@ -80,7 +80,7 @@ end;
 
 procedure TPedidoProdutoForm.PrecoEditExit(Sender: TObject);
 begin
-  VerificaValor(PrecoEdit);
+  VerificaValor(TCustomEdit(PrecoEdit));
 end;
 
 procedure TPedidoProdutoForm.InternalCheckData;
