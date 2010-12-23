@@ -54,7 +54,7 @@ Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription
 [Files]
 Source: ..\..\Source\lazpeace.exe; DestDir: {localappdata}\{#MyAppName}; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: ..\..\Source\lazpeace.db3; DestDir: {localappdata}\{#MyAppName}
+Source: ..\..\Source\lazpeace.db3; DestDir: {localappdata}\{#MyAppName}; Flags: uninsneveruninstall; 
 Source: sqlite3.dll; DestDir: {localappdata}\{#MyAppName}
 Source: libeay32.dll; DestDir: {localappdata}\{#MyAppName}
 Source: ssleay32.dll; DestDir: {localappdata}\{#MyAppName}
