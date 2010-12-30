@@ -46,14 +46,14 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="2">
       <Unit0>
         <Filename Value="demo.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="demo"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="1" Y="11"/>
+        <CursorPos X="22" Y="9"/>
         <UsageCount Value="45"/>
       </Unit0>
       <Unit1>
@@ -71,15 +71,6 @@
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
-      <Unit2>
-        <Filename Value="Base64Picture.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Base64Picture"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="45"/>
-      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

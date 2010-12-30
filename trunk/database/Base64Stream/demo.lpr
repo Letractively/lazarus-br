@@ -6,7 +6,7 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
-  Interfaces, Forms, zcomponent, MainFrm, Base64Picture;
+  Interfaces, Forms, MainFrm;
 
 begin
   Application.Initialize;

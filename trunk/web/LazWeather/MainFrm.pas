@@ -32,7 +32,7 @@ implementation
 {$R *.lfm}
 
 uses
-  LSHTTPSend, SynaCode, LCLProc;
+  LSHTTPSend, SynaCode, SynaUtil;
 
 { TMainForm }
 
@@ -49,14 +49,14 @@ begin
       StateLabeledEdit.Text, CityLabeledEdit.Text])), VHTML) then
     begin
       S := VHTML.GetText;
-      TempLabel.Caption := GetPart(
+      TempLabel.Caption := GetBetween(
         '<span id="ctl00_cphContent_lblCurrentTemp" style="display: block; ' +
         'font-weight: bold;font-size: 18px; line-height: 24px;">',
-        '&deg;C</span>', S, True, False) + ' °C';
+        '&deg;C</span>', S) + ' °C';
       try
-        LSHTTPGetPicture(GetPart(
+        LSHTTPGetPicture(GetBetween(
           '<img id="ctl00_cphContent_imgCurConCondition" class="fltLeft" src="',
-          '"', S, True, False), ConditionImage.Picture);
+          '"', S), ConditionImage.Picture);
       except
       end;
     end

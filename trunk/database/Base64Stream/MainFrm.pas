@@ -39,7 +39,7 @@ implementation
 {$R *.lfm}
 
 uses
-  LSDialogs, Base64Picture;
+  LSDialogs, LSGraphics;
 
 { TMainForm }
 
@@ -68,7 +68,7 @@ begin
   else
     TestZQuery.Edit;
   TestZQuery.FieldByName('image').AsString :=
-    PictureToBase64(TestImage.Picture);
+    LSPictureToBase64(TestImage.Picture);
 end;
 
 procedure TMainForm.ExportButtonClick(Sender: TObject);
@@ -76,7 +76,7 @@ begin
   if Assigned(TestImage.Picture.Graphic) and
     (not TestImage.Picture.Graphic.Empty) then
   begin
-    FFileName := 'Sample.' + GetFileExtFromPicture(TestImage.Picture);
+    FFileName := 'Sample.' + LSGetFileExtFromPicture(TestImage.Picture);
     LSSaveDialog(FFileName, sdtPicture, '', '', -1, True, True);
     TestImage.Picture.SaveToFile(FFileName, ExtractFileExt(FFileName));
   end;
@@ -85,7 +85,7 @@ end;
 procedure TMainForm.TestDataSourceDataChange(Sender: TObject; Field: TField);
 begin
   if not TestZQuery.FieldByName('image').IsNull then
-    Base64ToPicture(TestZQuery.FieldByName('image').AsString,
+    LSBase64ToPicture(TestZQuery.FieldByName('image').AsString,
       TestImage.Picture);
 end;
 
