@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Package Version="3">
+    <PathDelim Value="\"/>
+    <Name Value="LazRichEdit"/>
+    <Author Value="Elson Junio (elsonjunio@yahoo.com.br)"/>
+    <CompilerOptions>
+      <Version Value="9"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="Windows;gtk2"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Other>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="Controle para trabalhar com Textos formatados e Imagens, e salvar arquivos no Formato Rich Text."/>
+    <License Value="LGPL"/>
+    <Version Minor="1"/>
+    <Files Count="8">
+      <Item1>
+        <Filename Value="wslzrichedit.pas"/>
+        <UnitName Value="WSlzRichEdit"/>
+      </Item1>
+      <Item2>
+        <Filename Value="lzrichedit.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="lzRichEdit"/>
+      </Item2>
+      <Item3>
+        <Filename Value="lzricheditfactory.pas"/>
+        <UnitName Value="lzRichEditFactory"/>
+      </Item3>
+      <Item4>
+        <Filename Value="lzrichedittypes.pas"/>
+        <UnitName Value="lzRichEditTypes"/>
+      </Item4>
+      <Item5>
+        <Filename Value="Windows\win_wslzrichedit.pas"/>
+        <UnitName Value="Win_WSlzRichEdit"/>
+      </Item5>
+      <Item6>
+        <Filename Value="Windows\lzrichole.pas"/>
+        <UnitName Value="lzRichOle"/>
+      </Item6>
+      <Item7>
+        <Filename Value="Windows\richole.pas"/>
+        <UnitName Value="RichOle"/>
+      </Item7>
+      <Item8>
+        <Filename Value="gtk2\gtk2_wslzrichedit.pas"/>
+        <UnitName Value="GTK2_WSlzRichEdit"/>
+      </Item8>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
