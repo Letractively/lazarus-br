@@ -55,14 +55,14 @@ var
   S:String;
   B:Boolean=False;
 begin
-  LenText:= UTF8Length(TlzRichEdit(RichControl).Lines.Text);
+  LenText:= UTF8Length(TlzRichEdit(RichControl).Text);
   N:= 1;
 
   if (TlzRichEdit(RichControl).SelStart = 0) then NP:= 1;
 
   for I:= (TlzRichEdit(RichControl).SelStart + TlzRichEdit(RichControl).SelLength + NP) to LenText do
    begin
-     S:= UTF8Copy(TlzRichEdit(RichControl).Lines.Text, I, UTF8Length(Edit1.Text));
+     S:= UTF8Copy(TlzRichEdit(RichControl).Text, I, UTF8Length(Edit1.Text));
      N:= 1;
 
      if not(Checkbox2.Checked) and (UTF8UpperCase(S)=UTF8UpperCase(Edit1.Text)) or
@@ -75,9 +75,9 @@ begin
      if B then
        begin
          for I2:= 0 to I do
-           if (TlzRichEdit(RichControl).Lines.Text[I2]= #10) then Inc(N);
+           if (TlzRichEdit(RichControl).Text[I2]= #10) then Inc(N);
          NP:= N;
-         TlzRichEdit(RichControl).SelStart:= I - N;
+         TlzRichEdit(RichControl).SelStart:= I -1;
          TlzRichEdit(RichControl).SelLength:= UTF8Length(Edit1.Text);
          TlzRichEdit(RichControl).SetFocus;
          Exit;

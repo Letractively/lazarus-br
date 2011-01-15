@@ -35,7 +35,7 @@ unit WSlzRichEdit;
 interface
 
 uses
-  Classes, SysUtils, Controls, WSStdCtrls, lzRichEditTypes, Graphics;
+  Classes, SysUtils, Controls, WSStdCtrls, lzRichEditTypes, Graphics, LCLType;
 
 type
 
@@ -56,6 +56,7 @@ TWSCustomlzRichEdit = class(TWSCustomMemo)
   class procedure SetAlignment(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; Alignment:TRichEdit_Align); virtual;
   class procedure SetNumbering(const AWinControl: TWinControl; N:Boolean); virtual;
   class procedure GetNumbering(const AWinControl: TWinControl; var N:Boolean); virtual;
+  class procedure GetNumbering(const AWinControl: TWinControl; Position: Integer; var N:Boolean); virtual;
   class procedure SetOffSetIndent(const AWinControl: TWinControl; I:Integer); virtual;
   class procedure GetOffSetIndent(const AWinControl: TWinControl; var I:Integer); virtual;
   class procedure SetRightIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); virtual;
@@ -65,6 +66,7 @@ TWSCustomlzRichEdit = class(TWSCustomMemo)
   class procedure InsertImage(const AWinControl: TWinControl; Position: Integer; Image: TPicture); virtual;
   class function GetImage(const AWinControl: TWinControl; Position: Integer; var Image: TPicture):Boolean; virtual;
   class function GetRealTextBuf(const AWinControl: TWinControl):String; virtual;
+  class procedure InsertPosLastChar(const AWinControl: TWinControl; const UTF8Char:TUTF8Char); virtual;
 
 end;
 TWSCustomlzRichEditClass = class of TWSCustomlzRichEdit;
@@ -154,6 +156,12 @@ begin
 
 end;
 
+class procedure TWSCustomlzRichEdit.GetNumbering(
+  const AWinControl: TWinControl; Position: Integer; var N: Boolean);
+begin
+
+end;
+
 class procedure TWSCustomlzRichEdit.SetOffSetIndent(
   const AWinControl: TWinControl; I: Integer);
 begin
@@ -204,6 +212,12 @@ end;
 
 class function TWSCustomlzRichEdit.GetRealTextBuf(const AWinControl: TWinControl
   ): String;
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.InsertPosLastChar(
+  const AWinControl: TWinControl; const UTF8Char: TUTF8Char);
 begin
 
 end;

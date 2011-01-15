@@ -38,15 +38,15 @@ uses
   Classes, SysUtils, Graphics, LCLType;
 
 type
-  TFontParams=Record
-    Name    : TFontName;
-    Size    : Integer;
-    Color   : TColor;
-    Style   : TFontStyles;
+  TFontParams = record
+    Name: TFontName;
+    Size: integer;
+    Color: TColor;
+    Style: TFontStyles;
   end;
 
 type
-  TNumberingParams=Record
+  TNumberingParams = record
     NChar: TUTF8Char;
     FontParams: TFontParams;
   end;
@@ -58,21 +58,24 @@ const
     Color: clWindowText;
     Style: []; );
 
-type TRichEdit_Align = (alLeft, alRight, alCenter, alJustify);
+type
+  TRichEdit_Align = (alLeft, alRight, alCenter, alJustify);
 
-procedure TFontToTFontParams(const Font:TFont; var rFontParams);
+procedure TFontToTFontParams(const Font: TFont; var rFontParams);
+
 implementation
 
 procedure TFontToTFontParams(const Font: TFont; var rFontParams);
 var
   FontParams: TFontParams;
 begin
-  FontParams.Name:= Font.Name;
-  FontParams.Size:= Font.Size;
-  FontParams.Color:= Font.Color;
-  FontParams.Style:= Font.Style;
+  FontParams.Name := Font.Name;
+  FontParams.Size := Font.Size;
+  FontParams.Color := Font.Color;
+  FontParams.Style := Font.Style;
   //-
-  TFontParams(rFontParams):= FontParams;
+  TFontParams(rFontParams) := FontParams;
 end;
 
 end.
+

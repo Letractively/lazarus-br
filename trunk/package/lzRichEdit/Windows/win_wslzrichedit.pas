@@ -39,8 +39,9 @@ uses
   Win32WSControls, StdCtrls, WSlzRichEdit, lzRichEditTypes, lzRichOle, RichOle,
   Dialogs, Graphics;
 
-const CFM_BACKCOLOR = $4000000;
-      CFE_AUTOBACKCOLOR = $4000000;
+const
+  CFM_BACKCOLOR = $4000000;
+  CFE_AUTOBACKCOLOR = $4000000;
 
 type
 
@@ -59,21 +60,30 @@ type
       const Stream: TStream); override;
     class procedure CloseObjects(const AWinControl: TWinControl); override;
     //--
-    class procedure SetSelection(const AWinControl: TWinControl; StartPos, EndPos: Integer; ScrollCaret: Boolean); override;
-    class procedure SetTextAttributes(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const TextParams: TFontParams); override;
-    class procedure GetTextAttributes(const AWinControl: TWinControl; Position: Integer; var TextParams: TFontParams); override;
+    class procedure SetSelection(const AWinControl: TWinControl;
+      StartPos, EndPos: integer; ScrollCaret: boolean); override;
+    class procedure SetTextAttributes(const AWinControl: TWinControl;
+      iSelStart, iSelLength: integer; const TextParams: TFontParams); override;
+    class procedure GetTextAttributes(const AWinControl: TWinControl;
+      Position: integer; var TextParams: TFontParams); override;
     class procedure ActiveRichOle(const AWinControl: TWinControl); override;
     class procedure DestroyRichOle(const AWinControl: TWinControl); override;
-    class procedure GetAlignment(const AWinControl: TWinControl; Position: Integer; var Alignment:TRichEdit_Align); override;
-    class procedure SetAlignment(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; Alignment:TRichEdit_Align); override;
-    class procedure SetNumbering(const AWinControl: TWinControl; N:Boolean); override;
-    class procedure GetNumbering(const AWinControl: TWinControl; var N:Boolean); override;
-    class procedure SetOffSetIndent(const AWinControl: TWinControl; I:Integer); override;
-    class procedure GetOffSetIndent(const AWinControl: TWinControl; var I:Integer); override;
-    class procedure SetRightIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); override;
-    class procedure GetRightIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); override;
-    class procedure SetStartIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); override;
-    class procedure GetStartIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); override;
+    class procedure GetAlignment(const AWinControl: TWinControl;
+      Position: integer; var Alignment: TRichEdit_Align); override;
+    class procedure SetAlignment(const AWinControl: TWinControl;
+      iSelStart, iSelLength: integer; Alignment: TRichEdit_Align); override;
+    class procedure SetNumbering(const AWinControl: TWinControl; N: boolean); override;
+    class procedure GetNumbering(const AWinControl: TWinControl; var N: boolean); override;
+    class procedure SetOffSetIndent(const AWinControl: TWinControl; I: integer); override;
+    class procedure GetOffSetIndent(const AWinControl: TWinControl; var I: integer); override;
+    class procedure SetRightIndent(const AWinControl: TWinControl;
+      iSelStart, iSelLength: integer; I: integer); override;
+    class procedure GetRightIndent(const AWinControl: TWinControl;
+      Position: integer; var I: integer); override;
+    class procedure SetStartIndent(const AWinControl: TWinControl;
+      iSelStart, iSelLength: integer; I: integer); override;
+    class procedure GetStartIndent(const AWinControl: TWinControl;
+      Position: integer; var I: integer); override;
   end;
 
 const
@@ -201,25 +211,26 @@ begin
   Params.WindowInfo^.needParentPaint := False;
   Result := Params.Window;
   //--
-  if (csDesigning in AWinControl.ComponentState) then Exit;
-  if TCustomlzRichEdit(AWinControl).ActiveRichOle then ActiveRichOle(AWinControl);
+  if (csDesigning in AWinControl.ComponentState) then
+    Exit;
+  if TCustomlzRichEdit(AWinControl).ActiveRichOle then
+    ActiveRichOle(AWinControl);
   //--
 
 end;
 
-class procedure TWin_WSCustomlzRichEdit.DestroyHandle(
-  const AWinControl: TWinControl);
+class procedure TWin_WSCustomlzRichEdit.DestroyHandle(const AWinControl: TWinControl);
 var
   Handle: HWND;
 begin
   DestroyRichOle(AWinControl);
-try
-  Handle := AWinControl.Handle;
-  DestroyWindow(Handle);
-except
-  //Instabilidade nesta parte após DestroyWindow causa uma Exception,
-  //Ole32.dll
-end;
+  try
+    Handle := AWinControl.Handle;
+    DestroyWindow(Handle);
+  except
+    //Instabilidade nesta parte após DestroyWindow causa uma Exception,
+    //Ole32.dll
+  end;
 
 end;
 
@@ -253,7 +264,7 @@ begin
     StrType := SF_RTF;
 
   SendMessage(TCustomlzRichEdit(AWinControl).Handle, EM_STREAMOUT,
-    StrType, LongInt(@EditStream_));
+    StrType, longint(@EditStream_));
 
 end;
 
@@ -287,7 +298,7 @@ begin
     StrType := SF_RTF;
 
   //TCustomlzRichEdit(AWinControl).Perform(EM_STREAMIN, StrType, longint(@EditStream_));
-  SendMessage(AWinControl.Handle, EM_STREAMIN, StrType, LPARAM(@EditStream_) );
+  SendMessage(AWinControl.Handle, EM_STREAMIN, StrType, LPARAM(@EditStream_));
 
 end;
 
@@ -327,58 +338,59 @@ begin
 
   //TCustomlzRichEdit(AWinControl).Perform(EM_STREAMIN, StrType or
   //  SFF_SELECTION, longint(@EditStream_));
-  SendMessage(AWinControl.Handle, EM_STREAMIN, StrType, LPARAM(@EditStream_) );
+  SendMessage(AWinControl.Handle, EM_STREAMIN, StrType, LPARAM(@EditStream_));
 end;
 
-class procedure TWin_WSCustomlzRichEdit.CloseObjects(
-  const AWinControl: TWinControl);
+class procedure TWin_WSCustomlzRichEdit.CloseObjects(const AWinControl: TWinControl);
 var
-    ReObject: TReObject;
-    I: Integer;
+  ReObject: TReObject;
+  I: integer;
 begin
 
   if Assigned(TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle) then
-    begin
-      FillChar(ReObject, SizeOf(ReObject), 0);
-      ReObject.cbStruct := SizeOf(ReObject);
+  begin
+    FillChar(ReObject, SizeOf(ReObject), 0);
+    ReObject.cbStruct := SizeOf(ReObject);
 
-      with TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle do
-        for I := GetObjectCount - 1 downto 0 do
-          if Succeeded(GetObject(I, ReObject, REO_GETOBJ_POLEOBJ)) then
+    with TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle do
+      for I := GetObjectCount - 1 downto 0 do
+        if Succeeded(GetObject(I, ReObject, REO_GETOBJ_POLEOBJ)) then
+        begin
+          if ReObject.dwFlags and REO_INPLACEACTIVE <> 0 then
+            TRichOle(TCustomlzRichEdit(
+              AWinControl).RichOle).RichEditOle.InPlaceDeactivate;
+          ReObject.poleobj.Close(OLECLOSE_NOSAVE);
+
+          if IUnknown(ReObject.poleobj) <> nil then
           begin
-            if ReObject.dwFlags and REO_INPLACEACTIVE <> 0 then
-              TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle.InPlaceDeactivate;
-            ReObject.poleobj.Close(OLECLOSE_NOSAVE);
-
-              if IUnknown(ReObject.poleobj) <> nil then
-              begin
-                IUnknown(ReObject.poleobj)._Release;
-                IUnknown(ReObject.poleobj) := nil;
-             end;
+            IUnknown(ReObject.poleobj)._Release;
+            IUnknown(ReObject.poleobj) := nil;
           end;
-    end;
+        end;
+  end;
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetSelection(const AWinControl: TWinControl; StartPos, EndPos: Integer;
-  ScrollCaret: Boolean);
+class procedure TWin_WSCustomlzRichEdit.SetSelection(const AWinControl: TWinControl;
+  StartPos, EndPos: integer; ScrollCaret: boolean);
 var
   CharRange: TCharRange;
 begin
   CharRange.cpMin := StartPos;
   CharRange.cpMax := StartPos + EndPos;
 
-  SendMessage(AWinControl.Handle, EM_EXSETSEL, 0, Longint(@CharRange));
+  SendMessage(AWinControl.Handle, EM_EXSETSEL, 0, longint(@CharRange));
 
   if ScrollCaret then
-     SendMessage(AWinControl.Handle, EM_SCROLLCARET, 0, 0);
+    SendMessage(AWinControl.Handle, EM_SCROLLCARET, 0, 0);
 
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetTextAttributes(const AWinControl: TWinControl; iSelStart,
-  iSelLength: Integer; const TextParams: TFontParams);
+class procedure TWin_WSCustomlzRichEdit.SetTextAttributes(
+  const AWinControl: TWinControl; iSelStart, iSelLength: integer;
+  const TextParams: TFontParams);
 var
-  fmt : TCHARFORMAT;
-  Effects: LongWord = 0;
+  fmt: TCHARFORMAT;
+  Effects: longword = 0;
 begin
 
   FillChar(fmt, sizeof(fmt), 0);
@@ -387,34 +399,38 @@ begin
   fmt.dwMask := fmt.dwMask or CFM_COLOR;
   fmt.crTextColor := TextParams.Color;
 
-  fmt.dwMask := fmt.dwMask or CFM_FACE ;
-  Move(TextParams.Name[1], fmt.szFaceName[0], LF_FACESIZE-1);
+  fmt.dwMask := fmt.dwMask or CFM_FACE;
+  Move(TextParams.Name[1], fmt.szFaceName[0], LF_FACESIZE - 1);
 
   fmt.dwMask := fmt.dwMask or CFM_SIZE;
   fmt.yHeight := TextParams.Size * 20;
 
   //--
-  if fsBold in TextParams.Style then Effects := Effects or CFE_BOLD;
-  if fsItalic in TextParams.Style then Effects := Effects or CFE_ITALIC;
-  if fsStrikeOut in TextParams.Style then Effects := Effects or CFE_STRIKEOUT;
-  if fsUnderline in TextParams.Style then Effects := Effects or CFE_UNDERLINE;
+  if fsBold in TextParams.Style then
+    Effects := Effects or CFE_BOLD;
+  if fsItalic in TextParams.Style then
+    Effects := Effects or CFE_ITALIC;
+  if fsStrikeOut in TextParams.Style then
+    Effects := Effects or CFE_STRIKEOUT;
+  if fsUnderline in TextParams.Style then
+    Effects := Effects or CFE_UNDERLINE;
   //--
   fmt.dwMask := fmt.dwMask or CFM_EFFECTS;
   fmt.dwEffects := Effects;
   //--
-  SendMessage(AWinControl.Handle, EM_SETCHARFORMAT, SCF_SELECTION, LongInt(@fmt));
+  SendMessage(AWinControl.Handle, EM_SETCHARFORMAT, SCF_SELECTION, longint(@fmt));
 end;
 
-class procedure TWin_WSCustomlzRichEdit.GetTextAttributes(const AWinControl: TWinControl;
-  Position: Integer; var TextParams: TFontParams);
+class procedure TWin_WSCustomlzRichEdit.GetTextAttributes(
+  const AWinControl: TWinControl; Position: integer; var TextParams: TFontParams);
 
 var
-  SelStart: Integer;
-  SelLength: Integer;
+  SelStart: integer;
+  SelLength: integer;
   fmt: TCHARFORMAT;
 begin
-  SelStart:= TCustomlzRichEdit(AWinControl).SelStart;
-  SelLength:= TCustomlzRichEdit(AWinControl).SelLength;
+  SelStart := TCustomlzRichEdit(AWinControl).SelStart;
+  SelLength := TCustomlzRichEdit(AWinControl).SelLength;
   //--
   SetSelection(AWinControl, SelStart, 1, False);
   //--
@@ -423,205 +439,209 @@ begin
   //--
   fmt.dwMask := CFM_COLOR or CFM_FACE or CFM_SIZE or CFM_EFFECTS;
   //--
-  SendMessage(AWinControl.Handle, EM_GETCHARFORMAT, SCF_SELECTION, LongInt(@fmt));
+  SendMessage(AWinControl.Handle, EM_GETCHARFORMAT, SCF_SELECTION, longint(@fmt));
   //--
   TextParams.Name := fmt.szFaceName;
-  TextParams.Size := Round(fmt.yHeight/20);
+  TextParams.Size := Round(fmt.yHeight / 20);
   TextParams.Color := fmt.crTextColor;
   //--
   TextParams.Style := [];
-  if fmt.dwEffects and CFE_BOLD > 0 then Include(TextParams.Style, fsBold);
-  if fmt.dwEffects and CFE_ITALIC > 0 then Include(TextParams.Style, fsItalic);
-  if fmt.dwEffects and CFE_STRIKEOUT > 0 then Include(TextParams.Style, fsStrikeOut);
-  if fmt.dwEffects and CFE_UNDERLINE > 0 then Include(TextParams.Style, fsUnderline);
+  if fmt.dwEffects and CFE_BOLD > 0 then
+    Include(TextParams.Style, fsBold);
+  if fmt.dwEffects and CFE_ITALIC > 0 then
+    Include(TextParams.Style, fsItalic);
+  if fmt.dwEffects and CFE_STRIKEOUT > 0 then
+    Include(TextParams.Style, fsStrikeOut);
+  if fmt.dwEffects and CFE_UNDERLINE > 0 then
+    Include(TextParams.Style, fsUnderline);
   //--
   SetSelection(AWinControl, SelStart, SelLength, True);
 end;
 
-class procedure TWin_WSCustomlzRichEdit.ActiveRichOle(
-  const AWinControl: TWinControl);
+class procedure TWin_WSCustomlzRichEdit.ActiveRichOle(const AWinControl: TWinControl);
 begin
   //--
 
   //if (TCustomlzRichEdit(AWinControl).RichOle = nil) then Exit;
 
-  TCustomlzRichEdit(AWinControl).RichOle:= TRichOle.Create(AWinControl);
+  TCustomlzRichEdit(AWinControl).RichOle := TRichOle.Create(AWinControl);
 
-   RichEdit_SetOleCallback(TCustomlzRichEdit(AWinControl).Handle,
-   TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOleCallback as IRichEditOleCallback);
+  RichEdit_SetOleCallback(TCustomlzRichEdit(AWinControl).Handle,
+    TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOleCallback as
+    IRichEditOleCallback);
 
-   //ShowMessage(IntToStr(SendMessage(TCustomlzRichEdit(AWinControl).Handle, EM_SETOLECALLBACK, 0, LongInt(TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOleCallback as IRichEditOleCallback))));
-   //--
+  //ShowMessage(IntToStr(SendMessage(TCustomlzRichEdit(AWinControl).Handle, EM_SETOLECALLBACK, 0, LongInt(TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOleCallback as IRichEditOleCallback))));
+  //--
 
-   RichEdit_GetOleInterface(TCustomlzRichEdit(AWinControl).Handle,
-   TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle);
-   //ShowMessage(IntToStr(SendMessage(TCustomlzRichEdit(AWinControl).Handle, EM_GETOLEINTERFACE, 0, LongInt(@TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle))));
+  RichEdit_GetOleInterface(TCustomlzRichEdit(AWinControl).Handle,
+    TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle);
+  //ShowMessage(IntToStr(SendMessage(TCustomlzRichEdit(AWinControl).Handle, EM_GETOLEINTERFACE, 0, LongInt(@TRichOle(TCustomlzRichEdit(AWinControl).RichOle).RichEditOle))));
 
 end;
 
-class procedure TWin_WSCustomlzRichEdit.DestroyRichOle(
-  const AWinControl: TWinControl);
+class procedure TWin_WSCustomlzRichEdit.DestroyRichOle(const AWinControl: TWinControl);
 begin
-  if (TCustomlzRichEdit(AWinControl).RichOle = nil) then Exit;
+  if (TCustomlzRichEdit(AWinControl).RichOle = nil) then
+    Exit;
   CloseObjects(AWinControl);
   TRichOle(TCustomlzRichEdit(AWinControl).RichOle).Free;
-  TCustomlzRichEdit(AWinControl).RichOle:= nil;
+  TCustomlzRichEdit(AWinControl).RichOle := nil;
 end;
 
 class procedure TWin_WSCustomlzRichEdit.GetAlignment(const AWinControl: TWinControl;
-  Position: Integer; var Alignment:TRichEdit_Align);
+  Position: integer; var Alignment: TRichEdit_Align);
 
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_ALIGNMENT;
-  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, LongInt(@P));
-  Alignment:= TRichEdit_Align(P.wAlignment - 1);
+  P.dwMask := PFM_ALIGNMENT;
+  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
+  Alignment := TRichEdit_Align(P.wAlignment - 1);
 end;
 
 class procedure TWin_WSCustomlzRichEdit.SetAlignment(const AWinControl: TWinControl;
-  iSelStart, iSelLength: Integer; Alignment:TRichEdit_Align);
+  iSelStart, iSelLength: integer; Alignment: TRichEdit_Align);
 
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_ALIGNMENT;
-  P.wAlignment:= Ord(Alignment) + 1;
-  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, LongInt(@P));
+  P.dwMask := PFM_ALIGNMENT;
+  P.wAlignment := Ord(Alignment) + 1;
+  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetNumbering(
-  const AWinControl: TWinControl; N:Boolean);
+class procedure TWin_WSCustomlzRichEdit.SetNumbering(const AWinControl: TWinControl;
+  N: boolean);
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_NUMBERING;
+  P.dwMask := PFM_NUMBERING;
 
   if N then
-    P.wNumbering:= PFN_BULLET
+    P.wNumbering := PFN_BULLET
   else
-    P.wNumbering:= 0;
+    P.wNumbering := 0;
 
-  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
 end;
 
-class procedure TWin_WSCustomlzRichEdit.GetNumbering(
-  const AWinControl: TWinControl; var N: Boolean);
+class procedure TWin_WSCustomlzRichEdit.GetNumbering(const AWinControl: TWinControl;
+  var N: boolean);
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
-  N:= False;
+  N := False;
 
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_NUMBERING;
+  P.dwMask := PFM_NUMBERING;
 
-  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
 
-  if (P.wNumbering > 0) then N:= True;
+  if (P.wNumbering > 0) then
+    N := True;
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetOffSetIndent(
-  const AWinControl: TWinControl; I: Integer);
+class procedure TWin_WSCustomlzRichEdit.SetOffSetIndent(const AWinControl: TWinControl;
+  I: integer);
 var
-  P:PARAFORMAT;
-begin
-
-  FillChar(P, SizeOf(P), 0);
-  P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_OFFSET;
-  P.dxOffset:= I * 15;
-
-  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, LongInt(@P));
-end;
-
-class procedure TWin_WSCustomlzRichEdit.GetOffSetIndent(
-  const AWinControl: TWinControl; var I: Integer);
-var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
 
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_OFFSET;
+  P.dwMask := PFM_OFFSET;
+  P.dxOffset := I * 15;
 
-  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
+end;
 
-  I:= P.dxOffset div 15;
+class procedure TWin_WSCustomlzRichEdit.GetOffSetIndent(const AWinControl: TWinControl;
+  var I: integer);
+var
+  P: PARAFORMAT;
+begin
+
+  FillChar(P, SizeOf(P), 0);
+  P.cbSize := SizeOf(PARAFORMAT);
+  P.dwMask := PFM_OFFSET;
+
+  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
+
+  I := P.dxOffset div 15;
 end;
 
 class procedure TWin_WSCustomlzRichEdit.SetRightIndent(const AWinControl: TWinControl;
-  iSelStart, iSelLength: Integer; I:Integer);
+  iSelStart, iSelLength: integer; I: integer);
 
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
 
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_RIGHTINDENT;
-  P.dxRightIndent:= I * 15;
+  P.dwMask := PFM_RIGHTINDENT;
+  P.dxRightIndent := I * 15;
 
-  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
 end;
 
 class procedure TWin_WSCustomlzRichEdit.GetRightIndent(const AWinControl: TWinControl;
-  Position: Integer; var I:Integer);
+  Position: integer; var I: integer);
 
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
 
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_RIGHTINDENT;
+  P.dwMask := PFM_RIGHTINDENT;
 
-  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
 
-  I:= P.dxRightIndent div 15;
+  I := P.dxRightIndent div 15;
 end;
 
 class procedure TWin_WSCustomlzRichEdit.SetStartIndent(const AWinControl: TWinControl;
-  iSelStart, iSelLength: Integer; I:Integer);
+  iSelStart, iSelLength: integer; I: integer);
 
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
 
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_STARTINDENT;
-  P.dxStartIndent:= I * 15;
+  P.dwMask := PFM_STARTINDENT;
+  P.dxStartIndent := I * 15;
 
-  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
 
 end;
 
 class procedure TWin_WSCustomlzRichEdit.GetStartIndent(const AWinControl: TWinControl;
-  Position: Integer; var I:Integer);
+  Position: integer; var I: integer);
 
 var
-  P:PARAFORMAT;
+  P: PARAFORMAT;
 begin
 
   FillChar(P, SizeOf(P), 0);
   P.cbSize := SizeOf(PARAFORMAT);
-  P.dwMask:= PFM_STARTINDENT;
+  P.dwMask := PFM_STARTINDENT;
 
-  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, LongInt(@P));
+  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
 
-  I:= P.dxStartIndent div 15;
+  I := P.dxStartIndent div 15;
 
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetColor(const AWinControl: TWinControl
-  );
+class procedure TWin_WSCustomlzRichEdit.SetColor(const AWinControl: TWinControl);
  { var
     fmt: TCharFormat2; }
 begin
@@ -637,7 +657,7 @@ begin
         crBackColor := ColorToRGB(AWinControl.Color);
     end;
       SendMessage(AWinControl.Handle, EM_SETCHARFORMAT, 0, LongInt(@fmt));}
-    SendMessage(AWinControl.Handle, EM_SETBKGNDCOLOR, 0, ColorToRGB(AWinControl.Color));
+  SendMessage(AWinControl.Handle, EM_SETBKGNDCOLOR, 0, ColorToRGB(AWinControl.Color));
 end;
 
 initialization
