@@ -1,0 +1,3671 @@
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+90006 memory blocks allocated : 10320879/10680032
+90000 memory blocks freed     : 10316107/10675224
+6 unfreed memory blocks : 4772
+True heap size : 524288
+True free heap : 529792
+Should be : 518712
+Call trace for block $00007FFFF7FCC5D0 size 1777
+  $00000000004FE1C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF562 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE185 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC09E line 549 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C6C0 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+  $00000000006BC723 line 136 of include/toolbutton.inc
+  $000000000062FD8D line 1695 of include/control.inc
+  $00000000006308F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7E5 line 1038 of include/control.inc
+Call trace for block $00007FFFF7FCBEF0 size 1579
+  $00000000004FE1C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF562 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE185 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC09E line 549 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C7A0 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+  $00000000006BC723 line 136 of include/toolbutton.inc
+  $000000000062FD8D line 1695 of include/control.inc
+  $00000000006308F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7E5 line 1038 of include/control.inc
+Call trace for block $00007FFFF7FCB6F0 size 1245
+  $00000000004FE1C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF562 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE185 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC09E line 549 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+  $00000000006BC723 line 136 of include/toolbutton.inc
+  $000000000062FD8D line 1695 of include/control.inc
+  $00000000006308F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7E5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+77260 memory blocks allocated : 7098586/7400816
+77254 memory blocks freed     : 7095336/7397528
+6 unfreed memory blocks : 3250
+True heap size : 524288
+True free heap : 531328
+Should be : 520232
+Call trace for block $00007FFFEE43C6C0 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B5F line 2242 of include/control.inc
+  $00000000006BE46D line 764 of include/toolbutton.inc
+  $00000000006BC703 line 136 of include/toolbutton.inc
+  $000000000062FD6D line 1695 of include/control.inc
+  $00000000006308D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7C5 line 1038 of include/control.inc
+Call trace for block $00007FFFF7FCBEF0 size 1777
+  $00000000004FE1B1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF547 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE175 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0A9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC08E line 547 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B5F line 2242 of include/control.inc
+  $00000000006BE46D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C5E0 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B5F line 2242 of include/control.inc
+  $00000000006BE46D line 764 of include/toolbutton.inc
+  $00000000006BC703 line 136 of include/toolbutton.inc
+  $000000000062FD6D line 1695 of include/control.inc
+  $00000000006308D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7C5 line 1038 of include/control.inc
+Call trace for block $00007FFFEE43C7A0 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B5F line 2242 of include/control.inc
+  $00000000006BE46D line 764 of include/toolbutton.inc
+  $00000000006BC703 line 136 of include/toolbutton.inc
+  $000000000062FD6D line 1695 of include/control.inc
+  $00000000006308D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7C5 line 1038 of include/control.inc
+Call trace for block $00007FFFF7FCB6F0 size 1245
+  $00000000004FE1B1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF547 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE175 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0A9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC08E line 547 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B5F line 2242 of include/control.inc
+  $00000000006BE46D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B5F line 2242 of include/control.inc
+  $00000000006BE46D line 764 of include/toolbutton.inc
+  $00000000006BC703 line 136 of include/toolbutton.inc
+  $000000000062FD6D line 1695 of include/control.inc
+  $00000000006308D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7C5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+80582 memory blocks allocated : 9200272/9516104
+80578 memory blocks freed     : 9196802/9512608
+4 unfreed memory blocks : 3470
+True heap size : 524288
+True free heap : 531424
+Should be : 520280
+Call trace for block $00007FFFF7FCC050 size 1777
+  $00000000004FE1C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF562 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE185 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC09E line 547 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C7A0 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+  $00000000006BC723 line 136 of include/toolbutton.inc
+  $000000000062FD8D line 1695 of include/control.inc
+  $00000000006308F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7E5 line 1038 of include/control.inc
+Call trace for block $00007FFFF7FCB6F0 size 1579
+  $00000000004FE1C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF562 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE185 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE0B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC09E line 547 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630B7F line 2242 of include/control.inc
+  $00000000006BE48D line 764 of include/toolbutton.inc
+  $00000000006BC723 line 136 of include/toolbutton.inc
+  $000000000062FD8D line 1695 of include/control.inc
+  $00000000006308F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062E7E5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+75733 memory blocks allocated : 5433892/5719544
+75731 memory blocks freed     : 5432590/5718232
+2 unfreed memory blocks : 1302
+True heap size : 524288
+True free heap : 533952
+Should be : 522720
+Call trace for block $00007F654D4A46F0 size 1245
+  $00000000004FE561 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF902 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE525 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE459 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC351 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F1F line 2242 of include/control.inc
+  $00000000006BE82D line 764 of include/toolbutton.inc
+Call trace for block $00007F6543914A40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F1F line 2242 of include/control.inc
+  $00000000006BE82D line 764 of include/toolbutton.inc
+  $00000000006BCAC3 line 136 of include/toolbutton.inc
+  $000000000063012D line 1695 of include/control.inc
+  $0000000000630C90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61230 memory blocks allocated : 5071754/5285752
+61230 memory blocks freed     : 5071754/5285752
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 535584
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+75874 memory blocks allocated : 5437502/5723768
+75872 memory blocks freed     : 5436200/5722456
+2 unfreed memory blocks : 1302
+True heap size : 524288
+True free heap : 533952
+Should be : 522720
+Call trace for block $00007F4A22C056F0 size 1245
+  $00000000004FE561 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF902 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE525 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE459 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC351 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F1F line 2242 of include/control.inc
+  $00000000006BE82D line 764 of include/toolbutton.inc
+Call trace for block $00007F4A19075A40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F1F line 2242 of include/control.inc
+  $00000000006BE82D line 764 of include/toolbutton.inc
+  $00000000006BCAC3 line 136 of include/toolbutton.inc
+  $000000000063012D line 1695 of include/control.inc
+  $0000000000630C90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+80848 memory blocks allocated : 6076214/6380264
+80846 memory blocks freed     : 6074578/6378616
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007FEE636FF6F0 size 1579
+  $00000000004FE431 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF7D2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE3F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE329 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC306 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+Call trace for block $00007FEE59B6FA40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+  $00000000006BC993 line 136 of include/toolbutton.inc
+  $000000000062FFFD line 1695 of include/control.inc
+  $0000000000630B60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EA55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+80854 memory blocks allocated : 6076376/6380432
+80852 memory blocks freed     : 6074740/6378784
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007F33BF8BE6F0 size 1579
+  $00000000004FE431 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF7D2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE3F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE329 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC306 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+Call trace for block $00007F33B5D2EA40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+  $00000000006BC993 line 136 of include/toolbutton.inc
+  $000000000062FFFD line 1695 of include/control.inc
+  $0000000000630B60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EA55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+80860 memory blocks allocated : 6076923/6381032
+80858 memory blocks freed     : 6075287/6379384
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007F654396C6F0 size 1579
+  $00000000004FE431 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF7DD line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE3F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE329 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC306 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+Call trace for block $00007F6539DDCA40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+  $00000000006BC993 line 136 of include/toolbutton.inc
+  $000000000062FFFD line 1695 of include/control.inc
+  $0000000000630B60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EA55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+80863 memory blocks allocated : 6076995/6381104
+80861 memory blocks freed     : 6075359/6379456
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007F4A5F80F6F0 size 1579
+  $00000000004FE431 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF7DD line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE3F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE329 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC306 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+Call trace for block $00007F4A55C7FA40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630DEF line 2242 of include/control.inc
+  $00000000006BE6FD line 764 of include/toolbutton.inc
+  $00000000006BC993 line 136 of include/toolbutton.inc
+  $000000000062FFFD line 1695 of include/control.inc
+  $0000000000630B60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EA55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+80983 memory blocks allocated : 6083020/6387784
+80981 memory blocks freed     : 6081384/6386136
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007F33633216F0 size 1579
+  $00000000004FE521 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF8CD line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE4E5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE419 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC3F6 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630EDF line 2242 of include/control.inc
+  $00000000006BE7ED line 764 of include/toolbutton.inc
+Call trace for block $00007F3359791A40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630EDF line 2242 of include/control.inc
+  $00000000006BE7ED line 764 of include/toolbutton.inc
+  $00000000006BCA83 line 136 of include/toolbutton.inc
+  $00000000006300ED line 1695 of include/control.inc
+  $0000000000630C50 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB45 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+76529 memory blocks allocated : 5455552/5740096
+76527 memory blocks freed     : 5454250/5738784
+2 unfreed memory blocks : 1302
+True heap size : 524288
+True free heap : 533952
+Should be : 522720
+Call trace for block $00007FFFF7FCB6F0 size 1245
+  $00000000004FE571 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF91D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE535 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE469 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC3F6 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+  $00000000006BCAD3 line 136 of include/toolbutton.inc
+  $000000000063013D line 1695 of include/control.inc
+  $0000000000630CA0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB95 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+76511 memory blocks allocated : 5454699/5739184
+76509 memory blocks freed     : 5453397/5737872
+2 unfreed memory blocks : 1302
+True heap size : 524288
+True free heap : 533952
+Should be : 522720
+Call trace for block $00007FFFF7FCB6F0 size 1245
+  $00000000004FE571 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF91D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE535 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE469 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC3F6 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+  $00000000006BCAD3 line 136 of include/toolbutton.inc
+  $000000000063013D line 1695 of include/control.inc
+  $0000000000630CA0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB95 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+82335 memory blocks allocated : 6127654/6436640
+82333 memory blocks freed     : 6126018/6434992
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007FFFF7FCB6F0 size 1579
+  $00000000004FE571 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF91D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE535 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE469 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC3F6 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+  $00000000006BCAD3 line 136 of include/toolbutton.inc
+  $000000000063013D line 1695 of include/control.inc
+  $0000000000630CA0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB95 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+81746 memory blocks allocated : 6096988/6405592
+81744 memory blocks freed     : 6095352/6403944
+2 unfreed memory blocks : 1636
+True heap size : 524288
+True free heap : 533600
+Should be : 522384
+Call trace for block $00007FF0BCD526F0 size 1579
+  $00000000004FE571 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF91D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE535 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE469 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC3F6 line 554 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+Call trace for block $00007FF0B31C2A40 size 57
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F2F line 2242 of include/control.inc
+  $00000000006BE83D line 764 of include/toolbutton.inc
+  $00000000006BCAD3 line 136 of include/toolbutton.inc
+  $000000000063013D line 1695 of include/control.inc
+  $0000000000630CA0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB95 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+81733 memory blocks allocated : 6094014/6402408
+81731 memory blocks freed     : 6092367/6400752
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007FE9215256F0 size 1579
+  $00000000004FE4E1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF88D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE4A5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE3D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC36C line 565 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630E9F line 2242 of include/control.inc
+  $00000000006BE7AD line 764 of include/toolbutton.inc
+Call trace for block $00007FE917995A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630E9F line 2242 of include/control.inc
+  $00000000006BE7AD line 764 of include/toolbutton.inc
+  $00000000006BCA43 line 136 of include/toolbutton.inc
+  $00000000006300AD line 1695 of include/control.inc
+  $0000000000630C10 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB05 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+84905 memory blocks allocated : 6175939/6495328
+84903 memory blocks freed     : 6174292/6493672
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007F605A8B36F0 size 1579
+  $00000000004FE561 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF90D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE525 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE459 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC3EC line 566 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000630F1F line 2242 of include/control.inc
+  $00000000006BE82D line 764 of include/toolbutton.inc
+Call trace for block $00007F6050D23A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000630F1F line 2242 of include/control.inc
+  $00000000006BE82D line 764 of include/toolbutton.inc
+  $00000000006BCAC3 line 136 of include/toolbutton.inc
+  $000000000063012D line 1695 of include/control.inc
+  $0000000000630C90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EB85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+85077 memory blocks allocated : 6176958/6497464
+85075 memory blocks freed     : 6175311/6495808
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007FB394D226F0 size 1579
+  $00000000004FE761 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB0D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE725 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE659 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5EC line 569 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+Call trace for block $00007FB38B192A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+  $00000000006BCCC3 line 136 of include/toolbutton.inc
+  $000000000063032D line 1695 of include/control.inc
+  $0000000000630E90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+85147 memory blocks allocated : 6173852/6498080
+85145 memory blocks freed     : 6172205/6496424
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007FCEA4AE26F0 size 1579
+  $00000000004FE761 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB0D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE725 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE659 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5EC line 569 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+Call trace for block $00007FCE9AF52A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+  $00000000006BCCC3 line 136 of include/toolbutton.inc
+  $000000000063032D line 1695 of include/control.inc
+  $0000000000630E90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+85053 memory blocks allocated : 6172821/6496536
+85051 memory blocks freed     : 6171174/6494880
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007F30CDF0B6F0 size 1579
+  $00000000004FE761 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB0D line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE725 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE659 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5EC line 571 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+Call trace for block $00007F30C437BA40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+  $00000000006BCCC3 line 136 of include/toolbutton.inc
+  $000000000063032D line 1695 of include/control.inc
+  $0000000000630E90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+107705 memory blocks allocated : 7740753/8163152
+107701 memory blocks freed     : 7737793/8160176
+4 unfreed memory blocks : 2960
+True heap size : 557056
+True free heap : 564736
+Should be : 553568
+Call trace for block $00007F8E167A1050 size 1245
+  $00000000004FE761 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB02 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE725 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE659 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5EC line 571 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+Call trace for block $00007F8E0CC107A0 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+  $00000000006BCCC3 line 136 of include/toolbutton.inc
+  $000000000063032D line 1695 of include/control.inc
+  $0000000000630E90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED85 line 1038 of include/control.inc
+Call trace for block $00007F8E167A06F0 size 1579
+  $00000000004FE761 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB02 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE725 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE659 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5EC line 571 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+Call trace for block $00007F8E0CC10A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+  $00000000006BCCC3 line 136 of include/toolbutton.inc
+  $000000000063032D line 1695 of include/control.inc
+  $0000000000630E90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+85692 memory blocks allocated : 6189869/6516456
+85690 memory blocks freed     : 6188222/6514800
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007F9301D4E6F0 size 1579
+  $00000000004FE761 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB02 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE725 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE659 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5EC line 571 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+Call trace for block $00007F92F81BEA40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063111F line 2242 of include/control.inc
+  $00000000006BEA2D line 764 of include/toolbutton.inc
+  $00000000006BCCC3 line 136 of include/toolbutton.inc
+  $000000000063032D line 1695 of include/control.inc
+  $0000000000630E90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+85853 memory blocks allocated : 6194974/6522056
+85851 memory blocks freed     : 6193327/6520400
+2 unfreed memory blocks : 1647
+True heap size : 524288
+True free heap : 533600
+Should be : 522376
+Call trace for block $00007FE4AB8F46F0 size 1579
+  $00000000004FE751 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFAF2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE715 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE649 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5D4 line 571 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+Call trace for block $00007FE4A1D64A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+  $00000000006BCCB3 line 136 of include/toolbutton.inc
+  $000000000063031D line 1695 of include/control.inc
+  $0000000000630E80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+105430 memory blocks allocated : 6930134/7347232
+105428 memory blocks freed     : 6928289/7345376
+2 unfreed memory blocks : 1845
+True heap size : 524288
+True free heap : 533408
+Should be : 522176
+Call trace for block $00007FFFF7FCB6F0 size 1777
+  $00000000004FE751 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFAF2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE715 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE649 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5D4 line 570 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C7A0 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+  $00000000006BCCB3 line 136 of include/toolbutton.inc
+  $000000000063031D line 1695 of include/control.inc
+  $0000000000630E80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+105424 memory blocks allocated : 6929981/7347088
+105422 memory blocks freed     : 6928136/7345232
+2 unfreed memory blocks : 1845
+True heap size : 524288
+True free heap : 533408
+Should be : 522176
+Call trace for block $00007F52969AE6F0 size 1777
+  $00000000004FE751 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFAF2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE715 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE649 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5D4 line 570 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+Call trace for block $00007F528CE1E880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+  $00000000006BCCB3 line 136 of include/toolbutton.inc
+  $000000000063031D line 1695 of include/control.inc
+  $0000000000630E80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+133052 memory blocks allocated : 8998396/9543120
+133048 memory blocks freed     : 8994904/9539608
+4 unfreed memory blocks : 3492
+True heap size : 524288
+True free heap : 531424
+Should be : 520264
+Call trace for block $00007F4FD0EF4050 size 1777
+  $00000000004FE751 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFAF2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE715 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE649 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5D4 line 570 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+Call trace for block $00007F4FC7363880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+  $00000000006BCCB3 line 136 of include/toolbutton.inc
+  $000000000063031D line 1695 of include/control.inc
+  $0000000000630E80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED75 line 1038 of include/control.inc
+Call trace for block $00007F4FD0EF36F0 size 1579
+  $00000000004FE751 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFAF2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE715 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE649 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5D4 line 570 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+Call trace for block $00007F4FC7363A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+  $00000000006BCCB3 line 136 of include/toolbutton.inc
+  $000000000063031D line 1695 of include/control.inc
+  $0000000000630E80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+105649 memory blocks allocated : 6943154/7360696
+105647 memory blocks freed     : 6941309/7358840
+2 unfreed memory blocks : 1845
+True heap size : 524288
+True free heap : 533408
+Should be : 522176
+Call trace for block $00007F3230FD9E10 size 1777
+  $00000000004FE751 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFAF2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE715 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE649 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC5D4 line 570 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+Call trace for block $00007F3227449880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063110F line 2242 of include/control.inc
+  $00000000006BEA1D line 764 of include/toolbutton.inc
+  $00000000006BCCB3 line 136 of include/toolbutton.inc
+  $000000000063031D line 1695 of include/control.inc
+  $0000000000630E80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062ED75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+112529 memory blocks allocated : 7132525/7574432
+112527 memory blocks freed     : 7130680/7572576
+2 unfreed memory blocks : 1845
+True heap size : 524288
+True free heap : 533408
+Should be : 522176
+Call trace for block $00007FFB579946F0 size 1777
+  $00000000004FE7D1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFB72 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE795 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE6C9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC654 line 571 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063118F line 2242 of include/control.inc
+  $00000000006BEA9D line 764 of include/toolbutton.inc
+Call trace for block $00007FFB4DE04880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063118F line 2242 of include/control.inc
+  $00000000006BEA9D line 764 of include/toolbutton.inc
+  $00000000006BCD33 line 136 of include/toolbutton.inc
+  $000000000063039D line 1695 of include/control.inc
+  $0000000000630F00 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EDF5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+113172 memory blocks allocated : 7158811/7602152
+113170 memory blocks freed     : 7156966/7600296
+2 unfreed memory blocks : 1845
+True heap size : 524288
+True free heap : 533408
+Should be : 522176
+Call trace for block $00007F85C87D86F0 size 1777
+  $00000000004FE831 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFBD2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE7F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE729 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC6B4 line 583 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $00000000006311EF line 2242 of include/control.inc
+  $00000000006BEAFD line 764 of include/toolbutton.inc
+Call trace for block $00007F85BEC48880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006311EF line 2242 of include/control.inc
+  $00000000006BEAFD line 764 of include/toolbutton.inc
+  $00000000006BCD93 line 136 of include/toolbutton.inc
+  $00000000006303FD line 1695 of include/control.inc
+  $0000000000630F60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+168581 memory blocks allocated : 10910613/11597832
+168565 memory blocks freed     : 10905196/11592352
+16 unfreed memory blocks : 5417
+True heap size : 884736
+True free heap : 888032
+Should be : 877208
+Call trace for block $00007F1A9B6961C0 size 27
+  $00000000004EF108
+  $00000000004F02E0
+  $00000000004EF40B
+  $000000000073A0A1
+  $0000000000705549
+  $0000000000712EE6
+  $0000000000712FFC
+  $00007F1AAAB23C18
+Call trace for block $00007F1AA09FF9E0 size 122
+  $00000000004AF102
+  $00000000004C5699
+  $00000000004F02A6
+  $00000000004EF40B
+  $000000000073A0A1
+  $0000000000705549
+  $0000000000712EE6
+  $0000000000712FFC
+Call trace for block $00007F1A9B695F80 size 42
+  $00000000004EF40B
+  $000000000073A0A1
+  $0000000000705549
+  $0000000000712EE6
+  $0000000000712FFC
+  $00007F1AAAB23C18
+Call trace for block $00007F1AA09FF8C0 size 128
+  $00000000004AF102
+  $00000000004AA77C
+  $00000000004F5126
+  $00000000006311FF
+  $00000000006BEB0D
+  $00000000006BCDA3
+  $000000000063040D
+  $0000000000630F70
+Call trace for block $00007F1A9B695EC0 size 40
+  $00000000004AA77C
+  $00000000004F5126
+  $00000000006311FF
+  $00000000006BEB0D
+  $00000000006BCDA3
+  $000000000063040D
+  $0000000000630F70
+  $00000000004A9715
+Call trace for block $00007F1A9B695E00 size 41
+  $00000000004C5699
+  $00000000004D7F92
+  $000000000050965F
+  $00000000004F5126
+  $00000000006311FF
+  $00000000006BEB0D
+  $00000000006BCDA3
+  $000000000063040D
+Call trace for block $00007F1A9B695D40 size 20
+  $000000000050965F
+  $00000000004F5126
+  $00000000006311FF
+  $00000000006BEB0D
+  $00000000006BCDA3
+  $000000000063040D
+  $0000000000630F70
+  $00000000004A9715
+Call trace for block $00007F1AA2065C30 size 1579
+  $00000000004FE841
+  $00000000004FFBE2
+  $00000000004FE805
+  $00000000004FE739
+  $00000000004FC6CC
+  $00000000004F506D
+  $00000000006311FF
+  $00000000006BEB0D
+Call trace for block $00007F1AA1DD6FC0 size 68
+  $00000000004F505C
+  $00000000006311FF
+  $00000000006BEB0D
+  $00000000006BCDA3
+  $000000000063040D
+  $0000000000630F70
+  $00000000004A9715
+  $000000000062EE65
+Call trace for block $00007F1AAB968110 size 1245
+  $00000000004FE841
+  $00000000004FFBE2
+  $00000000004FE805
+  $00000000004FE739
+  $00000000004FC6CC
+  $00000000004F506D
+  $0000000000640660
+  $0000000000640EFA
+Call trace for block $00007F1AA1DD7A40 size 68
+  $00000000004F505C
+  $0000000000640660
+  $0000000000640EFA
+  $00000000004A9715
+  $0000000000705549
+  $000000000079BF4B
+  $00007F1AAA4FB47E
+  $00000000006247DC
+Call trace for block $00007F1AAB9676F0 size 1777
+  $00000000004FE841
+  $00000000004FFBE2
+  $00000000004FE805
+  $00000000004FE739
+  $00000000004FC6CC
+  $00000000004F506D
+  $00000000006311FF
+  $00000000006BEB0D
+Call trace for block $00007F1AA1DD7880 size 68
+  $00000000004F505C
+  $00000000006311FF
+  $00000000006BEB0D
+  $00000000006BCDA3
+  $000000000063040D
+  $0000000000630F70
+  $00000000004A9715
+  $000000000062EE65
+Call trace for block $00007F1AAB921DE0 size 70
+  $0000000000499ADD
+Call trace for block $00007F1AAB921C20 size 56
+  $0000000000499ADD
+  $000000000070D97A
+  $000000000070D5D6
+  $000000000070CAB0
+  $0000000000661E4E
+  $0000000000660203
+  $000000000065EE40
+  $00000000004DE389
+Call trace for block $00007F1AAB921B40 size 66
+  $0000000000499BD2
+  $0000000000499ADD
+  $000000000065EE40
+  $00000000004DE389
+  $00000000004BFA60
+  $00000000004ADF36
+  $0000000000499ADD
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59947 memory blocks allocated : 4194921/4401952
+59947 memory blocks freed     : 4194921/4401952
+0 unfreed memory blocks : 0
+True heap size : 262144
+True free heap : 273440
+Should be : 262144
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58935 memory blocks allocated : 4159867/4361984
+58934 memory blocks freed     : 4159799/4361912
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007F091CB6BA40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006311FF line 2242 of include/control.inc
+  $00000000006BEB0D line 764 of include/toolbutton.inc
+  $00000000006BCDA3 line 136 of include/toolbutton.inc
+  $000000000063040D line 1695 of include/control.inc
+  $0000000000630F70 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE65 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59124 memory blocks allocated : 4165657/4368568
+59123 memory blocks freed     : 4165589/4368496
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007F9059B82A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006311DF line 2242 of include/control.inc
+  $00000000006BEAED line 764 of include/toolbutton.inc
+  $00000000006BCD83 line 136 of include/toolbutton.inc
+  $00000000006303ED line 1695 of include/control.inc
+  $0000000000630F50 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE45 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59429 memory blocks allocated : 4180238/4384536
+59428 memory blocks freed     : 4180170/4384464
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007FBBF3B8BA40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006311FF line 2242 of include/control.inc
+  $00000000006BEB0D line 764 of include/toolbutton.inc
+  $00000000006BCDA3 line 136 of include/toolbutton.inc
+  $000000000063040D line 1695 of include/control.inc
+  $0000000000630F70 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE65 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59120 memory blocks allocated : 4165441/4368280
+59119 memory blocks freed     : 4165373/4368208
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007F343A5D3A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006311FF line 2242 of include/control.inc
+  $00000000006BEB0D line 764 of include/toolbutton.inc
+  $00000000006BCDA3 line 136 of include/toolbutton.inc
+  $000000000063040D line 1695 of include/control.inc
+  $0000000000630F70 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE65 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59026 memory blocks allocated : 4162880/4365360
+59025 memory blocks freed     : 4162812/4365288
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007FDB140D9A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063120F line 2242 of include/control.inc
+  $00000000006BEB1D line 764 of include/toolbutton.inc
+  $00000000006BCDB3 line 136 of include/toolbutton.inc
+  $000000000063041D line 1695 of include/control.inc
+  $0000000000630F80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59817 memory blocks allocated : 4191038/4397272
+59817 memory blocks freed     : 4191038/4397272
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59563 memory blocks allocated : 4176951/4381952
+59562 memory blocks freed     : 4176883/4381880
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007F712AF74A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063120F line 2242 of include/control.inc
+  $00000000006BEB1D line 764 of include/toolbutton.inc
+  $00000000006BCDB3 line 136 of include/toolbutton.inc
+  $000000000063041D line 1695 of include/control.inc
+  $0000000000630F80 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE75 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59175 memory blocks allocated : 4166542/4369464
+59174 memory blocks freed     : 4166474/4369392
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007F3E94388A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+  $00000000006BCDC3 line 136 of include/toolbutton.inc
+  $000000000063042D line 1695 of include/control.inc
+  $0000000000630F90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59733 memory blocks allocated : 4180301/4386448
+59733 memory blocks freed     : 4180301/4386448
+0 unfreed memory blocks : 0
+True heap size : 262144
+True free heap : 273440
+Should be : 262144
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59949 memory blocks allocated : 4191211/4398280
+59949 memory blocks freed     : 4191211/4398280
+0 unfreed memory blocks : 0
+True heap size : 262144
+True free heap : 273440
+Should be : 262144
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59649 memory blocks allocated : 4190447/4393840
+59648 memory blocks freed     : 4190379/4393768
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007FA47F3C8A40 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+  $00000000006BCDC3 line 136 of include/toolbutton.inc
+  $000000000063042D line 1695 of include/control.inc
+  $0000000000630F90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+89821 memory blocks allocated : 6359447/6699344
+89819 memory blocks freed     : 6357800/6697688
+2 unfreed memory blocks : 1647
+True heap size : 557056
+True free heap : 566368
+Should be : 555144
+Call trace for block $00007FFFF7FCB6F0 size 1579
+  $00000000004FE861 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FFC02 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FE825 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FE759 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FC6E4 line 582 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE43C880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+  $00000000006BCDC3 line 136 of include/toolbutton.inc
+  $000000000063042D line 1695 of include/control.inc
+  $0000000000630F90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62238 memory blocks allocated : 4321260/4536992
+62238 memory blocks freed     : 4321260/4536992
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+64009 memory blocks allocated : 4424762/4647856
+64009 memory blocks freed     : 4424762/4647856
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59446 memory blocks allocated : 4175260/4379640
+59445 memory blocks freed     : 4175192/4379568
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007FE93F56D880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+  $00000000006BCDC3 line 136 of include/toolbutton.inc
+  $000000000063042D line 1695 of include/control.inc
+  $0000000000630F90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59418 memory blocks allocated : 4177164/4381040
+59407 memory blocks freed     : 4176484/4380320
+11 unfreed memory blocks : 680
+True heap size : 360448
+True free heap : 369312
+Should be : 358320
+Call trace for block $00007FD9BA795340 size 27
+  $00000000004EF108
+  $00000000004F02E0
+  $00000000004EF40B
+  $000000000073A0C1
+  $0000000000705569
+  $0000000000712F06
+  $000000000071301C
+  $00007FD9C34A8C18
+Call trace for block $00007FD9BA7AE3C0 size 122
+  $00000000004AF102
+  $00000000004C5699
+  $00000000004F02A6
+  $00000000004EF40B
+  $000000000073A0C1
+  $0000000000705569
+  $0000000000712F06
+  $000000000071301C
+Call trace for block $00007FD9BA795580 size 42
+  $00000000004EF40B
+  $000000000073A0C1
+  $0000000000705569
+  $0000000000712F06
+  $000000000071301C
+  $00007FD9C34A8C18
+  $000000000062EE85
+  $0000000000622532
+Call trace for block $00007FD9BA7AE2A0 size 128
+  $00000000004AF102
+  $00000000004AA77C
+  $00000000004F5126
+  $000000000063121F
+  $00000000006BEB2D
+  $00000000006BCDC3
+  $000000000063042D
+  $0000000000630F90
+Call trace for block $00007FD9BA795640 size 40
+  $00000000004AA77C
+  $00000000004F5126
+  $000000000063121F
+  $00000000006BEB2D
+  $00000000006BCDC3
+  $000000000063042D
+  $0000000000630F90
+  $00000000004A9715
+Call trace for block $00007FD9BA795700 size 41
+  $00000000004C5699
+  $00000000004D7F92
+  $000000000050967F
+  $00000000004F5126
+  $000000000063121F
+  $00000000006BEB2D
+  $00000000006BCDC3
+  $000000000063042D
+Call trace for block $00007FD9BA7957C0 size 20
+  $000000000050967F
+  $00000000004F5126
+  $000000000063121F
+  $00000000006BEB2D
+  $00000000006BCDC3
+  $000000000063042D
+  $0000000000630F90
+  $00000000004A9715
+Call trace for block $00007FD9BA75C880 size 68
+  $00000000004F505C
+  $000000000063121F
+  $00000000006BEB2D
+  $00000000006BCDC3
+  $000000000063042D
+  $0000000000630F90
+  $00000000004A9715
+  $000000000062EE85
+Call trace for block $00007FD9C42A6DE0 size 70
+  $0000000000499ADD
+Call trace for block $00007FD9C42A6C20 size 56
+  $0000000000499ADD
+  $000000000070D99A
+  $000000000070D5F6
+  $000000000070CAD0
+  $0000000000661E6E
+  $0000000000660223
+  $000000000065EE60
+  $00000000004DE389
+Call trace for block $00007FD9C42A6B40 size 66
+  $0000000000499BD2
+  $0000000000499ADD
+  $000000000065EE60
+  $00000000004DE389
+  $00000000004BFA60
+  $00000000004ADF36
+  $0000000000499ADD
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59311 memory blocks allocated : 4171099/4374656
+59310 memory blocks freed     : 4171031/4374584
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007FAE76C0E880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+  $00000000006BCDC3 line 136 of include/toolbutton.inc
+  $000000000063042D line 1695 of include/control.inc
+  $0000000000630F90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59311 memory blocks allocated : 4171081/4374632
+59310 memory blocks freed     : 4171013/4374560
+1 unfreed memory blocks : 68
+True heap size : 262144
+True free heap : 273216
+Should be : 261944
+Call trace for block $00007F1409142880 size 68
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063121F line 2242 of include/control.inc
+  $00000000006BEB2D line 764 of include/toolbutton.inc
+  $00000000006BCDC3 line 136 of include/toolbutton.inc
+  $000000000063042D line 1695 of include/control.inc
+  $0000000000630F90 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062EE85 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60370 memory blocks allocated : 4241868/4449816
+60370 memory blocks freed     : 4241868/4449816
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59157 memory blocks allocated : 4170927/4373224
+59156 memory blocks freed     : 4170819/4373112
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FFFEE4654C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006313AF line 2242 of include/control.inc
+  $00000000006BECBD line 764 of include/toolbutton.inc
+  $00000000006BCF53 line 136 of include/toolbutton.inc
+  $00000000006305BD line 1695 of include/control.inc
+  $0000000000631120 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F015 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59276 memory blocks allocated : 4177156/4379576
+59275 memory blocks freed     : 4177048/4379464
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FFFEE4654C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006313AF line 2242 of include/control.inc
+  $00000000006BECBD line 764 of include/toolbutton.inc
+  $00000000006BCF53 line 136 of include/toolbutton.inc
+  $00000000006305BD line 1695 of include/control.inc
+  $0000000000631120 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F015 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58782 memory blocks allocated : 4155156/4356640
+58781 memory blocks freed     : 4155048/4356528
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FCD303F04C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006313AF line 2242 of include/control.inc
+  $00000000006BECBD line 764 of include/toolbutton.inc
+  $00000000006BCF53 line 136 of include/toolbutton.inc
+  $00000000006305BD line 1695 of include/control.inc
+  $0000000000631120 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F015 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58782 memory blocks allocated : 4154749/4356208
+58781 memory blocks freed     : 4154641/4356096
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FBD502F84C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006315AF line 2242 of include/control.inc
+  $00000000006BEEBD line 764 of include/toolbutton.inc
+  $00000000006BD153 line 136 of include/toolbutton.inc
+  $00000000006307BD line 1695 of include/control.inc
+  $0000000000631320 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F215 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60822 memory blocks allocated : 4261916/4469984
+60821 memory blocks freed     : 4261808/4469872
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F6D9E8C24C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063164F line 2242 of include/control.inc
+  $00000000006BEF5D line 764 of include/toolbutton.inc
+  $00000000006BD1F3 line 136 of include/toolbutton.inc
+  $000000000063085D line 1695 of include/control.inc
+  $00000000006313C0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F2B5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59136 memory blocks allocated : 4178597/4380816
+59135 memory blocks freed     : 4178489/4380704
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FA71DC184C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063165F line 2242 of include/control.inc
+  $00000000006BEF6D line 764 of include/toolbutton.inc
+  $00000000006BD203 line 136 of include/toolbutton.inc
+  $000000000063086D line 1695 of include/control.inc
+  $00000000006313D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F2C5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62156 memory blocks allocated : 4350786/4566176
+62156 memory blocks freed     : 4350786/4566176
+0 unfreed memory blocks : 0
+True heap size : 327680
+True free heap : 338976
+Should be : 327680
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59341 memory blocks allocated : 4173955/4377464
+59340 memory blocks freed     : 4173847/4377352
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FE8194664C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063165F line 2242 of include/control.inc
+  $00000000006BEF6D line 764 of include/toolbutton.inc
+  $00000000006BD203 line 136 of include/toolbutton.inc
+  $000000000063086D line 1695 of include/control.inc
+  $00000000006313D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F2C5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59978 memory blocks allocated : 4201241/4406864
+59977 memory blocks freed     : 4201133/4406752
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FEE60ABB9C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063164F line 2242 of include/control.inc
+  $00000000006BEF5D line 764 of include/toolbutton.inc
+  $00000000006BD1F3 line 136 of include/toolbutton.inc
+  $000000000063085D line 1695 of include/control.inc
+  $00000000006313C0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F2B5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59166 memory blocks allocated : 4166024/4369184
+59165 memory blocks freed     : 4165916/4369072
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FA05F3C34C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063173F line 2242 of include/control.inc
+  $00000000006BF04D line 764 of include/toolbutton.inc
+  $00000000006BD2E3 line 136 of include/toolbutton.inc
+  $000000000063094D line 1695 of include/control.inc
+  $00000000006314B0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F3A5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61507 memory blocks allocated : 4384690/4593000
+61506 memory blocks freed     : 4384582/4592888
+1 unfreed memory blocks : 108
+True heap size : 327680
+True free heap : 338720
+Should be : 327440
+Call trace for block $00007F6C8C31E4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063172F line 2242 of include/control.inc
+  $00000000006BF03D line 764 of include/toolbutton.inc
+  $00000000006BD2D3 line 136 of include/toolbutton.inc
+  $000000000063093D line 1695 of include/control.inc
+  $00000000006314A0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F395 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62930 memory blocks allocated : 4366642/4584880
+62930 memory blocks freed     : 4366642/4584880
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58274 memory blocks allocated : 4140290/4339728
+58273 memory blocks freed     : 4140182/4339616
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F7EFBB704C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063172F line 2242 of include/control.inc
+  $00000000006BF03D line 764 of include/toolbutton.inc
+  $00000000006BD2D3 line 136 of include/toolbutton.inc
+  $000000000063093D line 1695 of include/control.inc
+  $00000000006314A0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F395 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62157 memory blocks allocated : 4324014/4539168
+62157 memory blocks freed     : 4324014/4539168
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60236 memory blocks allocated : 4236491/4441736
+60235 memory blocks freed     : 4236383/4441624
+1 unfreed memory blocks : 108
+True heap size : 360448
+True free heap : 371488
+Should be : 360208
+Call trace for block $00007F3FC59A99C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063172F line 2242 of include/control.inc
+  $00000000006BF03D line 764 of include/toolbutton.inc
+  $00000000006BD2D3 line 136 of include/toolbutton.inc
+  $000000000063093D line 1695 of include/control.inc
+  $00000000006314A0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F395 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60172 memory blocks allocated : 4240013/4445496
+60171 memory blocks freed     : 4239905/4445384
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FF2AD1B74C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063187F line 2242 of include/control.inc
+  $00000000006BF18D line 764 of include/toolbutton.inc
+  $00000000006BD423 line 136 of include/toolbutton.inc
+  $0000000000630A8D line 1695 of include/control.inc
+  $00000000006315F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F4E5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59653 memory blocks allocated : 4179813/4385752
+59653 memory blocks freed     : 4179813/4385752
+0 unfreed memory blocks : 0
+True heap size : 262144
+True free heap : 273440
+Should be : 262144
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58720 memory blocks allocated : 4152794/4353976
+58719 memory blocks freed     : 4152686/4353864
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F3AD3A0E4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063187F line 2242 of include/control.inc
+  $00000000006BF18D line 764 of include/toolbutton.inc
+  $00000000006BD423 line 136 of include/toolbutton.inc
+  $0000000000630A8D line 1695 of include/control.inc
+  $00000000006315F0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F4E5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58825 memory blocks allocated : 4156040/4357624
+58824 memory blocks freed     : 4155932/4357512
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FFDDBA804C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063196F line 2242 of include/control.inc
+  $00000000006BF27D line 764 of include/toolbutton.inc
+  $00000000006BD513 line 136 of include/toolbutton.inc
+  $0000000000630B7D line 1695 of include/control.inc
+  $00000000006316E0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F5D5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+65655 memory blocks allocated : 4429248/4661352
+65655 memory blocks freed     : 4429248/4661352
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+68343 memory blocks allocated : 4539794/4786000
+68343 memory blocks freed     : 4539794/4786000
+0 unfreed memory blocks : 0
+True heap size : 262144
+True free heap : 273440
+Should be : 262144
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+64690 memory blocks allocated : 4548389/4767688
+64689 memory blocks freed     : 4548281/4767576
+1 unfreed memory blocks : 108
+True heap size : 393216
+True free heap : 404256
+Should be : 392976
+Call trace for block $00007F9D128EF4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063196F line 2242 of include/control.inc
+  $00000000006BF27D line 764 of include/toolbutton.inc
+  $00000000006BD513 line 136 of include/toolbutton.inc
+  $0000000000630B7D line 1695 of include/control.inc
+  $00000000006316E0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F5D5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+64769 memory blocks allocated : 4606002/4822400
+64768 memory blocks freed     : 4605894/4822288
+1 unfreed memory blocks : 108
+True heap size : 393216
+True free heap : 404256
+Should be : 392976
+Call trace for block $00007FE68AD8A7C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063196F line 2242 of include/control.inc
+  $00000000006BF27D line 764 of include/toolbutton.inc
+  $00000000006BD513 line 136 of include/toolbutton.inc
+  $0000000000630B7D line 1695 of include/control.inc
+  $00000000006316E0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F5D5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+66944 memory blocks allocated : 4793684/5023104
+66943 memory blocks freed     : 4793576/5022992
+1 unfreed memory blocks : 108
+True heap size : 393216
+True free heap : 404256
+Should be : 392976
+Call trace for block $00007F40C8BB94C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063196F line 2242 of include/control.inc
+  $00000000006BF27D line 764 of include/toolbutton.inc
+  $00000000006BD513 line 136 of include/toolbutton.inc
+  $0000000000630B7D line 1695 of include/control.inc
+  $00000000006316E0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F5D5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60381 memory blocks allocated : 4218514/4426336
+60380 memory blocks freed     : 4218406/4426224
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007FF05E6744C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000063196F line 2242 of include/control.inc
+  $00000000006BF27D line 764 of include/toolbutton.inc
+  $00000000006BD513 line 136 of include/toolbutton.inc
+  $0000000000630B7D line 1695 of include/control.inc
+  $00000000006316E0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F5D5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63674 memory blocks allocated : 4297327/4521152
+63674 memory blocks freed     : 4297327/4521152
+0 unfreed memory blocks : 0
+True heap size : 327680
+True free heap : 338976
+Should be : 327680
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59117 memory blocks allocated : 4163590/4366624
+59116 memory blocks freed     : 4163482/4366512
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F18418914C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631A5F line 2242 of include/control.inc
+  $00000000006BF36D line 764 of include/toolbutton.inc
+  $00000000006BD603 line 136 of include/toolbutton.inc
+  $0000000000630C6D line 1695 of include/control.inc
+  $00000000006317D0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F6C5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59608 memory blocks allocated : 4185229/4390352
+59607 memory blocks freed     : 4185121/4390240
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F1BDE9D84C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631ABF line 2242 of include/control.inc
+  $00000000006BF3CD line 764 of include/toolbutton.inc
+  $00000000006BD663 line 136 of include/toolbutton.inc
+  $0000000000630CCD line 1695 of include/control.inc
+  $0000000000631830 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F725 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63972 memory blocks allocated : 4319581/4543608
+63972 memory blocks freed     : 4319581/4543608
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58739 memory blocks allocated : 4154799/4356024
+58729 memory blocks freed     : 4152853/4354064
+10 unfreed memory blocks : 1946
+True heap size : 622592
+True free heap : 630304
+Should be : 619352
+Call trace for block $00007F6399595AC0 size 24
+  $00000000004FF0B5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FEFE9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCF74 line 629 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+Call trace for block $00007F6399595B80 size 24
+  $00000000004FF0B5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FEFE9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCF74 line 629 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+Call trace for block $00007F6399595C40 size 24
+  $00000000004FF0B5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FEFE9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCF74 line 629 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+Call trace for block $00007F6399596300 size 24
+  $00000000004FF0B5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FEFE9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCF74 line 629 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+Call trace for block $00007F6399596480 size 24
+  $00000000004FF0B5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FEFE9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCF74 line 629 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+Call trace for block $00007F6399571440 size 272
+  $00000000004FF0B5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FEFE9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCF74 line 629 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+Call trace for block $00007F63A30EC0D0 size 1380
+  $00000000004FCE73 line 623 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+  $0000000000631820 line 2144 of include/control.inc
+  $00000000004A9715
+Call trace for block $00007F63995854C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+  $0000000000631820 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F715 line 1038 of include/control.inc
+Call trace for block $00007F6399595DC0 size 24
+  $00000000004F5034 line 172 of uprincipal.pas
+  $0000000000631AAF line 2242 of include/control.inc
+  $00000000006BF3BD line 764 of include/toolbutton.inc
+  $00000000006BD653 line 136 of include/toolbutton.inc
+  $0000000000630CBD line 1695 of include/control.inc
+  $0000000000631820 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F715 line 1038 of include/control.inc
+Call trace for block $00007F63995960C0 size 42
+  $00000000007959E6 line 169 of gtk2wsdialogs.pp
+  $00007F63A1C8047E
+  $00000000004EFE16
+  $00000000004ED605
+  $00000000004ED32F
+  $00000000004EF49A
+  $000000000068FDCC
+  $00000000006903BD
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+64005 memory blocks allocated : 4319950/4544224
+64005 memory blocks freed     : 4319950/4544224
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59022 memory blocks allocated : 4162559/4365000
+59021 memory blocks freed     : 4162451/4364888
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F65F73FF4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631ABF line 2242 of include/control.inc
+  $00000000006BF3CD line 764 of include/toolbutton.inc
+  $00000000006BD663 line 136 of include/toolbutton.inc
+  $0000000000630CCD line 1695 of include/control.inc
+  $0000000000631830 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F725 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58999 memory blocks allocated : 4162939/4365144
+58998 memory blocks freed     : 4162831/4365032
+1 unfreed memory blocks : 108
+True heap size : 294912
+True free heap : 305952
+Should be : 294672
+Call trace for block $00007F9D3EFD64C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631ACF line 2242 of include/control.inc
+  $00000000006BF3DD line 764 of include/toolbutton.inc
+  $00000000006BD673 line 136 of include/toolbutton.inc
+  $0000000000630CDD line 1695 of include/control.inc
+  $0000000000631840 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F735 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+65128 memory blocks allocated : 4489838/4710184
+65126 memory blocks freed     : 4489709/4710048
+2 unfreed memory blocks : 129
+True heap size : 393216
+True free heap : 404064
+Should be : 392824
+Call trace for block $00007F154FF10200 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF211 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF109 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD094 line 643 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631BCF line 2242 of include/control.inc
+  $00000000006BF4DD line 764 of include/toolbutton.inc
+  $00000000006BD773 line 136 of include/toolbutton.inc
+Call trace for block $00007F154FF019C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631BCF line 2242 of include/control.inc
+  $00000000006BF4DD line 764 of include/toolbutton.inc
+  $00000000006BD773 line 136 of include/toolbutton.inc
+  $0000000000630DDD line 1695 of include/control.inc
+  $0000000000631940 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F835 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61135 memory blocks allocated : 4252134/4460072
+61133 memory blocks freed     : 4251995/4459928
+2 unfreed memory blocks : 139
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007FA6F3F29880 size 31
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF211 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF109 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD094 line 643 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631BCF line 2242 of include/control.inc
+  $00000000006BF4DD line 764 of include/toolbutton.inc
+  $00000000006BD773 line 136 of include/toolbutton.inc
+Call trace for block $00007FA6F3F194C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631BCF line 2242 of include/control.inc
+  $00000000006BF4DD line 764 of include/toolbutton.inc
+  $00000000006BD773 line 136 of include/toolbutton.inc
+  $0000000000630DDD line 1695 of include/control.inc
+  $0000000000631940 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F835 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60679 memory blocks allocated : 4341186/4546304
+60677 memory blocks freed     : 4341047/4546160
+2 unfreed memory blocks : 139
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007F5139CE8640 size 31
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF291 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF189 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD11C line 643 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $00000000006410B0 line 75 of include/menuitem.inc
+  $000000000064194A line 269 of include/menuitem.inc
+  $00000000004A9715
+Call trace for block $00007F5139CD84C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $00000000006410B0 line 75 of include/menuitem.inc
+  $000000000064194A line 269 of include/menuitem.inc
+  $00000000004A9715
+  $0000000000705F99 line 3516 of gtk2proc.inc
+  $000000000079C99B line 138 of gtk2wsmenus.pp
+  $00007F51423D347E
+  $00000000004A9715
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58790 memory blocks allocated : 4155705/4357128
+58788 memory blocks freed     : 4155566/4356984
+2 unfreed memory blocks : 139
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007F8AF862C880 size 31
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF291 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF189 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD11C line 643 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C4F line 2242 of include/control.inc
+  $00000000006BF55D line 764 of include/toolbutton.inc
+  $00000000006BD7F3 line 136 of include/toolbutton.inc
+Call trace for block $00007F8AF861C4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C4F line 2242 of include/control.inc
+  $00000000006BF55D line 764 of include/toolbutton.inc
+  $00000000006BD7F3 line 136 of include/toolbutton.inc
+  $0000000000630E5D line 1695 of include/control.inc
+  $00000000006319C0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F8B5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+66878 memory blocks allocated : 4645785/4869384
+66876 memory blocks freed     : 4645646/4869240
+2 unfreed memory blocks : 139
+True heap size : 425984
+True free heap : 436832
+Should be : 425584
+Call trace for block $00007FCD07453880 size 31
+  $00000000004FA7AB
+  $00000000004FF2D1
+  $00000000004FF1C9
+  $00000000004FD154
+  $00000000004F506D
+  $0000000000631C8F
+  $00000000006BF59D
+  $00000000006BD833
+Call trace for block $00007FCD074434C0 size 108
+  $00000000004F505C
+  $0000000000631C8F
+  $00000000006BF59D
+  $00000000006BD833
+  $0000000000630E9D
+  $0000000000631A00
+  $00000000004A9715
+  $000000000062F8F5
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+65094 memory blocks allocated : 4487305/4710392
+65092 memory blocks freed     : 4487166/4710248
+2 unfreed memory blocks : 139
+True heap size : 393216
+True free heap : 404064
+Should be : 392816
+Call trace for block $00007F587117E880 size 31
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF2D1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF1C9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD154 line 665 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C8F line 2242 of include/control.inc
+  $00000000006BF59D line 764 of include/toolbutton.inc
+  $00000000006BD833 line 136 of include/toolbutton.inc
+Call trace for block $00007F587116E4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C8F line 2242 of include/control.inc
+  $00000000006BF59D line 764 of include/toolbutton.inc
+  $00000000006BD833 line 136 of include/toolbutton.inc
+  $0000000000630E9D line 1695 of include/control.inc
+  $0000000000631A00 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F8F5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60271 memory blocks allocated : 4220611/4426296
+60269 memory blocks freed     : 4220476/4426152
+2 unfreed memory blocks : 135
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007F88D8B2D140 size 27
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF2D1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF1C9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD154 line 665 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C8F line 2242 of include/control.inc
+  $00000000006BF59D line 764 of include/toolbutton.inc
+  $00000000006BD833 line 136 of include/toolbutton.inc
+Call trace for block $00007F88D8B1E9C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C8F line 2242 of include/control.inc
+  $00000000006BF59D line 764 of include/toolbutton.inc
+  $00000000006BD833 line 136 of include/toolbutton.inc
+  $0000000000630E9D line 1695 of include/control.inc
+  $0000000000631A00 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F8F5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59875 memory blocks allocated : 4229465/4433376
+59873 memory blocks freed     : 4229330/4433232
+2 unfreed memory blocks : 135
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007F6E52521880 size 27
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF2D1 line 360 of rtfpars_lzRichEdit.pp
+  $00000000004FF1C9 line 328 of rtfpars_lzRichEdit.pp
+  $00000000004FD154 line 667 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C8F line 2242 of include/control.inc
+  $00000000006BF59D line 763 of include/toolbutton.inc
+  $00000000006BD833 line 136 of include/toolbutton.inc
+Call trace for block $00007F6E525114C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C8F line 2242 of include/control.inc
+  $00000000006BF59D line 763 of include/toolbutton.inc
+  $00000000006BD833 line 136 of include/toolbutton.inc
+  $0000000000630E9D line 1695 of include/control.inc
+  $0000000000631A00 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F8F5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60114 memory blocks allocated : 4276245/4480960
+60112 memory blocks freed     : 4276110/4480816
+2 unfreed memory blocks : 135
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007F8E0B089880 size 27
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF2E1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF1D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD164 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+  $00000000006BD843 line 136 of include/toolbutton.inc
+Call trace for block $00007F8E0B0794C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+  $00000000006BD843 line 136 of include/toolbutton.inc
+  $0000000000630EAD line 1695 of include/control.inc
+  $0000000000631A10 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F905 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59579 memory blocks allocated : 4187910/4391280
+59577 memory blocks freed     : 4187775/4391136
+2 unfreed memory blocks : 135
+True heap size : 327680
+True free heap : 338528
+Should be : 327280
+Call trace for block $00007F696FEFC880 size 27
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF2E1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF1D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD164 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+  $00000000006BD843 line 136 of include/toolbutton.inc
+Call trace for block $00007F696FEEC4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+  $00000000006BD843 line 136 of include/toolbutton.inc
+  $0000000000630EAD line 1695 of include/control.inc
+  $0000000000631A10 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F905 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+147177 memory blocks allocated : 785798183/786564112
+147177 memory blocks freed     : 785798183/786564112
+0 unfreed memory blocks : 0
+True heap size : 1015808
+True free heap : 1027104
+Should be : 1015808
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+773259 memory blocks allocated : 768559272/772072136
+773256 memory blocks freed     : 768520514/772033368
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FB22EBD0400 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF2E1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF1D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD164 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+  $00000000006BD843 line 136 of include/toolbutton.inc
+Call trace for block $00007FB22EE09190 size 38629
+  $00000000004FF2E1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500682 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF2A5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF1D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD164 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+Call trace for block $00007FB22EBC04C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631C9F line 2242 of include/control.inc
+  $00000000006BF5AD line 764 of include/toolbutton.inc
+  $00000000006BD843 line 136 of include/toolbutton.inc
+  $0000000000630EAD line 1695 of include/control.inc
+  $0000000000631A10 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062F905 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58092 memory blocks allocated : 4122519/4321520
+58092 memory blocks freed     : 4122519/4321520
+0 unfreed memory blocks : 0
+True heap size : 262144
+True free heap : 273440
+Should be : 262144
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+773647 memory blocks allocated : 786462342/789975112
+773644 memory blocks freed     : 786423584/789936344
+3 unfreed memory blocks : 38758
+True heap size : 688128
+True free heap : 662464
+Should be : 648976
+Call trace for block $00007F086E216640 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF4E1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF3D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E9F line 2242 of include/control.inc
+  $00000000006BF7AD line 764 of include/toolbutton.inc
+  $00000000006BDA43 line 136 of include/toolbutton.inc
+Call trace for block $00007F086E44F190 size 38629
+  $00000000004FF4E1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500882 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF4A5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF3D9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E9F line 2242 of include/control.inc
+  $00000000006BF7AD line 764 of include/toolbutton.inc
+Call trace for block $00007F086E2064C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631E9F line 2242 of include/control.inc
+  $00000000006BF7AD line 764 of include/toolbutton.inc
+  $00000000006BDA43 line 136 of include/toolbutton.inc
+  $00000000006310AD line 1695 of include/control.inc
+  $0000000000631C10 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FB05 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+773283 memory blocks allocated : 768588613/772101568
+773280 memory blocks freed     : 768549855/772062800
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FD3FD26E640 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF531 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF429 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+  $00000000006BDA93 line 136 of include/toolbutton.inc
+Call trace for block $00007FD3FD4A7190 size 38629
+  $00000000004FF531 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005008D2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF4F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF429 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+Call trace for block $00007FD3FD25E4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+  $00000000006BDA93 line 136 of include/toolbutton.inc
+  $00000000006310FD line 1695 of include/control.inc
+  $0000000000631C60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FB55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+774179 memory blocks allocated : 768597045/772112432
+774176 memory blocks freed     : 768558287/772073664
+3 unfreed memory blocks : 38758
+True heap size : 851968
+True free heap : 824480
+Should be : 812816
+Call trace for block $00007FAAAF474FC0 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF531 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF429 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+  $00000000006BDA93 line 136 of include/toolbutton.inc
+Call trace for block $00007FAAAF6AF190 size 38629
+  $00000000004FF531 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005008D2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF4F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF429 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+Call trace for block $00007FAAAF4664C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+  $00000000006BDA93 line 136 of include/toolbutton.inc
+  $00000000006310FD line 1695 of include/control.inc
+  $0000000000631C60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FB55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+773495 memory blocks allocated : 768557754/772071152
+773492 memory blocks freed     : 768518996/772032384
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 791232
+Should be : 780048
+Call trace for block $00007F649F813F00 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF531 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF429 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+  $00000000006BDA93 line 136 of include/toolbutton.inc
+Call trace for block $00007F649FA4E190 size 38629
+  $00000000004FF531 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005008D2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF4F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF429 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+Call trace for block $00007F649F8059C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631EEF line 2242 of include/control.inc
+  $00000000006BF7FD line 764 of include/toolbutton.inc
+  $00000000006BDA93 line 136 of include/toolbutton.inc
+  $00000000006310FD line 1695 of include/control.inc
+  $0000000000631C60 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FB55 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+753938 memory blocks allocated : 768175963/771592208
+753935 memory blocks freed     : 768137205/771553440
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FCDBE455640 size 21
+  $00000000004FA7AB line 412 of rtftool.pas
+  $00000000004FF591 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF489 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631F4F line 2242 of include/control.inc
+  $00000000006BF85D line 764 of include/toolbutton.inc
+  $00000000006BDAF3 line 136 of include/toolbutton.inc
+Call trace for block $00007FCDBE68E190 size 38629
+  $00000000004FF591 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500932 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF555 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF489 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD174 line 668 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631F4F line 2242 of include/control.inc
+  $00000000006BF85D line 764 of include/toolbutton.inc
+Call trace for block $00007FCDBE4454C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631F4F line 2242 of include/control.inc
+  $00000000006BF85D line 764 of include/toolbutton.inc
+  $00000000006BDAF3 line 136 of include/toolbutton.inc
+  $000000000063115D line 1695 of include/control.inc
+  $0000000000631CC0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FBB5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+753944 memory blocks allocated : 768176107/771592352
+753941 memory blocks freed     : 768137349/771553584
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FAAC433B640 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF611 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF509 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD1F4 line 672 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631FCF line 2242 of include/control.inc
+  $00000000006BF8DD line 764 of include/toolbutton.inc
+  $00000000006BDB73 line 136 of include/toolbutton.inc
+Call trace for block $00007FAAC4574190 size 38629
+  $00000000004FF611 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005009B2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF5D5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF509 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD1F4 line 672 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631FCF line 2242 of include/control.inc
+  $00000000006BF8DD line 764 of include/toolbutton.inc
+Call trace for block $00007FAAC432B4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631FCF line 2242 of include/control.inc
+  $00000000006BF8DD line 764 of include/toolbutton.inc
+  $00000000006BDB73 line 136 of include/toolbutton.inc
+  $00000000006311DD line 1695 of include/control.inc
+  $0000000000631D40 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FC35 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+753911 memory blocks allocated : 768190347/771606568
+753908 memory blocks freed     : 768151589/771567800
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FB36C223640 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF611 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF509 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD1F4 line 672 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631FCF line 2242 of include/control.inc
+  $00000000006BF8DD line 764 of include/toolbutton.inc
+  $00000000006BDB73 line 136 of include/toolbutton.inc
+Call trace for block $00007FB36C45C190 size 38629
+  $00000000004FF611 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005009B2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF5D5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF509 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD1F4 line 672 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631FCF line 2242 of include/control.inc
+  $00000000006BF8DD line 764 of include/toolbutton.inc
+Call trace for block $00007FB36C2134C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631FCF line 2242 of include/control.inc
+  $00000000006BF8DD line 764 of include/toolbutton.inc
+  $00000000006BDB73 line 136 of include/toolbutton.inc
+  $00000000006311DD line 1695 of include/control.inc
+  $0000000000631D40 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FC35 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+753918 memory blocks allocated : 768190515/771606736
+753915 memory blocks freed     : 768151757/771567968
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007F554E2BD640 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF511 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF409 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0FC line 674 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631ECF line 2242 of include/control.inc
+  $00000000006BF7DD line 764 of include/toolbutton.inc
+  $00000000006BDA73 line 136 of include/toolbutton.inc
+Call trace for block $00007F554E4F6190 size 38629
+  $00000000004FF511 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005008B2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF4D5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF409 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0FC line 674 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631ECF line 2242 of include/control.inc
+  $00000000006BF7DD line 764 of include/toolbutton.inc
+Call trace for block $00007F554E2AD4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631ECF line 2242 of include/control.inc
+  $00000000006BF7DD line 764 of include/toolbutton.inc
+  $00000000006BDA73 line 136 of include/toolbutton.inc
+  $00000000006310DD line 1695 of include/control.inc
+  $0000000000631C40 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FB35 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+838061 memory blocks allocated : 1549708652/1553673272
+838058 memory blocks freed     : 1549669894/1553634504
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FB2F93FC1C0 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF4C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF3B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0AC line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+  $00000000006BDA23 line 136 of include/toolbutton.inc
+Call trace for block $00007FB2F9635190 size 38629
+  $00000000004FF4C1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500862 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF485 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF3B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0AC line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+Call trace for block $00007FB2F93EC4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+  $00000000006BDA23 line 136 of include/toolbutton.inc
+  $000000000063108D line 1695 of include/control.inc
+  $0000000000631BF0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FAE5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+795874 memory blocks allocated : 1159018411/1162707736
+795871 memory blocks freed     : 1158979653/1162668968
+3 unfreed memory blocks : 38758
+True heap size : 1081344
+True free heap : 1055680
+Should be : 1042192
+Call trace for block $00007F656872B640 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF4C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF3B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0AC line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+  $00000000006BDA23 line 136 of include/toolbutton.inc
+Call trace for block $00007F6568964190 size 38629
+  $00000000004FF4C1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500862 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF485 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF3B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0AC line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+Call trace for block $00007F656871B4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+  $00000000006BDA23 line 136 of include/toolbutton.inc
+  $000000000063108D line 1695 of include/control.inc
+  $0000000000631BF0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FAE5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+755403 memory blocks allocated : 768293149/771713568
+755400 memory blocks freed     : 768254391/771674800
+3 unfreed memory blocks : 38758
+True heap size : 851968
+True free heap : 824000
+Should be : 812816
+Call trace for block $00007FAA5A990F00 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF4C1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF3B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0AC line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+  $00000000006BDA23 line 136 of include/toolbutton.inc
+Call trace for block $00007FAA5ABCB190 size 38629
+  $00000000004FF4C1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500862 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF485 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF3B9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD0AC line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+Call trace for block $00007FAA5A9829C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631E7F line 2242 of include/control.inc
+  $00000000006BF78D line 764 of include/toolbutton.inc
+  $00000000006BDA23 line 136 of include/toolbutton.inc
+  $000000000063108D line 1695 of include/control.inc
+  $0000000000631BF0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FAE5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+800018 memory blocks allocated : 1159230755/1162931728
+800015 memory blocks freed     : 1159191997/1162892960
+3 unfreed memory blocks : 38758
+True heap size : 884736
+True free heap : 871648
+Should be : 845584
+Call trace for block $00007F47F8420580 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF4A1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF399 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD08C line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E5F line 2242 of include/control.inc
+  $00000000006BF76D line 764 of include/toolbutton.inc
+  $00000000006BDA03 line 136 of include/toolbutton.inc
+Call trace for block $00007F47F8659190 size 38629
+  $00000000004FF4A1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500842 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF465 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF399 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD08C line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E5F line 2242 of include/control.inc
+  $00000000006BF76D line 764 of include/toolbutton.inc
+Call trace for block $00007F47F84104C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631E5F line 2242 of include/control.inc
+  $00000000006BF76D line 764 of include/toolbutton.inc
+  $00000000006BDA03 line 136 of include/toolbutton.inc
+  $000000000063106D line 1695 of include/control.inc
+  $0000000000631BD0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FAC5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+754575 memory blocks allocated : 768220114/771638664
+754572 memory blocks freed     : 768181356/771599896
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 791232
+Should be : 780048
+Call trace for block $00007FF884DDDE40 size 21
+  $00000000004FA7AB line 409 of rtftool.pas
+  $00000000004FF4A1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF399 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD08C line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E5F line 2242 of include/control.inc
+  $00000000006BF76D line 764 of include/toolbutton.inc
+  $00000000006BDA03 line 136 of include/toolbutton.inc
+Call trace for block $00007FF885018190 size 38629
+  $00000000004FF4A1 line 361 of rtfpars_lzRichEdit.pp
+  $0000000000500842 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF465 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF399 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FD08C line 676 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631E5F line 2242 of include/control.inc
+  $00000000006BF76D line 764 of include/toolbutton.inc
+Call trace for block $00007FF884DCF9C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631E5F line 2242 of include/control.inc
+  $00000000006BF76D line 764 of include/toolbutton.inc
+  $00000000006BDA03 line 136 of include/toolbutton.inc
+  $000000000063106D line 1695 of include/control.inc
+  $0000000000631BD0 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FAC5 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+793011 memory blocks allocated : 770638401/774095376
+793008 memory blocks freed     : 770599643/774056608
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FBD1AF72580 size 21
+  $00000000004FA70B line 411 of rtftool.pas
+  $00000000004FF401 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF2F9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCFEC line 678 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+  $00000000006BD963 line 136 of include/toolbutton.inc
+Call trace for block $00007FBD1B1AB190 size 38629
+  $00000000004FF401 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005007A2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF3C5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF2F9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCFEC line 678 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+Call trace for block $00007FBD1AF624C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+  $00000000006BD963 line 136 of include/toolbutton.inc
+  $0000000000630FCD line 1695 of include/control.inc
+  $0000000000631B30 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FA25 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+754282 memory blocks allocated : 768202590/771620256
+754279 memory blocks freed     : 768163832/771581488
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007F5BE3811580 size 21
+  $00000000004FA70B line 411 of rtftool.pas
+  $00000000004FF401 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF2F9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCFEC line 678 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+  $00000000006BD963 line 136 of include/toolbutton.inc
+Call trace for block $00007F5BE3A4A190 size 38629
+  $00000000004FF401 line 361 of rtfpars_lzRichEdit.pp
+  $00000000005007A2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FF3C5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FF2F9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCFEC line 678 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+Call trace for block $00007F5BE38014C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+  $00000000006BD963 line 136 of include/toolbutton.inc
+  $0000000000630FCD line 1695 of include/control.inc
+  $0000000000631B30 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FA25 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+77663 memory blocks allocated : 6133601/6411208
+77661 memory blocks freed     : 6133460/6411056
+2 unfreed memory blocks : 141
+True heap size : 327680
+True free heap : 338528
+Should be : 327272
+Call trace for block $00007FB39ECC7940 size 33
+  $00000000004FA70B line 411 of rtftool.pas
+  $00000000004FF401 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF2F9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCFEC line 678 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+  $00000000006BD963 line 136 of include/toolbutton.inc
+Call trace for block $00007FB39ECB74C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631DBF line 2242 of include/control.inc
+  $00000000006BF6CD line 764 of include/toolbutton.inc
+  $00000000006BD963 line 136 of include/toolbutton.inc
+  $0000000000630FCD line 1695 of include/control.inc
+  $0000000000631B30 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FA25 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+76234 memory blocks allocated : 5994819/6269024
+76232 memory blocks freed     : 5994678/6268872
+2 unfreed memory blocks : 141
+True heap size : 327680
+True free heap : 338528
+Should be : 327272
+Call trace for block $00007F399BAC8940 size 33
+  $00000000004FA70B line 411 of rtftool.pas
+  $00000000004FF411 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FF309 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FCFFC line 678 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $0000000000631DCF line 2242 of include/control.inc
+  $00000000006BF6DD line 764 of include/toolbutton.inc
+  $00000000006BD973 line 136 of include/toolbutton.inc
+Call trace for block $00007F399BAB84C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $0000000000631DCF line 2242 of include/control.inc
+  $00000000006BF6DD line 764 of include/toolbutton.inc
+  $00000000006BD973 line 136 of include/toolbutton.inc
+  $0000000000630FDD line 1695 of include/control.inc
+  $0000000000631B40 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062FA35 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+291575 memory blocks allocated : 755655623/757155816
+291572 memory blocks freed     : 755616865/757117048
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FF12AA325C0 size 21
+  $00000000004FA153 line 411 of rtftool.pas
+  $00000000004FD131 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FD029 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAD14 line 706 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062FAEF line 2242 of include/control.inc
+  $00000000006BD3FD line 764 of include/toolbutton.inc
+  $00000000006BB693 line 136 of include/toolbutton.inc
+Call trace for block $00007FF12AC6C190 size 38629
+  $00000000004FD131 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FE4D2 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FD0F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FD029 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAD14 line 706 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062FAEF line 2242 of include/control.inc
+  $00000000006BD3FD line 764 of include/toolbutton.inc
+Call trace for block $00007FF12AA234C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000062FAEF line 2242 of include/control.inc
+  $00000000006BD3FD line 764 of include/toolbutton.inc
+  $00000000006BB693 line 136 of include/toolbutton.inc
+  $000000000062ECFD line 1695 of include/control.inc
+  $000000000062F860 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062D755 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+138250 memory blocks allocated : 752150205/752897168
+138247 memory blocks freed     : 752111447/752858400
+3 unfreed memory blocks : 38758
+True heap size : 851968
+True free heap : 826304
+Should be : 812816
+Call trace for block $00007FBDFF777580 size 21
+  $00000000004FA153 line 411 of rtftool.pas
+  $00000000004FD131 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FD029 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAD14 line 706 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F89F line 2242 of include/control.inc
+  $00000000006BD1AD line 764 of include/toolbutton.inc
+  $00000000006BB443 line 136 of include/toolbutton.inc
+Call trace for block $00007FBDFF9B0190 size 38629
+  $00000000004FD131 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FE456 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FD0F5 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FD029 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAD14 line 706 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F89F line 2242 of include/control.inc
+  $00000000006BD1AD line 764 of include/toolbutton.inc
+Call trace for block $00007FBDFF7674C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000062F89F line 2242 of include/control.inc
+  $00000000006BD1AD line 764 of include/toolbutton.inc
+  $00000000006BB443 line 136 of include/toolbutton.inc
+  $000000000062EAAD line 1695 of include/control.inc
+  $000000000062F610 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062D505 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+136880 memory blocks allocated : 752084451/752828240
+136877 memory blocks freed     : 752045693/752789472
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 791712
+Should be : 780048
+Call trace for block $00007F950C9A5440 size 21
+  $00000000004FA153 line 411 of rtftool.pas
+  $00000000004FD0B1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FCFA9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAC9C line 714 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F81F line 2242 of include/control.inc
+  $00000000006BD12D line 764 of include/toolbutton.inc
+  $00000000006BB3C3 line 136 of include/toolbutton.inc
+Call trace for block $00007F950DBA3190 size 38629
+  $00000000004FD0B1 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FE3D6 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FD075 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FCFA9 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAC9C line 714 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F81F line 2242 of include/control.inc
+  $00000000006BD12D line 764 of include/toolbutton.inc
+Call trace for block $00007F950D95A4C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000062F81F line 2242 of include/control.inc
+  $00000000006BD12D line 764 of include/toolbutton.inc
+  $00000000006BB3C3 line 136 of include/toolbutton.inc
+  $000000000062EA2D line 1695 of include/control.inc
+  $000000000062F590 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062D485 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+161033 memory blocks allocated : 758888649/759733240
+161018 memory blocks freed     : 758845856/759690384
+15 unfreed memory blocks : 42793
+True heap size : 1146880
+True free heap : 1115264
+Should be : 1102104
+Call trace for block $00007FC329598F40 size 32
+  $00000000004FA153
+  $00000000004FD071
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+Call trace for block $00007FC3399205B0 size 1579
+  $00000000004FD071
+  $00000000004FE396
+  $00000000004FD035
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+Call trace for block $00007FC32FDB92C0 size 108
+  $00000000004F505C
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+  $000000000062E9ED
+  $000000000062F550
+  $00000000004A9715
+  $000000000062D445
+Call trace for block $00007FC33991FE10 size 1777
+  $00000000004FD071
+  $00000000004FE396
+  $00000000004FD035
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+Call trace for block $00007FC3295AD340 size 22
+  $00000000004FA153
+  $00000000004FD071
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+Call trace for block $00007FC32FDB90C0 size 108
+  $00000000004F505C
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+  $000000000062E9ED
+  $000000000062F550
+  $00000000004A9715
+  $000000000062D445
+Call trace for block $00007FC3295ADA00 size 26
+  $00000000004FA153
+  $00000000004FD071
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+Call trace for block $00007FC32FDB8EC0 size 108
+  $00000000004F505C
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+  $000000000062E9ED
+  $000000000062F550
+  $00000000004A9715
+  $000000000062D445
+Call trace for block $00007FC32FDC5C40 size 26
+  $00000000004FA153
+  $00000000004FD071
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+Call trace for block $00007FC32FDB8CC0 size 108
+  $00000000004F505C
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+  $000000000062E9ED
+  $000000000062F550
+  $00000000004A9715
+  $000000000062D445
+Call trace for block $00007FC32FDC5340 size 33
+  $00000000004FA153
+  $00000000004FD071
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000063EC40
+  $000000000063F4DA
+  $00000000004A9715
+Call trace for block $00007FC32FDB8AC0 size 108
+  $00000000004F505C
+  $000000000063EC40
+  $000000000063F4DA
+  $00000000004A9715
+  $0000000000703B29
+  $000000000079A52B
+  $00007FC3384B347E
+  $00000000004A9715
+Call trace for block $00007FC32FDC7EC0 size 21
+  $00000000004FA153
+  $00000000004FD071
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+Call trace for block $00007FC330001190 size 38629
+  $00000000004FD071
+  $00000000004FE396
+  $00000000004FD035
+  $00000000004FCF69
+  $00000000004FAC5C
+  $00000000004F506D
+  $000000000062F7DF
+  $00000000006BD0ED
+Call trace for block $00007FC32FDB84C0 size 108
+  $00000000004F505C
+  $000000000062F7DF
+  $00000000006BD0ED
+  $00000000006BB383
+  $000000000062E9ED
+  $000000000062F550
+  $00000000004A9715
+  $000000000062D445
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63000 memory blocks allocated : 6057202/6285224
+62997 memory blocks freed     : 6055210/6283224
+3 unfreed memory blocks : 1992
+True heap size : 589824
+True free heap : 598656
+Should be : 587440
+Call trace for block $00007FBCB7B57980 size 31
+  $00000000004FA153 line 411 of rtftool.pas
+  $00000000004FD071 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FCF69 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAC5C line 714 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F7DF line 2242 of include/control.inc
+  $00000000006BD0ED line 764 of include/toolbutton.inc
+  $00000000006BB383 line 136 of include/toolbutton.inc
+Call trace for block $00007FBCC16AF6F0 size 1853
+  $00000000004FD071 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FE396 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FD035 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FCF69 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAC5C line 714 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F7DF line 2242 of include/control.inc
+  $00000000006BD0ED line 764 of include/toolbutton.inc
+Call trace for block $00007FBCB7B484C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000062F7DF line 2242 of include/control.inc
+  $00000000006BD0ED line 764 of include/toolbutton.inc
+  $00000000006BB383 line 136 of include/toolbutton.inc
+  $000000000062E9ED line 1695 of include/control.inc
+  $000000000062F550 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062D445 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+135869 memory blocks allocated : 752018305/752759280
+135866 memory blocks freed     : 751979547/752720512
+3 unfreed memory blocks : 38758
+True heap size : 819200
+True free heap : 793536
+Should be : 780048
+Call trace for block $00007FFFEE475400 size 21
+  $00000000004FA153 line 411 of rtftool.pas
+  $00000000004FD071 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FCF69 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAC5C line 714 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F7DF line 2242 of include/control.inc
+  $00000000006BD0ED line 764 of include/toolbutton.inc
+  $00000000006BB383 line 136 of include/toolbutton.inc
+Call trace for block $00007FFFEE6AE190 size 38629
+  $00000000004FD071 line 361 of rtfpars_lzRichEdit.pp
+  $00000000004FE396 line 918 of rtfpars_lzRichEdit.pp
+  $00000000004FD035 line 354 of rtfpars_lzRichEdit.pp
+  $00000000004FCF69 line 331 of rtfpars_lzRichEdit.pp
+  $00000000004FAC5C line 714 of rtftool.pas
+  $00000000004F506D line 175 of uprincipal.pas
+  $000000000062F7DF line 2242 of include/control.inc
+  $00000000006BD0ED line 764 of include/toolbutton.inc
+Call trace for block $00007FFFEE4654C0 size 108
+  $00000000004F505C line 174 of uprincipal.pas
+  $000000000062F7DF line 2242 of include/control.inc
+  $00000000006BD0ED line 764 of include/toolbutton.inc
+  $00000000006BB383 line 136 of include/toolbutton.inc
+  $000000000062E9ED line 1695 of include/control.inc
+  $000000000062F550 line 2144 of include/control.inc
+  $00000000004A9715
+  $000000000062D445 line 1038 of include/control.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+142007 memory blocks allocated : 752271908/753031752
+142007 memory blocks freed     : 752271908/753031752
+0 unfreed memory blocks : 0
+True heap size : 491520
+True free heap : 505120
+Should be : 491520
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+144232 memory blocks allocated : 752330590/753102472
+144232 memory blocks freed     : 752330590/753102472
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 537888
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+184199 memory blocks allocated : 1144775439/1145815424
+184199 memory blocks freed     : 1144775439/1145815424
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 537888
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+137641 memory blocks allocated : 752116478/752862072
+137641 memory blocks freed     : 752116478/752862072
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 570656
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+138429 memory blocks allocated : 752146034/752893248
+138429 memory blocks freed     : 752146034/752893248
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 570656
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+135800 memory blocks allocated : 752018919/752759616
+135800 memory blocks freed     : 752018919/752759616
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 537888
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+135761 memory blocks allocated : 751781702/752522352
+135761 memory blocks freed     : 751781702/752522352
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 308512
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+136019 memory blocks allocated : 752036422/752777648
+136019 memory blocks freed     : 752036422/752777648
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 536064
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+230287 memory blocks allocated : 1824887098/1826256760
+230287 memory blocks freed     : 1824887098/1826256760
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 537888
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+149068 memory blocks allocated : 1027631684/1028464624
+149068 memory blocks freed     : 1027631684/1028464624
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 540096
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+243656 memory blocks allocated : 2100601281/2102063400
+243656 memory blocks freed     : 2100601281/2102063400
+0 unfreed memory blocks : 0
+True heap size : 1015808
+True free heap : 1031616
+Should be : 1015808
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+148934 memory blocks allocated : 1027624506/1028457144
+148934 memory blocks freed     : 1027624506/1028457144
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 540096
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+287867 memory blocks allocated : 2587823166/2589605728
+287867 memory blocks freed     : 2587823166/2589605728
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 575552
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58102 memory blocks allocated : 4122811/4321816
+58102 memory blocks freed     : 4122811/4321816
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+105221 memory blocks allocated : 538411781/538923272
+105221 memory blocks freed     : 538411781/538923272
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 535584
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+149139 memory blocks allocated : 1027635075/1028468144
+149139 memory blocks freed     : 1027635075/1028468144
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 537792
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+148990 memory blocks allocated : 1027618072/1028450976
+148990 memory blocks freed     : 1027618072/1028450976
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 540096
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+380649 memory blocks allocated : 3653668826/3656071672
+380649 memory blocks freed     : 3653668826/3656071672
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 572768
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+149199 memory blocks allocated : 1028018345/1028851136
+149199 memory blocks freed     : 1028018345/1028851136
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 538272
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+242441 memory blocks allocated : 2095780040/2097236144
+242441 memory blocks freed     : 2095780040/2097236144
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 538272
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+196390 memory blocks allocated : 1561980615/1563125736
+196390 memory blocks freed     : 1561980615/1563125736
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 538272
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+177914 memory blocks allocated : 1182523081/1183544232
+177914 memory blocks freed     : 1182523081/1183544232
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 540064
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+139123 memory blocks allocated : 779376709/780134056
+139123 memory blocks freed     : 779376709/780134056
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 541888
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61384 memory blocks allocated : 6207859/6421280
+61384 memory blocks freed     : 6207859/6421280
+0 unfreed memory blocks : 0
+True heap size : 1277952
+True free heap : 1289248
+Should be : 1277952
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63754 memory blocks allocated : 30861144/31094072
+63754 memory blocks freed     : 30861144/31094072
+0 unfreed memory blocks : 0
+True heap size : 360448
+True free heap : 371744
+Should be : 360448
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+64188 memory blocks allocated : 30884522/31118088
+64188 memory blocks freed     : 30884522/31118088
+0 unfreed memory blocks : 0
+True heap size : 360448
+True free heap : 371744
+Should be : 360448
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63711 memory blocks allocated : 30858332/31091312
+63711 memory blocks freed     : 30858332/31091312
+0 unfreed memory blocks : 0
+True heap size : 360448
+True free heap : 371744
+Should be : 360448
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+64395 memory blocks allocated : 30929597/31163824
+64395 memory blocks freed     : 30929597/31163824
+0 unfreed memory blocks : 0
+True heap size : 589824
+True free heap : 601120
+Should be : 589824
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59842 memory blocks allocated : 5360685/5566864
+59842 memory blocks freed     : 5360685/5566864
+0 unfreed memory blocks : 0
+True heap size : 753664
+True free heap : 764960
+Should be : 753664
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60245 memory blocks allocated : 5384372/5591592
+60245 memory blocks freed     : 5384372/5591592
+0 unfreed memory blocks : 0
+True heap size : 1048576
+True free heap : 1059872
+Should be : 1048576
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60070 memory blocks allocated : 5399442/5605904
+60070 memory blocks freed     : 5399442/5605904
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 535584
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+59810 memory blocks allocated : 5359240/5565360
+59810 memory blocks freed     : 5359240/5565360
+0 unfreed memory blocks : 0
+True heap size : 753664
+True free heap : 764960
+Should be : 753664
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+242867 memory blocks allocated : 2095821981/2097279032
+242867 memory blocks freed     : 2095821981/2097279032
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 570560
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+190524 memory blocks allocated : 1444372964/1445480992
+190524 memory blocks freed     : 1444372964/1445480992
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 540032
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+196088 memory blocks allocated : 1561909546/1563054752
+196088 memory blocks freed     : 1561909546/1563054752
+0 unfreed memory blocks : 0
+True heap size : 589824
+True free heap : 603808
+Should be : 589824
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+195803 memory blocks allocated : 1561899948/1563044376
+195803 memory blocks freed     : 1561899948/1563044376
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 538272
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+195847 memory blocks allocated : 1561837026/1562981592
+195845 memory blocks freed     : 1561836802/1562981368
+2 unfreed memory blocks : 224
+True heap size : 589824
+True free heap : 603296
+Should be : 589344
+Call trace for block $00007FFFEE4652C0 size 112
+  $000000000070DA2C line 638 of gtk2def.pp
+  $000000000065F774 line 5367 of gtk2widgetset.inc
+  $000000000066096E line 5827 of gtk2widgetset.inc
+  $0000000000671AE4 line 7423 of gtk2winapi.inc
+  $0000000000669E49 line 3352 of gtk2winapi.inc
+  $00000000004FBC97 line 1204 of include/intfbasewinapi.inc
+  $000000000066F638 line 6104 of gtk2winapi.inc
+  $0000000000564FB8 line 607 of include/winapi.inc
+Call trace for block $00007FFFF7F837C0 size 112
+  $000000000070DA2C line 638 of gtk2def.pp
+  $000000000065F774 line 5367 of gtk2widgetset.inc
+  $00000000006600EA line 5639 of gtk2widgetset.inc
+  $00000000007109E2 line 859 of gtk2devicecontext.inc
+  $0000000000710AFC line 890 of gtk2devicecontext.inc
+  $00000000007110E1 line 1031 of gtk2devicecontext.inc
+  $000000000071108F line 1022 of gtk2devicecontext.inc
+  $0000000000671C0D line 7503 of gtk2winapi.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+195994 memory blocks allocated : 1561849765/1562994736
+195992 memory blocks freed     : 1561849541/1562994512
+2 unfreed memory blocks : 224
+True heap size : 589824
+True free heap : 603296
+Should be : 589344
+Call trace for block $00007FFFEE4642C0 size 112
+  $000000000070DA2C line 638 of gtk2def.pp
+  $000000000065F774 line 5367 of gtk2widgetset.inc
+  $0000000000660A2A line 5847 of gtk2widgetset.inc
+  $00000000004FC343 line 1390 of include/intfbasewinapi.inc
+  $00000000006710CD line 6976 of gtk2winapi.inc
+  $0000000000565825 line 756 of include/winapi.inc
+  $000000000061B71E line 4754 of include/wincontrol.inc
+  $000000000061B52E line 4695 of include/wincontrol.inc
+Call trace for block $00007FFFF7F833C0 size 112
+  $000000000070DA2C line 638 of gtk2def.pp
+  $000000000065F774 line 5367 of gtk2widgetset.inc
+  $000000000065FFAA line 5597 of gtk2widgetset.inc
+  $00000000007106A2 line 766 of gtk2devicecontext.inc
+  $0000000000710ABC line 882 of gtk2devicecontext.inc
+  $00000000007104E0 line 725 of gtk2devicecontext.inc
+  $000000000066A3A2 line 3512 of gtk2winapi.inc
+  $0000000000564215 line 288 of include/winapi.inc
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58226 memory blocks allocated : 4130815/4330192
+58226 memory blocks freed     : 4130815/4330192
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+195930 memory blocks allocated : 1562097665/1563242320
+195930 memory blocks freed     : 1562097665/1563242320
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 806464
+Should be : 786432
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+186841 memory blocks allocated : 1347318655/1348397088
+186841 memory blocks freed     : 1347318655/1348397088
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 570880
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+196318 memory blocks allocated : 1561959819/1563104712
+196318 memory blocks freed     : 1561959819/1563104712
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 538272
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+149290 memory blocks allocated : 1028014949/1028847968
+149290 memory blocks freed     : 1028014949/1028847968
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 538272
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58206 memory blocks allocated : 4134140/4333400
+58206 memory blocks freed     : 4134140/4333400
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+286270 memory blocks allocated : 2585416737/2587193936
+286270 memory blocks freed     : 2585416737/2587193936
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 542784
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+121919 memory blocks allocated : 538746286/539336216
+121919 memory blocks freed     : 538746286/539336216
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 797728
+Should be : 786432
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+187083 memory blocks allocated : 540534837/541394568
+187083 memory blocks freed     : 540534837/541394568
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 535584
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+279262 memory blocks allocated : 1564087297/1565586304
+279262 memory blocks freed     : 1564087297/1565586304
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 800416
+Should be : 786432
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+277893 memory blocks allocated : 1564035844/1565529024
+277893 memory blocks freed     : 1564035844/1565529024
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 799936
+Should be : 786432
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+406500 memory blocks allocated : 2100049922/2102203168
+406500 memory blocks freed     : 2100049922/2102203168
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 570560
+Should be : 557056
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+316896 memory blocks allocated : 1076665411/1078187904
+316896 memory blocks freed     : 1076665411/1078187904
+0 unfreed memory blocks : 0
+True heap size : 1015808
+True free heap : 1027104
+Should be : 1015808
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+187417 memory blocks allocated : 540559929/541420488
+187417 memory blocks freed     : 540559929/541420488
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 535584
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58105 memory blocks allocated : 4122880/4321896
+58105 memory blocks freed     : 4122880/4321896
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+496974 memory blocks allocated : 3123716399/3126502248
+496974 memory blocks freed     : 3123716399/3126502248
+0 unfreed memory blocks : 0
+True heap size : 1277952
+True free heap : 1294624
+Should be : 1277952
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58105 memory blocks allocated : 4122880/4321896
+58105 memory blocks freed     : 4122880/4321896
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+438697 memory blocks allocated : 2905983693/2908358872
+438697 memory blocks freed     : 2905983693/2908358872
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 536064
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+270677 memory blocks allocated : 1403821257/1405264376
+270677 memory blocks freed     : 1403821257/1405264376
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 798240
+Should be : 786432
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+274030 memory blocks allocated : 1478100312/1479566800
+274030 memory blocks freed     : 1478100312/1479566800
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 539552
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+228898 memory blocks allocated : 646923492/648077664
+228898 memory blocks freed     : 646923492/648077664
+0 unfreed memory blocks : 0
+True heap size : 589824
+True free heap : 601120
+Should be : 589824
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+245412 memory blocks allocated : 909770755/911038304
+245412 memory blocks freed     : 909770755/911038304
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 536064
+Should be : 524288
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+245305 memory blocks allocated : 909743399/911011032
+245305 memory blocks freed     : 909743399/911011032
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 798208
+Should be : 786432
+/home/elson/Desktop/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+303461 memory blocks allocated : 2203231830/2204901944
+303461 memory blocks freed     : 2203231830/2204901944
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 536064
+Should be : 524288
