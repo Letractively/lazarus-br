@@ -67,6 +67,11 @@ begin
   TWSCustomlzRichEditClass(WidgetSetClass).GetNumbering(Self, Result);
 end;
 
+function TCustomlzRichEdit.GetNumbering(Position: Integer): Boolean;
+begin
+  TWSCustomlzRichEditClass(WidgetSetClass).GetNumbering(Self, Position, Result);
+end;
+
 procedure TCustomlzRichEdit.SetOffSetIndent(iSelStart, iSelLength: Integer; I: Integer);
 begin
   TWSCustomlzRichEditClass(WidgetSetClass).SetOffSetIndent(Self, I);
@@ -110,6 +115,11 @@ begin
   Result:= TWSCustomlzRichEditClass(WidgetSetClass).GetImage(Self, Position, Image);
 end;
 
+procedure TCustomlzRichEdit.InsertPosLastChar(const UTF8Char: TUTF8Char);
+begin
+  TWSCustomlzRichEditClass(WidgetSetClass).InsertPosLastChar(Self, UTF8Char);
+end;
+
 procedure TCustomlzRichEdit.SaveToStream(Stream: TStream);
 begin
   TWSCustomlzRichEditClass(WidgetSetClass).SaveToStream(Self, Stream);
@@ -126,4 +136,4 @@ begin
 end;
 
 
-
+

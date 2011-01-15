@@ -1,10 +1,11 @@
 object Form1: TForm1
-  Left = 305
+  Left = 254
   Height = 479
-  Top = 86
+  Top = 119
   Width = 720
+  ActiveControl = lzRichEdit1
   Caption = 'ExRichEdit'
-  ClientHeight = 459
+  ClientHeight = 456
   ClientWidth = 720
   Constraints.MinHeight = 430
   Constraints.MinWidth = 500
@@ -55,7 +56,7 @@ object Form1: TForm1
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
     Left = 3
-    Height = 395
+    Height = 392
     Top = 56
     Width = 712
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -71,7 +72,7 @@ object Form1: TForm1
     AnchorSideBottom.Control = GroupBox1
     AnchorSideBottom.Side = asrBottom
     Left = 13
-    Height = 369
+    Height = 366
     Top = 72
     Width = 692
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -79,8 +80,8 @@ object Form1: TForm1
     BorderSpacing.Top = 16
     BorderSpacing.Right = 10
     BorderSpacing.Bottom = 10
+    Color = clInfoBk
     Font.CharSet = ANSI_CHARSET
-    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Lucida Console'
     Font.Pitch = fpFixed
@@ -136,11 +137,11 @@ object Form1: TForm1
     end
     object CBFont: TComboBox
       Left = 9
-      Height = 21
+      Height = 27
       Hint = 'Fonte'
       Top = 2
       Width = 151
-      ItemHeight = 13
+      ItemHeight = 0
       OnChange = CBFontSelect
       ParentShowHint = False
       ShowHint = True
@@ -157,18 +158,17 @@ object Form1: TForm1
       BorderWidth = 2
       ButtonColorSize = 16
       ButtonColor = clBlack
-      Color = clBtnFace
       OnColorChanged = ColorButton1ChangeBounds
       ShowHint = True
       ParentShowHint = False
     end
     object CBSize: TComboBox
       Left = 164
-      Height = 21
+      Height = 27
       Hint = 'Tamanho da Fonte'
       Top = 2
       Width = 52
-      ItemHeight = 13
+      ItemHeight = 0
       OnChange = CBSizeChange
       ParentShowHint = False
       ShowHint = True
@@ -1944,4 +1944,4 @@ object Form1: TForm1
     left = 632
     top = 1
   end
-end
+end

@@ -38,49 +38,56 @@ uses
   Windows, Classes, Controls, ActiveX, Ole2, RichOle, ComObj, Forms;
 
 const
-  OLECLOSE_SAVEIFDIRTY   = 0;
-  OLECLOSE_NOSAVE        = 1;
-  OLECLOSE_PROMPTSAVE    = 2;
+  OLECLOSE_SAVEIFDIRTY = 0;
+  OLECLOSE_NOSAVE = 1;
+  OLECLOSE_PROMPTSAVE = 2;
 
 type
 
-{ TIRichEditOleCallback }
+  { TIRichEditOleCallback }
 
-TIRichEditOleCallback= class(TObject, IUnknown, IRichEditOleCallback)
-  function QueryInterface(const iid: TGUID; out Obj): HResult; stdcall;
-  function _AddRef : longint;stdcall;
-  function _Release : longint;stdcall;
-  function GetNewStorage(out stg: IStorage): HRESULT; stdcall;
-  function GetInPlaceContext(out Frame: IOleInPlaceFrame; out Doc: IOleInPlaceUIWindow; lpFrameInfo: POleInPlaceFrameInfo): HRESULT; stdcall;
-  function ShowContainerUI(fShow: BOOL): HRESULT; stdcall;
-  function QueryInsertObject(const clsid: TCLSID; const stg: IStorage; cp: LongInt): HRESULT; stdcall;
-  function DeleteObject(const oleobj: IOleObject): HRESULT; stdcall;
-  function QueryAcceptData(const dataobj: IDataObject; var cfFormat: TClipFormat; reco: DWORD; fReally: BOOL; hMetaPict: HGLOBAL): HRESULT; stdcall;
-  function ContextSensitiveHelp(fEnterMode: BOOL): HRESULT; stdcall;
-  function GetClipboardData(const chrg: TCharRange; reco: DWORD; out dataobj: IDataObject): HRESULT; stdcall;
-  function GetDragDropEffect(fDrag: BOOL; grfKeyState: DWORD; var dwEffect: DWORD): HRESULT; stdcall;
-  function GetContextMenu(seltype: Word; oleobj: IOleObject; const chrg: TCharRange; var menu: HMENU): HRESULT; stdcall;
-private
-  FOwner: TWinControl;
-  FRefCount:LongInt;
-public
-  constructor Create(AOwner: TWinControl);
-  destructor Destroy; override;
-end;
+  TIRichEditOleCallback = class(TObject, IUnknown, IRichEditOleCallback)
+    function QueryInterface(const iid: TGUID; out Obj): HResult; stdcall;
+    function _AddRef: longint; stdcall;
+    function _Release: longint; stdcall;
+    function GetNewStorage(out stg: IStorage): HRESULT; stdcall;
+    function GetInPlaceContext(out Frame: IOleInPlaceFrame;
+      out Doc: IOleInPlaceUIWindow; lpFrameInfo: POleInPlaceFrameInfo): HRESULT; stdcall;
+    function ShowContainerUI(fShow: BOOL): HRESULT; stdcall;
+    function QueryInsertObject(const clsid: TCLSID; const stg: IStorage;
+      cp: longint): HRESULT; stdcall;
+    function DeleteObject(const oleobj: IOleObject): HRESULT; stdcall;
+    function QueryAcceptData(const dataobj: IDataObject; var cfFormat: TClipFormat;
+      reco: DWORD; fReally: BOOL; hMetaPict: HGLOBAL): HRESULT; stdcall;
+    function ContextSensitiveHelp(fEnterMode: BOOL): HRESULT; stdcall;
+    function GetClipboardData(const chrg: TCharRange; reco: DWORD;
+      out dataobj: IDataObject): HRESULT; stdcall;
+    function GetDragDropEffect(fDrag: BOOL; grfKeyState: DWORD;
+      var dwEffect: DWORD): HRESULT; stdcall;
+    function GetContextMenu(seltype: word; oleobj: IOleObject;
+      const chrg: TCharRange; var menu: HMENU): HRESULT; stdcall;
+  private
+    FOwner: TWinControl;
+    FRefCount: longint;
+  public
+    constructor Create(AOwner: TWinControl);
+    destructor Destroy; override;
+  end;
 
-{ TRichOle }
+  { TRichOle }
 
-TRichOle = class
-  RichEditOleCallback:TIRichEditOleCallback;
-  RichEditOle: IRichEditOle;
-public
-  constructor Create(AOwner: TWinControl);
-  destructor Destroy; override;
-end;
+  TRichOle = class
+    RichEditOleCallback: TIRichEditOleCallback;
+    RichEditOle: IRichEditOle;
+  public
+    constructor Create(AOwner: TWinControl);
+    destructor Destroy; override;
+  end;
 
 
 
 implementation
+
 uses
   lzRichEdit;
 
@@ -89,7 +96,7 @@ uses
 constructor TRichOle.Create(AOwner: TWinControl);
 begin
   inherited Create;
-  RichEditOleCallback:=TIRichEditOleCallback.Create(AOwner);
+  RichEditOleCallback := TIRichEditOleCallback.Create(AOwner);
 end;
 
 destructor TRichOle.Destroy;
@@ -100,23 +107,24 @@ end;
 
 { TIRichEditOleCallback }
 
-function TIRichEditOleCallback.QueryInterface(const iid: TGUID; out Obj
-  ): HResult; stdcall;
+function TIRichEditOleCallback.QueryInterface(const iid: TGUID;
+  out Obj): HResult; stdcall;
 var
-  P:IUnknown;
+  P: IUnknown;
 begin
 
-  P:=nil;
-  if IsEqualIID(iid, IID_IUnknown) then P:=self;
+  P := nil;
+  if IsEqualIID(iid, IID_IUnknown) then
+    P := self;
 
- Pointer(obj) := P;
+  Pointer(obj) := P;
   if (P = nil) then
-      Result := E_NOINTERFACE
+    Result := E_NOINTERFACE
   else
-    begin
-      P._AddRef;
-      Result := S_OK;
-    end;
+  begin
+    P._AddRef;
+    Result := S_OK;
+  end;
 end;
 
 function TIRichEditOleCallback._AddRef: longint; stdcall;
@@ -136,34 +144,34 @@ function TIRichEditOleCallback.GetNewStorage(out stg: IStorage): HRESULT;
 var
   LockBytes: ILockBytes;
 begin
-    try
-      OleCheck(CreateILockBytesOnHGlobal(0, True, LockBytes));
-      OleCheck(StgCreateDocfileOnILockBytes(LockBytes, STGM_READWRITE
-      or STGM_SHARE_EXCLUSIVE or STGM_CREATE, 0, stg));
-      LockBytes._Release;
-      LockBytes:= nil;
-      Result:=S_OK;
-    except
-      Result:=E_OUTOFMEMORY;
-    end;
+  try
+    OleCheck(CreateILockBytesOnHGlobal(0, True, LockBytes));
+    OleCheck(StgCreateDocfileOnILockBytes(LockBytes, STGM_READWRITE or
+      STGM_SHARE_EXCLUSIVE or STGM_CREATE, 0, stg));
+    LockBytes._Release;
+    LockBytes := nil;
+    Result := S_OK;
+  except
+    Result := E_OUTOFMEMORY;
+  end;
 end;
 
 function TIRichEditOleCallback.GetInPlaceContext(out Frame: IOleInPlaceFrame;
   out Doc: IOleInPlaceUIWindow; lpFrameInfo: POleInPlaceFrameInfo): HRESULT;
   stdcall;
 begin
-  Result:=E_NOTIMPL;
+  Result := E_NOTIMPL;
 end;
 
 function TIRichEditOleCallback.ShowContainerUI(fShow: BOOL): HRESULT; stdcall;
 begin
-  result:=E_NOTIMPL;
+  Result := E_NOTIMPL;
 end;
 
 function TIRichEditOleCallback.QueryInsertObject(const clsid: TCLSID;
-  const stg: IStorage; cp: LongInt): HRESULT; stdcall;
+  const stg: IStorage; cp: longint): HRESULT; stdcall;
 begin
-  Result:= S_OK;
+  Result := S_OK;
 end;
 
 function TIRichEditOleCallback.DeleteObject(const oleobj: IOleObject): HRESULT;
@@ -172,20 +180,20 @@ begin
   {if Assigned(oleobj) then
     oleobj.Close(OLECLOSE_NOSAVE);
    Result := NOERROR; }
-  Result:=S_OK;
+  Result := S_OK;
 end;
 
 function TIRichEditOleCallback.QueryAcceptData(const dataobj: IDataObject;
-  var cfFormat: TClipFormat; reco: DWORD; fReally: BOOL; hMetaPict: HGLOBAL
-  ): HRESULT; stdcall;
+  var cfFormat: TClipFormat; reco: DWORD; fReally: BOOL;
+  hMetaPict: HGLOBAL): HRESULT; stdcall;
 begin
-  Result:= E_NOTIMPL;
+  Result := E_NOTIMPL;
 end;
 
 function TIRichEditOleCallback.ContextSensitiveHelp(fEnterMode: BOOL): HRESULT;
   stdcall;
 begin
-  Result:=E_NOTIMPL;
+  Result := E_NOTIMPL;
 end;
 
 function TIRichEditOleCallback.GetClipboardData(const chrg: TCharRange;
@@ -197,10 +205,10 @@ end;
 function TIRichEditOleCallback.GetDragDropEffect(fDrag: BOOL;
   grfKeyState: DWORD; var dwEffect: DWORD): HRESULT; stdcall;
 begin
-  Result:=S_OK;
+  Result := S_OK;
 end;
 
-function TIRichEditOleCallback.GetContextMenu(seltype: Word;
+function TIRichEditOleCallback.GetContextMenu(seltype: word;
   oleobj: IOleObject; const chrg: TCharRange; var menu: HMENU): HRESULT;
   stdcall;
 begin
@@ -209,7 +217,7 @@ end;
 
 constructor TIRichEditOleCallback.Create(AOwner: TWinControl);
 begin
-  FOwner:= AOwner;
+  FOwner := AOwner;
   FRefCount := 0;
 end;
 

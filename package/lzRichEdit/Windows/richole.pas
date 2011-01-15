@@ -38,106 +38,118 @@ uses
   Windows, ActiveX;
 
 const
-  REO_GETOBJ_NO_INTERFACES     = 0;
-  REO_GETOBJ_POLEOBJ           = 1;
-  REO_GETOBJ_PSTG              = 2;
-  REO_GETOBJ_POLESITE          = 4;
-  REO_GETOBJ_ALL_INTERFACES    = 7;
-  REO_CP_SELECTION             = ULONG(-1);
-  REO_IOB_SELECTION            = ULONG(-1);
-  REO_IOB_USE_CP               = ULONG(-2);
-  REO_NULL                     = 0;
-  REO_READWRITEMASK            = $3F;
-  REO_DONTNEEDPALETTE          = 32;
-  REO_BLANK                    = 16;
-  REO_DYNAMICSIZE              = 8;
-  REO_INVERTEDSELECT           = 4;
-  REO_BELOWBASELINE            = 2;
-  REO_RESIZABLE                = 1;
-  REO_LINK                     = $80000000;
-  REO_STATIC                   = $40000000;
-  REO_SELECTED                 = $08000000;
-  REO_OPEN                     = $4000000;
-  REO_INPLACEACTIVE            = $2000000;
-  REO_HILITED                  = $1000000;
-  REO_LINKAVAILABLE            = $800000;
-  REO_GETMETAFILE              = $400000;
-  RECO_PASTE                   = 0;
-  RECO_DROP                    = 1;
-  RECO_COPY                    = 2;
-  RECO_CUT                     = 3;
-  RECO_DRAG                    = 4;
+  REO_GETOBJ_NO_INTERFACES = 0;
+  REO_GETOBJ_POLEOBJ = 1;
+  REO_GETOBJ_PSTG = 2;
+  REO_GETOBJ_POLESITE = 4;
+  REO_GETOBJ_ALL_INTERFACES = 7;
+  REO_CP_SELECTION = ULONG(-1);
+  REO_IOB_SELECTION = ULONG(-1);
+  REO_IOB_USE_CP = ULONG(-2);
+  REO_NULL = 0;
+  REO_READWRITEMASK = $3F;
+  REO_DONTNEEDPALETTE = 32;
+  REO_BLANK = 16;
+  REO_DYNAMICSIZE = 8;
+  REO_INVERTEDSELECT = 4;
+  REO_BELOWBASELINE = 2;
+  REO_RESIZABLE = 1;
+  REO_LINK = $80000000;
+  REO_STATIC = $40000000;
+  REO_SELECTED = $08000000;
+  REO_OPEN = $4000000;
+  REO_INPLACEACTIVE = $2000000;
+  REO_HILITED = $1000000;
+  REO_LINKAVAILABLE = $800000;
+  REO_GETMETAFILE = $400000;
+  RECO_PASTE = 0;
+  RECO_DROP = 1;
+  RECO_COPY = 2;
+  RECO_CUT = 3;
+  RECO_DRAG = 4;
 
 
-  IID_IRichEditOle: TGUID = (D1:$00020D00;D2:$0000;D3:$0000;D4:($C0,$00,$00,$00,$00,$00,$00,$46));
-  IID_IRichEditOleCallback: TGUID = (D1:$00020D03;D2:$0000;D3:$0000;D4:($C0,$00,$00,$00,$00,$00,$00,$46));
+  IID_IRichEditOle: TGUID = (D1: $00020D00; D2: $0000; D3: $0000;
+    D4: ($C0, $00, $00, $00, $00, $00, $00, $46));
+  IID_IRichEditOleCallback: TGUID =
+    (D1: $00020D03; D2: $0000; D3: $0000; D4: ($C0, $00, $00, $00, $00, $00, $00, $46));
 
 type
   _reobject = record
-      cbStruct : DWORD;
-      cp : LONG;
-      clsid : TCLSID;
-      poleobj : IOleObject;
-      pstg : IStorage;
-      polesite : IOleClientSite;
-      sizel : TSize;
-      dvaspect : DWORD;
-      dwFlags : DWORD;
-      dwUser : DWORD;
-    end;
-    REOBJECT = _reobject;
-    TReObject = _reobject;
+    cbStruct: DWORD;
+    cp: LONG;
+    clsid: TCLSID;
+    poleobj: IOleObject;
+    pstg: IStorage;
+    polesite: IOleClientSite;
+    sizel: TSize;
+    dvaspect: DWORD;
+    dwFlags: DWORD;
+    dwUser: DWORD;
+  end;
+  REOBJECT = _reobject;
+  TReObject = _reobject;
 
 
   IRichEditOle = interface(IUnknown)
     ['{00020D00-0000-0000-C000-000000000046}']
     function GetClientSite(out clientSite: IOleClientSite): HRESULT; stdcall;
-    function GetObjectCount: LongInt; stdcall;
-    function GetLinkCount: LongInt; stdcall;
-    function GetObject(iob: LongInt; out ReObject: TReObject; dwFlags: DWORD): HRESULT; stdcall;
+    function GetObjectCount: longint; stdcall;
+    function GetLinkCount: longint; stdcall;
+    function GetObject(iob: longint; out ReObject: TReObject;
+      dwFlags: DWORD): HRESULT; stdcall;
     function InsertObject(var ReObject: TReObject): HRESULT; stdcall;
-    function ConvertObject(iob: LongInt; const clsidNew: TCLSID; lpStrUserTypeNew: LPCSTR): HRESULT; stdcall;
+    function ConvertObject(iob: longint; const clsidNew: TCLSID;
+      lpStrUserTypeNew: LPCSTR): HRESULT; stdcall;
     function ActivateAs(const clsid, clsidAs: TCLSID): HRESULT; stdcall;
-    function SetHostNames(lpstrContainerApp: LPCSTR; lpstrContainerObj: LPCSTR): HRESULT; stdcall;
-    function SetLinkAvailable(iob: LongInt; fAvailable: BOOL): HRESULT; stdcall;
-    function SetDvaspect(iob: LongInt; dvaspect: DWORD): HRESULT; stdcall;
-    function HandsOffStorage(iob: LongInt): HRESULT; stdcall;
-    function SaveCompleted(iob: LongInt; const stg: IStorage): HRESULT; stdcall;
+    function SetHostNames(lpstrContainerApp: LPCSTR;
+      lpstrContainerObj: LPCSTR): HRESULT; stdcall;
+    function SetLinkAvailable(iob: longint; fAvailable: BOOL): HRESULT; stdcall;
+    function SetDvaspect(iob: longint; dvaspect: DWORD): HRESULT; stdcall;
+    function HandsOffStorage(iob: longint): HRESULT; stdcall;
+    function SaveCompleted(iob: longint; const stg: IStorage): HRESULT; stdcall;
     function InPlaceDeactivate: HRESULT; stdcall;
     function ContextSensitiveHelp(fEnterMode: BOOL): HRESULT; stdcall;
-    function GetClipboardData(const chrg: TCharRange; reco: DWORD; out dataobj: IDataObject): HRESULT; stdcall;
-    function ImportDataObject(const dataobj: IDataObject; cf: TClipFormat; hMetaPict: HGLOBAL): HRESULT; stdcall;
+    function GetClipboardData(const chrg: TCharRange; reco: DWORD;
+      out dataobj: IDataObject): HRESULT; stdcall;
+    function ImportDataObject(const dataobj: IDataObject; cf: TClipFormat;
+      hMetaPict: HGLOBAL): HRESULT; stdcall;
   end;
 
-    IRichEditOleCallback = interface(IUnknown)
+  IRichEditOleCallback = interface(IUnknown)
     ['{00020D03-0000-0000-C000-000000000046}']
     function GetNewStorage(out stg: IStorage): HRESULT; stdcall;
-    function GetInPlaceContext(out Frame: IOleInPlaceFrame; out Doc: IOleInPlaceUIWindow; lpFrameInfo: POleInPlaceFrameInfo): HRESULT; stdcall;
+    function GetInPlaceContext(out Frame: IOleInPlaceFrame;
+      out Doc: IOleInPlaceUIWindow; lpFrameInfo: POleInPlaceFrameInfo): HRESULT; stdcall;
     function ShowContainerUI(fShow: BOOL): HRESULT; stdcall;
-    function QueryInsertObject(const clsid: TCLSID; const stg: IStorage; cp: LongInt): HRESULT; stdcall;
+    function QueryInsertObject(const clsid: TCLSID; const stg: IStorage;
+      cp: longint): HRESULT; stdcall;
     function DeleteObject(const oleobj: IOleObject): HRESULT; stdcall;
-    function QueryAcceptData(const dataobj: IDataObject; var cfFormat: TClipFormat; reco: DWORD; fReally: BOOL; hMetaPict: HGLOBAL): HRESULT; stdcall;
+    function QueryAcceptData(const dataobj: IDataObject; var cfFormat: TClipFormat;
+      reco: DWORD; fReally: BOOL; hMetaPict: HGLOBAL): HRESULT; stdcall;
     function ContextSensitiveHelp(fEnterMode: BOOL): HRESULT; stdcall;
-    function GetClipboardData(const chrg: TCharRange; reco: DWORD; out dataobj: IDataObject): HRESULT; stdcall;
-    function GetDragDropEffect(fDrag: BOOL; grfKeyState: DWORD; var dwEffect: DWORD): HRESULT; stdcall;
-    function GetContextMenu(seltype: Word; oleobj: IOleObject; const chrg: TCharRange; var menu: HMENU): HRESULT; stdcall;
+    function GetClipboardData(const chrg: TCharRange; reco: DWORD;
+      out dataobj: IDataObject): HRESULT; stdcall;
+    function GetDragDropEffect(fDrag: BOOL; grfKeyState: DWORD;
+      var dwEffect: DWORD): HRESULT; stdcall;
+    function GetContextMenu(seltype: word; oleobj: IOleObject;
+      const chrg: TCharRange; var menu: HMENU): HRESULT; stdcall;
   end;
-  //--
+//--
 
-  function RichEdit_SetOleCallback(Wnd: HWND; const Intf: IRichEditOleCallback): Boolean;
-  function RichEdit_GetOleInterface(Wnd: HWND; out Intf: IRichEditOle): Boolean;
+function RichEdit_SetOleCallback(Wnd: HWND; const Intf: IRichEditOleCallback): boolean;
+function RichEdit_GetOleInterface(Wnd: HWND; out Intf: IRichEditOle): boolean;
 
 implementation
 
-function RichEdit_SetOleCallback(Wnd: HWND; const Intf: IRichEditOleCallback
-  ): Boolean;
+function RichEdit_SetOleCallback(Wnd: HWND; const Intf: IRichEditOleCallback): boolean;
 begin
-  Result := SendMessage(Wnd, EM_SETOLECALLBACK, 0, LongInt(Intf)) <> 0;
+  Result := SendMessage(Wnd, EM_SETOLECALLBACK, 0, longint(Intf)) <> 0;
 end;
 
-function RichEdit_GetOleInterface(Wnd: HWND; out Intf: IRichEditOle): Boolean;
+function RichEdit_GetOleInterface(Wnd: HWND; out Intf: IRichEditOle): boolean;
 begin
-  Result := SendMessage(Wnd, EM_GETOLEINTERFACE, 0, LongInt(@Intf)) <> 0;
+  Result := SendMessage(Wnd, EM_GETOLEINTERFACE, 0, longint(@Intf)) <> 0;
 end;
 
 end.

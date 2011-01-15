@@ -3,6 +3,7 @@ object frmSobre: TfrmSobre
   Height = 199
   Top = 170
   Width = 447
+  ActiveControl = lzRichEdit1
   BorderIcons = [biSystemMenu]
   Caption = 'Sobre'
   ClientHeight = 199
@@ -80,4 +81,4 @@ object frmSobre: TfrmSobre
     OnClick = Button1Click
     TabOrder = 1
   end
-end
+end

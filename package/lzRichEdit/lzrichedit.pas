@@ -35,9 +35,11 @@ unit lzRichEdit;
 interface
 
 uses
-  Classes, SysUtils, LResources, StdCtrls, Controls, Graphics, WSlzRichEdit, lzRichEditTypes;
+  Classes, SysUtils, LResources, StdCtrls, Controls, Graphics,
+  WSlzRichEdit, lzRichEditTypes, LCLType;
 
-type TlzFontParams = TFontParams;
+type
+  TlzFontParams = TFontParams;
 
 const
   DeflzFontParams: TlzFontParams = (
@@ -47,51 +49,57 @@ const
     Style: []; );
 
 
-type TlzRichEdit_Align = TRichEdit_Align;
+type
+  TlzRichEdit_Align = TRichEdit_Align;
 
 type
 
-{ TCustomlzRichEdit }
+  { TCustomlzRichEdit }
 
-TCustomlzRichEdit = class(TCustomMemo)
-private
-  FOle:Pointer;
-protected
-  FPlainText:Boolean;
-  FActiveRichOle:Boolean;
-protected
-  class procedure WSRegisterClass; override;
-  function RealGetText:TCaption; override;
-  procedure RealSetText(const Value: TCaption); override;
-private
-  Procedure SetActiveRichOle(I:Boolean);
-public
-  NumberingParams: TNumberingParams;
-public
-  property PlainText:Boolean read FPlainText write FPlainText default False;
-  property RichOle:Pointer read FOle write FOle default nil;
-  property ActiveRichOle: Boolean read FActiveRichOle write SetActiveRichOle default False;
-public
-  procedure SetSelection(StartPos, EndPos: Integer; ScrollCaret: Boolean);
-  procedure SetTextAttributes(iSelStart, iSelLength: Integer; const TextParams: TlzFontParams); virtual;
-  procedure SetTextAttributes(iSelStart, iSelLength: Integer; const iFont: TFont); virtual;
-  procedure GetTextAttributes(Position: Integer; var Params: TlzFontParams); virtual;
-  procedure SetAlignment(iSelStart, iSelLength: Integer; iAlignment:TlzRichEdit_Align);
-  procedure GetAlignment(Position: Integer; var iAlignment:TlzRichEdit_Align);
-  procedure SetNumbering(N:Boolean);
-  function GetNumbering:Boolean;
-  procedure SetOffSetIndent(iSelStart, iSelLength: Integer; I:Integer);
-  function GetOffSetIndent:Integer;
-  procedure SetRightIndent(iSelStart, iSelLength: Integer; I:Integer);
-  procedure GetRightIndent (Position: Integer; var I:Integer);
-  procedure SetStartIndent(iSelStart, iSelLength: Integer; I:Integer);
-  procedure GetStartIndent(Position: Integer; var I:Integer);
-  procedure InsertImage(Position: Integer; Image: TPicture);
-  function GetImage(Position: Integer; var Image: TPicture):Boolean;
-  procedure SaveToStream(Stream: TStream);
-  procedure LoadFromStream(Stream: TStream);
-  destructor Destroy; override;
-end;
+  TCustomlzRichEdit = class(TCustomMemo)
+  private
+    FOle: Pointer;
+  protected
+    FPlainText: boolean;
+    FActiveRichOle: boolean;
+  protected
+    class procedure WSRegisterClass; override;
+    function RealGetText: TCaption; override;
+    procedure RealSetText(const Value: TCaption); override;
+  private
+    procedure SetActiveRichOle(I: boolean);
+  public
+    NumberingParams: TNumberingParams;
+  public
+    property PlainText: boolean read FPlainText write FPlainText default False;
+    property RichOle: Pointer read FOle write FOle default nil;
+    property ActiveRichOle: boolean
+      read FActiveRichOle write SetActiveRichOle default False;
+  public
+    procedure SetSelection(StartPos, EndPos: integer; ScrollCaret: boolean);
+    procedure SetTextAttributes(iSelStart, iSelLength: integer;
+      const TextParams: TlzFontParams); virtual;
+    procedure SetTextAttributes(iSelStart, iSelLength: integer;
+      const iFont: TFont); virtual;
+    procedure GetTextAttributes(Position: integer; var Params: TlzFontParams); virtual;
+    procedure SetAlignment(iSelStart, iSelLength: integer; iAlignment: TlzRichEdit_Align);
+    procedure GetAlignment(Position: integer; var iAlignment: TlzRichEdit_Align);
+    procedure SetNumbering(N: boolean);
+    function GetNumbering: boolean;
+    function GetNumbering(Position: integer): boolean;
+    procedure SetOffSetIndent(iSelStart, iSelLength: integer; I: integer);
+    function GetOffSetIndent: integer;
+    procedure SetRightIndent(iSelStart, iSelLength: integer; I: integer);
+    procedure GetRightIndent(Position: integer; var I: integer);
+    procedure SetStartIndent(iSelStart, iSelLength: integer; I: integer);
+    procedure GetStartIndent(Position: integer; var I: integer);
+    procedure InsertImage(Position: integer; Image: TPicture);
+    function GetImage(Position: integer; var Image: TPicture): boolean;
+    procedure InsertPosLastChar(const UTF8Char: TUTF8Char);
+    procedure SaveToStream(Stream: TStream);
+    procedure LoadFromStream(Stream: TStream);
+    destructor Destroy; override;
+  end;
 
 
   TlzRichEdit = class(TCustomlzRichEdit)
@@ -168,3 +176,4 @@ end;
 initialization
 {$I lzrichedit.lrs}
 end.
+

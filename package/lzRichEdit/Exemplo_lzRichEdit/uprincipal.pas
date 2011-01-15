@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ComCtrls, Menus, ExtCtrls, Buttons, lzRichEdit, lzRichEditTypes, LCLProc,
-  LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre, UGetFontLinux;
+  LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre{$IFDEF LINUX}, UGetFontLinux{$ENDIF};
 
 type
 
@@ -90,8 +90,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure lzRichEdit1Change(Sender: TObject);
     procedure lzRichEdit1Click(Sender: TObject);
-    procedure lzRichEdit1KeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure lzRichEdit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem22Click(Sender: TObject);
@@ -119,21 +118,21 @@ type
 
   protected
     { protected declarations }
-    FFileName:String;
-    FSetColor:Boolean;
+    FFileName: string;
+    FSetColor: boolean;
     FFontParams: TlzFontParams;
     FAlign_: TRichEdit_Align;
   protected
     { protected declarations }
-    procedure SetFileName(S:String);
+    procedure SetFileName(S: string);
     procedure GetTextStatus;
   public
     { public declarations }
-    property FileName:String read FFileName write SetFileName;
+    property FileName: string read FFileName write SetFileName;
   end;
 
 var
-  Form1: TForm1; 
+  Form1: TForm1;
 
 implementation
 
@@ -143,48 +142,49 @@ implementation
 
 procedure TForm1.ToolButton13Click(Sender: TObject);
 var
-  S:TFileStream;
+  S: TFileStream;
 begin
-//-- Abrir
-  Odlg.Title:='Abrir...';
-  Odlg.Filter:='Rich Text (*.rtf)|*.rtf|Texto (*.txt)|*.txt';
-  Odlg.Options:=[ofEnableSizing, ofViewDetail, ofHideReadOnly];
+  //-- Abrir
+  Odlg.Title := 'Abrir...';
+  Odlg.Filter := 'Rich Text (*.rtf)|*.rtf|Texto (*.txt)|*.txt';
+  Odlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
   if Odlg.Execute then
+  begin
+    if not (FileExists(Odlg.FileName)) then
     begin
-      if not(FileExists(Odlg.FileName)) then
-        begin
-          MessageDlg('Erro ao Abrir', 'O arquivo especificado não existe.', mtError, [mbOK], 0);
-          Exit;
-         end;
-
-      if UTF8LowerCase(ExtractFileExt(Odlg.FileName))='.rtf' then
-        lzRichEdit1.PlainText:= False
-      else
-        lzRichEdit1.PlainText:= True;
-      //--
-      if not(FileIsReadOnly(Odlg.FileName)) then
-        FileName:= Odlg.FileName
-      else
-        FileName:= '';
-      //--
-      S:=TFileStream.Create(Odlg.FileName, fmOpenRead);
-      lzRichEdit1.LoadFromStream(S);
-      S.Free;
-      //--
+      MessageDlg('Erro ao Abrir', 'O arquivo especificado não existe.',
+        mtError, [mbOK], 0);
+      Exit;
     end;
+
+    if UTF8LowerCase(ExtractFileExt(Odlg.FileName)) = '.rtf' then
+      lzRichEdit1.PlainText := False
+    else
+      lzRichEdit1.PlainText := True;
+    //--
+    if not (FileIsReadOnly(Odlg.FileName)) then
+      FileName := Odlg.FileName
+    else
+      FileName := '';
+    //--
+    S := TFileStream.Create(Odlg.FileName, fmOpenRead);
+    lzRichEdit1.LoadFromStream(S);
+    S.Free;
+    //--
+  end;
 end;
 
 procedure TForm1.ToolButton14Click(Sender: TObject);
 var
-  S:TFileStream;
+  S: TFileStream;
 begin
   if (FileName = '') then
-    begin
-      MenuItem7Click(Sender);
-      Exit;
-    end;
+  begin
+    MenuItem7Click(Sender);
+    Exit;
+  end;
   //--
-  S:=TFileStream.Create(Sdlg.FileName, fmCreate);
+  S := TFileStream.Create(FileName, fmCreate);
   lzRichEdit1.SaveToStream(S);
   S.Free;
 end;
@@ -208,13 +208,13 @@ procedure TForm1.ToolButton1Click(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  FontParams:= DeflzFontParams;
+  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
   if (fsBold in FontParams.Style) then
-    FontParams.Style:= FontParams.Style - [fsBold]
+    FontParams.Style := FontParams.Style - [fsBold]
   else
-    FontParams.Style:= FontParams.Style + [fsBold];
+    FontParams.Style := FontParams.Style + [fsBold];
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
   //--
@@ -235,13 +235,13 @@ procedure TForm1.ToolButton2Click(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  FontParams:= DeflzFontParams;
+  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
   if (fsItalic in FontParams.Style) then
-    FontParams.Style:= FontParams.Style - [fsItalic]
+    FontParams.Style := FontParams.Style - [fsItalic]
   else
-    FontParams.Style:= FontParams.Style + [fsItalic];
+    FontParams.Style := FontParams.Style + [fsItalic];
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
   //--
@@ -252,14 +252,14 @@ procedure TForm1.ToolButton3Click(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  FontParams:= DeflzFontParams;
+  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
 
   //--
   if (fsUnderline in FontParams.Style) then
-    FontParams.Style:= FontParams.Style - [fsUnderline]
+    FontParams.Style := FontParams.Style - [fsUnderline]
   else
-    FontParams.Style:= FontParams.Style + [fsUnderline];
+    FontParams.Style := FontParams.Style + [fsUnderline];
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
   //--
@@ -289,10 +289,10 @@ var
   NewProcess: TProcess;
 begin
   //Chama um novo RichEdit
-  NewProcess:= TProcess.Create(nil);
+  NewProcess := TProcess.Create(nil);
   //--
-  NewProcess.CommandLine:= ParamStr(0);
-  NewProcess.Options:= [poNoConsole];
+  NewProcess.CommandLine := ParamStr(0);
+  NewProcess.Options := [poNoConsole];
   NewProcess.Execute;
   NewProcess.Free;
   //--
@@ -300,52 +300,54 @@ end;
 
 procedure TForm1.MenuItem7Click(Sender: TObject);
 var
-  S:TFileStream;
+  S: TFileStream;
 begin
-//--Salvar Como
-  Sdlg.Title:='Salvar Como';
-  Sdlg.Filter:='Rich Text (*.rtf)|*.rtf|Texto (*.txt)|*.txt';
-  Sdlg.Options:=[ofEnableSizing, ofViewDetail, ofHideReadOnly];
+  //--Salvar Como
+  Sdlg.Title := 'Salvar Como';
+  Sdlg.Filter := 'Rich Text (*.rtf)|*.rtf|Texto (*.txt)|*.txt';
+  Sdlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
 
   if Sdlg.Execute then
+  begin
+    //--
+    if ExtractFileExt(Sdlg.FileName) = '' then
     begin
-      //--
-      if ExtractFileExt(Sdlg.FileName) = '' then
-        begin
-          if (Sdlg.FilterIndex = 1) then
-            Sdlg.FileName := Sdlg.FileName + '.rtf'
-          else
-            Sdlg.FileName := Sdlg.FileName + '.txt';
-         end;
-      //--
-      if FileExists(Sdlg.FileName) then
-        begin
-          if (MessageDlg('Salvar Como', Sdlg.FileName + ' já existe. ' + #10 +
-                        'deseja substituí-lo?', mtWarning, [mbYes, mbNo], 0) <> 6) then Exit;
-          if (FileIsReadOnly(Sdlg.FileName)) then
-            begin
-              MessageDlg('Salvar Como', 'O arquivo ' + Sdlg.FileName + ' é somente leitura.',
-                         mtWarning, [mbOk], 0);
-              MenuItem7Click(Sender);
-              Exit;
-            end;
-        end;
-      //--
-      S:=TFileStream.Create(Sdlg.FileName, fmCreate);
-      if (UTF8LowerCase(ExtractFileExt(Sdlg.FileName)) = '.rtf') then
-        lzRichEdit1.SaveToStream(S)
+      if (Sdlg.FilterIndex = 1) then
+        Sdlg.FileName := Sdlg.FileName + '.rtf'
       else
-        lzRichEdit1.Lines.SaveToStream(S);
-      S.Free;
-      //--
-      FileName:= Sdlg.FileName;
+        Sdlg.FileName := Sdlg.FileName + '.txt';
     end;
+    //--
+    if FileExists(Sdlg.FileName) then
+    begin
+      if (MessageDlg('Salvar Como', Sdlg.FileName + ' já existe. ' +
+        #10 + 'deseja substituí-lo?', mtWarning, [mbYes, mbNo], 0) <> 6) then
+        Exit;
+      if (FileIsReadOnly(Sdlg.FileName)) then
+      begin
+        MessageDlg('Salvar Como', 'O arquivo ' + Sdlg.FileName +
+          ' é somente leitura.',
+          mtWarning, [mbOK], 0);
+        MenuItem7Click(Sender);
+        Exit;
+      end;
+    end;
+    //--
+    S := TFileStream.Create(Sdlg.FileName, fmCreate);
+    if (UTF8LowerCase(ExtractFileExt(Sdlg.FileName)) = '.rtf') then
+      lzRichEdit1.SaveToStream(S)
+    else
+      lzRichEdit1.Lines.SaveToStream(S);
+    S.Free;
+    //--
+    FileName := Sdlg.FileName;
+  end;
 end;
 
 procedure TForm1.ToolButton11Click(Sender: TObject);
 begin
 
-  lzRichEdit1.SetNumbering(not(lzRichEdit1.GetNumbering));
+  lzRichEdit1.SetNumbering(not (lzRichEdit1.GetNumbering));
   if lzRichEdit1.GetNumbering then
     lzRichEdit1.SetOffSetIndent(lzRichEdit1.SelStart, lzRichEdit1.SelLength, 20)
   else
@@ -363,11 +365,12 @@ procedure TForm1.ColorButton1ChangeBounds(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  if not(FSetColor) then Exit;
-  FontParams:= DeflzFontParams;
+  if not (FSetColor) then
+    Exit;
+  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
-  FontParams.Color:=ColorButton1.ButtonColor;
+  FontParams.Color := ColorButton1.ButtonColor;
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
   //--
@@ -379,10 +382,10 @@ procedure TForm1.CBFontSelect(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  FontParams:= DeflzFontParams;
+  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
-  FontParams.Name:= CBfont.Text;
+  FontParams.Name := CBfont.Text;
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
   //--
@@ -393,79 +396,89 @@ procedure TForm1.Button1Click(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  FontParams:= DeflzFontParams;
-  lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart -1, FontParams);
+  FontParams := DeflzFontParams;
+  lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart - 1, FontParams);
   ShowMessage(FontParams.Name);
 end;
 
 procedure TForm1.CBSizeChange(Sender: TObject);
 var
   FontParams: TlzFontParams;
-  FontSize:Integer;
+  FontSize: integer;
 begin
   if TryStrToInt(CBSize.Text, FontSize) then
-    begin
-      FontParams:= DeflzFontParams;
-      lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
-      //--
-      FontParams.Size:= FontSize;
-      //--
-      lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
-      //--
-     end
-   else
-     MessageDlg('Formatar', 'Número inválido', mtInformation, [mbOk], 0);
+  begin
+    FontParams := DeflzFontParams;
+    lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
+    //--
+    FontParams.Size := FontSize;
+    //--
+    lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength,
+      FontParams);
+    //--
+  end
+  else
+    MessageDlg('Formatar', 'Número inválido', mtInformation, [mbOK], 0);
 
   GetTextStatus;
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  if MessageDlg('Salvar', 'Deseja Salvar o documento?',
-             mtConfirmation, [mbYes, mbNo], 0) = 6 then ToolButton14Click(Sender);
+  if MessageDlg('Salvar', 'Deseja Salvar o documento?', mtConfirmation,
+    [mbYes, mbNo], 0) = 6 then
+    ToolButton14Click(Sender);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  FSetColor:= True;
+  FSetColor := True;
   {$IFDEF Linux}
-    lzRichEdit1.NumberingParams.NChar:=UnicodeToUTF8($B7);
-    lzRichEdit1.NumberingParams.FontParams.Name:='lzRichSymbol';
-    lzRichEdit1.NumberingParams.FontParams.Size:= 12;
-    lzRichEdit1.NumberingParams.FontParams.Color:=clBlack;
-    lzRichEdit1.NumberingParams.FontParams.Style:=[];
-    ToolButton22.Enabled:= False;
-    MenuItem13.Enabled:= False;
+  lzRichEdit1.NumberingParams.NChar := UnicodeToUTF8($B7);
+  lzRichEdit1.NumberingParams.FontParams.Name := 'lzRichSymbol';
+  lzRichEdit1.NumberingParams.FontParams.Size := 12;
+  lzRichEdit1.NumberingParams.FontParams.Color := clBlack;
+  lzRichEdit1.NumberingParams.FontParams.Style := [];
+  ToolButton22.Enabled := False;
+  MenuItem13.Enabled := False;
   {$ENDIF}
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 var
-  sFont:TFont;
-  I, I2, I3:Integer;
-  {$IFDEF Linux}FontList:TStringList;{$ENDIF}
+  sFont: TFont;
+  I, I2, I3: integer;
+  {$IFDEF Linux}
+  FontList: TStringList;
+{$ENDIF}
 begin
-  {$IFDEF Windows}CBFont.Items.Assign(Screen.Fonts);{$ENDIF}
+  {$IFDEF Windows}
+  CBFont.Items.Assign(Screen.Fonts);
+{$ENDIF}
 
 {$IFDEF Linux}
-  FontList:=TStringList.Create;
+  FontList := TStringList.Create;
   GetFontList(FontList);
   CBFont.Items.Assign(FontList);
   FontList.Free;
 {$ENDIF}
 
-  I2:=1;
-  I3:=7;
-  for I:=0 to 15 do
-    begin
-      if (I = 5) then I2:= 2;
-      if (I = 13) then I2:= 8;
-      if (I = 14) then I2:= 12;
-      if (I = 15) then I2:= 24;
+  I2 := 1;
+  I3 := 7;
+  for I := 0 to 15 do
+  begin
+    if (I = 5) then
+      I2 := 2;
+    if (I = 13) then
+      I2 := 8;
+    if (I = 14) then
+      I2 := 12;
+    if (I = 15) then
+      I2 := 24;
 
-      I3:= I3 + I2;
-      CBSize.Items.Add(IntToStr(I3));
-    end;
+    I3 := I3 + I2;
+    CBSize.Items.Add(IntToStr(I3));
+  end;
   lzRichEdit1.SetFocus;
   GetTextStatus;
 end;
@@ -477,8 +490,7 @@ begin
   {$ENDIF}
 end;
 
-procedure TForm1.lzRichEdit1KeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TForm1.lzRichEdit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   GetTextStatus;
 end;
@@ -495,48 +507,50 @@ end;
 
 procedure TForm1.MenuItem22Click(Sender: TObject);
 var
-  P:TPicture;
-  I:Integer;
-  S:String;
-  U:TUTF8Char;
+  P: TPicture;
+  //I: integer;
+  //S: string;
+  //U: TUTF8Char;
 begin
   //-- Inserir Imagem
-    Odlg.Title:='Abrir...';
-    Odlg.Filter:='Imagens (*.bmp;*.xpm;*.png;*.ico;*.jpg;*.jpeg)|*.bmp;*.xpm;*.png;*.ico;*.jpg;*.jpeg';
-    Odlg.Options:=[ofEnableSizing, ofViewDetail, ofHideReadOnly];
+  Odlg.Title := 'Abrir...';
+  Odlg.Filter :=
+    'Imagens (*.bmp;*.xpm;*.png;*.ico;*.jpg;*.jpeg)|*.bmp;*.xpm;*.png;*.ico;*.jpg;*.jpeg';
+  Odlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
 
   if Odlg.Execute then
-    begin
-      P:=TPicture.Create;
-      P.LoadFromFile(Odlg.FileName);
+  begin
+    P := TPicture.Create;
+    P.LoadFromFile(Odlg.FileName);
       {$IFDEF Windows}
-      P.Bitmap.SaveToClipboardFormat(2);
-      lzRichEdit1.PasteFromClipboard;
+    P.Bitmap.SaveToClipboardFormat(2);
+    lzRichEdit1.PasteFromClipboard;
       {$ENDIF}
       {$IFDEF Linux}
-      lzRichEdit1.InsertImage(lzRichEdit1.SelStart, P);
+    lzRichEdit1.InsertImage(lzRichEdit1.SelStart, P);
       {$ENDIF}
-      P.Free;
-    end;
-//FFFC
+    P.Free;
+  end;
+  //FFFC
 end;
 
 procedure TForm1.MenuItem24Click(Sender: TObject);
 var
   FontParams: TlzFontParams;
 begin
-  FDlg.Title:= 'Fonte';
+  FDlg.Title := 'Fonte';
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
-  FDlg.Font.Name:= FontParams.Name;
-  FDlg.Font.Size:= FontParams.Size;
-  FDlg.Font.Color:= FontParams.Color;
-  FDlg.Font.Style:= FontParams.Style;
+  FDlg.Font.Name := FontParams.Name;
+  FDlg.Font.Size := FontParams.Size;
+  FDlg.Font.Color := FontParams.Color;
+  FDlg.Font.Style := FontParams.Style;
 
   if FDlg.Execute then
-    begin
-      lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FDlg.Font);
-    end;
+  begin
+    lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart,
+      lzRichEdit1.SelLength, FDlg.Font);
+  end;
 end;
 
 procedure TForm1.MenuItem26Click(Sender: TObject);
@@ -549,33 +563,34 @@ begin
   frmSobre.Show;
 end;
 
-procedure TForm1.SetFileName(S: String);
+procedure TForm1.SetFileName(S: string);
 begin
-  FFileName:= S;
+  FFileName := S;
 end;
 
 procedure TForm1.GetTextStatus;
 begin
-  FFontParams:= DeflzFontParams;
+  FFontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FFontParams);
   //--
-  CBFont.Caption:= FFontParams.Name;
-  CBSize.Text:= IntToStr(FFontParams.Size);
-  FSetColor:= False;
-  ColorButton1.ButtonColor:= TColor(FFontParams.Color);
-  FSetColor:= True;
-  ToolButton1.Down:=(fsBold in FFontParams.Style);
-  ToolButton2.Down:=(fsItalic in FFontParams.Style);
-  ToolButton3.Down:=(fsUnderline in FFontParams.Style);
+  CBFont.Caption := FFontParams.Name;
+  CBSize.Text := IntToStr(FFontParams.Size);
+  FSetColor := False;
+  ColorButton1.ButtonColor := TColor(FFontParams.Color);
+  FSetColor := True;
+  ToolButton1.Down := (fsBold in FFontParams.Style);
+  ToolButton2.Down := (fsItalic in FFontParams.Style);
+  ToolButton3.Down := (fsUnderline in FFontParams.Style);
   //--
   lzRichEdit1.GetAlignment(lzRichEdit1.SelStart, FAlign_);
 
-  ToolButton6.Down:=(alLeft = FAlign_);
-  ToolButton8.Down:=(alCenter = FAlign_);
-  ToolButton9.Down:=(alRight = FAlign_);
+  ToolButton6.Down := (alLeft = FAlign_);
+  ToolButton8.Down := (alCenter = FAlign_);
+  ToolButton9.Down := (alRight = FAlign_);
   //--
-  ToolButton11.Down:= lzRichEdit1.GetNumbering;
-  MenuItem25.Checked:= lzRichEdit1.GetNumbering;
+  ToolButton11.Down := lzRichEdit1.GetNumbering;
+  MenuItem25.Checked := lzRichEdit1.GetNumbering;
 end;
 
 end.
+

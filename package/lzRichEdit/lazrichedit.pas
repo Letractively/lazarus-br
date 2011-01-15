@@ -8,7 +8,8 @@ interface
 
 uses
     WSlzRichEdit, lzRichEdit, lzRichEditFactory, lzRichEditTypes, 
-  {$IFDEF Windows}Win_WSlzRichEdit, lzRichOle, RichOle, {$ENDIF}{$IFDEF LCLGtk2}GTK2_WSlzRichEdit, {$ENDIF}LazarusPackageIntf;
+  {$IFDEF Windows}Win_WSlzRichEdit, lzRichOle, RichOle,{$ENDIF} 
+  {$IFDEF LCLGtk2}GTK2_WSlzRichEdit, RTFTool, RTFToolImage, RTFPars_lzRichEdit,{$ENDIF} LazarusPackageIntf;
 
 implementation
 
