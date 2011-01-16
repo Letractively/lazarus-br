@@ -1,0 +1,43 @@
+object MainForm: TMainForm
+  Left = 239
+  Height = 240
+  Top = 151
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.31'
+  object SplitFileProgressBar: TProgressBar
+    Left = 0
+    Height = 20
+    Top = 220
+    Width = 320
+    Align = alBottom
+    TabOrder = 0
+  end
+  object SplitButton: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    Left = 123
+    Height = 25
+    Top = 88
+    Width = 75
+    Caption = 'Split'
+    OnClick = SplitButtonClick
+    TabOrder = 1
+  end
+  object CombineButton: TButton
+    AnchorSideLeft.Control = SplitButton
+    AnchorSideTop.Control = SplitButton
+    AnchorSideTop.Side = asrBottom
+    Left = 123
+    Height = 25
+    Top = 115
+    Width = 75
+    BorderSpacing.Top = 2
+    Caption = 'Combine'
+    OnClick = CombineButtonClick
+    TabOrder = 2
+  end
+end
