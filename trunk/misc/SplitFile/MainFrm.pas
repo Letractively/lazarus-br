@@ -30,13 +30,13 @@ implementation
 
 Parametros:
 
-FileToSplit: Especificar um arquivo para divisão.
-SizeofFiles: Especificar o tamanho dos arquivos divididas (em bytes).
-Progressbar: Especificar a TProgressBar para mostrar o progresso da divisão.
+AFileName: Especificar um arquivo para divisão.
+ASizeOfFiles: Especificar o tamanho dos arquivos divididas (em bytes).
+AProgressBar: Especificar a TProgressBar para mostrar o progresso da divisão.
 
 Resultado:
 SplitFile criará os arquivos FileName.001, FileName.002, FileName.003 e assim
-por diante, e terão o tamanho em bytes definidos em SizeofFiles. }
+por diante, e terão o tamanho em bytes definidos em ASizeOfFiles. }
 procedure SplitFile(AFileName: TFileName; ASizeOfFiles: Int64;
   AProgressBar: TProgressBar);
 var
@@ -69,8 +69,9 @@ end;
 
 Parametros:
 
-FileName: Especificar o primeiro dos arquivos da divisão (.001)
-CombinedFileName: Especifique o nome combinado do arquivo (o arquivo a ser salvo)
+AFileName: Especificar o primeiro dos arquivos da divisão (.001).
+ACombinedFileName: Especifique o nome combinado do arquivo (o arquivo a ser salvo).
+ADeleteFileParts: Excluir arquivos .001, .002 etc.
 
 Resultado:
 CombineFiles criará um arquivo das divisões informadas. }
