@@ -408,7 +408,6 @@ class function TGTK2_WSCustomlzRichEdit.CreateHandle(const AWinControl: TWinCont
 var
   Widget, TempWidget: PGtkWidget;
   WidgetInfo: PWidgetInfo;
-  FormatList: Array [0..3] of TClipboardFormat;
 begin
   Widget := gtk_scrolled_window_new(nil, nil);
   Result := TLCLIntfHandle(PtrUInt(Widget));
