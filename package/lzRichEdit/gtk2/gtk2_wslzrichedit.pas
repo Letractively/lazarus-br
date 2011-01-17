@@ -442,13 +442,6 @@ begin
 
   TGtk2WSWinControl.SetCallbacks(PGtkObject(Widget), TComponent(WidgetInfo^.LCLObject));
 
-  //--
-  FormatList[0] := CF_TEXT;
-  FormatList[1] := CF_Bitmap;
-  FormatList[2] := CF_Picture;
-
-  Clipboard.SetSupportedFormats(3, @FormatList[0]);
-
 end;
 
 class procedure TGTK2_WSCustomlzRichEdit.SaveToStream(const AWinControl: TWinControl;
