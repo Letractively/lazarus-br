@@ -38,7 +38,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="115">
+    <Units Count="131">
       <Unit0>
         <Filename Value="exRichEdit.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -57,10 +57,11 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="89" Y="7"/>
+        <TopLine Value="226"/>
+        <CursorPos X="27" Y="228"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
@@ -156,7 +157,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="69"/>
         <CursorPos X="68" Y="74"/>
-        <UsageCount Value="188"/>
+        <UsageCount Value="192"/>
       </Unit13>
       <Unit14>
         <Filename Value="C:\lazarus\fpc\2.4.3\source\rtl\objpas\sysutils\filutilh.inc"/>
@@ -218,7 +219,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
         <CursorPos X="55" Y="44"/>
-        <UsageCount Value="174"/>
+        <UsageCount Value="178"/>
       </Unit21>
       <Unit22>
         <Filename Value="C:\lazarus\components\lzRichEdit\wslzrichedit.pas"/>
@@ -254,7 +255,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="67" Y="19"/>
-        <UsageCount Value="172"/>
+        <UsageCount Value="176"/>
       </Unit25>
       <Unit26>
         <Filename Value="C:\lazarus\components\lzRichEdit\lzricheditfactory.pas"/>
@@ -379,7 +380,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="21" Y="12"/>
-        <UsageCount Value="165"/>
+        <UsageCount Value="169"/>
       </Unit41>
       <Unit42>
         <Filename Value="..\..\..\usr\share\fpcsrc\2.5.1\rtl\inc\ustringh.inc"/>
@@ -939,6 +940,128 @@
         <CursorPos X="3" Y="1"/>
         <UsageCount Value="10"/>
       </Unit114>
+      <Unit115>
+        <Filename Value="..\lzrichedit.pas"/>
+        <UnitName Value="lzRichEdit"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="160"/>
+        <CursorPos X="10" Y="175"/>
+        <UsageCount Value="11"/>
+      </Unit115>
+      <Unit116>
+        <Filename Value="..\lzrichedit.lrs"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="34" Y="1"/>
+        <UsageCount Value="10"/>
+      </Unit116>
+      <Unit117>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="22"/>
+        <CursorPos X="14" Y="24"/>
+        <UsageCount Value="11"/>
+      </Unit117>
+      <Unit118>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\include\customedit.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="134"/>
+        <CursorPos X="40" Y="145"/>
+        <UsageCount Value="10"/>
+      </Unit118>
+      <Unit119>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\lclclasses.pp"/>
+        <UnitName Value="LCLClasses"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="42"/>
+        <CursorPos X="14" Y="52"/>
+        <UsageCount Value="10"/>
+      </Unit119>
+      <Unit120>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\widgetset\wsstdctrls.pp"/>
+        <UnitName Value="WSStdCtrls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="151"/>
+        <CursorPos X="23" Y="161"/>
+        <UsageCount Value="12"/>
+      </Unit120>
+      <Unit121>
+        <Filename Value="..\wslzrichedit.pas"/>
+        <UnitName Value="WSlzRichEdit"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="93"/>
+        <CursorPos X="54" Y="64"/>
+        <UsageCount Value="10"/>
+      </Unit121>
+      <Unit122>
+        <Filename Value="..\gtk2\gtk2_wslzrichedit.pas"/>
+        <UnitName Value="GTK2_WSlzRichEdit"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="74"/>
+        <CursorPos X="1" Y="84"/>
+        <UsageCount Value="12"/>
+      </Unit122>
+      <Unit123>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\clipbrd.pp"/>
+        <UnitName Value="Clipbrd"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="356"/>
+        <CursorPos X="23" Y="140"/>
+        <UsageCount Value="11"/>
+      </Unit123>
+      <Unit124>
+        <Filename Value="..\..\..\..\..\..\share\fpcsrc\2.5.1\packages\gtk2\src\gtk+\gtk\gtktextbuffer.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="96"/>
+        <CursorPos X="49" Y="106"/>
+        <UsageCount Value="10"/>
+      </Unit124>
+      <Unit125>
+        <Filename Value="..\lzrichedit.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="3" Y="21"/>
+        <UsageCount Value="10"/>
+      </Unit125>
+      <Unit126>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2593"/>
+        <CursorPos X="3" Y="2603"/>
+        <UsageCount Value="11"/>
+      </Unit126>
+      <Unit127>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\include\clipbrd.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="760"/>
+        <CursorPos X="50" Y="766"/>
+        <UsageCount Value="10"/>
+      </Unit127>
+      <Unit128>
+        <Filename Value="..\Windows\win_wslzrichedit.pas"/>
+        <UnitName Value="Win_WSlzRichEdit"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="57"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+      </Unit128>
+      <Unit129>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="665"/>
+        <CursorPos X="20" Y="672"/>
+        <UsageCount Value="10"/>
+      </Unit129>
+      <Unit130>
+        <Filename Value="..\..\..\..\..\..\share\lazarus\0.9.31\lcl\include\customimage.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="185"/>
+        <CursorPos X="36" Y="201"/>
+        <UsageCount Value="10"/>
+      </Unit130>
     </Units>
     <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>

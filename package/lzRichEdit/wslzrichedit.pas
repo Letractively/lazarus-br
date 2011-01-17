@@ -67,7 +67,6 @@ TWSCustomlzRichEdit = class(TWSCustomMemo)
   class function GetImage(const AWinControl: TWinControl; Position: Integer; var Image: TPicture):Boolean; virtual;
   class function GetRealTextBuf(const AWinControl: TWinControl):String; virtual;
   class procedure InsertPosLastChar(const AWinControl: TWinControl; const UTF8Char:TUTF8Char); virtual;
-
 end;
 TWSCustomlzRichEditClass = class of TWSCustomlzRichEdit;
 

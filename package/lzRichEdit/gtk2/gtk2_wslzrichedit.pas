@@ -36,7 +36,7 @@ interface
 
 uses
   Classes, SysUtils, LCLType, LCLProc, Controls, Graphics, GraphType, IntfGraphics,
-  InterfaceBase,
+  InterfaceBase, Clipbrd, StdCtrls,
   gtk2, glib2, gdk2, pango, Gtk2Proc, Gtk2Def, gdk2pixbuf, Gtk2Globals,
   GTK2WinApiWindow, Gtk2WSControls, FPimage,
   WSlzRichEdit, lzRichEditTypes, lzRichEdit, RTFTool;
@@ -80,6 +80,7 @@ type
     class function GetRealTextBuf(const AWinControl: TWinControl): string; override;
     class procedure InsertPosLastChar(const AWinControl: TWinControl;
       const UTF8Char: TUTF8Char); override;
+    class procedure Paste(const ACustomEdit: TCustomEdit); override;
   end;
 
 function WGGetBuffer(const AWinControl: TWinControl;
@@ -96,6 +97,8 @@ function WGGetImage(const AWinControl: TWinControl; Position: integer;
 function WGGetRealTextBuf(const AWinControl: TWinControl): string;
 function WGGetStartLine(const AWinControl: TWinControl; Position: integer): integer;
 function WGGetEndLine(const AWinControl: TWinControl; Position: integer): integer;
+Procedure WGDelete(const AWinControl: TWinControl; iSelStart, iSelLength: integer);
+procedure WGInsertPos(const AWinControl: TWinControl; Position:Integer; const UTF8Char: TUTF8Char);
 
 implementation
 
@@ -369,11 +372,43 @@ begin
   Result := Position;
 end;
 
+procedure WGDelete(const AWinControl: TWinControl; iSelStart,
+  iSelLength: integer);
+  var
+  iterStart, iterEnd: TGtkTextIter;
+  Buffer: PGtkTextBuffer;
+begin
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+  gtk_text_buffer_get_iter_at_offset(buffer, @iterStart, iSelStart);
+  gtk_text_buffer_get_iter_at_offset(buffer, @iterEnd, iSelStart + iSelLength);
+  gtk_text_buffer_delete(buffer, @iterStart, @iterEnd);
+end;
+
+procedure WGInsertPos(const AWinControl: TWinControl; Position: Integer;
+  const UTF8Char: TUTF8Char);
+var
+  iterStart{, iterEnd}: TGtkTextIter;
+  Buffer: PGtkTextBuffer = nil;
+  Ch: TUTF8Char;
+  //N2:Boolean=False;
+begin
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+  if (Position < 0) then Exit;
+  //--
+  Ch := UTF8Char;
+  gtk_text_buffer_get_iter_at_offset(Buffer, @iterStart, Position);
+  gtk_text_buffer_insert(Buffer, @iterStart, @Ch[1], Length(Ch));
+
+end;
+
 class function TGTK2_WSCustomlzRichEdit.CreateHandle(const AWinControl: TWinControl;
   const AParams: TCreateParams): TLCLIntfHandle;
 var
   Widget, TempWidget: PGtkWidget;
   WidgetInfo: PWidgetInfo;
+  FormatList: Array [0..3] of TClipboardFormat;
 begin
   Widget := gtk_scrolled_window_new(nil, nil);
   Result := TLCLIntfHandle(PtrUInt(Widget));
@@ -407,6 +442,14 @@ begin
   Set_RC_Name(AWinControl, Widget);
 
   TGtk2WSWinControl.SetCallbacks(PGtkObject(Widget), TComponent(WidgetInfo^.LCLObject));
+
+  //--
+  FormatList[0] := CF_TEXT;
+  FormatList[1] := CF_Bitmap;
+  FormatList[2] := CF_Picture;
+
+  Clipboard.SetSupportedFormats(3, @FormatList[0]);
+
 end;
 
 class procedure TGTK2_WSCustomlzRichEdit.SaveToStream(const AWinControl: TWinControl;
@@ -666,6 +709,40 @@ begin
   gtk_text_buffer_get_iter_at_offset(Buffer, @iterStart, Position);
   gtk_text_buffer_insert(Buffer, @iterStart, @Ch[1], Length(Ch));
 end;
+
+class procedure TGTK2_WSCustomlzRichEdit.Paste(const ACustomEdit: TCustomEdit);
+var
+   S:String;
+   I:Integer;
+   P:TPicture;
+begin
+    if Clipboard.HasFormat(CF_TEXT) then
+      begin
+        if ACustomEdit.SelLength > 0 then
+          WGDelete(ACustomEdit, ACustomEdit.SelStart, ACustomEdit.SelLength);
+
+        S := Clipboard.AsText;
+        for I:=1 to UTF8Length(S) do
+          begin
+            WGInsertPos(ACustomEdit, ACustomEdit.SelStart ,UTF8Copy(S, I, 1));
+          end;
+      end;
+
+    if Clipboard.HasFormat(CF_Bitmap) or Clipboard.HasFormat(CF_Picture) then
+      begin
+        if ACustomEdit.SelLength > 0 then
+          WGDelete(ACustomEdit, ACustomEdit.SelStart, ACustomEdit.SelLength);
+
+        P:=TPicture.Create;
+        if Clipboard.HasFormat(CF_Bitmap) then
+          P.Bitmap.Assign(Clipboard)
+        else
+          P.Assign(Clipboard);
+        InsertImage(ACustomEdit, ACustomEdit.SelStart, P);
+        P.Free;
+      end;
+end;
+
 
 end.
 

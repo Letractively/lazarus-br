@@ -199,7 +199,7 @@ begin
     Exit;
   end;
   //--
-  FText := TCustomlzRichEdit(FlzRichEdit).Text;
+  FText := TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf;
   //--
   AddFont('Sans');
   AddColor(clWindowText);
@@ -420,7 +420,7 @@ begin
     if (FSkipGroup = -1) and (C <> chr($0)) then
     begin
       TCustomlzRichEdit(FlzRichEdit).InsertPosLastChar(C);
-      L := UTF8Length(TCustomlzRichEdit(FlzRichEdit).Text);
+      L := UTF8Length(TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf);
       if (FLeftIndent > 0) then
         TCustomlzRichEdit(FlzRichEdit).SetStartIndent(L - 1, 1, FLeftIndent div 568);
       if (FRightIndent > 0) then
@@ -458,7 +458,7 @@ var
   I, L: integer;
   S: string;
 begin
-  S := TCustomlzRichEdit(FlzRichEdit).Text;
+  S := TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf;
   L := UTF8Length(S);
 
   for I := L downto 0 do
@@ -757,9 +757,9 @@ begin
   begin
     //WriteLn('Pos:' + IntToStr(UTF8Length(TCustomlzRichEdit(FlzRichEdit).Text)));
     TCustomlzRichEdit(FlzRichEdit).InsertImage(
-      UTF8Length(TCustomlzRichEdit(FlzRichEdit).Text), Picture);
+      UTF8Length(TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf), Picture);
     //--
-    L := UTF8Length(TCustomlzRichEdit(FlzRichEdit).Text);
+    L := UTF8Length(TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf);
     if (FLeftIndent > 0) then
       TCustomlzRichEdit(FlzRichEdit).SetStartIndent(L - 1, 1, FLeftIndent div 568);
     if (FRightIndent > 0) then

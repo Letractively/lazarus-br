@@ -6,7 +6,7 @@ begin
   WSRegisterCustomlzRichEdit;
 end;
 
-function TCustomlzRichEdit.RealGetText: TCaption;
+{function TCustomlzRichEdit.RealGetText: TCaption;
 begin
   Result:=TWSCustomlzRichEditClass(WidgetSetClass).GetRealTextBuf(Self);
 end;
@@ -14,10 +14,15 @@ end;
 procedure TCustomlzRichEdit.RealSetText(const Value: TCaption);
 begin
   Lines.Text := Value;
-end;
+end;}
 
 procedure TCustomlzRichEdit.SetActiveRichOle(I: Boolean);
 begin
+  {$IFDEF Windows}
+  if I and (csDesigning in ComponentState) then
+    MessageDLG('Perigo!', 'Ativar RichOle pode gerar instabilidade no controle.',
+    mtWarning, [mbOK], 0);
+  {$ENDIF}
   FActiveRichOle:= I;
 end;
 
@@ -49,7 +54,7 @@ end;
 
 procedure TCustomlzRichEdit.SetAlignment(iSelStart, iSelLength: Integer; iAlignment: TlzRichEdit_Align);
 begin
-  TWSCustomlzRichEditClass(WidgetSetClass).SetAlignment(Self, iSelStart, iSelLength, iAlignment);
+ TWSCustomlzRichEditClass(WidgetSetClass).SetAlignment(Self, iSelStart, iSelLength, iAlignment);
 end;
 
 procedure TCustomlzRichEdit.GetAlignment(Position: Integer; var iAlignment: TlzRichEdit_Align);
@@ -113,6 +118,11 @@ function TCustomlzRichEdit.GetImage(Position: Integer; var Image: TPicture
   ): Boolean;
 begin
   Result:= TWSCustomlzRichEditClass(WidgetSetClass).GetImage(Self, Position, Image);
+end;
+
+function TCustomlzRichEdit.GetRealTextBuf: String;
+begin
+  Result:=TWSCustomlzRichEditClass(WidgetSetClass).GetRealTextBuf(Self);
 end;
 
 procedure TCustomlzRichEdit.InsertPosLastChar(const UTF8Char: TUTF8Char);
