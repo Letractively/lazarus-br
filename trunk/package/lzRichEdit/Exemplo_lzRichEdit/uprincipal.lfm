@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 254
+  Left = 275
   Height = 479
-  Top = 119
+  Top = 102
   Width = 720
   ActiveControl = lzRichEdit1
   Caption = 'ExRichEdit'
@@ -52,7 +52,7 @@ object Form1: TForm1
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '0.9.29'
+  LCLVersion = '0.9.31'
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
     Left = 3
@@ -76,11 +76,12 @@ object Form1: TForm1
     Top = 72
     Width = 692
     Anchors = [akTop, akLeft, akRight, akBottom]
+    ActiveRichOle = True
     BorderSpacing.Left = 10
     BorderSpacing.Top = 16
     BorderSpacing.Right = 10
     BorderSpacing.Bottom = 10
-    Color = clInfoBk
+    Color = clWindow
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
     Font.Name = 'Lucida Console'

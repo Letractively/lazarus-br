@@ -36,7 +36,7 @@ interface
 
 uses
   Classes, SysUtils, LResources, StdCtrls, Controls, Graphics,
-  WSlzRichEdit, lzRichEditTypes, LCLType;
+  WSlzRichEdit, lzRichEditTypes, LCLType, Dialogs;
 
 type
   TlzFontParams = TFontParams;
@@ -64,8 +64,8 @@ type
     FActiveRichOle: boolean;
   protected
     class procedure WSRegisterClass; override;
-    function RealGetText: TCaption; override;
-    procedure RealSetText(const Value: TCaption); override;
+    //function RealGetText: TCaption; override;
+    //procedure RealSetText(const Value: TCaption); override;
   private
     procedure SetActiveRichOle(I: boolean);
   public
@@ -95,6 +95,7 @@ type
     procedure GetStartIndent(Position: integer; var I: integer);
     procedure InsertImage(Position: integer; Image: TPicture);
     function GetImage(Position: integer; var Image: TPicture): boolean;
+    function GetRealTextBuf:String;
     procedure InsertPosLastChar(const UTF8Char: TUTF8Char);
     procedure SaveToStream(Stream: TStream);
     procedure LoadFromStream(Stream: TStream);

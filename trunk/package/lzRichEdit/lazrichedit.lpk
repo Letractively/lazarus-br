@@ -17,7 +17,7 @@
     </CompilerOptions>
     <Description Value="Controle para trabalhar com Textos formatados e Imagens, e salvar arquivos no Formato Rich Text."/>
     <License Value="LGPL"/>
-    <Version Minor="1" Release="2"/>
+    <Version Minor="1" Release="3"/>
     <Files Count="12">
       <Item1>
         <Filename Value="wslzrichedit.pas"/>

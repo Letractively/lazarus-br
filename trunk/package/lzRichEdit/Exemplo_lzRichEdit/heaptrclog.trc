@@ -3669,3 +3669,187 @@ Heap dump by heaptrc unit
 True heap size : 524288
 True free heap : 536064
 Should be : 524288
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63168 memory blocks allocated : 4333562/4551120
+63168 memory blocks freed     : 4333562/4551120
+0 unfreed memory blocks : 0
+True heap size : 327680
+True free heap : 338976
+Should be : 327680
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+76031 memory blocks allocated : 9168668/9472344
+76031 memory blocks freed     : 9168668/9472344
+0 unfreed memory blocks : 0
+True heap size : 786432
+True free heap : 797728
+Should be : 786432
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61569 memory blocks allocated : 5384080/5604904
+61569 memory blocks freed     : 5384080/5604904
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61870 memory blocks allocated : 5403010/5624488
+61870 memory blocks freed     : 5403010/5624488
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58145 memory blocks allocated : 4124331/4323488
+58145 memory blocks freed     : 4124331/4323488
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61967 memory blocks allocated : 5398809/5621744
+61967 memory blocks freed     : 5398809/5621744
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62149 memory blocks allocated : 5408455/5631416
+62149 memory blocks freed     : 5408455/5631416
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62154 memory blocks allocated : 5410405/5633072
+62154 memory blocks freed     : 5410405/5633072
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62404 memory blocks allocated : 5414207/5639016
+62404 memory blocks freed     : 5414207/5639016
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+89185 memory blocks allocated : 9764290/10121304
+89185 memory blocks freed     : 9764290/10121304
+0 unfreed memory blocks : 0
+True heap size : 360448
+True free heap : 371744
+Should be : 360448
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61489 memory blocks allocated : 5377894/5598392
+61489 memory blocks freed     : 5377894/5598392
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+60501 memory blocks allocated : 4206995/4417360
+60501 memory blocks freed     : 4206995/4417360
+0 unfreed memory blocks : 0
+True heap size : 294912
+True free heap : 306208
+Should be : 294912
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+61735 memory blocks allocated : 6145658/6359264
+61735 memory blocks freed     : 6145658/6359264
+0 unfreed memory blocks : 0
+True heap size : 557056
+True free heap : 568352
+Should be : 557056
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62288 memory blocks allocated : 9149121/9366152
+62288 memory blocks freed     : 9149121/9366152
+0 unfreed memory blocks : 0
+True heap size : 524288
+True free heap : 535680
+Should be : 524288
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58397 memory blocks allocated : 4422474/4622040
+58397 memory blocks freed     : 4422474/4622040
+0 unfreed memory blocks : 0
+True heap size : 458752
+True free heap : 470048
+Should be : 458752
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58151 memory blocks allocated : 4124632/4323784
+58151 memory blocks freed     : 4124632/4323784
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62294 memory blocks allocated : 5408812/5632400
+62294 memory blocks freed     : 5408812/5632400
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62379 memory blocks allocated : 5421655/5644192
+62379 memory blocks freed     : 5421655/5644192
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62684 memory blocks allocated : 5417292/5642008
+62684 memory blocks freed     : 5417292/5642008
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62184 memory blocks allocated : 5398569/5621792
+62184 memory blocks freed     : 5398569/5621792
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+62676 memory blocks allocated : 5422024/5646032
+62676 memory blocks freed     : 5422024/5646032
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+63881 memory blocks allocated : 5475623/5704672
+63881 memory blocks freed     : 5475623/5704672
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
+/usr/share/lazarus/0.9.31/components/lzRichEdit/Exemplo_lzRichEdit/exRichEdit 
+Heap dump by heaptrc unit
+58156 memory blocks allocated : 4124729/4323904
+58156 memory blocks freed     : 4124729/4323904
+0 unfreed memory blocks : 0
+True heap size : 229376
+True free heap : 240672
+Should be : 229376
