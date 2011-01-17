@@ -47,7 +47,7 @@ type
   { TIRichEditOleCallback }
 
   TIRichEditOleCallback = class(TObject, IUnknown, IRichEditOleCallback)
-    function QueryInterface(const iid: TGUID; out Obj): HResult; stdcall;
+    function QueryInterface({$IFDEF FPC_HAS_CONSTREF}constref{$ELSE}const{$ENDIF} iid: TGUID; out Obj): HResult; stdcall;
     function _AddRef: longint; stdcall;
     function _Release: longint; stdcall;
     function GetNewStorage(out stg: IStorage): HRESULT; stdcall;
@@ -107,7 +107,7 @@ end;
 
 { TIRichEditOleCallback }
 
-function TIRichEditOleCallback.QueryInterface(const iid: TGUID;
+function TIRichEditOleCallback.QueryInterface({$IFDEF FPC_HAS_CONSTREF}constref{$ELSE}const{$ENDIF} iid: TGUID;
   out Obj): HResult; stdcall;
 var
   P: IUnknown;
