@@ -408,6 +408,7 @@ class function TGTK2_WSCustomlzRichEdit.CreateHandle(const AWinControl: TWinCont
 var
   Widget, TempWidget: PGtkWidget;
   WidgetInfo: PWidgetInfo;
+  FormatList: Array [0..3] of TClipboardFormat;
 begin
   Widget := gtk_scrolled_window_new(nil, nil);
   Result := TLCLIntfHandle(PtrUInt(Widget));
@@ -441,6 +442,13 @@ begin
   Set_RC_Name(AWinControl, Widget);
 
   TGtk2WSWinControl.SetCallbacks(PGtkObject(Widget), TComponent(WidgetInfo^.LCLObject));
+
+  //--
+  FormatList[0] := CF_TEXT;
+  FormatList[1] := CF_Bitmap;
+  FormatList[2] := CF_Picture;
+
+  Clipboard.SetSupportedFormats(3, @FormatList[0]);
 
 end;
 
