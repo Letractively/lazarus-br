@@ -53,7 +53,6 @@ procedure TfrmLocalizar.sFindNext;
 var
   I, LenText, LenWord:Integer;
   SWord, RText:String;
-  B:Boolean=False;
 begin
   RText:= TlzRichEdit(RichControl).GetRealTextBuf;
   SWord:= Edit1.Text;

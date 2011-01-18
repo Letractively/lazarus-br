@@ -37,13 +37,6 @@ interface
 uses
   Windows, Classes, Controls, ActiveX, Ole2, RichOle, ComObj, Forms;
 
-
-type
-  TGetTextLengthEx=packed record
-    flags : dword;
-    codepage : dword;
-end;
-
 const
   OLECLOSE_SAVEIFDIRTY = 0;
   OLECLOSE_NOSAVE = 1;
