@@ -167,6 +167,7 @@ begin
     else
       FileName := '';
     //--
+    lzRichEdit1.Clear;
     S := TFileStream.Create(Odlg.FileName, fmOpenRead);
     lzRichEdit1.LoadFromStream(S);
     S.Free;
