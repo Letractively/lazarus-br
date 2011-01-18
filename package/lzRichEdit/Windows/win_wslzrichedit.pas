@@ -84,6 +84,8 @@ type
       iSelStart, iSelLength: integer; I: integer); override;
     class procedure GetStartIndent(const AWinControl: TWinControl;
       Position: integer; var I: integer); override;
+    class function GetRealTextBuf(const AWinControl: TWinControl):String; override;
+
   end;
 
 const
@@ -639,6 +641,35 @@ begin
 
   I := P.dxStartIndent div 15;
 
+end;
+
+class function TWin_WSCustomlzRichEdit.GetRealTextBuf(
+  const AWinControl: TWinControl): String;
+var
+  _TextLength : GETTEXTLENGTHEX;
+  _SizeText : integer;
+  _GETTEXTEX : TGETTEXTEX;
+  _WideString : WideString;
+
+begin
+
+  _TextLength.codepage:=CP_WINUNICODE;
+  _TextLength.flags:=GTL_DEFAULT; {GTL_USECRLF or GTL_PRECISE or GTL_NUMCHARS};
+
+  _SizeText:=SendMessage(AWinControl.Handle,EM_GETTEXTLENGTHEX, longint(@_TextLength),0);
+
+  SetLength(_WideString, _SizeText);
+
+  FillChar(_GETTEXTEX, SizeOf(_GETTEXTEX), 0);
+  _GETTEXTEX.cb:= 2 * (_SizeText + 1);
+  _GETTEXTEX.flags:= GTL_DEFAULT; {GT_USECRLF}
+  _GETTEXTEX.codepage:= CP_WINUNICODE;
+  _GETTEXTEX.lpDefaultChar:= nil;
+  _GETTEXTEX.lpUsedDefaultChar:= nil;
+
+  SendMessage(AWinControl.Handle, EM_GETTEXTEX, longint(@_GETTEXTEX), Integer(PWideChar(_WideString)));
+
+  Result:=AnsiToUTF8(_WideString);
 end;
 
 class procedure TWin_WSCustomlzRichEdit.SetColor(const AWinControl: TWinControl);

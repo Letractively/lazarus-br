@@ -51,38 +51,35 @@ end;
 
 procedure TfrmLocalizar.sFindNext;
 var
-  I, I2, N, LenText:Integer;
-  S:String;
+  I, LenText, LenWord:Integer;
+  SWord, RText:String;
   B:Boolean=False;
 begin
-  LenText:= UTF8Length(TlzRichEdit(RichControl).Text);
-  N:= 1;
+  RText:= TlzRichEdit(RichControl).GetRealTextBuf;
+  SWord:= Edit1.Text;
 
-  if (TlzRichEdit(RichControl).SelStart = 0) then NP:= 1;
+  if not(CheckBox2.Checked) then
+    begin
+      RText:=UTF8UpperCase(RText);
+      SWord:=UTF8UpperCase(SWord);
+    end;
 
-  for I:= (TlzRichEdit(RichControl).SelStart + TlzRichEdit(RichControl).SelLength + NP) to LenText do
-   begin
-     S:= UTF8Copy(TlzRichEdit(RichControl).Text, I, UTF8Length(Edit1.Text));
-     N:= 1;
-
-     if not(Checkbox2.Checked) and (UTF8UpperCase(S)=UTF8UpperCase(Edit1.Text)) or
-        (I = 0) and not(Checkbox2.Checked) and (UTF8UpperCase(S)=UTF8UpperCase(Edit1.Text)) then
-       B:=True;
-     if Checkbox2.Checked and (S=Edit1.Text) or
-       (I = 0) and Checkbox2.Checked and (S=Edit1.Text) then
-       B:=True;
-
-     if B then
-       begin
-         for I2:= 0 to I do
-           if (TlzRichEdit(RichControl).Text[I2]= #10) then Inc(N);
-         NP:= N;
-         TlzRichEdit(RichControl).SelStart:= I -1;
-         TlzRichEdit(RichControl).SelLength:= UTF8Length(Edit1.Text);
-         TlzRichEdit(RichControl).SetFocus;
-         Exit;
-       end;
-   end;
+  LenText:= UTF8Length(RText);
+  LenWord:= UTF8Length(SWord);
+  TlzRichEdit(RichControl).SelStart:= TlzRichEdit(RichControl).SelStart +
+    TlzRichEdit(RichControl).SelLength;
+  //--
+  for I:= (TlzRichEdit(RichControl).SelStart + 1) to LenText do
+    begin
+      if (UTF8Copy(RText, I, LenWord) = SWord) then
+        begin
+          TlzRichEdit(RichControl).SelStart:= I - 1;
+          TlzRichEdit(RichControl).SelLength:=UTF8Length(SWord);
+          TlzRichEdit(RichControl).SetFocus;
+          Exit;
+        end;
+    end;
+  //--
   MessageDlg('Localizar', 'Fim da pesquisa.', mtConfirmation, [mbOk], 0);
 end;
 
