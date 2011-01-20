@@ -27,7 +27,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure PauseButtonClick(Sender: TObject);
     procedure StartButtonClick(Sender: TObject);
-  public
+  private
     FFirstRequest: Boolean;
     FCanDownload: Boolean;
     FHTTPSend: THTTPSend;
@@ -35,6 +35,7 @@ type
     FHost: string;
     FFileName: string;
     FTotalDownloadSize: Int64;
+  public
     procedure AddToLog(const AInfo: string);
     procedure Download;
     procedure OnMonitor(ASender: TObject; AWriting: Boolean;
