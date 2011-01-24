@@ -1,13 +1,13 @@
 object MainForm: TMainForm
   Left = 146
-  Height = 305
+  Height = 338
   Top = 175
   Width = 602
   ActiveControl = TitlePanel
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsNone
   Caption = 'LazPeace 1.0'
-  ClientHeight = 305
+  ClientHeight = 338
   ClientWidth = 602
   Color = 15789478
   OnCloseQuery = FormCloseQuery
@@ -20,23 +20,23 @@ object MainForm: TMainForm
   OnWindowStateChange = FormWindowStateChange
   SessionProperties = 'Left;Top'
   ShowHint = True
-  LCLVersion = '0.9.29'
+  LCLVersion = '0.9.31'
   object LeftPanel: TPanel
     Left = 1
-    Height = 285
+    Height = 318
     Top = 19
     Width = 212
     Align = alLeft
     BorderSpacing.Left = 1
     BorderSpacing.Bottom = 1
     BevelOuter = bvNone
-    ClientHeight = 285
+    ClientHeight = 318
     ClientWidth = 212
     PopupMenu = LeftBarPopupMenu
     TabOrder = 1
     object LeftImage: TImage
       Left = 0
-      Height = 285
+      Height = 318
       Top = 0
       Width = 212
       Align = alClient
@@ -1352,7 +1352,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 26
-      Top = 91
+      Top = 97
       Width = 196
       Action = FindAction
       Anchors = [akTop, akLeft, akRight]
@@ -1402,7 +1402,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 68
-      Top = 19
+      Top = 25
       Width = 196
       Anchors = [akLeft, akRight]
       AutoFill = True
@@ -1442,7 +1442,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 26
-      Top = 119
+      Top = 125
       Width = 196
       Action = PrintAction
       Anchors = [akTop, akLeft, akRight]
@@ -1494,7 +1494,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 26
-      Top = 147
+      Top = 153
       Width = 196
       Action = OptinAction
       Anchors = [akTop, akLeft, akRight]
@@ -1546,7 +1546,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 26
-      Top = 203
+      Top = 209
       Width = 196
       Action = AboutAction
       Anchors = [akTop, akLeft, akRight]
@@ -1591,14 +1591,14 @@ object MainForm: TMainForm
       TabOrder = 5
     end
     object ExitBitBtn: TBitBtn
-      AnchorSideLeft.Control = BookRadioGroup
-      AnchorSideTop.Control = AboutBitBtn
+      AnchorSideLeft.Control = DonateBitBtn
+      AnchorSideTop.Control = DonateBitBtn
       AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = BookRadioGroup
+      AnchorSideRight.Control = DonateBitBtn
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 26
-      Top = 231
+      Top = 265
       Width = 196
       Action = ExitAction
       Anchors = [akTop, akLeft, akRight]
@@ -1640,7 +1640,7 @@ object MainForm: TMainForm
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF006D9CD4896A9AD2FB6697CFEE
       }
-      TabOrder = 6
+      TabOrder = 7
     end
     object SendToEmailButton: TBitBtn
       AnchorSideLeft.Control = ExitBitBtn
@@ -1650,7 +1650,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 26
-      Top = 175
+      Top = 181
       Width = 196
       Action = SendToEmailAction
       Anchors = [akTop, akLeft, akRight]
@@ -1700,7 +1700,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrBottom
       Left = 8
       Height = 16
-      Top = 261
+      Top = 295
       Width = 101
       BorderSpacing.Top = 4
       Caption = 'Enviando e-mail...'
@@ -1710,22 +1710,74 @@ object MainForm: TMainForm
       ParentFont = False
       Visible = False
     end
+    object DonateBitBtn: TBitBtn
+      AnchorSideLeft.Control = AboutBitBtn
+      AnchorSideTop.Control = AboutBitBtn
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = AboutBitBtn
+      AnchorSideRight.Side = asrBottom
+      Left = 8
+      Height = 26
+      Top = 237
+      Width = 196
+      Action = DonateAction
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      BorderSpacing.Top = 2
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF0060A664315BA25FCC569F5A4BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006AAE
+        6E0565AA69AF60A665FD6BAE6FFF4C9750FB529C56344E995222FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006FB2
+        74277CBB81FCB7DEBBFF67AC6CFF75B67AFF4E9851FE539C57B84F99537AFFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0075B6
+        7A9B9CCDA0FF6FB273FF8DC792FFAADCAFFF76B67BFF519B55FF77B77BFF509A
+        53DD4B964F4247934B29FFFFFF00FFFFFF00FFFFFF00FFFFFF007FBE84197BBB
+        80FF77B77CFF91CB97FFABDEB1FF9CD7A2FFAADDB0FF77B77CFF60AC65FFAED8
+        B2FF8BC491FF4C9750B948944C9144914822FFFFFF00FFFFFF007FBD84A07FBD
+        84FF97CE9CFFADDFB3FF6FB374FF96D59DFF9DD8A3FFAADDB0FF78B87CFF72BA
+        76FFC3E7C8FFB2DAB5FF69B86EF8569E59FF45914873418F44327BBB80FF8EC8
+        93FFAFDFB5FFA1DAA7FF98D79FFF97D69EFF7EC083FF82C187FFABDDB0FF79B9
+        7DFF63AE67FFC4E7C8FFC1E4C4FFB9E0BEFF4F9A53FF459249118DC9937D7DBB
+        82FF8FC894FFB0E0B6FFA2DAA8FF7FC185FFA4D0A7FFDDEEDFFF80B883FFABDE
+        B1FF7AB97FFF569F5AFFC4E7C8FF78B87CFF4E995284FFFFFF00FFFFFF008EC9
+        93257DBC82FA90C995FFB0E0B6FF85C28AFFF7FCF8FF95C297FFDDEEDFFF82C2
+        87FFABDEB1FF7BBA7FFF58A05CFF59A15DFF539C5704FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF007EBD83F691CA96FFB1E0B6FFD9F3DDFFF7FCF8FFA4D0A7FF7EC0
+        84FF9FD9A5FFACDEB2FF7BBB80FF569F5AFBFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF007FBE85F592CB97FFB1E1B6FF85C38AFF80C185FF99D7
+        A0FF98D79FFF9FD9A5FFACDFB2FF7DBB81FF58A05CF6FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF0081BF86F593CC98FFB1E1B7FFA3DBA9FF9BD8
+        A2FF73B477FFAFDFB4FF87C38CFF65AA69FF5DA4610EFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0082C087F594CC99FFB2E2B7FFA3DC
+        AAFFB0E0B6FF8CC692FF6EB173FF66AB6B0EFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0083C188F594CD9AFFB3E2
+        B7FF93CB98FF77B77CFF70B2740EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0084C28AF596CD
+        9BFF80BE85FF79B97E0EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0086C3
+        8BF582C0870EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      TabOrder = 6
+    end
   end
   object ClientPanel: TPanel
     Left = 213
-    Height = 285
+    Height = 318
     Top = 19
     Width = 388
     Align = alClient
     BorderSpacing.Right = 1
     BorderSpacing.Bottom = 1
     BevelOuter = bvNone
-    ClientHeight = 285
+    ClientHeight = 318
     ClientWidth = 388
     TabOrder = 0
     object ClientImage: TImage
       Left = 0
-      Height = 285
+      Height = 318
       Top = 0
       Width = 388
       Align = alClient
@@ -3037,7 +3089,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 8
       Height = 30
-      Top = 245
+      Top = 275
       Width = 213
       Align = alNone
       Anchors = [akLeft]
@@ -3125,7 +3177,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 229
       Height = 16
-      Top = 252
+      Top = 282
       Width = 65
       BorderSpacing.Left = 8
       BorderSpacing.Right = 2
@@ -3146,7 +3198,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 296
       Height = 23
-      Top = 249
+      Top = 279
       Width = 84
       Anchors = [akTop, akLeft, akRight]
       Font.Style = [fsBold, fsItalic]
@@ -3162,7 +3214,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = NavigatorToolBar
       Left = 8
-      Height = 229
+      Height = 259
       Top = 8
       Width = 372
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -3237,8 +3289,8 @@ object MainForm: TMainForm
   end
   object MainActionList: TActionList
     Images = MainImageList
-    left = 424
-    top = 72
+    left = 184
+    top = 128
     object ExitAction: TAction
       Category = 'File'
       Caption = '&Sair'
@@ -3332,6 +3384,14 @@ object MainForm: TMainForm
       OnExecute = AboutActionExecute
       ShortCut = 117
     end
+    object DonateAction: TAction
+      Category = 'File'
+      Caption = '&Doar'
+      Hint = 'Doar dineiro ao projeto'
+      ImageIndex = 16
+      OnExecute = DonateActionExecute
+      ShortCut = 16452
+    end
     object SendToEmailAction: TAction
       Category = 'File'
       Caption = '&Enviar'
@@ -3342,10 +3402,10 @@ object MainForm: TMainForm
     end
   end
   object MainImageList: TImageList
-    left = 312
+    left = 424
     top = 72
     Bitmap = {
-      4C69100000001000000010000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      4C69110000001000000010000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF006D9CD4896A9AD2FB6697CFEEFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00709ED6DB6D9C
@@ -3857,10 +3917,44 @@ object MainForm: TMainForm
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0086C38BF582C0870EFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF0084C28AF596CD9BFF80BE85FF79B97E0EFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0083C188F594CD9AFFB3E2B7FF93CB98FF77B77CFF70B2
+      740EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF0082C087F594CC99FFB2E2B7FFA3DCAAFFB0E0B6FF8CC692FF6EB1
+      73FF66AB6B0EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF0081BF86F593CC98FFB1E1B7FFA3DBA9FF9BD8A2FF73B477FFAFDFB4FF87C3
+      8CFF65AA69FF5DA4610EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF007FBE
+      85F592CB97FFB1E1B6FF85C38AFF80C185FF99D7A0FF98D79FFF9FD9A5FFACDF
+      B2FF7DBB81FF58A05CF6FFFFFF00FFFFFF00FFFFFF00FFFFFF007EBD83F691CA
+      96FFB1E0B6FFD9F3DDFFF7FCF8FFA4D0A7FF7EC084FF9FD9A5FFACDEB2FF7BBB
+      80FF569F5AFBFFFFFF00FFFFFF00FFFFFF008EC993257DBC82FA90C995FFB0E0
+      B6FF85C28AFFF7FCF8FF95C297FFDDEEDFFF82C287FFABDEB1FF7BBA7FFF58A0
+      5CFF59A15DFF539C5704FFFFFF008DC9937D7DBB82FF8FC894FFB0E0B6FFA2DA
+      A8FF7FC185FFA4D0A7FFDDEEDFFF80B883FFABDEB1FF7AB97FFF569F5AFFC4E7
+      C8FF78B87CFF4E995284FFFFFF007BBB80FF8EC893FFAFDFB5FFA1DAA7FF98D7
+      9FFF97D69EFF7EC083FF82C187FFABDDB0FF79B97DFF63AE67FFC4E7C8FFC1E4
+      C4FFB9E0BEFF4F9A53FF459249117FBD84A07FBD84FF97CE9CFFADDFB3FF6FB3
+      74FF96D59DFF9DD8A3FFAADDB0FF78B87CFF72BA76FFC3E7C8FFB2DAB5FF69B8
+      6EF8569E59FF45914873418F44327FBE84197BBB80FF77B77CFF91CB97FFABDE
+      B1FF9CD7A2FFAADDB0FF77B77CFF60AC65FFAED8B2FF8BC491FF4C9750B94894
+      4C9144914822FFFFFF00FFFFFF00FFFFFF0075B67A9B9CCDA0FF6FB273FF8DC7
+      92FFAADCAFFF76B67BFF519B55FF77B77BFF509A53DD4B964F4247934B29FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006FB274277CBB81FCB7DEBBFF67AC
+      6CFF75B67AFF4E9851FE539C57B84F99537AFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006AAE6E0565AA69AF60A665FD6BAE
+      6FFF4C9750FB529C56344E995222FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0060A664315BA25FCC569F
+      5A4BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00
     }
   end
   object MainZConnection: TZConnection
+    Protocol = 'sqlite-3'
+    Database = 'C:\Repository\svn\lazarus-br\trunk\misc\LazPeace\Source\lazpeace.db3'
     left = 184
     top = 16
   end
@@ -3895,7 +3989,7 @@ object MainForm: TMainForm
   end
   object FavoritePopupMenu: TPopupMenu
     Images = MainImageList
-    left = 184
+    left = 312
     top = 128
     object DeleteFavoriteMenuItem: TMenuItem
       Caption = 'Excluir favorita'
@@ -3904,7 +3998,7 @@ object MainForm: TMainForm
   end
   object LeftBarPopupMenu: TPopupMenu
     Images = MainImageList
-    left = 312
+    left = 424
     top = 128
     object FindMenuItem: TMenuItem
       Action = FindAction
@@ -4119,7 +4213,7 @@ object MainForm: TMainForm
   end
   object MessageTimer: TTimer
     OnTimer = MessageTimerTimer
-    left = 184
+    left = 312
     top = 184
   end
   object OptionZQuery: TZQuery
@@ -4387,13 +4481,13 @@ object MainForm: TMainForm
     PopUpMenu = TrayIconPopupMenu
     Hint = 'LazPeace 1.0'
     OnDblClick = TrayIconDblClick
-    left = 312
+    left = 424
     top = 184
   end
   object TrayIconPopupMenu: TPopupMenu
     Images = MainImageList
-    left = 424
-    top = 128
+    left = 184
+    top = 184
     object RestoreTrayMenuItem: TMenuItem
       Caption = '&Restaurar'
       Bitmap.Data = {
@@ -4481,20 +4575,29 @@ object MainForm: TMainForm
   object MainXMLPropStorage: TXMLPropStorage
     StoredValues = <>
     OnRestoreProperties = MainXMLPropStorageRestoreProperties
-    left = 424
-    top = 184
+    left = 184
+    top = 240
   end
   object MoveTimer: TTimer
     Enabled = False
     Interval = 50
     OnTimer = MoveTimerTimer
-    left = 184
+    left = 312
     top = 240
   end
   object RunOnceMonitorTimer: TTimer
     Interval = 250
     OnTimer = RunOnceMonitorTimerTimer
-    left = 312
+    left = 424
     top = 240
+  end
+  object RandomZQuery: TZQuery
+    Connection = MainZConnection
+    SQL.Strings = (
+      'select * from random'
+    )
+    Params = <>
+    left = 312
+    top = 72
   end
 end

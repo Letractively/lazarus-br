@@ -15,6 +15,8 @@ type
 
   TMainForm = class(TForm)
     AboutAction: TAction;
+    DonateAction: TAction;
+    DonateBitBtn: TBitBtn;
     CloseImage: TImage;
     OptionZQueryinformmoreemails: TStringField;
     OptionZQueryplaysound: TStringField;
@@ -108,9 +110,11 @@ type
     FavoriteZQuery: TZQuery;
     TrayIcon: TTrayIcon;
     MainXMLPropStorage: TXMLPropStorage;
+    RandomZQuery: TZQuery;
     procedure AboutActionExecute(Sender: TObject);
     procedure DeleteFavoriteMenuItemClick(Sender: TObject);
     procedure DeleteFilterActionExecute(Sender: TObject);
+    procedure DonateActionExecute(Sender: TObject);
     procedure ExitActionExecute(Sender: TObject);
     procedure FavoriteActionExecute(Sender: TObject);
     procedure FavoriteZQueryabbreviationGetText(Sender: TField;
@@ -181,6 +185,8 @@ type
   protected
     procedure DoStart;
     procedure DoStop;
+    procedure DoResetLastRandom;
+    procedure DoRandomizeMessage;
   public
     procedure Initialize; virtual;
     procedure LoadOption; virtual;
@@ -250,7 +256,7 @@ begin
     TThread.Synchronize(nil, @DoStart);
     FStatus := LSSendMail(FFromMail, FToMail + ';' + FMoreEmails,
       Utf8ToAnsi(Copy(MessageMemo.Text, 1, 17)) + '...', GetHTMLMessage,
-      'unknow', '', '', FSMTPUser, FSMTPPassword, FSMTPHost,
+      'normal', '', '', FSMTPUser, FSMTPPassword, FSMTPHost,
       IntToStr(FSMTPPort), nil, False, FSMTPSSL, FSMTPTLS, mtHTML);
     TThread.Synchronize(nil, @DoStop);
   end;
@@ -266,6 +272,13 @@ end;
 procedure TMainForm.DeleteFilterActionExecute(Sender: TObject);
 begin
   SelectBook;
+end;
+
+procedure TMainForm.DonateActionExecute(Sender: TObject);
+begin
+  OpenURL('https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=GE9V' +
+    'T768TLP74&lc=BR&item_name=LazPeace&item_number=lazpeace&currency_code=BR' +
+    'L&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted');
 end;
 
 procedure TMainForm.ExitActionExecute(Sender: TObject);
@@ -287,8 +300,8 @@ begin
     sLineBreak + sLineBreak + 'Autor:' + sLineBreak +
     'Silvio Clécio - http://silvioprog.com.br' + sLineBreak + sLineBreak +
     'Atualizações:' + sLineBreak + 'http://code.google.com/p/lazarus-br' +
-    sLineBreak + sLineBreak + '<Este produto é totalmente gratuito, não' +
-    ' podendo ser comercializado.>');
+    sLineBreak + sLineBreak +
+      '<Este produto é totalmente gratuito, não podendo ser comercializado.>');
 end;
 
 procedure TMainForm.FavoriteActionExecute(Sender: TObject);
@@ -515,7 +528,7 @@ begin
   if not Visible then
     TLSNotifierOS.Execute('LazPeace 1.0 (Clique aqui para ler)',
       Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', Application.Icon,
-      npBottomRight, -1, ntRound, Color, 100, 0, CLeftGain, CTopGain,
+      htHint, npBottomRight, 10000, ntRound, Color, 100, 0, CLeftGain, CTopGain,
       @HintClick);
   if FSendMsgToEmail and (FTimerMessageInterval > 30) then
     SendToEmailAction.Execute;
@@ -543,8 +556,71 @@ begin
   OnStop(FStatus);
 end;
 
+procedure TMainForm.DoResetLastRandom;
+var
+  VOldSQL: string;
+  VOverRandom: Boolean;
+begin
+  try
+    RandomZQuery.Close;
+    VOldSQL := RandomZQuery.SQL.Text;
+    RandomZQuery.Open;
+    RandomZQuery.Last;
+    case BookRadioGroup.ItemIndex of
+      0: VOverRandom := RandomZQuery.RecordCount >= 288;
+      1: VOverRandom := RandomZQuery.RecordCount >= 280;
+    end;
+    if (RandomZQuery.FieldByName('lastrandom').AsDateTime < Date) or
+      VOverRandom then
+    begin
+      RandomZQuery.SQL.Text := 'delete from random';
+      RandomZQuery.ExecSQL;
+    end;
+  finally
+    RandomZQuery.Close;
+    RandomZQuery.SQL.Text := VOldSQL;
+  end;
+end;
+
+procedure TMainForm.DoRandomizeMessage;
+var
+  VOldSQL: string;
+  VRamdomised, VMessagesCount: SmallInt;
+begin
+  try
+    RandomZQuery.Close;
+    VOldSQL := RandomZQuery.SQL.Text;
+    case BookRadioGroup.ItemIndex of
+      0: VMessagesCount := 288;
+      1: VMessagesCount := 280;
+    end;
+    repeat
+      RandomZQuery.Close;
+      RandomZQuery.SQL.Text := 'select count(*) as recordcount from random';
+      RandomZQuery.Open;
+      if RandomZQuery.FieldByName('recordcount').AsInteger = VMessagesCount then
+        DoResetLastRandom;
+      VRamdomised := Random(MessageZReadOnlyQuery.RecordCount);
+      RandomZQuery.Close;
+      RandomZQuery.SQL.Text :=
+        'select *, count(number) as randomisedcount from random ' +
+        'where number = ' + IntToStr(VRamdomised);
+      RandomZQuery.Open;
+   until RandomZQuery.FieldByName('randomisedcount').AsInteger = 0;
+    RandomZQuery.Insert;
+    RandomZQuery.FieldByName('number').AsInteger := VRamdomised;
+    RandomZQuery.FieldByName('lastrandom').AsDateTime := Date;
+    RandomZQuery.Post;
+    MessageZReadOnlyQuery.RecNo := VRamdomised;
+  finally
+    RandomZQuery.Close;
+    RandomZQuery.SQL.Text := VOldSQL;
+  end;
+end;
+
 procedure TMainForm.Initialize;
 begin
+  DoResetLastRandom;
   _ConfFile := LSCurrentPath + 'lazpeace.conf';
   _WAVFile := LSCurrentPath + 'sound.wav';
   with MainZConnection do
@@ -661,7 +737,7 @@ end;
 procedure TMainForm.RandomizeMessage;
 begin
   if FRandomMessage then
-    MessageZReadOnlyQuery.RecNo := Random(MessageZReadOnlyQuery.RecordCount);
+    DoRandomizeMessage;
 end;
 
 procedure TMainForm.Play;
@@ -766,17 +842,15 @@ end;
 
 function TMainForm.GetHTMLMessage: string;
 begin
-  Result := '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' + sLineBreak +
-           '<html xmlns="http://www.w3.org/1999/xhtml">' + sLineBreak +
-           '<head>' + sLineBreak +
-           '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>' + sLineBreak +
-           '    <title>LazPeace 1.0</title>' + sLineBreak +
-           '</head>' + sLineBreak +
-           '  <body><b><i>' + StringsReplace(
-             MessageZReadOnlyQuery.FieldByName('mensagem').AsString, [sLineBreak],
-             ['<br/>'], [rfReplaceAll]) + '</i></b><br /><br /><br /><hr width=100 align="right" />' +
-             '<p align=right><i><font size=-2>LazPeace 1.0</font></i></p></body>' + sLineBreak +
-           '</html>';
+  Result :=
+    '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' + sLineBreak +
+    '<html xmlns="http://www.w3.org/1999/xhtml">' + sLineBreak + '<head>' + sLineBreak +
+    '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>' + sLineBreak +
+    '    <title>LazPeace 1.0</title>' + sLineBreak + '</head>' + sLineBreak +
+    '  <body><b><i>' +
+      StringsReplace(MessageZReadOnlyQuery.FieldByName('mensagem').AsString,
+      [sLineBreak], ['<br/>'], [rfReplaceAll]) + '</i></b><br /><br /><br /><hr width=100 align="right" />' +
+    '<p align=right><i><font size=-2>LazPeace 1.0</font></i></p></body>' + sLineBreak + '</html>';
 end;
 
 procedure TMainForm.Send;
@@ -810,6 +884,21 @@ begin
 end;
 
 initialization
+  with DefaultFormatSettings do
+  begin
+    ShortDateFormat := 'dd/MM/yyyy';
+    CurrencyString := 'R$';
+    CurrencyFormat := 0;
+    NegCurrFormat := 14;
+    ThousandSeparator := '.';
+    DecimalSeparator := ',';
+    CurrencyDecimals := 2;
+    DateSeparator := '/';
+    TimeSeparator := ':';
+    TimeAMString := 'AM';
+    TimePMString := 'PM';
+    ShortTimeFormat := 'hh:mm:ss';
+  end;
   _PrintHTMLFileTmp := ExtractShortPathNameUTF8(
     ExtractFilePath(ParamStrUTF8(0))) + 'lazpeaceprint.html';
   _PrintTXTFileTmp := ExtractShortPathNameUTF8(

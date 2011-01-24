@@ -18,7 +18,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={localappdata}\{#MyAppName}
+DefaultDirName={localappdata}\LazPeace
 DefaultGroupName={#MyAppName}
 OutputBaseFilename=lazpeace-1.0-win32_all
 Compression=lzma/Ultra
@@ -32,14 +32,14 @@ VersionInfoProductName=LazPeace
 VersionInfoProductVersion=1.0
 UserInfoPage=true
 AppVersion=1.0
-UninstallDisplayIcon={localappdata}\{#MyAppName}\lazpeace.exe
+UninstallDisplayIcon={localappdata}\LazPeace\lazpeace.exe
 ShowTasksTreeLines=true
 WizardImageFile=compiler:wizmodernimage-is.bmp
 WizardSmallImageFile=compiler:wizmodernsmallimage-is.bmp
 PrivilegesRequired=none
 OutputDir=.
 AppCopyright=Copyright © Lazarus-BR group
-UninstallFilesDir={localappdata}\{#MyAppName}
+UninstallFilesDir={localappdata}\LazPeace
 ShowLanguageDialog=no
 LanguageDetectionMethod=none
 ShowUndisplayableLanguages=true
@@ -52,13 +52,13 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}; 
 
 [Files]
-Source: ..\..\Source\lazpeace.exe; DestDir: {localappdata}\{#MyAppName}; Flags: ignoreversion
+Source: ..\..\Source\lazpeace.exe; DestDir: {localappdata}\LazPeace; Flags: ignoreversion; 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: ..\..\Source\lazpeace.db3; DestDir: {localappdata}\{#MyAppName}; Flags: uninsneveruninstall; 
-Source: sqlite3.dll; DestDir: {localappdata}\{#MyAppName}
-Source: libeay32.dll; DestDir: {localappdata}\{#MyAppName}
-Source: ssleay32.dll; DestDir: {localappdata}\{#MyAppName}
-Source: ..\..\Source\sound.wav; DestDir: {localappdata}\{#MyAppName}; 
+Source: ..\..\Source\lazpeace.db3; DestDir: {localappdata}\LazPeace; Flags: uninsneveruninstall; 
+Source: sqlite3.dll; DestDir: {localappdata}\LazPeace; 
+Source: libeay32.dll; DestDir: {localappdata}\LazPeace; 
+Source: ssleay32.dll; DestDir: {localappdata}\LazPeace; 
+Source: ..\..\Source\sound.wav; DestDir: {localappdata}\LazPeace; 
 
 [Icons]
 Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; 
@@ -68,7 +68,8 @@ Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Fil
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; 
 
 [Run]
-Filename: {localappdata}\{#MyAppName}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent
+Filename: {localappdata}\LazPeace\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent; 
+Filename: taskkill; Parameters: "/f /im {#MyAppExeName}"; WorkingDir: {sys}; Flags: runhidden ShellExec; Description: "Close app"; 
 
 [Messages]
 BeveledLabel=http://code.google.com/p/lazarus-br/
@@ -76,4 +77,4 @@ BeveledLabel=http://code.google.com/p/lazarus-br/
 Name: {localappdata}\{#MyAppName}; Type: filesandordirs
 
 [Registry]
-Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueName: LazPeace; ValueData: "{localappdata}\LazPeace 1.0\lazpeace.exe"; ValueType: string; Flags: UninsDeleteValue;
+Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueName: LazPeace; ValueData: "{localappdata}\LazPeace\lazpeace.exe"; ValueType: string; Flags: UninsDeleteValue;
