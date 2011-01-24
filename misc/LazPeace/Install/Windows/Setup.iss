@@ -66,6 +66,7 @@ Name: {group}\{cm:ProgramOnTheWeb,{#MyAppName}}; Filename: {#MyAppURL}
 Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: {app}\{#MyAppExeName}; Tasks: quicklaunchicon; 
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; 
+Name: "{group}\{cm:ProgramOnTheWeb, Doações}"; Filename: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=GE9VT768TLP74&lc=BR&item_name=LazPeace&item_number=lazpeace&currency_code=BRL&bn=PP-DonationsBF%3abtn_donateCC_LG.gif%3aNonHosted; 
 
 [Run]
 Filename: {localappdata}\LazPeace\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent; 
@@ -78,3 +79,6 @@ Name: {localappdata}\{#MyAppName}; Type: filesandordirs
 
 [Registry]
 Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueName: LazPeace; ValueData: "{localappdata}\LazPeace\lazpeace.exe"; ValueType: string; Flags: UninsDeleteValue;
+
+[UninstallRun]
+Filename: taskkill; Parameters: "/f /im {#MyAppExeName}"; WorkingDir: {sys}; Flags: runhidden NoWait; 
