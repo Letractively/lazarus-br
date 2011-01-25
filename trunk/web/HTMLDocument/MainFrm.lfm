@@ -1,0 +1,30 @@
+object MainForm: TMainForm
+  Left = 239
+  Height = 240
+  Top = 151
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.31'
+  object GetButton: TButton
+    Left = 0
+    Height = 25
+    Top = 215
+    Width = 320
+    Align = alBottom
+    Caption = '&Get'
+    OnClick = GetButtonClick
+    TabOrder = 0
+  end
+  object ResultMemo: TMemo
+    Left = 0
+    Height = 215
+    Top = 0
+    Width = 320
+    Align = alClient
+    ReadOnly = True
+    TabOrder = 1
+  end
+end
