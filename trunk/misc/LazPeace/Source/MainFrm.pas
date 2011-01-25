@@ -620,7 +620,6 @@ end;
 
 procedure TMainForm.Initialize;
 begin
-  DoResetLastRandom;
   _ConfFile := LSCurrentPath + 'lazpeace.conf';
   _WAVFile := LSCurrentPath + 'sound.wav';
   with MainZConnection do
@@ -629,6 +628,7 @@ begin
     Protocol := 'sqlite-3';
     Connect;
   end;
+  DoResetLastRandom;
   if not FileExists(_ConfFile) then
   begin
     Left := (LSGetWorkAreaRect(Handle).Right - Width) - 10;

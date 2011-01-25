@@ -3387,7 +3387,7 @@ object MainForm: TMainForm
     object DonateAction: TAction
       Category = 'File'
       Caption = '&Doar'
-      Hint = 'Doar dineiro ao projeto'
+      Hint = 'Doar dinheiro ao projeto'
       ImageIndex = 16
       OnExecute = DonateActionExecute
       ShortCut = 16452
@@ -3954,7 +3954,6 @@ object MainForm: TMainForm
   end
   object MainZConnection: TZConnection
     Protocol = 'sqlite-3'
-    Database = 'C:\Repository\svn\lazarus-br\trunk\misc\LazPeace\Source\lazpeace.db3'
     left = 184
     top = 16
   end
