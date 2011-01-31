@@ -5,7 +5,7 @@ unit MainFrm;
 interface
 
 uses
-  SysUtils, Forms, StdCtrls;
+  SysUtils, Forms, StdCtrls, Classes;
 
 type
 
@@ -17,7 +17,9 @@ type
     DisplayLabel: TLabel;
     procedure FormDestroy(Sender: TObject);
     procedure StartButtonClick(Sender: TObject);
-  end; 
+  protected
+    procedure DoUpdateDisplay;
+  end;
 
 var
   MainForm: TMainForm;
@@ -28,16 +30,15 @@ implementation
 
 var
   _ThreadID: TThreadID;
+  _ProgressValue: Integer = 0;
 
 procedure HeavyProcess;
-var
-  I: Integer = 0;
 begin
-  while I < 1000 do
+  while _ProgressValue < 1000 do
   begin
-    MainForm.DisplayLabel.Caption := IntToStr(I);
+    Inc(_ProgressValue);
     Sleep(4);
-    Inc(I);
+    TThread.Synchronize(nil, @MainForm.DoUpdateDisplay);
   end;
 end;
 
@@ -49,6 +50,11 @@ begin
     _ThreadID := BeginThread(TThreadFunc(@HeavyProcess))
   else
     HeavyProcess;
+end;
+
+procedure TMainForm.DoUpdateDisplay;
+begin
+  DisplayLabel.Caption := IntToStr(_ProgressValue);
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
