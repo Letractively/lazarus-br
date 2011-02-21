@@ -1,4 +1,4 @@
-{  $Id: lclstrconsts.pas 27267 2010-09-04 16:28:08Z sekelsenmat $  }
+{  $Id: lclstrconsts.pas 29285 2011-02-21 18:35:00Z silvioprog $  }
 {
  /***************************************************************************
                             lclstrconsts.pas
@@ -254,6 +254,9 @@ resourceString
   rsControlHasNoParentWindow = 'Control ''%s'' has no parent window';
   rsControlClassCantContainChildClass = 'Control of class ''%s'' can''t have control of class ''%s'' as a child';
   lisLCLResourceSNotFound = 'Resource %s not found';
+  rsFormResourceSNotFoundForResourcelessFormsCreateNew = 'Form resource %s '
+    +'not found. For resourceless forms CreateNew constructor must be used.'
+    +' See the global variable RequireDerivedFormResource.';
   rsErrorCreatingDeviceContext = 'Error creating device context for %s.%s';
   rsIndexOutOfBounds = '%s Index %d out of bounds 0 .. %d';
   rsUnknownPictureExtension = 'Unknown picture extension';

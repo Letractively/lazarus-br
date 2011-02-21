@@ -254,10 +254,13 @@ begin
   with MainForm do
   begin
     TThread.Synchronize(nil, @DoStart);
-    FStatus := LSSendMail(FFromMail, FToMail + ';' + FMoreEmails,
-      Utf8ToAnsi(Copy(MessageMemo.Text, 1, 17)) + '...', GetHTMLMessage,
-      'normal', '', '', FSMTPUser, FSMTPPassword, FSMTPHost,
-      IntToStr(FSMTPPort), nil, False, FSMTPSSL, FSMTPTLS, mtHTML);
+    if FToMail <> '' then
+      FStatus := LSSendMail(FFromMail, FToMail + ';' + FMoreEmails,
+        Utf8ToAnsi(Copy(MessageMemo.Text, 1, 17)) + '...', GetHTMLMessage,
+        'normal', '', '', FSMTPUser, FSMTPPassword, FSMTPHost,
+        IntToStr(FSMTPPort), nil, False, FSMTPSSL, FSMTPTLS, mtHTML)
+    else
+      FStatus := 'Nenhum e-mail foi informado.';
     TThread.Synchronize(nil, @DoStop);
   end;
 end;
@@ -510,9 +513,12 @@ procedure TMainForm.SendToEmailActionExecute(Sender: TObject);
 begin
   if IsOpenSSLAvailable then
   begin
+    if MessageDlg('Deseja enviar e-mail(s)?',
+      mtConfirmation, mbYesNo, 0) <> mrYes then
+    Exit;
     if FInformMoreEmails then
       FMoreEmails := InputBox('E-mails de destino',
-        'Informe o e-mail de destino:',
+        'Informe o(s) e-mail(s) de destino:',
         'destino1@gmail.com;destino2@gmail.com');
     Send;
   end
