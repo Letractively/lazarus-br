@@ -517,9 +517,12 @@ begin
       mtConfirmation, mbYesNo, 0) <> mrYes then
     Exit;
     if FInformMoreEmails then
-      FMoreEmails := InputBox('E-mails de destino',
-        'Informe o(s) e-mail(s) de destino:',
-        'destino1@gmail.com;destino2@gmail.com');
+    begin
+      FMoreEmails := 'destino1@gmail.com;destino2@gmail.com';
+      if not InputQuery('E-mails de destino',
+        'Informe o(s) e-mail(s) de destino:', FMoreEmails) then
+        FMoreEmails := '';
+    end;
     Send;
   end
   else
