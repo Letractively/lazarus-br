@@ -530,15 +530,25 @@ begin
 end;
 
 procedure TMainForm.MessageTimerTimer(Sender: TObject);
+var
+  VIcon: TIcon;
 begin
   RandomizeBook;
   RandomizeMessage;
   Play;
   if not Visible then
-    TLSNotifierOS.Execute('LazPeace 1.0 (Clique aqui para ler)',
-      Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', Application.Icon,
-      htHint, npBottomRight, 10000, ntRound, Color, 100, 0, CLeftGain, CTopGain,
-      @HintClick);
+  begin
+    VIcon := TIcon.Create;
+    try
+      VIcon.LoadFromResourceName(MainInstance, 'MAINICON');
+      TLSNotifierOS.Execute('LazPeace 1.0 (Clique aqui para ler)',
+        Copy(MessageMemo.Lines.Strings[0], 1, 50) + '...', VIcon, htHint,
+        npBottomRight, 10000, ntRound, Color, 100, 0, CLeftGain, CTopGain,
+        @HintClick);
+    finally
+      VIcon.Free;
+    end;
+  end;
   if FSendMsgToEmail and (FTimerMessageInterval > 30) then
     SendToEmailAction.Execute;
 end;
