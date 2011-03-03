@@ -1,0 +1,27 @@
+object MainFPWebModule: TMainFPWebModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Actions = <>
+  OnRequest = DataModuleRequest
+  CreateSession = False
+  Height = 49
+  HorizontalOffset = 266
+  VerticalOffset = 173
+  Width = 176
+  object MainZConnection: TZConnection
+    TransactIsolationLevel = tiReadCommitted
+    SQLHourGlass = True
+    Protocol = 'postgresql-8'
+    HostName = '127.0.0.1'
+    Port = 5432
+    Database = 'postgres'
+    User = 'postgres'
+    Password = 'postgres'
+    left = 40
+  end
+  object TestZQuery: TZQuery
+    Connection = MainZConnection
+    Params = <>
+    left = 128
+  end
+end
