@@ -1,0 +1,25 @@
+object MainFPWebModule: TMainFPWebModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'index'
+      Default = True
+      OnRequest = indexRequest
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  Height = 50
+  HorizontalOffset = 246
+  VerticalOffset = 150
+  Width = 167
+  object MainZConnection: TZConnection
+    User = 'postgres'
+    left = 40
+  end
+  object TestZQuery: TZQuery
+    Connection = MainZConnection
+    Params = <>
+    left = 120
+  end
+end
