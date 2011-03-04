@@ -14,7 +14,9 @@ type
   { TMainFPWebModule }
 
   TMainFPWebModule = class(TFPWebModule)
-    procedure DataModuleRequest(Sender: TObject; ARequest: TRequest;
+    procedure indexRequest(Sender: TObject; ARequest: TRequest;
+      AResponse: TResponse; var Handled: Boolean);
+    procedure varsRequest(Sender: TObject; ARequest: TRequest;
       AResponse: TResponse; var Handled: Boolean);
   end;
 
@@ -27,8 +29,8 @@ implementation
 
 { TMainFPWebModule }
 
-procedure TMainFPWebModule.DataModuleRequest(Sender: TObject;
-  ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
+procedure TMainFPWebModule.indexRequest(Sender: TObject; ARequest: TRequest;
+  AResponse: TResponse; var Handled: Boolean);
 begin
   Handled := True;
   AResponse.Content :=
@@ -42,7 +44,7 @@ begin
     '</head>' + LineEnding +
     '<body>' + LineEnding +
     '<div id="container">' + LineEnding +
-    '<form action="vars.php" method="post" class="niceform" target="_blank">' + LineEnding +
+    '<form action="/cgi-bin/demo.cgi/vars" method="post" class="niceform">' + LineEnding +
     '	<select size="1" id="mySelect1" name="mySelect1" class="width_320"> <!-- class="width_320" sets a width of 320px -->' + LineEnding +
     '		<option selected="selected" value="Test area no.1">Test area no.1</option>' + LineEnding +
     '		<option value="Another test option">Another test option</option>' + LineEnding +
@@ -78,6 +80,27 @@ begin
     '	<input type="submit" value="Submit this form" />' + LineEnding +
     '</form>' + LineEnding +
     '</div>' + LineEnding +
+    '</body>' + LineEnding +
+    '</html>';
+end;
+
+procedure TMainFPWebModule.varsRequest(Sender: TObject; ARequest: TRequest;
+  AResponse: TResponse; var Handled: Boolean);
+var
+  S: string = '';
+  I: Integer;
+begin
+  Handled := True;
+  for I := 0 to Pred(ARequest.ContentFields.Count) do
+    S := S + ARequest.ContentFields[I] + '<br />';
+  AResponse.Content :=
+    '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">' + LineEnding +
+    '<html>' + LineEnding +
+    '<head>' + LineEnding +
+    '<title>CGI and Niceforms - Result</title>' + LineEnding +
+    '</head>' + LineEnding +
+    '<body>' + LineEnding +
+      S + LineEnding +
     '</body>' + LineEnding +
     '</html>';
 end;
