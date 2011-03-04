@@ -13,7 +13,7 @@ O padrão MVC foi introduzido no começo dos anos 80, como um framework para apl
 ==Web MVC==
 
 Em aplicações Web, no lado cliente, o usuário interage com o navegador, gerando requests HTTP (sejam POST ou GET) e enviam para o servidor. O
-servidor processa o request (extrai os dadoa da URL ou do corpo do request), executa alguma operação do negócio, e cria a resposta (uma página HTML), a qual é enviada de volta para o cliente para ser renderizada no navegador.
+servidor processa o request (extrai os dados da URL ou do corpo do request), executa alguma operação do negócio, e cria a resposta (uma página HTML), a qual é enviada de volta para o cliente para ser renderizada no navegador.
 
 [http://lazarus-br.googlecode.com/svn/media/MVC_em_aplicacoes_WEB/2.png]
 
