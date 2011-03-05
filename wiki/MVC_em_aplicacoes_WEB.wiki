@@ -44,4 +44,6 @@ que tem a finalidade de blindar os objetos de negócio dos detalhes da view, ain
 
 [http://lazarus-br.googlecode.com/svn/media/MVC_em_aplicacoes_WEB/6.png]
 
+Nesta arquitetura toda lógica da aplicação (visualização, modelos de dados, relacionamento entre modelos) é definida no servidor.
+
 [http://aviadezra.blogspot.com/2008/07/mvc-for-web-applications-and-aspnet.html Este artigo é uma adaptação do artigo original em inglês].

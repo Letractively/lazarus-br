@@ -38,7 +38,7 @@ begin
   Result :=
     '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">' + LineEnding +
     '<html>' + LineEnding + '<head>' + LineEnding +
-    '<title>Safe transaction</title>' + LineEnding + '</head>' +
+    '<title>Try connect</title>' + LineEnding + '</head>' +
     LineEnding + '<body>' + LineEnding + ABody + LineEnding +
     '</body>' + LineEnding + '</html>';
 end;
