@@ -1,3 +1,5 @@
-Todos os glyphs em 16x16.zip são gratuitos.
+Veja todos os arquivos em ..\..\..\media.
 
-Silvio Clécio
+Enjoy!
+
+Silvio Clécio.
