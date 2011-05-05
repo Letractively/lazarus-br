@@ -1,0 +1,15 @@
+object MainFPWebModule: TMainFPWebModule
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'index'
+      Default = True
+      OnRequest = indexRequest
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  Height = 50
+  HorizontalOffset = 239
+  VerticalOffset = 145
+  Width = 50
+end
