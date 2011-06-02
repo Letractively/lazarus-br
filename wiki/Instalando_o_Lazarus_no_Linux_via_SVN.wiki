@@ -11,4 +11,6 @@ Abra um terminal e rode os seguinte comandos:
 
 Enjoy!
 
-P.S.: Artigo no wiki oficial do Lazarus: [http://wiki.freepascal.org/Installing_Lazarus#Ubuntu_11.04_or_later wiki.freepascal.org/Installing_Lazarus#Ubuntu_11.04_or_later]
+P.S. 1: Há relatos que este script funcionou em versões anteriores a 11.04 do Ubuntu.
+
+P.S. 2: Artigo no wiki oficial do Lazarus: [http://wiki.freepascal.org/Installing_Lazarus#Ubuntu_11.04_or_later wiki.freepascal.org/Installing_Lazarus#Ubuntu_11.04_or_later]
