@@ -1,4 +1,4 @@
-{  $Id: lclstrconsts.pas 29285 2011-02-21 18:35:00Z silvioprog $  }
+{  $Id: lclstrconsts.pas 30705 2011-05-12 20:50:35Z silvioprog $  }
 {
  /***************************************************************************
                             lclstrconsts.pas
@@ -401,12 +401,12 @@ resourceString
     +'Database %s%s%s.';
   rsHelpHelpContextNotFound = 'Help context %s not found.';
   rsHelpNoHelpFoundForSource = 'No help found for line %d, column %d of %s.';
-  rsHelpNoHelpNodesAvailable = 'No help nodes available';
+  rsHelpNoHelpNodesAvailable = 'No help entries available for this topic';
   rsHelpError = 'Help Error';
-  rsHelpDatabaseNotFound = 'Help Database not found';
-  rsHelpContextNotFound = 'Help Context not found';
-  rsHelpViewerNotFound = 'Help Viewer not found';
-  rsHelpNotFound = 'Help not found';
+  rsHelpDatabaseNotFound = 'There is no help database installed for this topic';
+  rsHelpContextNotFound = 'A help database was found for this topic, but this topic was not found';
+  rsHelpViewerNotFound = 'No viewer was found for this type of help content';
+  rsHelpNotFound = 'No help found for this topic';
   rsHelpViewerError = 'Help Viewer Error';
   rsHelpSelectorError = 'Help Selector Error';
   rsUnknownErrorPleaseReportThisBug = 'Unknown Error, please report this bug';
@@ -415,8 +415,8 @@ resourceString
     +'unable to find file %s%s%s.';
   hhsHelpTheMacroSInBrowserParamsWillBeReplacedByTheURL = 'The macro %s in '
     +'BrowserParams will be replaced by the URL.';
-  hhsHelpNoHTMLBrowserFoundPleaseDefineOneInHelpConfigureHe = 'No HTML '
-    +'Browser found.%sPlease define one in Environment -> Options -> Help -> Help Options';
+  hhsHelpNoHTMLBrowserFoundPleaseDefineOne = 'No HTML '
+    +'Browser found.%sPlease define one in Tools -> Options -> Help -> Help Options';
   hhsHelpNoHTMLBrowserFound = 'Unable to find a HTML browser.';
   hhsHelpBrowserNotFound = 'Browser %s%s%s not found.';
   hhsHelpBrowserNotExecutable = 'Browser %s%s%s not executable.';
