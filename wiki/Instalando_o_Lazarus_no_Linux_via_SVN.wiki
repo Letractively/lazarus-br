@@ -9,6 +9,13 @@ Abra um terminal e rode os seguinte comandos:
  * tar -vzxf install_fpc_lazarus_svn_version.tar.gz
  * ./install_fpc_lazarus_svn_version.sh
 
+Você também pode atualizar, remover ou customizar o Lazarus usando os seguintes scripts:
+
+ * http://silvioprog.com.br/download/update_fpc_lazarus_svn_version.tar.gz
+ * http://silvioprog.com.br/download/remove_fpc_lazarus_svn_version.tar.gz
+ * http://silvioprog.com.br/download/custom_lazarus_svn_version_800x600.tar.gz
+ * http://silvioprog.com.br/download/custom_lazarus_svn_version_1024x768.tar.gz
+
 Enjoy!
 
 P.S. 1: Há relatos que este script funcionou em versões anteriores a 11.04 do Ubuntu.
