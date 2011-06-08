@@ -1,0 +1,88 @@
+object MainForm: TMainForm
+  Left = 280
+  Height = 300
+  Top = 192
+  Width = 469
+  Caption = 'MainForm'
+  ClientHeight = 300
+  ClientWidth = 469
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.31'
+  object FindPanel: TPanel
+    Left = 0
+    Height = 74
+    Top = 0
+    Width = 469
+    Align = alTop
+    ClientHeight = 74
+    ClientWidth = 469
+    TabOrder = 0
+    object FindEdit: TLabeledEdit
+      Left = 16
+      Height = 23
+      Top = 30
+      Width = 328
+      EditLabel.AnchorSideLeft.Control = FindEdit
+      EditLabel.AnchorSideBottom.Control = FindEdit
+      EditLabel.Left = 16
+      EditLabel.Height = 16
+      EditLabel.Top = 11
+      EditLabel.Width = 272
+      EditLabel.Caption = 'Nome do município (Não use caractere acentuado)'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+      Text = 'tatui'
+      OnKeyPress = FindEditKeyPress
+    end
+    object FindBitBtn: TBitBtn
+      AnchorSideLeft.Control = FindEdit
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = FindEdit
+      AnchorSideTop.Side = asrCenter
+      Left = 348
+      Height = 26
+      Top = 28
+      Width = 95
+      AutoSize = True
+      BorderSpacing.Left = 4
+      Caption = '&Pesquisar'
+      Default = True
+      Kind = bkOK
+      ModalResult = 1
+      OnClick = FindBitBtnClick
+      TabOrder = 1
+    end
+  end
+  object ResultPanel: TPanel
+    Left = 0
+    Height = 226
+    Top = 74
+    Width = 469
+    Align = alClient
+    ClientHeight = 226
+    ClientWidth = 469
+    TabOrder = 1
+    object ResultIpHtmlPanel: TIpHtmlPanel
+      Left = 1
+      Height = 224
+      Top = 1
+      Width = 467
+      Align = alClient
+      DataProvider = ResultIpFileDataProvider
+      FixedTypeface = 'Courier New'
+      DefaultTypeFace = 'default'
+      DefaultFontSize = 12
+      FlagErrors = False
+      PrintSettings.MarginLeft = 0.5
+      PrintSettings.MarginTop = 0.5
+      PrintSettings.MarginRight = 0.5
+      PrintSettings.MarginBottom = 0.5
+      TabOrder = 0
+    end
+  end
+  object ResultIpFileDataProvider: TIpFileDataProvider
+    left = 57
+    top = 108
+  end
+end
