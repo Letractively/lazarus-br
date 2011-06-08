@@ -32,7 +32,7 @@ object MainForm: TMainForm
       EditLabel.Caption = 'Nome do município (Não use caractere acentuado)'
       EditLabel.ParentColor = False
       TabOrder = 0
-      Text = 'tatui'
+      Text = 'sao paulo'
       OnKeyPress = FindEditKeyPress
     end
     object FindBitBtn: TBitBtn
