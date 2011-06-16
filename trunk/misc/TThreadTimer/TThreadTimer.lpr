@@ -1,6 +1,7 @@
 program TThreadTimer;
 
 {$mode objfpc}{$H+}
+{$DEFINE UseCThreads}
 
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
