@@ -108,7 +108,7 @@ end;
 procedure TBaseForm.PopulateCurrency(AParam: TParam; const AValue: string);
 begin
   if AValue <> EmptyStr then
-    AParam.AsCurrency := StrToCurr(AValue)
+{$IFDEF UNIX}AParam.AsFloat{$ELSE}AParam.AsCurrency{$ENDIF} := StrToCurr(AValue)
   else
     AParam.Value := Null;
 end;
