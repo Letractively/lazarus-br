@@ -1,4 +1,4 @@
-{  $Id: lclstrconsts.pas 30705 2011-05-12 20:50:35Z silvioprog $  }
+{  $Id: lclstrconsts.pas 30705 2011-07-22 15:01:35Z silvioprog $  }
 {
  /***************************************************************************
                             lclstrconsts.pas
@@ -397,6 +397,9 @@ resourceString
   rsHelpHelpKeywordNotFoundInDatabase = 'Help keyword %s%s%s not found in '
     +'Database %s%s%s.';
   rsHelpHelpKeywordNotFound = 'Help keyword %s%s%s not found.';
+  rsHelpHelpForDirectiveNotFoundInDatabase = 'Help for directive %s%s%s not found in '
+    +'Database %s%s%s.';
+  rsHelpHelpForDirectiveNotFound = 'Help for directive %s%s%s not found.';
   rsHelpHelpContextNotFoundInDatabase = 'Help context %s not found in '
     +'Database %s%s%s.';
   rsHelpHelpContextNotFound = 'Help context %s not found.';
@@ -429,7 +432,7 @@ resourceString
   SParInvalidFloat              = 'Invalid floating point number: %s';
   SParWrongTokenSymbol          = 'Wrong token symbol: %s expected but %s found';
   SParUnterminatedString        = 'Unterminated string';
-  SParLocInfo                   = ' (at %d,%d, stream offset %.8x)';
+  SParLocInfo                   = ' (at %d,%d, stream offset %d)';
   SParUnterminatedBinValue      = 'Unterminated byte value';
 
   // colorbox
@@ -489,6 +492,8 @@ resourceString
   rsFormColorCaption = 'Form';
   lisProgramFileNotFound = 'program file not found %s';
   lisCanNotExecute = 'can not execute %s';
+
+  lisCEFilter = '(Filter)';
 
 implementation
 
