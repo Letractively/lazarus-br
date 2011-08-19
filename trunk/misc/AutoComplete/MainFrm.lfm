@@ -1,0 +1,39 @@
+object MainForm: TMainForm
+  Left = 237
+  Height = 240
+  Top = 146
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poDesktopCenter
+  LCLVersion = '0.9.31'
+  object ComboBox1: TComboBox
+    Left = 24
+    Height = 23
+    Top = 48
+    Width = 197
+    ItemHeight = 15
+    Items.Strings = (
+      'Silvio Clecio'
+      'silvioprog'
+      'programmer ObjectPascal'
+      'Lazarus Free Pascal'
+      'Joao Morais'
+      'Ze Lezin da Paraiba'
+    )
+    OnChange = ComboBox1Change
+    OnKeyUp = ComboBox1KeyUp
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 25
+    Height = 16
+    Top = 23
+    Width = 58
+    Caption = 'Put z, s or j'
+    ParentColor = False
+  end
+end
