@@ -44,16 +44,19 @@ procedure TMainForm.ComboBox1KeyUp(Sender: TObject; var Key: Word;
 var
   VCompleted: Boolean = False;
 begin
-  if TComboBox(Sender).ItemIndex > -1 then
-    VCompleted := TComboBox(Sender).Text =
-      TComboBox(Sender).Items[TComboBox(Sender).ItemIndex];
-  TComboBox(Sender).DroppedDown := not VCompleted;
+  if Sender is TComboBox then
+  begin
+    if TComboBox(Sender).ItemIndex > -1 then
+      VCompleted := TComboBox(Sender).Text =
+        TComboBox(Sender).Items[TComboBox(Sender).ItemIndex];
+    TComboBox(Sender).DroppedDown := not VCompleted;
+  end;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   FComboLists := TObjectList.Create(True);
-  TComboBox(Sender).AutoComplete := False;
+  ComboBox1.AutoComplete := False;
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
