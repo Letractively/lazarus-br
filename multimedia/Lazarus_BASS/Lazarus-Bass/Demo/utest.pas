@@ -23,6 +23,7 @@ type
     Button13: TButton;
     Button14: TButton;
     Button15: TButton;
+    Button16: TButton;
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
@@ -31,10 +32,14 @@ type
     Button7: TButton;
     Button8: TButton;
     Button9: TButton;
+    CheckBox1: TCheckBox;
+    Edit1: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
+    GroupBox4: TGroupBox;
     Label1: TLabel;
+    Label2: TLabel;
     ListBox1: TListBox;
     ListBox2: TListBox;
     ListBox3: TListBox;
@@ -42,6 +47,8 @@ type
     OpenDialog2: TOpenDialog;
     OpenDialog3: TOpenDialog;
     Timer1: TTimer;
+    procedure Button16Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject);
     procedure Button4Click(Sender: TObject);
@@ -105,6 +112,21 @@ begin
   // Initialize audio - default device, 44100hz, stereo, 16 bits
   if not BASS_Init(-1, 44100, 0, Handle, nil) then
     Error('Error initializing audio!');
+end;
+
+procedure TForm1.Button16Click(Sender: TObject);
+var
+  h: Integer;
+begin
+  BASS_SetConfig(BASS_CONFIG_NET_PREBUF, 0);
+  h := BASS_StreamCreateURL(PChar(Edit1.Text), 0, 0, nil, nil);
+  if not BASS_ChannelPlay(h, CheckBox1.Checked) then
+    Error('Error playing online stream!');
+end;
+
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+  Timer1.Enabled := False;
 end;
 
 procedure TForm1.FormClose(Sender: TObject);
