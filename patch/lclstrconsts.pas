@@ -228,7 +228,7 @@ resourceString
   sDuplicateMenus = 'Duplicate menus';
   sCannotFocus = 'Cannot focus a disabled or invisible window';
   sInvalidCharSet = 'The char set in mask "%s" is not valid!';
-  SMaskEditNoMatch = 'O texto actal não corresponde a máscara especificada.';
+  SMaskEditNoMatch = 'O texto atual não corresponde a máscara especificada.';
 
   rsListMustBeEmpty = 'List must be empty';
   rsInvalidPropertyValue = 'Invalid property value';
