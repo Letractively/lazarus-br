@@ -1,4 +1,4 @@
-{  $Id: lclstrconsts.pas 30705 2011-07-22 15:01:35Z silvioprog $  }
+{  $Id: lclstrconsts.pas 32042 2011-09-06 15:22:00Z silvioprog $  }
 {
  /***************************************************************************
                             lclstrconsts.pas
@@ -228,6 +228,7 @@ resourceString
   sDuplicateMenus = 'Duplicate menus';
   sCannotFocus = 'Cannot focus a disabled or invisible window';
   sInvalidCharSet = 'The char set in mask "%s" is not valid!';
+  SMaskEditNoMatch = 'O texto actal não corresponde a máscara especificada.';
 
   rsListMustBeEmpty = 'List must be empty';
   rsInvalidPropertyValue = 'Invalid property value';
