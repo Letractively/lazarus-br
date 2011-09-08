@@ -1,6 +1,8 @@
 #labels Featured
 = Installing Lazarus under Linux (Ubuntu 11.04 ou superior) via SVN =
 
+===<font color="red">Atenção: os scripts são compatíveis apenas com sistema em 32 bits</font>===
+
 _Esta é a forma mais fácil de instalar o Lazarus no Ubuntu._
 
 Abra um terminal e rode os seguinte comandos:
