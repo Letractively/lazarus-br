@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <General>
+      <MainUnit Value="0"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1" Active="Default">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="LazSolutionsRT"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="consultacnpj.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="consultacnpj"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="54"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="PrincipalFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PrincipalForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PrincipalFrm"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="54"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+    </Units>
+    <JumpHistory Count="25" HistoryIndex="24">
+      <Position1>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="56" Column="9" TopLine="49"/>
+      </Position1>
+      <Position2>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="153" Column="35" TopLine="136"/>
+      </Position2>
+      <Position3>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="155" Column="25" TopLine="142"/>
+      </Position3>
+      <Position4>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="52" Column="72" TopLine="46"/>
+      </Position4>
+      <Position5>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="144" Column="32" TopLine="130"/>
+      </Position5>
+      <Position6>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="47" Column="25" TopLine="34"/>
+      </Position6>
+      <Position7>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="88" Column="15" TopLine="80"/>
+      </Position7>
+      <Position8>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="110" Column="21" TopLine="100"/>
+      </Position8>
+      <Position9>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="8" Column="77" TopLine="1"/>
+      </Position9>
+      <Position10>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="110" Column="20" TopLine="98"/>
+      </Position10>
+      <Position11>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="106" Column="51" TopLine="98"/>
+      </Position11>
+      <Position12>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="8" Column="75" TopLine="1"/>
+      </Position12>
+      <Position13>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="108" Column="3" TopLine="99"/>
+      </Position13>
+      <Position14>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="24" Column="15" TopLine="12"/>
+      </Position14>
+      <Position15>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="159" Column="28" TopLine="144"/>
+      </Position15>
+      <Position16>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="39" Column="23" TopLine="30"/>
+      </Position16>
+      <Position17>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position17>
+      <Position18>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="87" Column="6" TopLine="85"/>
+      </Position18>
+      <Position19>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="34" Column="15" TopLine="22"/>
+      </Position19>
+      <Position20>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="168" Column="33" TopLine="154"/>
+      </Position20>
+      <Position21>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="76" Column="15" TopLine="73"/>
+      </Position21>
+      <Position22>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="174" Column="1" TopLine="160"/>
+      </Position22>
+      <Position23>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="169" Column="3" TopLine="151"/>
+      </Position23>
+      <Position24>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="166" Column="10" TopLine="157"/>
+      </Position24>
+      <Position25>
+        <Filename Value="PrincipalFrm.pas"/>
+        <Caret Line="174" Column="19" TopLine="157"/>
+      </Position25>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="10"/>
+    <PathDelim Value="\"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+    </SearchPaths>
+    <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="True"/>
+        <DebugInfoType Value="dsAuto"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <UseMsgFile Value="True"/>
+      </CompilerMessages>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
