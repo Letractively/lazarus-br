@@ -1,0 +1,121 @@
+object PrincipalForm: TPrincipalForm
+  Left = 270
+  Height = 207
+  Top = 175
+  Width = 498
+  Caption = 'Consulta CPF'
+  ClientHeight = 207
+  ClientWidth = 498
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '0.9.31'
+  object ObterCaptchaButton: TButton
+    AnchorSideLeft.Control = CaptchaImage
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = CaptchaImage
+    AnchorSideTop.Side = asrBottom
+    Left = 295
+    Height = 25
+    Top = 118
+    Width = 132
+    AutoSize = True
+    BorderSpacing.Top = 3
+    Caption = '&Obter nova imagem'
+    OnClick = ObterCaptchaButtonClick
+    TabOrder = 3
+  end
+  object CaptchaImage: TImage
+    AnchorSideLeft.Control = CPFEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = CPFEdit
+    Left = 261
+    Height = 90
+    Top = 25
+    Width = 200
+    BorderSpacing.Left = 10
+    Constraints.MaxHeight = 90
+    Constraints.MaxWidth = 200
+    Constraints.MinHeight = 90
+    Constraints.MinWidth = 200
+  end
+  object CPFLabel: TLabel
+    Left = 80
+    Height = 16
+    Top = 28
+    Width = 22
+    Caption = '&CPF'
+    FocusControl = CPFEdit
+    ParentColor = False
+  end
+  object CPFEdit: TEdit
+    AnchorSideLeft.Control = CPFLabel
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = CPFLabel
+    AnchorSideTop.Side = asrCenter
+    Left = 105
+    Height = 23
+    Top = 25
+    Width = 146
+    BorderSpacing.Left = 3
+    OnKeyPress = CPFEditKeyPress
+    TabOrder = 0
+  end
+  object ConsultarButton: TButton
+    AnchorSideTop.Control = CaptchaEdit
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = CaptchaEdit
+    AnchorSideRight.Side = asrBottom
+    Left = 174
+    Height = 25
+    Top = 77
+    Width = 77
+    Anchors = [akTop, akRight]
+    AutoSize = True
+    BorderSpacing.Top = 3
+    Caption = 'C&onsultar'
+    OnClick = ConsultarButtonClick
+    TabOrder = 2
+  end
+  object CaptchaEdit: TEdit
+    AnchorSideTop.Control = CPFEdit
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = CPFEdit
+    AnchorSideRight.Side = asrBottom
+    Left = 171
+    Height = 23
+    Top = 51
+    Width = 80
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 3
+    OnKeyPress = CaptchaEditKeyPress
+    TabOrder = 1
+  end
+  object CaptchaLabel: TLabel
+    AnchorSideTop.Control = CaptchaEdit
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = CaptchaEdit
+    Left = 23
+    Height = 16
+    Top = 54
+    Width = 145
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 3
+    Caption = 'Digite os caracteres ao lado'
+    FocusControl = CaptchaEdit
+    ParentColor = False
+  end
+  object NomePessoaFisicaLabel: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = ObterCaptchaButton
+    AnchorSideTop.Side = asrBottom
+    Left = 249
+    Height = 1
+    Top = 163
+    Width = 1
+    BorderSpacing.Top = 20
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+end
