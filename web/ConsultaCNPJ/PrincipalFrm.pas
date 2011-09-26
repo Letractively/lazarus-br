@@ -66,7 +66,7 @@ implementation
 {$R *.lfm}
 
 uses
-  LSHTTPSend, LSUtils, HTTPSend, LCLProc;
+  LSHTTPSend, LSUtils, HTTPSend, LCLIntf;
 
 { TPrincipalForm }
 
@@ -142,7 +142,7 @@ procedure TPrincipalForm.Valida;
 var
   VCookies: TStrings;
   VStream: TMemoryStream;
-  VNomeEmpresarial: string = '';
+  VArquivoSaida: string;
 begin
   if Trim(CNPJEdit.Text) = '' then
   begin
@@ -164,9 +164,9 @@ begin
     if LSHTTPPostURL(CURLValida, Format(CFormulario,
       [CNPJEdit.Text, CaptchaEdit.Text]), VCookies, VStream) then
     begin
-      VNomeEmpresarial := LSDeleteLineBreaks(LSStreamToStr(VStream));
-      NomeEmpresarialLabel.Caption := 'Nome empresarial: ' +
-        GetPart(CTagInicio, CTagFim, VNomeEmpresarial, True, False);
+      VArquivoSaida := GetTempDir + 'receita.html';
+      VStream.SaveToFile(VArquivoSaida);
+      OpenDocument(VArquivoSaida);
     end
     else
       ShowMessage(Format(SErroValida, [CNPJEdit.Text]));
