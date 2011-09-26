@@ -18,7 +18,6 @@ type
     CNPJLabel: TLabel;
     CaptchaEdit: TEdit;
     CaptchaLabel: TLabel;
-    NomeEmpresarialLabel: TLabel;
     ObterCaptchaButton: TButton;
     procedure CaptchaEditKeyPress(Sender: TObject; var Key: char);
     procedure CNPJEditKeyPress(Sender: TObject; var Key: char);

@@ -18,7 +18,6 @@ type
     CPFLabel: TLabel;
     CaptchaEdit: TEdit;
     CaptchaLabel: TLabel;
-    NomePessoaFisicaLabel: TLabel;
     ObterCaptchaButton: TButton;
     procedure CaptchaEditKeyPress(Sender: TObject; var Key: char);
     procedure CPFEditKeyPress(Sender: TObject; var Key: char);
