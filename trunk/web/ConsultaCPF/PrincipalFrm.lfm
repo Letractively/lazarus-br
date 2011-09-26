@@ -59,7 +59,6 @@ object PrincipalForm: TPrincipalForm
     BorderSpacing.Left = 3
     OnKeyPress = CPFEditKeyPress
     TabOrder = 0
-    Text = '00244201820'
   end
   object ConsultarButton: TButton
     AnchorSideTop.Control = CaptchaEdit
