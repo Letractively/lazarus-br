@@ -104,18 +104,4 @@ object PrincipalForm: TPrincipalForm
     FocusControl = CaptchaEdit
     ParentColor = False
   end
-  object NomeEmpresarialLabel: TLabel
-    AnchorSideLeft.Control = Owner
-    AnchorSideLeft.Side = asrCenter
-    AnchorSideTop.Control = ObterCaptchaButton
-    AnchorSideTop.Side = asrBottom
-    Left = 291
-    Height = 1
-    Top = 172
-    Width = 1
-    BorderSpacing.Top = 20
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
 end
