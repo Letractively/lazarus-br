@@ -1,11 +1,11 @@
 object PrincipalForm: TPrincipalForm
   Left = 270
-  Height = 207
+  Height = 220
   Top = 175
-  Width = 498
+  Width = 583
   Caption = 'Consulta CPF'
-  ClientHeight = 207
-  ClientWidth = 498
+  ClientHeight = 220
+  ClientWidth = 583
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '0.9.31'
@@ -14,9 +14,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = CaptchaImage
     AnchorSideTop.Side = asrBottom
-    Left = 295
+    Left = 327
     Height = 25
-    Top = 118
+    Top = 127
     Width = 132
     AutoSize = True
     BorderSpacing.Top = 3
@@ -28,9 +28,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideLeft.Control = CPFEdit
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = CPFEdit
-    Left = 261
+    Left = 293
     Height = 90
-    Top = 25
+    Top = 34
     Width = 200
     BorderSpacing.Left = 10
     Constraints.MaxHeight = 90
@@ -39,9 +39,9 @@ object PrincipalForm: TPrincipalForm
     Constraints.MinWidth = 200
   end
   object CPFLabel: TLabel
-    Left = 80
+    Left = 112
     Height = 16
-    Top = 28
+    Top = 37
     Width = 22
     Caption = '&CPF'
     FocusControl = CPFEdit
@@ -52,22 +52,23 @@ object PrincipalForm: TPrincipalForm
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = CPFLabel
     AnchorSideTop.Side = asrCenter
-    Left = 105
+    Left = 137
     Height = 23
-    Top = 25
+    Top = 34
     Width = 146
     BorderSpacing.Left = 3
     OnKeyPress = CPFEditKeyPress
     TabOrder = 0
+    Text = '00244201820'
   end
   object ConsultarButton: TButton
     AnchorSideTop.Control = CaptchaEdit
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = CaptchaEdit
     AnchorSideRight.Side = asrBottom
-    Left = 174
+    Left = 206
     Height = 25
-    Top = 77
+    Top = 86
     Width = 77
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -81,9 +82,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = CPFEdit
     AnchorSideRight.Side = asrBottom
-    Left = 171
+    Left = 203
     Height = 23
-    Top = 51
+    Top = 60
     Width = 80
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 3
@@ -94,9 +95,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideTop.Control = CaptchaEdit
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = CaptchaEdit
-    Left = 23
+    Left = 55
     Height = 16
-    Top = 54
+    Top = 63
     Width = 145
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 3
@@ -109,9 +110,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = ObterCaptchaButton
     AnchorSideTop.Side = asrBottom
-    Left = 249
+    Left = 291
     Height = 1
-    Top = 163
+    Top = 172
     Width = 1
     BorderSpacing.Top = 20
     Font.Style = [fsBold]

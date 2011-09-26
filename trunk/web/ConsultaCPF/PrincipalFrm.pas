@@ -107,8 +107,8 @@ var
 begin
   VHTTPSend := THTTPSend.Create;
   try
-    if LSHTTPGetPictureEx(VHTTPSend, CURLCaptcha, CaptchaImage.Picture,
-      VManequim, VManequim) then
+    if LSHTTPGetPictureEx(VHTTPSend, Format(CURLCaptcha, [LSGetTime]),
+      CaptchaImage.Picture, VManequim, VManequim) then
       FCookieCaptcha := Trim(VHTTPSend.Cookies.Text)
     else
       ShowMessage(SErroCaptcha);
