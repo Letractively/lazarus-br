@@ -63,7 +63,7 @@ implementation
 {$R *.lfm}
 
 uses
-  LSHTTPSend, LSUtils, HTTPSend, LCLProc;
+  LSHTTPSend, LSUtils, HTTPSend, LCLIntf;
 
 { TPrincipalForm }
 
@@ -139,7 +139,7 @@ procedure TPrincipalForm.ConsultaPublicaExibir;
 var
   VCookies: TStrings;
   VStream: TMemoryStream;
-  VNomePessoaFisica: string = '';
+  VArquivoSaida: string;
 begin
   if Trim(CPFEdit.Text) = '' then
   begin
@@ -161,10 +161,9 @@ begin
     if LSHTTPPostURL(CURLConsultaPublica, Format(CFormulario,
       [CPFEdit.Text, CaptchaEdit.Text]), VCookies, VStream) then
     begin
-      VNomePessoaFisica := LSDeleteLineBreaks(LSStreamToStr(VStream));
-      NomePessoaFisicaLabel.Caption := 'Nome da pessoa física: ' +
-        Trim(GetPart(Utf8ToAnsi(CTagInicio), CTagFim, VNomePessoaFisica,
-        True, False));
+      VArquivoSaida := GetTempDir + 'receita.html';
+      VStream.SaveToFile(VArquivoSaida);
+      OpenDocument(VArquivoSaida);
     end
     else
       ShowMessage(Format(SErroConsultaPublicaExibir, [CPFEdit.Text]));
