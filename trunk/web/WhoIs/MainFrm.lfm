@@ -1,0 +1,69 @@
+object MainForm: TMainForm
+  Left = 269
+  Height = 158
+  Top = 175
+  Width = 584
+  Caption = 'MainForm'
+  ClientHeight = 158
+  ClientWidth = 584
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30'
+  object URLEdit: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = Owner
+    AnchorSideTop.Side = asrCenter
+    Left = 132
+    Height = 23
+    Top = 68
+    Width = 320
+    CharCase = ecLowerCase
+    TabOrder = 0
+    Text = 'google.com.br'
+  end
+  object WhoIsButton: TButton
+    AnchorSideLeft.Control = URLEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = URLEdit
+    AnchorSideTop.Side = asrCenter
+    Left = 455
+    Height = 25
+    Top = 67
+    Width = 76
+    AutoSize = True
+    BorderSpacing.Left = 3
+    Caption = '&Pesquisar'
+    OnClick = WhoIsButtonClick
+    TabOrder = 1
+  end
+  object InfoLabel: TLabel
+    AnchorSideLeft.Control = URLEdit
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideBottom.Control = URLEdit
+    Left = 198
+    Height = 16
+    Top = 49
+    Width = 188
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 3
+    Caption = 'Procure por um nome de domínio'
+    FocusControl = URLEdit
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object WWWLabel: TLabel
+    AnchorSideTop.Control = URLEdit
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = URLEdit
+    Left = 98
+    Height = 16
+    Top = 71
+    Width = 31
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 3
+    Caption = 'www.'
+    FocusControl = URLEdit
+    ParentColor = False
+  end
+end
