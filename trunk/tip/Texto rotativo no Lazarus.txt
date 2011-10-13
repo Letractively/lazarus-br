@@ -1,0 +1,41 @@
+type
+  TRotateType = (rtNone, rtCounterClockWise, rtClockWise, rtFlip);
+
+procedure DrawRotateText(Canvas: TCanvas; const R: TRect; 
+  const Text: String; RotateType: TRotateType);
+var
+  TextExtent: TSize;
+  SavedOrientation: Integer;
+begin
+  SavedOrientation := Canvas.Font.Orientation;
+  TextExtent := Canvas.TextExtent(Text);
+  case RotateType of
+    rtNone:
+    begin
+      Canvas.Font.Orientation := 0;
+      Canvas.TextOut((R.Right - R.Left - TextExtent.cx) div 2,
+        (R.Bottom - R.Left - TextExtent.cy) div 2, Text);
+    end;
+    rtCounterClockWise:
+    begin
+      Canvas.Font.Orientation := 900;
+      Canvas.TextOut((R.Right - R.Left - TextExtent.cy) div 2,
+        (R.Bottom - R.Left + TextExtent.cx) div 2, Text);
+    end;
+    rtFlip:
+    begin
+      Canvas.Font.Orientation := 1800;
+      Canvas.TextOut((R.Right - R.Left + TextExtent.cx) div 2,
+        (R.Bottom - R.Left + TextExtent.cy) div 2, Text);
+    end;
+    rtClockWise:
+    begin
+      Canvas.Font.Orientation := -900;
+      Canvas.TextOut((R.Right - R.Left + TextExtent.cy) div 2,
+        (R.Bottom - R.Left - TextExtent.cx) div 2, Text);
+    end;
+  end;
+  Canvas.Font.Orientation := SavedOrientation;
+end;
+
+Luiz Americo

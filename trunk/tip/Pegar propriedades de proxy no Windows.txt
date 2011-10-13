@@ -1,0 +1,71 @@
+uses
+  WinINet;
+
+procedure GetProxySettings(var AProxyEnabled: Boolean;
+  var AProxyHost: ShortString; var AProxyPort: Word; AProtocol: ShortString);
+
+  procedure _GetProxyInformation(var AHostPort: ShortString;
+    var AEnabled: Boolean);
+  var
+    VInternetProxyInfo: PINTERNETPROXYINFO;
+    VSize: LongWord;
+  begin
+    AHostPort := '';
+    VSize := 4096;
+    GetMem(VInternetProxyInfo, VSize);
+    try
+      if InternetQueryOption(nil, INTERNET_OPTION_PROXY, VInternetProxyInfo,
+        VSize) then
+      begin
+        AHostPort := VInternetProxyInfo^.lpszProxy;
+        AEnabled := VInternetProxyInfo^.dwAccessType = INTERNET_OPEN_TYPE_PROXY;
+      end;
+    finally
+      FreeMem(VInternetProxyInfo);
+    end;
+  end;
+
+var
+  I: Integer;
+  VProxyInfo: ShortString = '';
+  VProxyEnabled: Boolean = False;
+begin
+  AProxyHost := '';
+  AProxyPort := 0;
+  _GetProxyInformation(VProxyInfo, VProxyEnabled);
+  AProxyEnabled := VProxyEnabled;
+  if VProxyInfo = '' then
+    Exit;
+  AProtocol := AProtocol + '=';
+  I := Pos(AProtocol, VProxyInfo);
+  if I > 0 then
+  begin
+    Delete(VProxyInfo, 1, I + Length(AProtocol));
+    I := Pos(';', AProxyHost);
+    if I > 0 then
+      VProxyInfo := Copy(VProxyInfo, 1, I - 1);
+  end;
+  I := Pos(':', VProxyInfo);
+  if I > 0 then
+  begin
+    AProxyPort := StrToIntDef(Copy(VProxyInfo, I + 1,
+      Length(VProxyInfo) - I), 0);
+    AProxyHost := Copy(VProxyInfo, 1, I - 1)
+  end;
+end;
+
+Exemplo de uso:
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  VProxyEnabled: Boolean = False;
+  VProxyHost: ShortString = '';
+  VProxyProtocol: ShortString = '';
+  VProxyPort: Word = 0;
+begin
+  GetProxySettings(VProxyEnabled, VProxyHost, VProxyPort, VProxyProtocol);
+  ShowMessage('Proxy enabled: ' + BoolToStr(VProxyEnabled) + '; Proxy host: ' +
+    VProxyHost + '; Proxy port: ' + IntToStr(VProxyPort) + '.');
+end;
+
+Silvio Clécio

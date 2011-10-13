@@ -1,0 +1,15 @@
+Por exemplo, se houver a propriedade Caption no componente, definir o valor "Test":
+
+uses
+  {$ifdef fpc}Variants,{$endif} TypInfo;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  I: Integer;
+begin
+  for I := 0 to Pred(ComponentCount) do
+    if IsPublishedProp(Components[I], 'Caption') then
+      SetPropValue(Components[I], 'Caption', 'Test');
+end;
+
+Silvio Clécio

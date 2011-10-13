@@ -1,0 +1,26 @@
+uses
+  InterfaceBase;
+
+function GetCurrentLCLPlatform: string;
+begin
+  case WidgetSet.LCLPlatform of
+    lpGtk: Result := 'Gtk';
+    lpGtk2:  Result := 'Gtk2';
+    lpWin32:  Result := 'Win32';
+    lpWinCE:  Result := 'WinCE';
+    lpCarbon:  Result := 'Carbon';
+    lpQT:  Result := 'QT';
+    lpfpGUI:  Result := 'fpGUI';
+    lpNoGUI:  Result := 'NoGUI';
+    lpCocoa:  Result := 'Cocoa';
+  end;
+end;
+
+Usando:
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ShowMessage(GetCurrentLCLPlatform);
+end;
+
+Silvio Clécio.

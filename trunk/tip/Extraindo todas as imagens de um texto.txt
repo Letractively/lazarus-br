@@ -1,0 +1,22 @@
+uses
+  SynRegExpr;
+
+procedure TForm1.ExtractButtonClick(Sender: TObject);
+var
+  VRegExpr: TRegExpr;
+begin
+  DestMemo.Clear;
+  VRegExpr := TRegExpr.Create;
+  try
+    VRegExpr.ModifierI := True;
+    VRegExpr.Expression := '<\s*img [^\>]*src\s*=\s*(["\''])(.*?)\1';
+    if VRegExpr.Exec(SourceMemo.Text) then
+      repeat
+        DestMemo.Lines.Add(VRegExpr.Match[2]);
+      until not VRegExpr.ExecNext;
+  finally
+    VRegExpr.Free;
+  end;
+end;
+
+Silvio Clécio.

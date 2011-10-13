@@ -1,0 +1,36 @@
+Lendo:
+
+uses
+  SysUtils, Classes;
+
+function LoadFile(const AFileName: TFileName): string;
+begin
+  with TFileStream.Create(AFileName, fmOpenRead or fmShareDenyWrite) do begin
+    try
+      SetLength(Result, Size);
+      Read(Pointer(Result)^, Size);
+    except
+      Result := '';  // Desaloca da memória
+      Free;
+      raise;
+    end;
+    Free;
+  end;
+end;
+
+Escrevendo:
+
+uses
+  SysUtils, Classes;
+
+procedure SaveFile(const AFileName: TFileName; const AString: string);
+begin
+  with TFileStream.Create(AFileName, fmCreate) do
+    try
+      Write(Pointer(AString)^, Length(AString));
+    finally
+      Free;
+    end;
+end;
+
+Silvio Clécio.

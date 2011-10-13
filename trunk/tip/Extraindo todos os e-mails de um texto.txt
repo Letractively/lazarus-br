@@ -1,0 +1,23 @@
+uses
+  SynRegExpr;
+
+procedure TForm1.ExtractButtonClick(Sender: TObject);
+var
+  VRegExpr: TRegExpr;
+begin
+  DestMemo.Clear;
+  VRegExpr := TRegExpr.Create;
+  try
+    VRegExpr.ModifierI := True;
+    VRegExpr.Expression :=
+      '[^\w\d\-\.]([\w\d\-\.]+@[\w\d\-]+(\.[\w\d\-]+)+)[^\w\d\-\.]';
+      if VRegExpr.Exec(SourceMemo.Text) then
+        repeat
+          DestMemo.Lines.Add(VRegExpr.Match[1]);
+        until not VRegExpr.ExecNext;
+  finally
+    VRegExpr.Free;
+  end;
+end;
+
+Silvio Clécio.

@@ -1,0 +1,28 @@
+procedure FileContentErase(const AFileName: TFileName);
+var
+  VArq: File;
+begin
+  if FileExists(AFileName) then
+  try
+    AssignFile(VArq, AFileName);
+    Reset(VArq, 1);
+    Truncate(VArq);
+  finally
+    CloseFile(VArq);
+  end;
+end;
+
+Usando:
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  with TOpenDialog.Create(nil) do
+  try
+    if Execute then
+      FileContentErase(FileName);
+  finally
+    Free;
+  end;
+end;
+
+Este método não mexe na data de criação do arquivo, uma vez que ele apenas abre e reescreve (por assim dizer) o  conteúdo do arquivo. Se houver a necessidade de se manter a data de criação do arquivo, essa rotina é ideal. E melhor ainda, funciona pra qualquer tipo de arquivo, independente de ser arquivo texto ou não.
