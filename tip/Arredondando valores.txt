@@ -1,0 +1,51 @@
+uses
+  Math;
+
+function RoundAExtended(const AValue: Extended;
+  const AFPURoundingMode: TFPURoundingMode = rmUp;
+  const ADigits: Integer = - 2): Extended;
+var
+  VFPURoundingMode: TFPURoundingMode;
+begin
+{
+  Opcoes para AFPURoundingMode:
+
+  rmNearest: Para o valor mais proximo;
+  rmDown: Para o proximo negativo;
+  rmUp: Para o proximo positivo;
+  rmTruncate: Cortando casas;
+}
+  VFPURoundingMode := GetRoundMode;
+  try
+    SetRoundMode(AFPURoundingMode);
+    Result := RoundTo(AValue, ADigits);
+  finally
+    SetRoundMode(VFPURoundingMode);
+  end;
+end;
+
+Usando:
+
+var
+  S: string;
+begin
+  S := CurrToStr(RoundAExtended(196.566)); // Resultado = 196.57
+end;
+
+Ou:
+
+var
+  S: string;
+begin
+  S := CurrToStr(RoundAExtended(196.566, rmDown)); // Resultado = 196.56
+end;
+
+Ou ainda:
+
+var
+  S: string;
+begin
+  S := CurrToStr(RoundAExtended(196.566, rmUp, -1)); // Resultado = 196.6
+end;
+
+Silvio Clécio

@@ -1,0 +1,33 @@
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ShortDateFormat := 'dd/MM/yyyy';
+  CurrencyString := 'R$';
+  CurrencyFormat := 0;
+  NegCurrFormat := 14;
+  ThousandSeparator := '.';
+  DecimalSeparator := ',';
+  CurrencyDecimals := 2;
+  DateSeparator := '/';
+  TimeSeparator := ':';
+  TimeAMString := 'AM';
+  TimePMString := 'PM';
+  ShortTimeFormat := 'hh:mm:ss';
+end;
+
+No Lazarus é necessário definir em:
+
+initialization
+  ShortDateFormat := 'dd/MM/yyyy';
+  CurrencyString := 'R$';
+  CurrencyFormat := 0;
+  NegCurrFormat := 14;
+  ThousandSeparator := '.';
+  DecimalSeparator := ',';
+  CurrencyDecimals := 2;
+  DateSeparator := '/';
+  TimeSeparator := ':';
+  TimeAMString := 'AM';
+  TimePMString := 'PM';
+  ShortTimeFormat := 'hh:mm:ss';
+
+Silvio Clécio

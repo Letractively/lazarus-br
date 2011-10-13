@@ -1,0 +1,17 @@
+const
+  TWO10 = 1024; // Ou 1000
+  KBYTE = TWO10;
+  MBYTE = TWO10 * KBYTE;
+  GBYTE = TWO10 * MBYTE;
+
+function SizeToString(AValue: Int64): String;
+begin
+  if AValue >= Trunc(GBYTE * 0.75) then
+    Result := Format('%5.2f GB', [AValue / GBYTE])
+  else if AValue >= Trunc(MBYTE * 0.75) then
+    Result := Format('%5.2f MB', [AValue / MBYTE])
+  else if AValue >= Trunc(KBYTE * 0.75) then
+    Result := Format('%5.2f KB', [AValue / KBYTE])
+  else
+    Result := Format('%d Bytes', [AValue])
+end;

@@ -1,0 +1,16 @@
+uses
+  StrUtils;
+
+function IncStr(const AString: string; const ADigits: Byte = 3): string;
+begin
+  Result := Dec2Numb(Numb2Dec(AString, 36) + 1, ADigits, 36);
+end;
+
+Exemplo de uso:
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Edit2.Text := IncStr(Edit1.Text, Length(Edit1.Text));
+end;
+
+Dica extraída de uma discussão na lista oficial sobre Lazarus.

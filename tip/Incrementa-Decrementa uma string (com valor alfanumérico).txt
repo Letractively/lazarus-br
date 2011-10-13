@@ -1,0 +1,73 @@
+{$J+}
+const
+  CIncStrChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+{$J-}
+
+function IncStr(const AString: string): string;
+var
+  VCurrChar: PChar;
+  I, VPos, VBackIndex: Integer;
+begin
+  Result := Copy(AString, 1, Length(AString));
+  for I := 1 to Length(AString) do
+    if Pos(AString[I], CIncStrChars) < 1 then
+      raise Exception.Create('String contains an invalid character');
+  if Length(AString) < 1 then
+  begin
+    Result := CIncStrChars[1];
+    Exit;
+  end;
+  if Length(AString) < 2 then
+  begin
+    Result := Succ(AString[1]);
+    Exit;
+  end;
+  VBackIndex := 0;
+  while True do
+  begin
+    VCurrChar := @Result[Length(Result) - VBackIndex];
+    VPos := Pos(VCurrChar^, CIncStrChars);
+    if VPos = Length(CIncStrChars) then
+    begin
+      VCurrChar^ := CIncStrChars[1];
+      if (Length(Result) - VBackIndex) <= 1 then
+      begin
+        Result := CIncStrChars[2] + Result;
+        Break;
+      end
+      else
+      begin
+        Inc(VBackIndex);
+        Continue;
+      end;
+    end
+    else
+    begin
+      VCurrChar^ := CIncStrChars[VPos + 1];
+      Break;
+    end;
+  end;
+end;
+
+Exemplo de uso:
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  // Edit1.Text = 0AZ9
+  Edit2.Text := IncStr(Edit1.Text);
+end;
+
+Sequencias geradas:
+
+001
+002
+..
+00A
+00B
+..
+0A0
+0A1
+..
+ZZZ
+
+Autor: http://code.google.com/u/kingbizugo

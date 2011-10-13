@@ -1,0 +1,29 @@
+uses
+  Process;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  VProgramName: string;
+  VProcess: TProcess;
+  VStrTemp: TStringList;
+begin
+  VProgramName := 'gedit';
+  VProcess := TProcess.Create(nil);
+  VStrTemp := TStringList.Create;
+  try
+    VProcess.Options := [poStderrToOutPut, poNoConsole, poUsePipes];
+    VProcess.CommandLine := 'sh -c "xprop -name ' + QuotedStr(VProgramName) +
+      ' |awk ''/WM_CLASS/{print $4}''"';
+    VProcess.Execute;
+    VStrTemp.LoadFromStream(VProcess.Output);
+    if Pos('xprop: error', VStrTemp.Text) <> 0 then
+      ShowMessage('Program "' + VProgramName + '" not is opened.')
+    else
+      ShowMessage('Program title is ' + Trim(VStrTemp.Text) + '.');
+  finally
+    VProcess.Free;
+    VStrTemp.Free;
+  end;
+end;
+
+Silvio Clécio.

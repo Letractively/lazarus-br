@@ -1,0 +1,12 @@
+Uma lista de programas que iniciam quando você entra pode ser encontrado em:
+
+Além disso, há também uma pasta de inicialização no seu homedirectory. Para o KDE é $HOME/.kde/Autostart.
+
+/etc/xdg/autostart
+/usr/share/autostart
+
+Usando a diretiva OnlyShowIn você pode especificar se você deseja que o aplicativo inicie em KDE ou GNOME. Eu uso a seguinte linha para desativar um aplicativo:
+
+OnlyShowIn=;
+
+Silvio Clécio

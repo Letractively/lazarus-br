@@ -1,0 +1,34 @@
+function Mensagem(const ACaption, AMsg: string;
+  const AMsgDlgButtons: TMsgDlgButtons; const AMsgDlgType: TMsgDlgType): Integer;
+var
+  I: Integer;
+begin
+  with CreateMessageDialog(AMsg, AMsgDlgType, AMsgDlgButtons) do
+  try
+    Caption:= ACaption;
+    for I := 0 to Pred(ComponentCount) do
+      if Components[I] is TBitBtn then
+        with TBitBtn(Components[I]) do
+        case ModalResult of
+          mrYes: Caption := 'S&im';
+          mrNo: Caption := '&Não';
+          mrCancel: Caption := '&Cancelar';
+          mrAbort: Caption := '&Abortar';
+          mrRetry: Caption := '&Repetir';
+          mrIgnore: Caption := '&Ignorar';
+          mrAll: Caption := '&Todos';
+          mrOk: Caption := '&OK';
+        end;
+    ShowModal;
+  finally
+    Result := ModalResult;
+  end;
+end;
+
+Maneira de usar:
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Mensagem('Título', 'Mensagem', mbYesNoCancel, mtInformation);
+end;
+
+José Roberto Soares

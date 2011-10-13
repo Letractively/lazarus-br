@@ -1,0 +1,25 @@
+Primeira condição:
+
+uses
+  LCLProc;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  CHTMLTest: string = '<b>Hello LCLProc. :)</b>';
+begin
+  ShowMessage(GetPart(['<b>'], ['</b>'], CHTMLTest, False, False));
+end;
+
+Segunda condição:
+
+uses
+  LCLProc;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  CHTMLTest: string = '<b><i>Hello LCLProc. :)</i></b>';
+begin
+  ShowMessage(GetPart(['<b>', '<i>'], ['</b>', '</i>'], CHTMLTest, False, False));
+end;
+
+Silvio Clécio.
