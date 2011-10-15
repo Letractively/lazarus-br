@@ -1,0 +1,1 @@
+# zypper install sqlite3-devel
