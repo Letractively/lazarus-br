@@ -1,0 +1,10 @@
+como root:
+
+
+zypper install apache2
+zypper install apache2-example-pages
+
+
+
+
+ps: Agradecimento a Ancker1 pelo help no IRC
