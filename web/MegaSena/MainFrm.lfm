@@ -1,0 +1,38 @@
+object MainForm: TMainForm
+  Left = 233
+  Height = 240
+  Top = 133
+  Width = 320
+  Caption = 'MainForm'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30.2RC1'
+  object ResultLabel: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = Owner
+    AnchorSideTop.Side = asrCenter
+    Left = 155
+    Height = 15
+    Top = 113
+    Width = 10
+    Caption = '...'
+    ParentColor = False
+  end
+  object ResultButton: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = ResultLabel
+    AnchorSideTop.Side = asrBottom
+    Left = 120
+    Height = 25
+    Top = 131
+    Width = 80
+    AutoSize = True
+    BorderSpacing.Top = 3
+    Caption = '&Resultado'
+    OnClick = ResultButtonClick
+    TabOrder = 0
+  end
+end
