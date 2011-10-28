@@ -1,0 +1,32 @@
+object MainForm: TMainForm
+  Left = 281
+  Height = 400
+  Top = 128
+  Width = 600
+  Caption = 'MainForm'
+  ClientHeight = 400
+  ClientWidth = 600
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30.2RC2'
+  object OpenButton: TButton
+    Left = 0
+    Height = 25
+    Top = 375
+    Width = 600
+    Align = alBottom
+    AutoSize = True
+    Caption = '&Open'
+    Default = True
+    OnClick = OpenButtonClick
+    TabOrder = 0
+  end
+  object DataStringGrid: TStringGrid
+    Left = 0
+    Height = 375
+    Top = 0
+    Width = 600
+    Align = alClient
+    TabOrder = 1
+  end
+end
