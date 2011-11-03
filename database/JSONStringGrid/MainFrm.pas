@@ -136,6 +136,7 @@ begin
       for I := 1 to Pred(AGrid.ColCount) do
         AGrid.AutoSizeColumn(I);
   finally
+    VJSONRows.Free;
     VJSONParser.Free;
     VFileStream.Free;
   end;
