@@ -128,8 +128,18 @@ begin
         if (I = 0) and VIsObject then
           AGrid.Cols[VFixedCols + J].Text := VJSONCols.Names[J];
         VRecord := VJSONCols.Items[J];
-        if VRecord.JSONType <>  jtNull then
-          AGrid.Cells[J + VFixedCols, I + VFixedRows] := VRecord.AsString;
+        case VRecord.JSONType of
+          jtUnknown: AGrid.Cells[J + VFixedCols, I + VFixedRows] := '<Unknown>';
+          jtNumber: AGrid.Cells[J + VFixedCols, I + VFixedRows] :=
+            FloatToStr(VRecord.AsFloat);
+          jtString: AGrid.Cells[J + VFixedCols, I + VFixedRows] :=
+            VRecord.AsString;
+          jtBoolean: AGrid.Cells[J + VFixedCols, I + VFixedRows] :=
+            BoolToStr(VRecord.AsBoolean, True);
+          jtNull: AGrid.Cells[J + VFixedCols, I + VFixedRows] := '<Null>';
+          jtArray: AGrid.Cells[J + VFixedCols, I + VFixedRows] := '<Array>';
+          jtObject: AGrid.Cells[J + VFixedCols, I + VFixedRows] := '<Object>';
+        end;
       end;
     end;
     if AAutoSizeColumns then
