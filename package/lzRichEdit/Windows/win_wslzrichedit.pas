@@ -76,14 +76,16 @@ type
     class procedure GetNumbering(const AWinControl: TWinControl; var N: boolean); override;
     class procedure SetOffSetIndent(const AWinControl: TWinControl; I: integer); override;
     class procedure GetOffSetIndent(const AWinControl: TWinControl; var I: integer); override;
-    class procedure SetRightIndent(const AWinControl: TWinControl;
+    class procedure SetRightMargin(const AWinControl: TWinControl;
       iSelStart, iSelLength: integer; I: integer); override;
-    class procedure GetRightIndent(const AWinControl: TWinControl;
+    class procedure GetRightMargin(const AWinControl: TWinControl;
       Position: integer; var I: integer); override;
-    class procedure SetStartIndent(const AWinControl: TWinControl;
+    class procedure SetLeftMargin(const AWinControl: TWinControl;
       iSelStart, iSelLength: integer; I: integer); override;
-    class procedure GetStartIndent(const AWinControl: TWinControl;
+    class procedure GetLeftMargin(const AWinControl: TWinControl;
       Position: integer; var I: integer); override;
+    class procedure SetIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); override;
+    class procedure GetIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); override;
     class function GetRealTextBuf(const AWinControl: TWinControl):String; override;
 
   end;
@@ -548,6 +550,7 @@ begin
 
   if (P.wNumbering > 0) then
     N := True;
+
 end;
 
 class procedure TWin_WSCustomlzRichEdit.SetOffSetIndent(const AWinControl: TWinControl;
@@ -579,9 +582,37 @@ begin
   I := P.dxOffset div 15;
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetRightIndent(const AWinControl: TWinControl;
-  iSelStart, iSelLength: integer; I: integer);
+class procedure TWin_WSCustomlzRichEdit.SetIndent(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I: Integer);
+var
+  P: PARAFORMAT;
+  L:Integer;
+begin
+  FillChar(P, SizeOf(P), 0);
+  P.cbSize := SizeOf(PARAFORMAT);
+  P.dwMask := PFM_OFFSET;
+  P.dxOffset :=(I * 15) * -1;
 
+  SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
+end;
+
+class procedure TWin_WSCustomlzRichEdit.GetIndent(
+  const AWinControl: TWinControl; Position: Integer; var I: Integer);
+var
+  P: PARAFORMAT;
+begin
+
+  FillChar(P, SizeOf(P), 0);
+  P.cbSize := SizeOf(PARAFORMAT);
+  P.dwMask := PFM_OFFSET;
+
+  SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
+
+  I := (P.dxOffset div 15) * -1;
+end;
+
+class procedure TWin_WSCustomlzRichEdit.SetRightMargin(const AWinControl: TWinControl;
+  iSelStart, iSelLength: integer; I: integer);
 var
   P: PARAFORMAT;
 begin
@@ -594,9 +625,8 @@ begin
   SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
 end;
 
-class procedure TWin_WSCustomlzRichEdit.GetRightIndent(const AWinControl: TWinControl;
+class procedure TWin_WSCustomlzRichEdit.GetRightMargin(const AWinControl: TWinControl;
   Position: integer; var I: integer);
-
 var
   P: PARAFORMAT;
 begin
@@ -610,9 +640,8 @@ begin
   I := P.dxRightIndent div 15;
 end;
 
-class procedure TWin_WSCustomlzRichEdit.SetStartIndent(const AWinControl: TWinControl;
+class procedure TWin_WSCustomlzRichEdit.SetLeftMargin(const AWinControl: TWinControl;
   iSelStart, iSelLength: integer; I: integer);
-
 var
   P: PARAFORMAT;
 begin
@@ -623,12 +652,10 @@ begin
   P.dxStartIndent := I * 15;
 
   SendMessage(AWinControl.Handle, EM_SETPARAFORMAT, 0, longint(@P));
-
 end;
 
-class procedure TWin_WSCustomlzRichEdit.GetStartIndent(const AWinControl: TWinControl;
+class procedure TWin_WSCustomlzRichEdit.GetLeftMargin(const AWinControl: TWinControl;
   Position: integer; var I: integer);
-
 var
   P: PARAFORMAT;
 begin
@@ -640,7 +667,6 @@ begin
   SendMessage(AWinControl.Handle, EM_GETPARAFORMAT, 0, longint(@P));
 
   I := P.dxStartIndent div 15;
-
 end;
 
 class function TWin_WSCustomlzRichEdit.GetRealTextBuf(

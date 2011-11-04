@@ -52,6 +52,7 @@ TWSCustomlzRichEdit = class(TWSCustomMemo)
   class procedure GetTextAttributes(const AWinControl: TWinControl; Position: Integer; var TextParams: TFontParams); virtual;
   class procedure ActiveRichOle(const AWinControl: TWinControl); virtual;
   class procedure DestroyRichOle(const AWinControl: TWinControl); virtual;
+  //--
   class procedure GetAlignment(const AWinControl: TWinControl; Position: Integer; var Alignment:TRichEdit_Align); virtual;
   class procedure SetAlignment(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; Alignment:TRichEdit_Align); virtual;
   class procedure SetNumbering(const AWinControl: TWinControl; N:Boolean); virtual;
@@ -59,10 +60,18 @@ TWSCustomlzRichEdit = class(TWSCustomMemo)
   class procedure GetNumbering(const AWinControl: TWinControl; Position: Integer; var N:Boolean); virtual;
   class procedure SetOffSetIndent(const AWinControl: TWinControl; I:Integer); virtual;
   class procedure GetOffSetIndent(const AWinControl: TWinControl; var I:Integer); virtual;
-  class procedure SetRightIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); virtual;
-  class procedure GetRightIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); virtual;
-  class procedure SetStartIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); virtual;
-  class procedure GetStartIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); virtual;
+  class procedure SetRightMargin(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); virtual;
+  class procedure GetRightMargin(const AWinControl: TWinControl; Position: Integer; var I:Integer); virtual;
+  class procedure SetLeftMargin(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); virtual;
+  class procedure GetLeftMargin(const AWinControl: TWinControl; Position: Integer; var I:Integer); virtual;
+  class procedure SetIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); virtual;
+  class procedure GetIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); virtual;
+  //
+  class procedure SetFontColor(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const Color: TColor); virtual;
+  class procedure SetFontName(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const FontName: TFontName); virtual;
+  class procedure SetFontSize(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const FontSize: Integer); virtual;
+  class procedure SetFontStyle(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const Style: TFontStyles); virtual;
+  //
   class procedure InsertImage(const AWinControl: TWinControl; Position: Integer; Image: TPicture); virtual;
   class function GetImage(const AWinControl: TWinControl; Position: Integer; var Image: TPicture):Boolean; virtual;
   class function GetRealTextBuf(const AWinControl: TWinControl):String; virtual;
@@ -74,6 +83,7 @@ function WSRegisterCustomlzRichEdit: Boolean; external name 'WSRegisterCustomlzR
 
 
 implementation
+
 
 { TWSCustomlzRichEdit }
 
@@ -101,20 +111,23 @@ begin
 
 end;
 
-class procedure TWSCustomlzRichEdit.SetSelection(const AWinControl: TWinControl; StartPos, EndPos: Integer;
+class procedure TWSCustomlzRichEdit.SetSelection(
+  const AWinControl: TWinControl; StartPos, EndPos: Integer;
   ScrollCaret: Boolean);
 begin
 
 end;
 
-class procedure TWSCustomlzRichEdit.SetTextAttributes(const AWinControl: TWinControl; iSelStart,
-  iSelLength: Integer; const TextParams: TFontParams);
+class procedure TWSCustomlzRichEdit.SetTextAttributes(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const TextParams: TFontParams);
 begin
 
 end;
 
 class procedure TWSCustomlzRichEdit.GetTextAttributes(
-  const AWinControl: TWinControl; Position: Integer; var TextParams: TFontParams);
+  const AWinControl: TWinControl; Position: Integer; var TextParams: TFontParams
+  );
 begin
 
 end;
@@ -132,13 +145,15 @@ begin
 end;
 
 class procedure TWSCustomlzRichEdit.GetAlignment(
-  const AWinControl: TWinControl; Position: Integer; var Alignment: TRichEdit_Align);
+  const AWinControl: TWinControl; Position: Integer;
+  var Alignment: TRichEdit_Align);
 begin
 
 end;
 
 class procedure TWSCustomlzRichEdit.SetAlignment(
-  const AWinControl: TWinControl; iSelStart, iSelLength: Integer; Alignment: TRichEdit_Align);
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  Alignment: TRichEdit_Align);
 begin
 
 end;
@@ -173,26 +188,64 @@ begin
 
 end;
 
-class procedure TWSCustomlzRichEdit.SetRightIndent(
+class procedure TWSCustomlzRichEdit.SetRightMargin(
   const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I: Integer);
 begin
 
 end;
 
-class procedure TWSCustomlzRichEdit.GetRightIndent(
+class procedure TWSCustomlzRichEdit.GetRightMargin(
   const AWinControl: TWinControl; Position: Integer; var I: Integer);
 begin
 
 end;
 
-class procedure TWSCustomlzRichEdit.SetStartIndent(
+class procedure TWSCustomlzRichEdit.SetLeftMargin(
   const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I: Integer);
 begin
 
 end;
 
-class procedure TWSCustomlzRichEdit.GetStartIndent(
+class procedure TWSCustomlzRichEdit.GetLeftMargin(
   const AWinControl: TWinControl; Position: Integer; var I: Integer);
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.SetIndent(const AWinControl: TWinControl;
+  iSelStart, iSelLength: Integer; I: Integer);
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.GetIndent(const AWinControl: TWinControl;
+  Position: Integer; var I: Integer);
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.SetFontColor(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const Color: TColor);
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.SetFontName(const AWinControl: TWinControl;
+  iSelStart, iSelLength: Integer; const FontName: TFontName);
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.SetFontSize(const AWinControl: TWinControl;
+  iSelStart, iSelLength: Integer; const FontSize: Integer);
+begin
+
+end;
+
+class procedure TWSCustomlzRichEdit.SetFontStyle(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const Style: TFontStyles);
 begin
 
 end;

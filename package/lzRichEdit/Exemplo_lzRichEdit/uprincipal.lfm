@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 275
+  Left = 359
   Height = 479
-  Top = 102
+  Top = 193
   Width = 720
   ActiveControl = lzRichEdit1
   Caption = 'ExRichEdit'
@@ -52,7 +52,7 @@ object Form1: TForm1
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '0.9.31'
+  LCLVersion = '0.9.30.2RC1'
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
     Left = 3
@@ -138,7 +138,7 @@ object Form1: TForm1
     end
     object CBFont: TComboBox
       Left = 9
-      Height = 27
+      Height = 29
       Hint = 'Fonte'
       Top = 2
       Width = 151
@@ -165,7 +165,7 @@ object Form1: TForm1
     end
     object CBSize: TComboBox
       Left = 164
-      Height = 27
+      Height = 29
       Hint = 'Tamanho da Fonte'
       Top = 2
       Width = 52
