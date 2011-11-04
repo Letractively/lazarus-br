@@ -46,40 +46,37 @@ type
   { TGTK2_WSCustomlzRichEdit }
 
   TGTK2_WSCustomlzRichEdit = class(TWSCustomlzRichEdit)
-    class function CreateHandle(const AWinControl: TWinControl;
-      const AParams: TCreateParams): TLCLIntfHandle; override;
-    class procedure SaveToStream(const AWinControl: TWinControl;
-      var Stream: TStream); override;
-    class procedure LoadFromStream(const AWinControl: TWinControl;
-      const Stream: TStream); override;
+    class function CreateHandle(const AWinControl: TWinControl; const AParams: TCreateParams): TLCLIntfHandle; override;
+    class procedure SaveToStream(const AWinControl: TWinControl; var Stream: TStream); override;
+    class procedure LoadFromStream(const AWinControl: TWinControl; const Stream: TStream); override;
     //--
-    class procedure SetTextAttributes(const AWinControl: TWinControl;
-      iSelStart, iSelLength: integer; const TextParams: TFontParams); override;
-    class procedure GetTextAttributes(const AWinControl: TWinControl;
-      Position: integer; var TextParams: TFontParams); override;
-    class procedure GetAlignment(const AWinControl: TWinControl;
-      Position: integer; var Alignment: TRichEdit_Align); override;
-    class procedure SetAlignment(const AWinControl: TWinControl;
-      iSelStart, iSelLength: integer; Alignment: TRichEdit_Align); override;
+    class procedure SetTextAttributes(const AWinControl: TWinControl; iSelStart, iSelLength: integer; const TextParams: TFontParams); override;
+    class procedure GetTextAttributes(const AWinControl: TWinControl; Position: integer; var TextParams: TFontParams); override;
+    //Atributos de parágrafo
+    class procedure GetAlignment(const AWinControl: TWinControl; Position: integer; var Alignment: TRichEdit_Align); override;
+    class procedure SetAlignment(const AWinControl: TWinControl; iSelStart, iSelLength: integer; Alignment: TRichEdit_Align); override;
     class procedure SetNumbering(const AWinControl: TWinControl; N: boolean); override;
     class procedure GetNumbering(const AWinControl: TWinControl; var N: boolean); override;
-    class procedure GetNumbering(const AWinControl: TWinControl;
-      Position: integer; var N: boolean); override;
-    class procedure SetRightIndent(const AWinControl: TWinControl;
-      iSelStart, iSelLength: integer; I: integer); override;
-    class procedure GetRightIndent(const AWinControl: TWinControl;
-      Position: integer; var I: integer); override;
-    class procedure SetStartIndent(const AWinControl: TWinControl;
-      iSelStart, iSelLength: integer; I: integer); override;
-    class procedure GetStartIndent(const AWinControl: TWinControl;
-      Position: integer; var I: integer); override;
-    class procedure InsertImage(const AWinControl: TWinControl; Position: integer;
-      Image: TPicture); override;
-    class function GetImage(const AWinControl: TWinControl; Position: integer;
-      var Image: TPicture): boolean; override;
+    class procedure GetNumbering(const AWinControl: TWinControl; Position: integer; var N: boolean); override;
+    class procedure SetRightMargin(const AWinControl: TWinControl; iSelStart, iSelLength: integer; I: integer); override;
+    class procedure GetRightMargin(const AWinControl: TWinControl; Position: integer; var I: integer); override;
+    class procedure SetLeftMargin(const AWinControl: TWinControl; iSelStart, iSelLength: integer; I: integer); override;
+    class procedure GetLeftMargin(const AWinControl: TWinControl; Position: integer; var I: integer); override;
+    class procedure SetIndent(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I:Integer); override;
+    class procedure GetIndent(const AWinControl: TWinControl; Position: Integer; var I:Integer); override;
+    //Atributos de Texto
+    class procedure SetFontColor(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const Color: TColor); override;
+    class procedure SetFontName(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const FontName: TFontName); override;
+    class procedure SetFontSize(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const FontSize: Integer); override;
+    class procedure SetFontStyle(const AWinControl: TWinControl; iSelStart, iSelLength: Integer; const Style: TFontStyles); override;
+
+    //
+
+
+    class procedure InsertImage(const AWinControl: TWinControl; Position: integer; Image: TPicture); override;
+    class function GetImage(const AWinControl: TWinControl; Position: integer; var Image: TPicture): boolean; override;
     class function GetRealTextBuf(const AWinControl: TWinControl): string; override;
-    class procedure InsertPosLastChar(const AWinControl: TWinControl;
-      const UTF8Char: TUTF8Char); override;
+    class procedure InsertPosLastChar(const AWinControl: TWinControl; const UTF8Char: TUTF8Char); override;
     class procedure Paste(const ACustomEdit: TCustomEdit); override;
   end;
 
@@ -175,19 +172,19 @@ begin
       TextParams.Style := TextParams.Style + [fsItalic];
     //--
     case Attributes^.justification of
-      GTK_JUSTIFY_LEFT: Alignment := alLeft;
-      GTK_JUSTIFY_RIGHT: Alignment := alRight;
-      GTK_JUSTIFY_CENTER: Alignment := alCenter;
-      GTK_JUSTIFY_FILL: Alignment := alJustify;
+      GTK_JUSTIFY_LEFT: Alignment := taLeft;
+      GTK_JUSTIFY_RIGHT: Alignment := taRight;
+      GTK_JUSTIFY_CENTER: Alignment := taCenter;
+      GTK_JUSTIFY_FILL: Alignment := taJustify;
     end;
   end;
   Left_margin := Attributes^.left_margin;
   Right_margin := Attributes^.right_margin;
-
+  indent:= Attributes^.indent;
   gtk_text_attributes_unref(Attributes);
 
   if (integer(Alignment) > 3) then
-    Alignment := alLeft;
+    Alignment := taLeft;
   if TextParams.Name = '' then
     TextParams.Name := 'Sans';
   if (TextParams.Size > 100) or (TextParams.Size <= 1) then
@@ -290,12 +287,12 @@ begin
   rowstride := gdk_pixbuf_get_rowstride(pixbuf);
   pixels := gdk_pixbuf_get_pixels(pixbuf);
 
-  Image.PNG.Height := Height;
-  Image.PNG.Width := Width;
-  Image.PNG.PixelFormat := pf32bit;
-  Image.PNG.Transparent := True;
+  Image.Bitmap.Height := Height;
+  Image.Bitmap.Width := Width;
+  Image.Bitmap.PixelFormat := pf32bit;
+  Image.Bitmap.Transparent := True;
   //--
-  BitmapData := Image.PNG.CreateIntfImage;
+  BitmapData := Image.Bitmap.CreateIntfImage;
   RawImageDescription := BitmapData.DataDescription;
   AddAlphaToDescription(RawImageDescription, 32);
   BitmapData.DataDescription := RawImageDescription;
@@ -310,7 +307,7 @@ begin
         PByteArray(BitmapData.PixelData)^[(((J * Width) + i) * 4) + 2] := Ord((p + 0)^);
         PByteArray(BitmapData.PixelData)^[(((J * Width) + i) * 4) + 3] := Ord((P + 3)^);
       end;
-    Image.PNG.LoadFromIntfImage(BitmapData);
+    Image.Bitmap.LoadFromIntfImage(BitmapData);
   finally
     BitmapData.Free;
   end;
@@ -614,7 +611,7 @@ begin
     N := True;
 end;
 
-class procedure TGTK2_WSCustomlzRichEdit.SetRightIndent(const AWinControl: TWinControl;
+class procedure TGTK2_WSCustomlzRichEdit.SetRightMargin(const AWinControl: TWinControl;
   iSelStart, iSelLength: integer; I: integer);
 var
   Tag: Pointer = nil;
@@ -628,7 +625,7 @@ begin
   WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
 end;
 
-class procedure TGTK2_WSCustomlzRichEdit.GetRightIndent(const AWinControl: TWinControl;
+class procedure TGTK2_WSCustomlzRichEdit.GetRightMargin(const AWinControl: TWinControl;
   Position: integer; var I: integer);
 var
   iTextParams: TFontParams;
@@ -640,7 +637,7 @@ begin
   I := I div 37;
 end;
 
-class procedure TGTK2_WSCustomlzRichEdit.SetStartIndent(const AWinControl: TWinControl;
+class procedure TGTK2_WSCustomlzRichEdit.SetLeftMargin(const AWinControl: TWinControl;
   iSelStart, iSelLength: integer; I: integer);
 var
   Tag: Pointer = nil;
@@ -654,7 +651,7 @@ begin
   WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
 end;
 
-class procedure TGTK2_WSCustomlzRichEdit.GetStartIndent(const AWinControl: TWinControl;
+class procedure TGTK2_WSCustomlzRichEdit.GetLeftMargin(const AWinControl: TWinControl;
   Position: integer; var I: integer);
 var
   iTextParams: TFontParams;
@@ -664,6 +661,114 @@ var
 begin
   WGGetFormat(AWinControl, Position, iTextParams, iAlignment, I, Right_m, indent);
   I := I div 37;
+end;
+
+class procedure TGTK2_WSCustomlzRichEdit.SetIndent(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer; I: Integer);
+var
+  Tag: Pointer = nil;
+  Buffer: PGtkTextBuffer = nil;
+begin
+  //--
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'indent', [I * 37,
+    'indent-set', gboolean(gTRUE), nil]);
+  WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
+end;
+
+class procedure TGTK2_WSCustomlzRichEdit.GetIndent(
+  const AWinControl: TWinControl; Position: Integer; var I: Integer);
+var
+  iTextParams: TFontParams;
+  iAlignment: TRichEdit_Align;
+  Right_m: integer;
+  Left_m: Integer;
+begin
+  WGGetFormat(AWinControl, Position, iTextParams, iAlignment, Left_m, Right_m, I);
+  I := I div 37;
+end;
+
+class procedure TGTK2_WSCustomlzRichEdit.SetFontColor(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const Color: TColor);
+var
+  FontColor: TGDKColor;
+  Buffer: PGtkTextBuffer = nil;
+  Tag: Pointer = nil;
+begin
+  FontColor := TColortoTGDKColor(Color);
+  //--
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+  //--
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'foreground-gdk',[@FontColor,
+    'foreground-set', gboolean(gTRUE), nil]);
+  //--
+  WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
+end;
+
+class procedure TGTK2_WSCustomlzRichEdit.SetFontName(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const FontName: TFontName);
+var
+  FontFamily: string;
+  Buffer: PGtkTextBuffer = nil;
+  Tag: Pointer = nil;
+begin
+  FontFamily := FontName;
+  //--
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+  //--
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'family',
+    [@FontFamily[1], 'family-set', gTRUE, nil]);
+  //--
+  WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
+end;
+
+class procedure TGTK2_WSCustomlzRichEdit.SetFontSize(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const FontSize: Integer);
+var
+  FontFamily: string;
+  Buffer: PGtkTextBuffer = nil;
+  Tag: Pointer = nil;
+begin
+  //--
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+  //--
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'size-points',
+  [double(FontSize), nil]);
+  //--
+  WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
+end;
+
+class procedure TGTK2_WSCustomlzRichEdit.SetFontStyle(
+  const AWinControl: TWinControl; iSelStart, iSelLength: Integer;
+  const Style: TFontStyles);
+var
+  Tag: Pointer = nil;
+  Buffer: PGtkTextBuffer = nil;
+const
+  PangoUnderline: array [boolean] of integer =
+    (PANGO_UNDERLINE_NONE, PANGO_UNDERLINE_SINGLE);
+  PangoBold: array [boolean] of integer = (PANGO_WEIGHT_NORMAL, PANGO_WEIGHT_BOLD);
+  PangoItalic: array [boolean] of integer = (PANGO_STYLE_NORMAL, PANGO_STYLE_ITALIC);
+begin
+  if not (WGGetBuffer(AWinControl, Buffer)) then
+    Exit;
+
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'underline',
+   [PangoUnderline[fsUnderline in Style], 'underline-set',
+    gboolean(gTRUE), 'weight', PangoBold[fsBold in Style],
+    'weight-set', gboolean(gTRUE), 'style',
+    PangoItalic[fsItalic in Style], 'style-set',
+    gboolean(gTRUE), 'strikethrough', gboolean(fsStrikeOut in Style),
+    'strikethrough-set', gboolean(gTRUE), nil]);
+
+  WGSetFormat(AWinControl, iSelStart, iSelLength, Buffer, Tag);
 end;
 
 class procedure TGTK2_WSCustomlzRichEdit.InsertImage(const AWinControl: TWinControl;

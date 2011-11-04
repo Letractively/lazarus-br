@@ -36,7 +36,7 @@ interface
 
 uses
   Classes, SysUtils, LResources, StdCtrls, Controls, Graphics,
-  WSlzRichEdit, lzRichEditTypes, LCLType, Dialogs;
+  WSlzRichEdit, lzRichEditTypes, LCLType, Dialogs, LCLProc;
 
 type
   TlzFontParams = TFontParams;
@@ -51,8 +51,60 @@ const
 
 type
   TlzRichEdit_Align = TRichEdit_Align;
-
+  TNumberingStyle = (nsNone, nsBullet);
 type
+  TCustomlzRichEdit = class;
+
+  { TTextAttributes }
+
+  TTextAttributes = class(TPersistent)
+   private
+     FlzRichEdit: TCustomlzRichEdit;
+     FFontParams: TlzFontParams;
+   private
+     procedure GetAttributes(var Format: TlzFontParams);
+     function GetColor: TColor;
+     procedure SetColor(Value: TColor);
+     function GetName: TFontName;
+     procedure SetName(Value: TFontName);
+     function GetSize: Integer;
+     procedure SetSize(Value: Integer);
+     function GetStyle: TFontStyles;
+     procedure SetStyle(Value: TFontStyles);
+   public
+     constructor Create(AOwner: TCustomlzRichEdit);
+     procedure Assign(Source: TPersistent); override;
+     property Color: TColor read GetColor write SetColor;
+     property Name: TFontName read GetName write SetName;
+     property Size: Integer read GetSize write SetSize;
+     property Style: TFontStyles read GetStyle write SetStyle;
+   end;
+
+
+  { TParaAttributes }
+TParaAttributes = class(TPersistent)
+private
+   FlzRichEdit: TCustomlzRichEdit;
+private
+    function GetAlignment: TlzRichEdit_Align;
+    procedure SetAlignment(Value: TlzRichEdit_Align);
+    function GetFirstIndent: LongInt;
+    procedure SetFirstIndent(Value:LongInt);
+    function GetLeftIndent:LongInt;
+    procedure SetLeftIndent(Value:LongInt);
+    function GetNumbering: TNumberingStyle;
+    procedure SetNumbering(Value: TNumberingStyle);
+    function GetRightIndent: LongInt;
+    procedure SetRightIndent(Value:LongInt);
+  public
+    constructor Create(AOwner: TCustomlzRichEdit);
+    procedure Assign(Source: TPersistent); override;
+    property Alignment: TlzRichEdit_Align read GetAlignment write SetAlignment;
+    property FirstIndent: LongInt read GetFirstIndent write SetFirstIndent;
+    property LeftIndent: LongInt read GetLeftIndent write SetLeftIndent;
+    property Numbering: TNumberingStyle read GetNumbering write SetNumbering;
+    property RightIndent: Longint read GetRightIndent write SetRightIndent;
+  end;
 
   { TCustomlzRichEdit }
 
@@ -62,10 +114,10 @@ type
   protected
     FPlainText: boolean;
     FActiveRichOle: boolean;
+    FParagraph: TParaAttributes;
+    FSelAttributes: TTextAttributes;
   protected
     class procedure WSRegisterClass; override;
-    //function RealGetText: TCaption; override;
-    //procedure RealSetText(const Value: TCaption); override;
   private
     procedure SetActiveRichOle(I: boolean);
   public
@@ -73,15 +125,24 @@ type
   public
     property PlainText: boolean read FPlainText write FPlainText default False;
     property RichOle: Pointer read FOle write FOle default nil;
-    property ActiveRichOle: boolean
-      read FActiveRichOle write SetActiveRichOle default False;
+    property ActiveRichOle: boolean read FActiveRichOle write SetActiveRichOle default False;
+    //--
+    property SelAttributes: TTextAttributes read FSelAttributes;
+    property Paragraph: TParaAttributes read FParagraph;
+    //--
   public
+
+    function GetPosStartCharLine:integer;
+    function GetPosCharEndLine:integer;
+
     procedure SetSelection(StartPos, EndPos: integer; ScrollCaret: boolean);
     procedure SetTextAttributes(iSelStart, iSelLength: integer;
       const TextParams: TlzFontParams); virtual;
+
     procedure SetTextAttributes(iSelStart, iSelLength: integer;
       const iFont: TFont); virtual;
     procedure GetTextAttributes(Position: integer; var Params: TlzFontParams); virtual;
+
     procedure SetAlignment(iSelStart, iSelLength: integer; iAlignment: TlzRichEdit_Align);
     procedure GetAlignment(Position: integer; var iAlignment: TlzRichEdit_Align);
     procedure SetNumbering(N: boolean);
@@ -89,16 +150,25 @@ type
     function GetNumbering(Position: integer): boolean;
     procedure SetOffSetIndent(iSelStart, iSelLength: integer; I: integer);
     function GetOffSetIndent: integer;
-    procedure SetRightIndent(iSelStart, iSelLength: integer; I: integer);
-    procedure GetRightIndent(Position: integer; var I: integer);
-    procedure SetStartIndent(iSelStart, iSelLength: integer; I: integer);
-    procedure GetStartIndent(Position: integer; var I: integer);
+    procedure SetIndent(iSelStart, iSelLength: integer; I: integer);
+    procedure GetIndent(Position: integer; var I: integer);
+    procedure SetRightMargin(iSelStart, iSelLength: integer; I: integer);
+    procedure GetRightMargin(Position: integer; var I: integer);
+    procedure SetLeftMargin(iSelStart, iSelLength: integer; I: integer);
+    procedure GetLeftMargin(Position: integer; var I: integer);
+
+    procedure SetFontColor(iSelStart, iSelLength: integer; iColor: TColor);
+    procedure SetFontName(iSelStart, iSelLength: integer; iFontName: TFontName);
+    procedure SetFontSize(iSelStart, iSelLength: integer; iSize: Integer);
+    procedure SetFontStyle(iSelStart, iSelLength: integer; Style: TFontStyles);
+
     procedure InsertImage(Position: integer; Image: TPicture);
     function GetImage(Position: integer; var Image: TPicture): boolean;
     function GetRealTextBuf:String;
     procedure InsertPosLastChar(const UTF8Char: TUTF8Char);
     procedure SaveToStream(Stream: TStream);
     procedure LoadFromStream(Stream: TStream);
+    constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
   end;
 
@@ -173,7 +243,7 @@ end;
 
 
 {$I lzrichedit.inc}
-
+{$I lzrichattribs.inc}
 initialization
 {$I lzrichedit.lrs}
 end.

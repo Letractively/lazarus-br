@@ -17,8 +17,8 @@
     </CompilerOptions>
     <Description Value="Controle para trabalhar com Textos formatados e Imagens, e salvar arquivos no Formato Rich Text."/>
     <License Value="LGPL"/>
-    <Version Minor="1" Release="3"/>
-    <Files Count="12">
+    <Version Minor="1" Release="4"/>
+    <Files Count="13">
       <Item1>
         <Filename Value="wslzrichedit.pas"/>
         <UnitName Value="WSlzRichEdit"/>
@@ -68,6 +68,10 @@
         <Filename Value="gtk2\rtfpars_lzrichedit.pas"/>
         <UnitName Value="RTFPars_lzRichEdit"/>
       </Item12>
+      <Item13>
+        <Filename Value="lzrichattribs.inc"/>
+        <Type Value="Include"/>
+      </Item13>
     </Files>
     <Type Value="RunAndDesignTime"/>
     <RequiredPkgs Count="2">

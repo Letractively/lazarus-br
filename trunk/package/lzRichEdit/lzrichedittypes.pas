@@ -59,7 +59,7 @@ const
     Style: []; );
 
 type
-  TRichEdit_Align = (alLeft, alRight, alCenter, alJustify);
+  TRichEdit_Align = (taLeft, taRight, taCenter, taJustify);
 
 procedure TFontToTFontParams(const Font: TFont; var rFontParams);
 

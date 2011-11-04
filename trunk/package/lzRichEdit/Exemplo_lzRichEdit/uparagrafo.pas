@@ -18,10 +18,12 @@ type
     ComboBox1: TComboBox;
     Edit1: TEdit;
     Edit2: TEdit;
+    Edit3: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
@@ -55,17 +57,32 @@ var
 begin
   if Edit1.Text = '' then Edit1.Text:='0';
   if Edit2.Text = '' then Edit2.Text:='0';
+  if Edit3.Text = '' then Edit3.Text:='0';
+
   if ComboBox1.Text = '' then ComboBox1.ItemIndex:= 2;
   //--
-  TlzRichEdit(RichControl).SetStartIndent(SStart, SLen, StrToInt(Edit1.Text));
-  TlzRichEdit(RichControl).SetRightIndent(SStart, SLen, StrToInt(Edit2.Text));
+  //TlzRichEdit(RichControl).SetLeftMargin(SStart, SLen, StrToInt(Edit1.Text));
+  //TlzRichEdit(RichControl).SetRightMargin(SStart, SLen, StrToInt(Edit2.Text));
+  //TlzRichEdit(RichControl).SetIndent(SStart, SLen, StrToInt(Edit3.Text));
+  {$IFDEF Windows}
+  TlzRichEdit(RichControl).Paragraph.LeftIndent:= StrToInt(Edit3.Text) + StrToInt(Edit1.Text);
+  {$ENDIF}
+
+  {$IFDEF Linux}
+  TlzRichEdit(RichControl).Paragraph.LeftIndent:= StrToInt(Edit1.Text);
+  {$ENDIF}
+
+  TlzRichEdit(RichControl).Paragraph.RightIndent:= StrToInt(Edit2.Text);
+  TlzRichEdit(RichControl).Paragraph.FirstIndent:= StrToInt(Edit3.Text);
+
   //--
   case ComboBox1.ItemIndex of
-    2: Align_:= alLeft;
-    1: Align_:= alRight;
-    0: Align_:= alCenter;
+    2: Align_:= taLeft;
+    1: Align_:= taRight;
+    0: Align_:= taCenter;
   end;
-  TlzRichEdit(RichControl).SetAlignment(SStart, SLen, Align_);
+  //TlzRichEdit(RichControl).SetAlignment(SStart, SLen, Align_);
+  TlzRichEdit(RichControl).Paragraph.Alignment:= Align_;
   Close;
 end;
 
@@ -76,9 +93,9 @@ end;
 
 
 procedure TfrmParagrafo.Execute(aRichControl: TWinControl);
-var
-  Align_: TRichEdit_Align;
-  L, R:Integer;
+//var
+  //Align_: TRichEdit_Align;
+  //L, R, I:Integer;
 begin
   RichControl:= aRichControl;
   Show;
@@ -86,17 +103,29 @@ begin
   Slen:= TlzRichEdit(RichControl).SelLength;
   //Edit1.Text:= IntToStr(TlzRichEdit(RichControl).GetStartIndent);
   //Edit2.Text:= IntToStr(TlzRichEdit(RichControl).GetRightIndent);
-  TlzRichEdit(RichControl).GetStartIndent(TlzRichEdit(RichControl).SelStart, L);
-  TlzRichEdit(RichControl).GetRightIndent(TlzRichEdit(RichControl).SelStart, R);
-  Edit1.Text:= IntToStr(L);
-  Edit2.Text:= IntToStr(R);
+  //TlzRichEdit(RichControl).GetLeftMargin(TlzRichEdit(RichControl).SelStart, L);
+  //TlzRichEdit(RichControl).GetRightMargin(TlzRichEdit(RichControl).SelStart, R);
+  //TlzRichEdit(RichControl).GetIndent(TlzRichEdit(RichControl).SelStart, I);
+  //Edit1.Text:= IntToStr(L);
+  //Edit2.Text:= IntToStr(R);
+  //Edit3.Text:= IntToStr(I);
+  {$IFDEF WINDOWS}
+  Edit1.Text:= IntToStr(TlzRichEdit(RichControl).Paragraph.LeftIndent -
+                        TlzRichEdit(RichControl).Paragraph.FirstIndent);
+  {$ENDIF}
+  {$IFDEF Linux}
+  Edit1.Text:= IntToStr(TlzRichEdit(RichControl).Paragraph.LeftIndent);
+  {$ENDIF}
 
-  TlzRichEdit(RichControl).GetAlignment(TlzRichEdit(RichControl).SelStart ,Align_);
+  Edit2.Text:= IntToStr(TlzRichEdit(RichControl).Paragraph.RightIndent);
+  Edit3.Text:= IntToStr(TlzRichEdit(RichControl).Paragraph.FirstIndent);
 
-  case Align_ of
-    alLeft: ComboBox1.ItemIndex:= 2;
-    alCenter: ComboBox1.ItemIndex:= 0;
-    alRight: ComboBox1.ItemIndex:= 1;
+  //TlzRichEdit(RichControl).GetAlignment(TlzRichEdit(RichControl).SelStart ,Align_);
+
+  case TlzRichEdit(RichControl).Paragraph.Alignment of
+    taLeft: ComboBox1.ItemIndex:= 2;
+    taCenter: ComboBox1.ItemIndex:= 0;
+    taRight: ComboBox1.ItemIndex:= 1;
   end;
   TlzRichEdit(RichControl).Refresh;
   TlzRichEdit(RichControl).SelStart:= SStart;

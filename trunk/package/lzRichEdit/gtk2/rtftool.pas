@@ -60,7 +60,7 @@ type
     FParagNumber: boolean;
     Ffonttbl: TStringList;
     Fcolortbl: TStringList;
-    Fli, Fri: integer;
+    Fli, Fri, Ffi: integer;
   public
     function AddFont(FontName: string): integer;
     function AddColor(Color: TColor): integer;
@@ -84,6 +84,7 @@ type
     FAlign: TRichEdit_Align;
     FLeftIndent: integer;
     FRightIndent: integer;
+    FFirstIndent: integer;
   private
     procedure DoGroup;
     procedure DoWrite;
@@ -133,14 +134,16 @@ var
   sAlign: TRichEdit_Align;
   SR: integer = 0;
   SL: integer = 0;
+  SI: integer = 0;
 begin
   Result := '';
   //--
   TCustomlzRichEdit(FlzRichEdit).GetAlignment(iChar, sAlign);
-  TCustomlzRichEdit(FlzRichEdit).GetStartIndent(iChar, SL);
-  TCustomlzRichEdit(FlzRichEdit).GetRightIndent(iChar, SR);
+  TCustomlzRichEdit(FlzRichEdit).GetLeftMargin(iChar, SL);
+  TCustomlzRichEdit(FlzRichEdit).GetRightMargin(iChar, SR);
+  TCustomlzRichEdit(FlzRichEdit).GetIndent(iChar, SI);
   if (TCustomlzRichEdit(FlzRichEdit).GetNumbering(iChar) <> FParagNumber) or
-    (sAlign <> FParagAlign) or (iChar = 0) or (SL <> Fli) or (SR <> Fri) then
+    (sAlign <> FParagAlign) or (iChar = 0) or (SL <> Fli) or (SR <> Fri) or (SI <> Ffi) then
   begin
     Result := '\pard';
     if TCustomlzRichEdit(FlzRichEdit).GetNumbering(iChar) then
@@ -153,20 +156,25 @@ begin
     //--
     TCustomlzRichEdit(FlzRichEdit).GetAlignment(iChar, sAlign);
     case sAlign of
-      lzRichEditTypes.alRight: Result := Result + '\qr';
-      lzRichEditTypes.alCenter: Result := Result + '\qc';
+      lzRichEditTypes.taRight: Result := Result + '\qr';
+      lzRichEditTypes.taCenter: Result := Result + '\qc';
     end;
     FParagAlign := sAlign;
     //--
-    TCustomlzRichEdit(FlzRichEdit).GetStartIndent(iChar, SL);
+    TCustomlzRichEdit(FlzRichEdit).GetLeftMargin(iChar, SL);
     if (SL > 0) then
       Result := Result + '\li' + IntToStr(SL * 568);
     Fli := SL;
     //--
-    TCustomlzRichEdit(FlzRichEdit).GetRightIndent(iChar, SR);
+    TCustomlzRichEdit(FlzRichEdit).GetRightMargin(iChar, SR);
     if (SR > 0) then
       Result := Result + '\ri' + IntToStr(SR * 568);
     Fri := SR;
+    //--
+    TCustomlzRichEdit(FlzRichEdit).GetIndent(iChar, SI);
+    if (SI > 0) then
+      Result := Result + '\fi' + IntToStr(SI * 586);
+    Ffi:= SI;
     //--
     Exit;
   end;
@@ -359,7 +367,8 @@ begin
   Fcolortbl := TStringList.Create;
   Fli := 0;
   Fri := 0;
-  FParagAlign := lzRichEditTypes.alJustify;
+  Ffi := 0;
+  FParagAlign := lzRichEditTypes.taJustify;
   FFontParams.Name := '';
   FFontParams.Color := $0;
   FFontParams.Size := 0;
@@ -422,9 +431,11 @@ begin
       TCustomlzRichEdit(FlzRichEdit).InsertPosLastChar(C);
       L := UTF8Length(TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf);
       if (FLeftIndent > 0) then
-        TCustomlzRichEdit(FlzRichEdit).SetStartIndent(L - 1, 1, FLeftIndent div 568);
+        TCustomlzRichEdit(FlzRichEdit).SetLeftMargin(L - 1, 1, FLeftIndent div 568);
       if (FRightIndent > 0) then
-        TCustomlzRichEdit(FlzRichEdit).SetRightIndent(L - 1, 1, FRightIndent div 568);
+        TCustomlzRichEdit(FlzRichEdit).SetRightMargin(L - 1, 1, FRightIndent div 568);
+      if (FFirstIndent > 0) then
+        TCustomlzRichEdit(FlzRichEdit).SetIndent(L - 1, 1, FFirstIndent div 568);
       TCustomlzRichEdit(FlzRichEdit).SetAlignment(L - 1, 1, FAlign);
       TCustomlzRichEdit(FlzRichEdit).SetTextAttributes(L - 1, 1, FFontParams);
     end;
@@ -466,10 +477,12 @@ begin
     if (UTF8Copy(S, (I), 1) = UnicodeToUTF8($A)) or (I = 0) then
     begin
       //WriteLn('DoWrite: I:' + IntToStr(I) + ' FLeftIndent:' + IntToStr(FLeftIndent) + ' UTF8Length:' + IntToStr(L));
+      if (FFirstIndent > 0) then
+        TCustomlzRichEdit(FlzRichEdit).SetIndent(I, L - I, FFirstIndent div 568);
       if (FLeftIndent > 0) then
-        TCustomlzRichEdit(FlzRichEdit).SetStartIndent(I, L - I, FLeftIndent div 568);
+        TCustomlzRichEdit(FlzRichEdit).SetLeftMargin(I, L - I, FLeftIndent div 568);
       if (FRightIndent > 0) then
-        TCustomlzRichEdit(FlzRichEdit).SetRightIndent(I, L - I, FRightIndent div 568);
+        TCustomlzRichEdit(FlzRichEdit).SetRightMargin(I, L - I, FRightIndent div 568);
       TCustomlzRichEdit(FlzRichEdit).SetAlignment(I, L - I, FAlign);
       Break;
     end;
@@ -547,37 +560,42 @@ begin
     rtfParDef:
     begin
       //FFontParams:= DefFontParams;
-      FAlign := lzRichEditTypes.alLeft;
+      FAlign := lzRichEditTypes.taLeft;
       FLeftIndent := 0;
       FRightIndent := 0;
+      FFirstIndent:= 0;
       //WriteLn('rtfParDef');
     end;
     //rtfStyleNum             :WriteLn('rtfStyleNum');
     rtfQuadLeft:
     begin
-      FAlign := lzRichEditTypes.alLeft;
+      FAlign := lzRichEditTypes.taLeft;
       //WriteLn('rtfQuadLeft');
       AplIndent;
     end;
     rtfQuadRight:
     begin
-      FAlign := lzRichEditTypes.alRight;
+      FAlign := lzRichEditTypes.taRight;
       //WriteLn('rtfQuadRight');
       AplIndent;
     end;
     rtfQuadJust:
     begin
-      FAlign := lzRichEditTypes.alJustify;
+      FAlign := lzRichEditTypes.taJustify;
       //WriteLn('rtfQuadJust');
       AplIndent;
     end;
     rtfQuadCenter:
     begin
-      FAlign := lzRichEditTypes.alCenter;
+      FAlign := lzRichEditTypes.taCenter;
       //WriteLn('rtfQuadCenter');
       AplIndent;
     end;
-    //rtfFirstIndent          :WriteLn('rtfFirstIndent');
+    rtfFirstIndent:
+    begin
+      FFirstIndent:= FRTFParser.rtfParam;
+      AplIndent;
+    end;
     rtfLeftIndent:
     begin
       FLeftIndent := FRTFParser.rtfParam;
@@ -761,9 +779,9 @@ begin
     //--
     L := UTF8Length(TCustomlzRichEdit(FlzRichEdit).GetRealTextBuf);
     if (FLeftIndent > 0) then
-      TCustomlzRichEdit(FlzRichEdit).SetStartIndent(L - 1, 1, FLeftIndent div 568);
+      TCustomlzRichEdit(FlzRichEdit).SetLeftMargin(L - 1, 1, FLeftIndent div 568);
     if (FRightIndent > 0) then
-      TCustomlzRichEdit(FlzRichEdit).SetRightIndent(L - 1, 1, FRightIndent div 568);
+      TCustomlzRichEdit(FlzRichEdit).SetRightMargin(L - 1, 1, FRightIndent div 568);
     TCustomlzRichEdit(FlzRichEdit).SetAlignment(L - 1, 1, FAlign);
     TCustomlzRichEdit(FlzRichEdit).SetTextAttributes(L - 1, 1, FFontParams);
   end;

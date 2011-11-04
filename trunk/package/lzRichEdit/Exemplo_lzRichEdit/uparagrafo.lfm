@@ -1,17 +1,17 @@
 object frmParagrafo: TfrmParagrafo
   Left = 423
-  Height = 140
+  Height = 170
   Top = 210
-  Width = 324
+  Width = 400
   ActiveControl = Button1
   BorderIcons = [biSystemMenu]
   Caption = 'Parágrafo'
-  ClientHeight = 140
-  ClientWidth = 324
-  Constraints.MaxHeight = 140
-  Constraints.MaxWidth = 324
-  Constraints.MinHeight = 140
-  Constraints.MinWidth = 324
+  ClientHeight = 170
+  ClientWidth = 400
+  Constraints.MaxHeight = 170
+  Constraints.MaxWidth = 400
+  Constraints.MinHeight = 170
+  Constraints.MinWidth = 400
   FormStyle = fsStayOnTop
   Icon.Data = {
     7E04000000000100010010100000010020006804000016000000280000001000
@@ -52,27 +52,27 @@ object frmParagrafo: TfrmParagrafo
     0000000000000000000000000000000000000000000000000000000000000000
     0000
   }
-  LCLVersion = '0.9.29'
+  LCLVersion = '0.9.31'
   object GroupBox1: TGroupBox
     Left = 8
-    Height = 89
+    Height = 121
     Top = 8
-    Width = 216
+    Width = 296
     Caption = 'Recuos'
-    ClientHeight = 70
-    ClientWidth = 210
+    ClientHeight = 103
+    ClientWidth = 292
     TabOrder = 0
     object Label1: TLabel
       Left = 11
-      Height = 18
-      Top = 8
-      Width = 65
-      Caption = 'Esquerda:'
+      Height = 16
+      Top = 10
+      Width = 83
+      Caption = 'Antes do Texto:'
       ParentColor = False
     end
     object Edit1: TEdit
-      Left = 85
-      Height = 25
+      Left = 166
+      Height = 23
       Top = 1
       Width = 120
       MaxLength = 6
@@ -81,27 +81,43 @@ object frmParagrafo: TfrmParagrafo
     end
     object Label2: TLabel
       Left = 11
-      Height = 18
+      Height = 16
       Top = 42
-      Width = 47
-      Caption = 'Direita:'
+      Width = 89
+      Caption = 'Depois do Texto:'
       ParentColor = False
     end
     object Edit2: TEdit
-      Left = 85
-      Height = 25
-      Top = 35
+      Left = 166
+      Height = 23
+      Top = 33
       Width = 120
       OnKeyPress = Edit1KeyPress
       TabOrder = 1
     end
+    object Label4: TLabel
+      Left = 11
+      Height = 16
+      Top = 73
+      Width = 77
+      Caption = 'Primeira Linha'
+      ParentColor = False
+    end
+    object Edit3: TEdit
+      Left = 166
+      Height = 23
+      Top = 65
+      Width = 120
+      OnKeyPress = Edit1KeyPress
+      TabOrder = 2
+    end
   end
   object ComboBox1: TComboBox
     Left = 124
-    Height = 25
-    Top = 103
+    Height = 23
+    Top = 136
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 15
     Items.Strings = (
       'Centro'
       'Direita'
@@ -111,14 +127,14 @@ object frmParagrafo: TfrmParagrafo
   end
   object Label3: TLabel
     Left = 24
-    Height = 18
-    Top = 110
-    Width = 86
+    Height = 16
+    Top = 143
+    Width = 73
     Caption = 'Alinhamento:'
     ParentColor = False
   end
   object Button1: TButton
-    Left = 232
+    Left = 312
     Height = 25
     Top = 16
     Width = 75
@@ -127,7 +143,7 @@ object frmParagrafo: TfrmParagrafo
     TabOrder = 2
   end
   object Button2: TButton
-    Left = 232
+    Left = 312
     Height = 25
     Top = 64
     Width = 75
@@ -135,4 +151,4 @@ object frmParagrafo: TfrmParagrafo
     OnClick = Button2Click
     TabOrder = 3
   end
-end
+end

@@ -142,7 +142,7 @@ implementation
 
 procedure TForm1.ToolButton13Click(Sender: TObject);
 var
-  S: TFileStream;
+  S: TMemoryStream;
 begin
   //-- Abrir
   Odlg.Title := 'Abrir...';
@@ -168,7 +168,10 @@ begin
       FileName := '';
     //--
     lzRichEdit1.Clear;
-    S := TFileStream.Create(Odlg.FileName, fmOpenRead);
+    S := TMemoryStream.Create;
+    S.LoadFromFile(Odlg.FileName);
+    S.Seek(0 ,soBeginning);
+    //S := TFileStream.Create(Odlg.FileName, fmOpenRead);
     lzRichEdit1.LoadFromStream(S);
     S.Free;
     //--
@@ -206,10 +209,10 @@ begin
 end;
 
 procedure TForm1.ToolButton1Click(Sender: TObject);
-var
-  FontParams: TlzFontParams;
+//var
+  //FontParams: TlzFontParams;
 begin
-  FontParams := DeflzFontParams;
+ { FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
   if (fsBold in FontParams.Style) then
@@ -218,7 +221,12 @@ begin
     FontParams.Style := FontParams.Style + [fsBold];
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
-  //--
+  //-- }
+   if (fsBold in lzRichEdit1.SelAttributes.Style) then
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style - [fsBold]
+  else
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style + [fsBold];
+
   GetTextStatus;
 end;
 
@@ -233,10 +241,10 @@ begin
 end;
 
 procedure TForm1.ToolButton2Click(Sender: TObject);
-var
-  FontParams: TlzFontParams;
+//var
+//  FontParams: TlzFontParams;
 begin
-  FontParams := DeflzFontParams;
+{  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
   if (fsItalic in FontParams.Style) then
@@ -245,15 +253,19 @@ begin
     FontParams.Style := FontParams.Style + [fsItalic];
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
-  //--
+  //-- }
+   if (fsItalic in lzRichEdit1.SelAttributes.Style) then
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style - [fsItalic]
+  else
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style + [fsItalic];
   GetTextStatus;
 end;
 
 procedure TForm1.ToolButton3Click(Sender: TObject);
-var
-  FontParams: TlzFontParams;
+//var
+//  FontParams: TlzFontParams;
 begin
-  FontParams := DeflzFontParams;
+{  FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
 
   //--
@@ -263,25 +275,33 @@ begin
     FontParams.Style := FontParams.Style + [fsUnderline];
   //--
   lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
-  //--
+  //-- }
+   if (fsUnderline in lzRichEdit1.SelAttributes.Style) then
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style - [fsUnderline]
+  else
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style + [fsUnderline];
+
   GetTextStatus;
 end;
 
 procedure TForm1.ToolButton6Click(Sender: TObject);
 begin
-  lzRichEdit1.SetAlignment(lzRichEdit1.SelStart, lzRichEdit1.SelLength, alLeft);
+  //lzRichEdit1.SetAlignment(lzRichEdit1.GetPosStartCharLine, lzRichEdit1.GetPosCharEndLine - lzRichEdit1.GetPosStartCharLine , taLeft);
+  lzRichEdit1.Paragraph.Alignment:= taLeft;
   GetTextStatus;
 end;
 
 procedure TForm1.ToolButton8Click(Sender: TObject);
 begin
-  lzRichEdit1.SetAlignment(lzRichEdit1.SelStart, lzRichEdit1.SelLength, alCenter);
+  //lzRichEdit1.SetAlignment(lzRichEdit1.SelStart, lzRichEdit1.SelLength, taCenter);
+  lzRichEdit1.Paragraph.Alignment:= taCenter;
   GetTextStatus;
 end;
 
 procedure TForm1.ToolButton9Click(Sender: TObject);
 begin
-  lzRichEdit1.SetAlignment(lzRichEdit1.SelStart, lzRichEdit1.SelLength, alRight);
+  //lzRichEdit1.SetAlignment(lzRichEdit1.SelStart, lzRichEdit1.SelLength, taRight);
+  lzRichEdit1.Paragraph.Alignment:= taRight;
   GetTextStatus;
 end;
 
@@ -348,11 +368,22 @@ end;
 procedure TForm1.ToolButton11Click(Sender: TObject);
 begin
 
-  lzRichEdit1.SetNumbering(not (lzRichEdit1.GetNumbering));
+  {lzRichEdit1.SetNumbering(not (lzRichEdit1.GetNumbering));
   if lzRichEdit1.GetNumbering then
     lzRichEdit1.SetOffSetIndent(lzRichEdit1.SelStart, lzRichEdit1.SelLength, 20)
   else
     lzRichEdit1.SetOffSetIndent(lzRichEdit1.SelStart, lzRichEdit1.SelLength, 0);
+   }
+  if lzRichEdit1.Paragraph.Numbering = nsNone then
+    begin
+      lzRichEdit1.Paragraph.Numbering:= nsBullet;
+      lzRichEdit1.SetOffSetIndent(lzRichEdit1.SelStart, lzRichEdit1.SelLength, 20);
+    end
+  else
+    begin
+      lzRichEdit1.Paragraph.Numbering:= nsNone;
+      lzRichEdit1.SetOffSetIndent(lzRichEdit1.SelStart, lzRichEdit1.SelLength, 0)
+    end;
 
   GetTextStatus;
 end;
@@ -363,33 +394,35 @@ begin
 end;
 
 procedure TForm1.ColorButton1ChangeBounds(Sender: TObject);
-var
-  FontParams: TlzFontParams;
+//var
+//  FontParams: TlzFontParams;
 begin
-  if not (FSetColor) then
+{  if not (FSetColor) then
     Exit;
   FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
   FontParams.Color := ColorButton1.ButtonColor;
   //--
-  lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
+  lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);}
   //--
+  lzRichEdit1.SelAttributes.Color:= ColorButton1.ButtonColor;
   GetTextStatus;
 
 end;
 
 procedure TForm1.CBFontSelect(Sender: TObject);
-var
-  FontParams: TlzFontParams;
+//var
+//  FontParams: TlzFontParams;
 begin
-  FontParams := DeflzFontParams;
-  lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
+//  FontParams := DeflzFontParams;
+//  lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
   //--
-  FontParams.Name := CBfont.Text;
+//  FontParams.Name := CBfont.Text;
   //--
-  lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
+//  lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength, FontParams);
   //--
+  lzRichEdit1.SelAttributes.Name:= CBfont.Text;
   GetTextStatus;
 end;
 
@@ -404,19 +437,20 @@ end;
 
 procedure TForm1.CBSizeChange(Sender: TObject);
 var
-  FontParams: TlzFontParams;
+//  FontParams: TlzFontParams;
   FontSize: integer;
 begin
   if TryStrToInt(CBSize.Text, FontSize) then
   begin
-    FontParams := DeflzFontParams;
-    lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
+    //FontParams := DeflzFontParams;
+    //lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart, FontParams);
     //--
-    FontParams.Size := FontSize;
+    //FontParams.Size := FontSize;
     //--
-    lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength,
-      FontParams);
+    //lzRichEdit1.SetTextAttributes(lzRichEdit1.SelStart, lzRichEdit1.SelLength,
+    //  FontParams);
     //--
+    lzRichEdit1.SelAttributes.Size:= FontSize;
   end
   else
     MessageDlg('Formatar', 'Número inválido', mtInformation, [mbOK], 0);
@@ -515,8 +549,15 @@ var
 begin
   //-- Inserir Imagem
   Odlg.Title := 'Abrir...';
+  {$IFDEF WINDOWS}
   Odlg.Filter :=
     'Imagens (*.bmp;*.xpm;*.png;*.ico;*.jpg;*.jpeg)|*.bmp;*.xpm;*.png;*.ico;*.jpg;*.jpeg';
+  {$ENDIF}
+  {$IFDEF Linux}
+  Odlg.Filter :=
+    'Imagens (*.bmp;*.xpm;*.png)|*.bmp;*.xpm;*.png';
+  {$ENDIF}
+
   Odlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
 
   if Odlg.Execute then
@@ -585,9 +626,9 @@ begin
   //--
   lzRichEdit1.GetAlignment(lzRichEdit1.SelStart, FAlign_);
 
-  ToolButton6.Down := (alLeft = FAlign_);
-  ToolButton8.Down := (alCenter = FAlign_);
-  ToolButton9.Down := (alRight = FAlign_);
+  ToolButton6.Down := (taLeft = FAlign_);
+  ToolButton8.Down := (taCenter = FAlign_);
+  ToolButton9.Down := (taRight = FAlign_);
   //--
   ToolButton11.Down := lzRichEdit1.GetNumbering;
   MenuItem25.Checked := lzRichEdit1.GetNumbering;
