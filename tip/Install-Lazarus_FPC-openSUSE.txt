@@ -1,0 +1,17 @@
+Ver: http://lists.lazarus.freepascal.org/pipermail/lazarus/2011-October/067873.html 
+
+ou:
+
+Baixe: http://users.telenet.be/Jan.Van.hijfte/qtforfpc/bin-qt4pas-V2.1_Qt4.5.3.tar.gz
+
+$ tar -zxvf bin-qt4pas-V2.1_Qt4.5.3.tar.gz
+$ cd bin-qt4pas-V2.1_Qt4.5.3
+# mv libQt4Pas.so.5.2.1 /usr/lib/
+# ln -s /usr/lib/libQt4Pas.so.5.2.1 /usr/lib/libQt4Pas.so.5.2
+# ln -s /usr/lib/libQt4Pas.so.5.2.1 /usr/lib/libQt4Pas.so.5
+# ln -s /usr/lib/libQt4Pas.so.5.2.1 /usr/lib/libQt4Pas.so
+$ cd /usr/lib/lazarus
+$ make bigideclean
+$ make bigide LCL_PLATFORM=qt
+
+silvioprog, zeljko.
