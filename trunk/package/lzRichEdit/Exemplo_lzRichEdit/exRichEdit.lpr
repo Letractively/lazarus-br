@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   SysUtils, Forms, lazrichedit, UPrincipal, ULocalizar, UParagrafo, USobre,
-  UGetFontLinux;
+  UGetFontLinux, lzRichEditToHTML;
 
 {$R *.res}
 

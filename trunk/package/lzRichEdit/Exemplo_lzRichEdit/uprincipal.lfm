@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 359
-  Height = 479
+  Height = 502
   Top = 193
   Width = 720
   ActiveControl = lzRichEdit1
   Caption = 'ExRichEdit'
-  ClientHeight = 456
+  ClientHeight = 479
   ClientWidth = 720
   Constraints.MinHeight = 430
   Constraints.MinWidth = 500
@@ -56,7 +56,7 @@ object Form1: TForm1
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
     Left = 3
-    Height = 392
+    Height = 254
     Top = 56
     Width = 712
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -72,7 +72,7 @@ object Form1: TForm1
     AnchorSideBottom.Control = GroupBox1
     AnchorSideBottom.Side = asrBottom
     Left = 13
-    Height = 366
+    Height = 228
     Top = 72
     Width = 692
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -401,6 +401,34 @@ object Form1: TForm1
       Width = 8
       Caption = 'ToolButton28'
       Style = tbsSeparator
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 3
+    Height = 161
+    Top = 312
+    Width = 713
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'HTML'
+    ClientHeight = 144
+    ClientWidth = 709
+    TabOrder = 4
+    object Memo1: TMemo
+      Left = 5
+      Height = 104
+      Top = 1
+      Width = 694
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 0
+    end
+    object Button1: TButton
+      Left = 5
+      Height = 25
+      Top = 113
+      Width = 75
+      Caption = 'HTML'
+      OnClick = HTMLClick
+      TabOrder = 1
     end
   end
   object MainMenu1: TMainMenu
