@@ -407,12 +407,13 @@ end;
 
 procedure TRTFRead.DoWrite;
 var
-  C: char;
+  C: TUTF8char;
   //CH:TUTF8Char;
   //I:Integer;
   L: integer;
 begin
-  C := chr(FRTFParser.RTFMajor);
+  //C := chr(FRTFParser.RTFMajor);
+  C := UnicodeToUTF8(FRTFParser.RTFMajor);
   if FIsPict then
     RTFPict.HEX := RTFPict.HEX + C
   else
@@ -503,7 +504,7 @@ begin
     //rtfNoReqHyphen          :WriteLn('rtfNoReqHyphen');
     //rtfNoBrkHyphen          :WriteLn('rtfNoBrkHyphen');
     //rtfPage                 :WriteLn('rtfPage');
-    //rtfLine                 :WriteLn('rtfLine');
+    //rtfLine                    :WriteLn(FRTFParser.GetRtfBuf);
     rtfPar:
     begin
       if (FSkipGroup = -1) then
@@ -525,7 +526,7 @@ begin
     //rtfAnnotation           :WriteLn('rtfAnnotation');
     //rtfAnnotID              :WriteLn('rtfAnnotID');
     //rtfCurAnnotRef          :WriteLn('rtfCurAnnotRef');
-    //rtfFNoteSep             :WriteLn('rtfFNoteSep');
+    //rtfFNoteSep             :WriteLn(FRTFParser.GetRtfBuf);
     //rtfFNoteCont            :WriteLn('rtfFNoteCont');
     //rtfColumn               :WriteLn('rtfColumn');
     rtfOptDest:

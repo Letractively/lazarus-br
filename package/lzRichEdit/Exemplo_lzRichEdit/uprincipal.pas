@@ -7,13 +7,14 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ComCtrls, Menus, ExtCtrls, Buttons, lzRichEdit, lzRichEditTypes, LCLProc,
-  LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre{$IFDEF LINUX}, UGetFontLinux{$ENDIF};
+  LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre, lzRichEditToHTML{$IFDEF LINUX}, UGetFontLinux{$ENDIF};
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    Button1: TButton;
     ColorButton1: TColorButton;
     CBFont: TComboBox;
     CBSize: TComboBox;
@@ -23,6 +24,7 @@ type
     ImageList1: TImageList;
     lzRichEdit1: TlzRichEdit;
     MainMenu1: TMainMenu;
+    Memo1: TMemo;
     MenuItem1: TMenuItem;
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
@@ -82,6 +84,7 @@ type
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
     procedure Button1Click(Sender: TObject);
+    procedure HTMLClick(Sender: TObject);
     procedure CBFontSelect(Sender: TObject);
     procedure CBSizeChange(Sender: TObject);
     procedure ColorButton1ChangeBounds(Sender: TObject);
@@ -433,6 +436,17 @@ begin
   FontParams := DeflzFontParams;
   lzRichEdit1.GetTextAttributes(lzRichEdit1.SelStart - 1, FontParams);
   ShowMessage(FontParams.Name);
+end;
+
+procedure TForm1.HTMLClick(Sender: TObject);
+var
+  HTMLString:String;
+begin
+  RichEditToHTML(lzRichEdit1, HTMLString);
+  //--
+  Memo1.Text:= HTMLString;
+
+
 end;
 
 procedure TForm1.CBSizeChange(Sender: TObject);
