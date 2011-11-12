@@ -1,0 +1,49 @@
+object MainForm: TMainForm
+  Left = 263
+  Height = 285
+  Top = 156
+  Width = 413
+  Caption = 'MainForm'
+  ClientHeight = 265
+  ClientWidth = 413
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30.2RC2'
+  object StringGrid1: TStringGrid
+    Left = 0
+    Height = 265
+    Top = 0
+    Width = 413
+    Align = alClient
+    TabOrder = 0
+    Cells = (
+      3
+      2
+      1
+      'Test'
+      3
+      3
+      'Test'
+      4
+      4
+      'Test'
+    )
+  end
+  object MainMenu1: TMainMenu
+    left = 56
+    top = 32
+    object MenuItem1: TMenuItem
+      Caption = '&Search'
+      object MenuItem2: TMenuItem
+        Caption = '&Find'
+        OnClick = MenuItem2Click
+      end
+    end
+  end
+  object FindDialog1: TFindDialog
+    OnFind = FindDialog1Find
+    left = 144
+    top = 32
+  end
+end
