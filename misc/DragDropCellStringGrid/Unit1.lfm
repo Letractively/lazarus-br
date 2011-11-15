@@ -1,0 +1,69 @@
+object Form1: TForm1
+  Left = 238
+  Height = 240
+  Top = 148
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30.2'
+  object StringGrid1: TStringGrid
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    ColCount = 4
+    TabOrder = 0
+    OnDragDrop = StringGrid1DragDrop
+    OnDragOver = StringGrid1DragOver
+    OnMouseDown = StringGrid1MouseDown
+    ColWidths = (
+      15
+      64
+      64
+      64
+    )
+    Cells = (
+      12
+      1
+      1
+      'Test 1'
+      1
+      2
+      'Test 2'
+      1
+      3
+      'Test 3'
+      1
+      4
+      'Test 4'
+      2
+      1
+      'Test 5'
+      2
+      2
+      'Test 6'
+      2
+      3
+      'Test 7'
+      2
+      4
+      'Test 8'
+      3
+      1
+      'Test 9'
+      3
+      2
+      'Test 10'
+      3
+      3
+      'Test 11'
+      3
+      4
+      'Test 12'
+    )
+  end
+end
