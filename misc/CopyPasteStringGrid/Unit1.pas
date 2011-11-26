@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, Forms, Grids, LCLType;
+  Classes, Forms, Grids, LCLType, LCLProc ;
 
 type
 
@@ -18,7 +18,8 @@ type
     procedure StringGrid1KeyDown(Sender: TObject; var Key: word;
       Shift: TShiftState);
   private
-    FSelectedText: TStrings;
+    FSelectedTextOrig,FSelectedTextDest: TStrings;
+    FOrig,FDest: TGridRect;
   end;
 
 var
@@ -32,44 +33,66 @@ implementation
 
 procedure TForm1.StringGrid1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 var
-  VSelection: TGridRect;
+
   I, VCol, VRow: Integer;
 begin
-  if ssCtrl in Shift then
-  begin
-    if Key = VK_C then
-    begin
-      FSelectedText.Clear;
-      VSelection := StringGrid1.Selection;
-      for VRow := VSelection.Top to VSelection.Bottom do
-        for VCol := VSelection.Left to VSelection.Right do
-        begin
-          FSelectedText.Add(StringGrid1.Cells[VCol, VRow]);
-//            StringGrid1.Cells[VCol, VRow] := ''; Caso queira opção "Cut", descomente esta linha.
+  if ssCtrl in Shift then begin
+    if Key = VK_C then  begin
+      FSelectedTextOrig.Clear;
+      FOrig := StringGrid1.Selection;
+      I:=0;
+     // WriteLn('Origem Left: ',SOrig.Left, '   Right: ',SOrig.Right);
+      for VRow := FOrig.Top to FOrig.Bottom do
+        for VCol := FOrig.Left to FOrig.Right do   begin
+          FSelectedTextOrig.Add(StringGrid1.Cells[VCol, VRow]); //Importante no caso de "cut"
+          Inc(I);
+          //StringGrid1.Cells[VCol, VRow] := ''; //Caso queira opção "Cut", descomente esta linha.
         end;
     end;
-    if Key = VK_V then
-    begin
+    if Key = VK_V then  begin
       I := 0;
-      VSelection := StringGrid1.Selection;
-      for VRow := VSelection.Top to VSelection.Bottom do
-        for VCol := VSelection.Left to VSelection.Right do
-        begin
-          StringGrid1.Cells[VCol, VRow] := FSelectedText[I];
+      FDest := StringGrid1.Selection;
+      FSelectedTextDest.Clear;
+     // WriteLn('Destino  Left: ',SDest.Left, '   Right: ',SDest.Right);
+     // WriteLn('Origem   Left: ',SOrig.Left, '   Right: ',SOrig.Right ,'  ',SOrig.Left-Sorig.Right);
+      for VRow := FDest.Top to FDest.Top + Abs(FOrig.Top - FOrig.Bottom) do
+        for VCol := FDest.Left to FDest.Left + Abs(FOrig.Left - FOrig.Right)do  begin
+          FSelectedTextDest.Add(StringGrid1.Cells[VCol, VRow]);
+          StringGrid1.Cells[VCol, VRow] := FSelectedTextDest[I];
           Inc(I);
         end;
+    end;
+    if Key = VK_Z then  begin
+      I := 0;
+      if FSelectedTextDest.Count>0 then
+        for VRow := FDest.Top to FDest.Top + Abs(FOrig.Top - FOrig.Bottom) do
+          for VCol := FDest.Left to FDest.Left + Abs(FOrig.Left - FOrig.Right)do  begin
+            StringGrid1.Cells[VCol, VRow] := FSelectedTextDest[I];
+            Inc(I);
+          end;
+      FSelectedTextDest.Free;
+      I:=0;
+      if FSelectedTextOrig.Count>0 then
+        for VRow := FOrig.Top to FOrig.Bottom do
+          for VCol := FOrig.Left to FOrig.Right do   begin
+            StringGrid1.Cells[VCol, VRow] := FSelectedTextOrig[I];
+            Inc(I);
+          end;
+      FSelectedTextOrig.Free;
     end;
   end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  FSelectedText := TStringList.Create;
+  FSelectedTextOrig  := TStringList.Create;
+  FSelectedTextDest  := TStringList.Create;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
-  FSelectedText.Free;
+  FSelectedTextOrig.Free;
+  FSelectedTextDest.Free;
 end;
 
 end.

@@ -1,27 +1,28 @@
 object Form1: TForm1
-  Left = 269
-  Height = 240
-  Top = 148
-  Width = 320
+  Left = 176
+  Height = 261
+  Top = 185
+  Width = 679
   Caption = 'Form1'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 261
+  ClientWidth = 679
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poDesktopCenter
-  LCLVersion = '0.9.30.2RC1'
+  LCLVersion = '0.9.30.2RC2'
   object StringGrid1: TStringGrid
     Left = 0
-    Height = 240
+    Height = 261
     Top = 0
-    Width = 320
+    Width = 679
     Align = alClient
-    ColCount = 4
+    ColCount = 10
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goSmoothScroll]
+    RowCount = 10
     TabOrder = 0
     OnKeyDown = StringGrid1KeyDown
     Cells = (
-      4
+      5
       1
       1
       'Test 1'
@@ -34,6 +35,9 @@ object Form1: TForm1
       1
       4
       'Test 4'
+      1
+      5
+      'Test 5'
     )
   end
 end
