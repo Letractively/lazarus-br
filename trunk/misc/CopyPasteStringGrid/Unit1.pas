@@ -37,48 +37,47 @@ var
   I, VCol, VRow: Integer;
 begin
   if ssCtrl in Shift then begin
-    if Key = VK_C then  begin
+    if (Key = VK_C) or (Key = VK_X) then  begin
       FSelectedTextOrig.Clear;
       FOrig := StringGrid1.Selection;
       I:=0;
-     // WriteLn('Origem Left: ',SOrig.Left, '   Right: ',SOrig.Right);
       for VRow := FOrig.Top to FOrig.Bottom do
         for VCol := FOrig.Left to FOrig.Right do   begin
           FSelectedTextOrig.Add(StringGrid1.Cells[VCol, VRow]); //Importante no caso de "cut"
           Inc(I);
-          //StringGrid1.Cells[VCol, VRow] := ''; //Caso queira opção "Cut", descomente esta linha.
+          if Key = VK_X then
+             StringGrid1.Cells[VCol, VRow] := '';
         end;
     end;
     if Key = VK_V then  begin
       I := 0;
       FDest := StringGrid1.Selection;
       FSelectedTextDest.Clear;
-     // WriteLn('Destino  Left: ',SDest.Left, '   Right: ',SDest.Right);
-     // WriteLn('Origem   Left: ',SOrig.Left, '   Right: ',SOrig.Right ,'  ',SOrig.Left-Sorig.Right);
       for VRow := FDest.Top to FDest.Top + Abs(FOrig.Top - FOrig.Bottom) do
         for VCol := FDest.Left to FDest.Left + Abs(FOrig.Left - FOrig.Right)do  begin
           FSelectedTextDest.Add(StringGrid1.Cells[VCol, VRow]);
-          StringGrid1.Cells[VCol, VRow] := FSelectedTextDest[I];
+          StringGrid1.Cells[VCol, VRow] := FSelectedTextOrig[I];
           Inc(I);
         end;
     end;
     if Key = VK_Z then  begin
       I := 0;
-      if FSelectedTextDest.Count>0 then
+      if FSelectedTextDest.Count>0 then  begin
         for VRow := FDest.Top to FDest.Top + Abs(FOrig.Top - FOrig.Bottom) do
           for VCol := FDest.Left to FDest.Left + Abs(FOrig.Left - FOrig.Right)do  begin
             StringGrid1.Cells[VCol, VRow] := FSelectedTextDest[I];
             Inc(I);
           end;
-      FSelectedTextDest.Free;
+        FSelectedTextDest.Clear;
+      end;
       I:=0;
-      if FSelectedTextOrig.Count>0 then
+      if FSelectedTextOrig.Count>0 then begin
         for VRow := FOrig.Top to FOrig.Bottom do
           for VCol := FOrig.Left to FOrig.Right do   begin
             StringGrid1.Cells[VCol, VRow] := FSelectedTextOrig[I];
             Inc(I);
           end;
-      FSelectedTextOrig.Free;
+      end;
     end;
   end;
 end;
