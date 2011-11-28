@@ -429,9 +429,12 @@ begin
 
   gtk_text_view_set_editable(PGtkTextView(TempWidget), True);
 
-  gtk_text_view_set_wrap_mode(PGtkTextView(TempWidget), GTK_WRAP_WORD);
+  if TCustomRichBox(AWinControl).WordWrap then
+    gtk_text_view_set_wrap_mode(PGtkTextView(TempWidget), GTK_WRAP_WORD)
+  else
+    gtk_text_view_set_wrap_mode(PGtkTextView(TempWidget), GTK_WRAP_NONE);
 
-  gtk_text_view_set_accepts_tab(PGtkTextView(TempWidget), True);
+gtk_text_view_set_accepts_tab(PGtkTextView(TempWidget), TCustomRichBox(AWinControl).WantTabs);
 
   gtk_widget_show_all(Widget);
 
