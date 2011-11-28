@@ -1,0 +1,23 @@
+object MainForm: TMainForm
+  Left = 273
+  Height = 169
+  Top = 162
+  Width = 392
+  Caption = 'MainForm'
+  ClientHeight = 169
+  ClientWidth = 392
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30.2'
+  object DateStringGrid: TStringGrid
+    Left = 0
+    Height = 169
+    Top = 0
+    Width = 392
+    Align = alClient
+    ColCount = 7
+    DefaultColWidth = 50
+    RowCount = 6
+    TabOrder = 0
+  end
+end
