@@ -1,0 +1,1 @@
+Exemplo enviado pelo Elson Junior, baseado no artigo "http://www.freepascal.org/docs-html/ref/refsu61.html".
