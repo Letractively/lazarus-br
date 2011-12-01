@@ -1,0 +1,12 @@
+Neste link, baixe todos os RPMs de acordo com a versão do seu openSUSE:
+
+http://software.opensuse.org/download.html?project=home:stsp&package=subversion17
+
+Entre na pasta dos RPMs e execute:
+
+$ su <SENHA>
+# zypper in *.rpm
+
+Pronto, SVN 1.7 em seu openSUSE funcionando redondinho! :)
+
+Silvio Clécio.
