@@ -1,10 +1,16 @@
-como root:
+Rafael:
+---------------------------------------------
+Como root:
 
+# zypper install apache2
+# zypper install apache2-example-pages
 
-zypper install apache2
-zypper install apache2-example-pages
+ps: Agradecimento a Ancker1 pelo help no IRC.
 
+---------------------------------------------
+silioprog:
 
+Para startart:
 
-
-ps: Agradecimento a Ancker1 pelo help no IRC
+# /etc/init.d/apache2 start
+---------------------------------------------
