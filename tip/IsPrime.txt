@@ -1,0 +1,17 @@
+function IsPrime(const ANumber: Int64): Boolean;
+var
+ I: Cardinal;
+ VEx: Extended;
+begin
+ if ANumber <> 2 then
+ begin
+   VEx := ANumber;
+   for I := 2 to Round(Sqrt(VEx)) do
+     if ANumber mod I = 0 then
+     begin
+       Result := False;
+       Exit;
+     end;
+ end;
+ Result := ANumber > 0; // or > 1
+end;
