@@ -1,0 +1,30 @@
+object Form1: TForm1
+  Left = 250
+  Height = 46
+  Top = 161
+  Width = 202
+  Caption = 'Caller'
+  ClientHeight = 46
+  ClientWidth = 202
+  OnCreate = Form1Create
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object bRecord: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Record'
+    OnClick = bRecordClick
+    TabOrder = 0
+  end
+  object bStop: TButton
+    Left = 120
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Stop'
+    OnClick = bStopClick
+    TabOrder = 1
+  end
+end
