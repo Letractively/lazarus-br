@@ -3,7 +3,7 @@
 	Author: Silvio Clécio - silvioprog@gmail.com
 */
 
-// Mude para sua URL de preferência.
+// Mude para a URL de sua preferência.
 var rootURL = 'http://localhost/cgi-bin/lwsjdo.lws';
 
 // Aqui eu desabilito o submit do form.
