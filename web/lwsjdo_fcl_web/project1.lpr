@@ -72,15 +72,15 @@ type
       FConn.StartTrans;
       try
         (* Faço o parse do meu form HTML. Lembrando que o registro que vem
-          de lá é, por exemplo: { "nome": "CHIMBICA" } *)
+          do form é, por exemplo: { "nome": "CHIMBICA" } *)
         J := P.Parse as TJSONObject;
-        // Infor os campos para a query processar o registro.
+        // Informo os campos para a query processar o registro.
         FQuery.AddField('name', ftStr);
         // Tento persistir o JSON, em casso de sucesso retorn um JSON genérico para o ajax, caso dê erro ...
         if FQuery.Insert(J) then
           AResponse.Content := '{ "error": null }'
         else
-          // Abro uma exceção, que é necessária para o ajax mostrar a mensagem na tela.
+          // ... abro uma exceção, que é necessária para o ajax mostrar a mensagem na tela.
           raise Exception.Create(SCouldNotInsert);
         FConn.Commit;
       except
