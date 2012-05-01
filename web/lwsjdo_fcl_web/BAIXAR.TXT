@@ -1,0 +1,3 @@
+Para compilar este projeto é necessário baixar o LazWebSolutions:
+
+https://github.com/silvioprog/lazwebsolutions
