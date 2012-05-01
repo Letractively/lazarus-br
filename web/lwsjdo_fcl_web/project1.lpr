@@ -76,7 +76,7 @@ type
         J := P.Parse as TJSONObject;
         // Informo os campos para a query processar o registro.
         FQuery.AddField('name', ftStr);
-        // Tento persistir o JSON, em casso de sucesso retorn um JSON genérico para o ajax, caso dê erro ...
+        // Tento persistir o JSON, em casso de sucesso retorno um JSON genérico para o ajax, caso dê erro ...
         if FQuery.Insert(J) then
           AResponse.Content := '{ "error": null }'
         else
