@@ -18,7 +18,7 @@ $('#save').click(function() {
 	return false;
 });
 
-// Aqui eu serializo o formulário (de uma forma medievál, mas isso é só um exemplo brow! :) ). A saída dessa função é, por exemplo: { "name": "CHIMBICA" }
+// Aqui eu serializo o formulário (de uma forma meio medieval, mas isso é só um exemplo brow! :) ). A saída dessa função é, por exemplo: { "name": "CHIMBICA" }
 function formToJSON() {
 	return JSON.stringify({
 		"name": $('#name').val()
