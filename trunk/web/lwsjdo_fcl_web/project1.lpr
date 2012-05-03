@@ -11,7 +11,7 @@ uses
   PQConnection,
   JSONParser,
   FPJSON,
-  LWSJSONDataObjects;
+  LWSJDO;
 
 resourcestring
   SCouldNotInsert = 'ERROR: Could not insert.';
@@ -22,7 +22,7 @@ type
 
   TCGI = class(TCGIHandler)
   private
-    FConn: TLWSJDOConnection;
+    FDB: TLWSJDODataBase;
     FQuery: TLWSJDOQuery;
   public
     constructor Create(AOwner: TComponent); override;
@@ -49,13 +49,13 @@ type
   constructor TCGI.Create(AOwner: TComponent);
   begin
     inherited Create(AOwner);
-    FConn := TLWSJDOConnection.Create('db.cfg');
-    FQuery := TLWSJDOQuery.Create(FConn, 'person');
+    FDB := TLWSJDODataBase.Create('db.cfg');
+    FQuery := TLWSJDOQuery.Create(FDB, 'person');
   end;
 
   destructor TCGI.Destroy;
   begin
-    FConn.Free;
+    FDB.Free;
     FQuery.Free;
     inherited Destroy;
   end;
@@ -69,7 +69,7 @@ type
     AResponse.ContentType := 'application/json';
     P := TJSONParser.Create(ARequest.Content);
     try
-      FConn.StartTrans;
+      FDB.StartTrans;
       try
         (* Faço o parse do meu form HTML. Lembrando que o registro que vem
           do form é, por exemplo: { "nome": "CHIMBICA" } *)
@@ -82,9 +82,9 @@ type
         else
           // ... abro uma exceção, que é necessária para o ajax mostrar a mensagem na tela.
           raise Exception.Create(SCouldNotInsert);
-        FConn.Commit;
+        FDB.Commit;
       except
-        FConn.Rollback;
+        FDB.Rollback;
         raise;
       end;
     finally
