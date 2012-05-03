@@ -12,6 +12,9 @@ uses
 resourcestring
   SCouldNotInsert = 'ERROR: Could not insert.';
 
+const
+  JSON_ERROR_NULL = '{ "error": null }';
+
 type
 
   { TCGI }
@@ -54,7 +57,7 @@ type
       FQuery.AddField('name', ftStr);
       // Tento persistir o JSON, em casso de sucesso retorno um JSON genérico para o ajax, caso dê erro ...
       if FQuery.Insert(Fields) then
-        Contents.Text := '{ "error": null }'
+        Contents.Text := JSON_ERROR_NULL
       else
         // ... abro uma exceção, que é necessária para o ajax mostrar a mensagem na tela.
         raise Exception.Create(SCouldNotInsert);
