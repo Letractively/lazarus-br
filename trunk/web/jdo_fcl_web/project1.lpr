@@ -11,7 +11,7 @@ uses
   PQConnection,
   JSONParser,
   FPJSON,
-  LWSJDO;
+  JDO;
 
 resourcestring
   SCouldNotInsert = 'ERROR: Could not insert.';
@@ -22,8 +22,8 @@ type
 
   TCGI = class(TCGIHandler)
   private
-    FDB: TLWSJDODataBase;
-    FQuery: TLWSJDOQuery;
+    FDB: TJDODataBase;
+    FQuery: TJDOQuery;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -49,8 +49,8 @@ type
   constructor TCGI.Create(AOwner: TComponent);
   begin
     inherited Create(AOwner);
-    FDB := TLWSJDODataBase.Create('db.cfg');
-    FQuery := TLWSJDOQuery.Create(FDB, 'person');
+    FDB := TJDODataBase.Create('db.cfg');
+    FQuery := TJDOQuery.Create(FDB, 'person');
   end;
 
   destructor TCGI.Destroy;

@@ -1,0 +1,5 @@
+Para compilar este projeto é necessário baixar o LazWebSolutions e JDO:
+
+LWS - https://github.com/silvioprog/lazwebsolutions
+
+JDO - https://github.com/silvioprog/jdo

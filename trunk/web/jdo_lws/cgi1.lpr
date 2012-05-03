@@ -5,7 +5,7 @@ program cgi1;
 uses
   LWSCGI,
   LWSConsts,
-  LWSJDO,
+  JDO,
   SysUtils,
   PQConnection;
 
@@ -21,8 +21,8 @@ type
 
   TCGI = class(TLWSCGI)
   private
-    FDB: TLWSJDODataBase;
-    FQuery: TLWSJDOQuery;
+    FDB: TJDODataBase;
+    FQuery: TJDOQuery;
   protected
     procedure Init; override;
     procedure Finit; override;
@@ -32,8 +32,8 @@ type
 
   procedure TCGI.Init;
   begin
-    FDB := TLWSJDODataBase.Create('db.cfg');
-    FQuery := TLWSJDOQuery.Create(FDB, 'person');
+    FDB := TJDODataBase.Create('db.cfg');
+    FQuery := TJDOQuery.Create(FDB, 'person');
   end;
 
   procedure TCGI.Finit;

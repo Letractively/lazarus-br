@@ -4,7 +4,7 @@
 */
 
 // Mude para a URL de sua preferência.
-var rootURL = 'http://localhost/cgi-bin/lwsjdo.lws';
+var rootURL = 'http://localhost/cgi-bin/jdo.lws';
 
 // Aqui eu desabilito o submit do form.
 $('form').submit(function() {
