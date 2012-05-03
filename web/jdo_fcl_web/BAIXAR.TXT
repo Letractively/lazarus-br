@@ -1,0 +1,3 @@
+Para compilar este projeto é necessário baixar o JDO:
+
+https://github.com/silvioprog/jdo
