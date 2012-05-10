@@ -55,7 +55,7 @@ type
     try
       // Informo os campos para a query processar o registro.
       FQuery.AddField('name', ftStr);
-      // Tento persistir o JSON, em casso de sucesso retorno um JSON genérico para o ajax, caso dê erro ...
+      // Tento persistir o JSON, em caso de sucesso retorno um JSON genérico para o ajax, caso dê erro ...
       if FQuery.Insert(Fields) then
         Contents.Text := JSON_ERROR_NULL
       else
@@ -66,7 +66,6 @@ type
       FDB.Rollback;
       raise;
     end;
-    Contents.Text := Fields.AsJSON;
   end;
 
 begin
