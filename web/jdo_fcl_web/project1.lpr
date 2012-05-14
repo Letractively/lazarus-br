@@ -56,7 +56,6 @@ type
   destructor TCGI.Destroy;
   begin
     FDB.Free;
-    FQuery.Free;
     inherited Destroy;
   end;
 
@@ -88,7 +87,6 @@ type
         raise;
       end;
     finally
-      J.Free;
       P.Free;
     end;
   end;

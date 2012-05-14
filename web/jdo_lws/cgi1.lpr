@@ -34,12 +34,12 @@ type
   begin
     FDB := TJDODataBase.Create('db.cfg');
     FQuery := TJDOQuery.Create(FDB, 'person');
+    FQuery.FreeObjects := False;
   end;
 
   procedure TCGI.Finit;
   begin
     FDB.Free;
-    FQuery.Free;
   end;
 
   procedure TCGI.Respond;
