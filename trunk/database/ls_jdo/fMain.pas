@@ -117,21 +117,21 @@ begin
   case operation of
     soSelect: q.Open;
     soInsert:
-    begin
-      q.AddField('name', ftStr);
-      q.Insert(json as TJSONObject);
-    end;
+      begin
+        q.AddField('name', ftStr);
+        q.Insert(json as TJSONObject);
+      end;
     soUpdate:
-    begin
-      q.AddField('id', ftInt);
-      q.AddField('name', ftStr);
-      q.Update(json as TJSONObject);
-    end;
+      begin
+        q.AddField('id', ftInt);
+        q.AddField('name', ftStr);
+        q.Update(json as TJSONObject);
+      end;
     soDelete:
-    begin
-      q.AddField('id', ftInt);
-      q.Delete(json as TJSONArray);
-    end;
+      begin
+        q.AddField('id', ftInt);
+        q.Delete(json as TJSONArray);
+      end;
   end;
 end;
 
