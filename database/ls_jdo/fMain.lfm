@@ -45,6 +45,7 @@ object frmMain: TfrmMain
       SaveOptions = [soContent]
       SortOrder = soAscending
       TabOrder = 0
+      OnDblClick = gridDblClick
       ColWidths = (
         12
         50
