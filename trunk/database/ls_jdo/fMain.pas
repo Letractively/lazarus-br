@@ -26,6 +26,7 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure gridDblClick(Sender: TObject);
   public
     db: TJDODataBase;
     q: TJDOQuery;
@@ -49,14 +50,19 @@ uses
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   db := TJDODataBase.Create('db.cfg');
-  q := TJDOQuery.Create(db, 'person');
+  q := TJDOQuickQuery.Create(db, 'person');
   q.OnNotify := @notify;
   refreshGrid;
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
-  db.Free;
+  DB.Free;
+end;
+
+procedure TfrmMain.gridDblClick(Sender: TObject);
+begin
+  btnEdit.Click;
 end;
 
 procedure TfrmMain.btnAddClick(Sender: TObject);
@@ -107,32 +113,25 @@ end;
 
 procedure TfrmMain.operation(json: TJSONData; const operation: TJDOSQLOperation);
 begin
-  db.StartTrans;
-  try
-    q.Fields.Clear;
-    case operation of
-      soSelect: q.Open;
-      soInsert:
-        begin
-          q.AddField('name', ftStr);
-          q.Insert(json as TJSONObject);
-        end;
-      soUpdate:
-        begin
-          q.AddField('id', ftInt);
-          q.AddField('name', ftStr);
-          q.Update(json as TJSONObject);
-        end;
-      soDelete:
-        begin
-          q.AddField('id', ftInt);
-          q.Delete(json as TJSONArray);
-        end;
+  q.Fields.Clear;
+  case operation of
+    soSelect: q.Open;
+    soInsert:
+    begin
+      q.AddField('name', ftStr);
+      q.Insert(json as TJSONObject);
     end;
-    db.Commit;
-  except
-    db.Rollback;
-    raise;
+    soUpdate:
+    begin
+      q.AddField('id', ftInt);
+      q.AddField('name', ftStr);
+      q.Update(json as TJSONObject);
+    end;
+    soDelete:
+    begin
+      q.AddField('id', ftInt);
+      q.Delete(json as TJSONArray);
+    end;
   end;
 end;
 
