@@ -31,7 +31,7 @@ type
     db: TJDODataBase;
     q: TJDOQuery;
     procedure operation(json: TJSONData; const operation: TJDOSQLOperation);
-    procedure notify(const notifyType: TJDOQueryNotifyTypes);
+    procedure notify(const notifyType: TJDONotifyTypes);
     procedure refreshGrid;
   end;
 
@@ -117,21 +117,21 @@ begin
   case operation of
     soSelect: q.Open;
     soInsert:
-      begin
-        q.AddField('name', ftStr);
-        q.Insert(json as TJSONObject);
-      end;
+    begin
+      q.AddField('name', ftStr);
+      q.Insert(json as TJSONObject);
+    end;
     soUpdate:
-      begin
-        q.AddField('id', ftInt);
-        q.AddField('name', ftStr);
-        q.Update(json as TJSONObject);
-      end;
+    begin
+      q.AddField('id', ftInt);
+      q.AddField('name', ftStr);
+      q.Update(json as TJSONObject);
+    end;
     soDelete:
-      begin
-        q.AddField('id', ftInt);
-        q.Delete(json as TJSONArray);
-      end;
+    begin
+      q.AddField('id', ftInt);
+      q.Delete(json as TJSONArray);
+    end;
   end;
 end;
 
@@ -142,13 +142,13 @@ begin
 end;
 
 {$HINTS OFF}
-procedure TfrmMain.notify(const notifyType: TJDOQueryNotifyTypes);
+procedure TfrmMain.notify(const notifyType: TJDONotifyTypes);
 var
-  B: Boolean;
+  b: Boolean;
 begin
-  B := q.Count > 0;
-  btnEdit.Enabled := B;
-  btnDelete.Enabled := B;
+  b := q.Count > 0;
+  btnEdit.Enabled := b;
+  btnDelete.Enabled := b;
 end;
 {$HINTS ON}
 
