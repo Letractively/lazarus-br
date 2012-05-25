@@ -50,7 +50,7 @@ uses
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   db := TJDODataBase.Create('db.cfg');
-  q := TJDOQuickQuery.Create(db, 'person');
+  q := TJDOQuery.Create(db, 'person');
   q.OnNotify := @notify;
   refreshGrid;
 end;
@@ -113,25 +113,32 @@ end;
 
 procedure TfrmMain.operation(json: TJSONData; const operation: TJDOSQLOperation);
 begin
-  q.Fields.Clear;
-  case operation of
-    soSelect: q.Open;
-    soInsert:
-    begin
-      q.AddField('name', ftStr);
-      q.Insert(json as TJSONObject);
+  db.StartTrans;
+  try
+    q.Fields.Clear;
+    case operation of
+      soSelect: q.Open;
+      soInsert:
+      begin
+        q.AddField('name', ftStr);
+        q.Insert(json as TJSONObject);
+      end;
+      soUpdate:
+      begin
+        q.AddField('id', ftInt);
+        q.AddField('name', ftStr);
+        q.Update(json as TJSONObject);
+      end;
+      soDelete:
+      begin
+        q.AddField('id', ftInt);
+        q.Delete(json as TJSONArray);
+      end;
     end;
-    soUpdate:
-    begin
-      q.AddField('id', ftInt);
-      q.AddField('name', ftStr);
-      q.Update(json as TJSONObject);
-    end;
-    soDelete:
-    begin
-      q.AddField('id', ftInt);
-      q.Delete(json as TJSONArray);
-    end;
+    db.Commit;
+  except
+    db.Rollback;
+    raise;
   end;
 end;
 
