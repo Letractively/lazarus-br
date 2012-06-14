@@ -1,0 +1,5 @@
+Download SDL and SDL_mixer:
+
+http://www.libsdl.org
+
+http://www.libsdl.org/projects/SDL_mixer
