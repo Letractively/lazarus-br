@@ -71,7 +71,11 @@ end;
 //  Result := '('+IntToHex(p.x,2)+','+IntToHex(p.y,2)+')';
 //end;
 
-{$R Imgens.rc}
+{$IFDEF MSWINDOWS}
+ {$R Imgens.rc}
+{$ELSE}
+ {$R Imgens.res}
+{$ENDIF}
 
 procedure TForm1.PaintBox1Paint(Sender : TObject);
 var

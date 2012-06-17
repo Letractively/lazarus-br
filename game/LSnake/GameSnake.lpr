@@ -1,6 +1,9 @@
 program GameSnake;
 
 {$mode objfpc}{$H+}
+{$IFDEF UNIX}
+{$DEFINE UseCThreads}
+{$ENDIF}
 
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}

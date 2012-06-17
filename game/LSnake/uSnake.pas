@@ -5,7 +5,7 @@ unit uSnake;
 interface
 
 uses
-  windows, Classes, SysUtils, LCLType;
+  Classes, SysUtils, LCLType;
 
   type
     {$scopedenums on}
