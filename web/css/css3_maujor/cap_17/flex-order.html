@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 10px;
+	}
+#p1 { background: salmon; 
+	-moz-box-ordinal-group: 2;
+	-webkit-box-ordinal-group: 2;
+	flex-order: 2;
+	}
+#p2 { background: bisque; 
+	-moz-box-ordinal-group: 3;
+	-webkit-box-ordinal-group: 3;
+	flex-order: 3;
+	}
+#p3 { background: springgreen; 
+	-moz-box-ordinal-group: 1;
+	-webkit-box-ordinal-group: 1;
+	flex-order: 1;
+	}
+p { 
+	margin: 0; 
+	width: 180px; 
+	padding: 2px 5px;
+	}
+div { 
+	display: -moz-box;
+	display: -webkit-box;
+	border: 1px solid black;
+	-moz-box-orient: vertical;
+	-webkit-box-orient: vertical;  
+	flex-direction: block;  
+	width: 600px;
+	background: aliceblue; 
+	padding: 10px 15px;
+	}
+</style>
+<script src="../modernizr.js"></script>
+</head>
+<body>
+<div>
+	<p id="p1">
+		BOX 1 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit.   
+	</p>
+
+	<p id="p2">
+		BOX 2 - Ut sollicitudin sodales purus. Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh. Suspendisse potenti. Donec ullamcorper cursus dolor. 
+	</p>
+
+	<p id="p3">
+		BOX 3 - Suspendisse potenti. Donec ullamcorper cursus dolor. Duis vitae ipsum.
+	</p>
+</div>
+</body>
+</html>

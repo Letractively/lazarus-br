@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+div { border: 12px double black;
+	width:300px; 
+	height:150px; 
+	margin:20px 0 0 20px;
+	float:left;
+	}
+.um {
+	border-image: url('borda2.png') ;
+	-moz-border-image: url('borda2.png') 10 20 15 / 10px 20px 15px stretch ;
+	
+	-o-border-image: url('borda2.png') 10 20 15  stretch;
+	
+	-webkit-border-image: url('borda2.png') 10 20 15 / 10px 20px 15px stretch;
+  }
+.dois {
+	border-image: url('borda.png') 17 / 17 stretch;
+	-moz-border-image: url('borda.png') 17 stretch;
+	-webkit-border-image: url('borda.png') 17 / 80px stretch;
+	-o-border-image: url('borda.png') 17 stretch;
+  }
+.tres {
+	border-image: url('borda.png') 17 / 17px  round  stretch;
+	-moz-border-image: url('borda.png') 17 / 17px  round  stretch;
+	
+	
+	
+	-webkit-border-image: url('borda.png') 17 / 17px round  stretch;
+	-o-border-image: url('borda.png') 17 / 17px stretch;
+  }
+</style>
+</head>
+<body>
+<div class="um"><p style="font:20px Arial, Helvetica, sans-serif; margin:10px 20px;"></p></div> 
+<!--div class="dois"></div> 
+<div class="tres"></div--> 
+</body>
+</html>

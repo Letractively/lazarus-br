@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: bold 14px sans-serif; 
+	margin: 15px;
+	}
+div {
+	color: #fff;
+	width: 200px;
+	height: 150px;
+	border: 2px solid #000;
+	float: left;
+	margin: 0 15px 15px 0;
+	}
+#um {
+	background-image: -moz-linear-gradient(right, black, white);
+	background-image: -webkit-linear-gradient(right, black, white);
+	background-image: -o-linear-gradient(right, black, white);
+	background-image: linear-gradient(to right, black, white);
+	}
+#dois {
+	background-image: -moz-linear-gradient(right, black 80%, white);
+	background-image: -webkit-linear-gradient(right, black 80%, white);
+	background-image: -o-linear-gradient(right, black 80%, white);
+	background-image: linear-gradient(to right, black 80%, white);
+	}
+#tres {
+	background-image: -moz-linear-gradient(right, black, white 180px);
+	background-image: -webkit-linear-gradient(right, black, white 180px);
+	background-image: -o-linear-gradient(right, black, white 180px);
+	background-image: linear-gradient(to right, black, white 180px);
+	}
+#quatro {
+	background-image: -moz-linear-gradient(right, black, white, black, white);
+	background-image: -webkit-linear-gradient(right, black, white, black, white);
+	background-image: -o-linear-gradient(right, black, white, black, white);
+	background-image: linear-gradient(to right, black, white, black, white);
+	}
+</style>
+</head>
+<body>
+
+<div id="um">(to left, black, white)</div>
+<div id="dois">(to right, white, black 20%)</div>
+<div id="tres">(to right,  white, black 180px</div>
+<div id="quatro">(to left, black, white, black, white)</div>
+
+</body>
+</html>

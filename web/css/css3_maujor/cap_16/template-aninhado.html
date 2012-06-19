@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 0;
+	}
+section, aside, nav {display: block;}
+ul, p { margin:0; padding:0;}
+#nav-principal li { display:inline;margin-right:10px; }
+ul li { list-style: none; }
+#tudo {
+display:	".a.b.c." 
+	* 300px 5px 150px 5px 120px *; 
+	}
+#principal {  
+	position: a; 
+	display:"e.d"  
+			"e.f"				
+		39% 1% 60%;
+	}
+#aux { position: b; padding: 5px 10px; }
+#nav { position: c; padding: 5px 10px; }
+#tudo::slot(b) { background: khaki; }
+#tudo::slot(c) { background: magenta; }
+
+#um { position: d; padding: 5px 10px;}	
+#tres { position: e; padding: 5px 10px; }	
+#dois { position: f; padding: 5px 10px; }	
+
+#principal::slot(d) { background: aliceblue; }
+#principal::slot(e) { background: pink; }
+#principal::slot(f) { background: cyan; }
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+<div id="tudo">
+<section id="principal">
+	<p id="um">Primeiro Parágrafo - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p> 
+	<p id="dois">Segundo Parágrafo - Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus. </p>
+	<p id="tres">Terceiro Parágrafo - Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh. Suspendisse potenti. Donec ullamcorper cursus dolor.Morbi eleifend, purus quis laoreet faucibus.</p> 
+</section>
+
+<aside id="aux">
+	<p>Pellentesque sapien. Sed purus sapien, eleifend ac, volutpat ac, molestie eget, massa.Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus.</p>
+</aside>
+
+<nav id="nav">
+<ul>
+	<li><a href="#">Link A</a></li>
+	<li><a href="#">Link B</a></li>
+	<li><a href="#">Link C</a></li>
+</ul>
+</nav>
+
+</div> <!-- fim div#tudo -->
+</body>
+</html>

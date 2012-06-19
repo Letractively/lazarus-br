@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+div { border: 12px double black;
+	width:200px; 
+	height:150px; 
+	margin:20px 0 0 20px;
+	float:left;
+	}
+.um {
+	border-image: url('borda.png') ;
+	-moz-border-image: url('borda.png') 33% 33% 33% / 17px  stretch round;
+	
+	-o-border-image: url('borda.png') 51 51 51 51  round round;
+	
+	-webkit-border-image: url('borda.png') 51 51 51 51  round stretch;
+  }
+.dois {
+	border-image: url('borda.png') 17 / 17 stretch;
+	-moz-border-image: url('borda.png') 17 stretch;
+	-webkit-border-image: url('borda.png') 17 / 80px stretch;
+	-o-border-image: url('borda.png') 17 stretch;
+  }
+.tres {
+	border-image: url('borda.png') 17 / 17px  round  stretch;
+	-moz-border-image: url('borda.png') 17 / 17px  round  stretch;
+	
+	
+	
+	-webkit-border-image: url('borda.png') 17 / 17px round  stretch;
+	-o-border-image: url('borda.png') 17 / 17px stretch;
+  }
+</style>
+</head>
+<body>
+<div class="um"><p style="font:20px Arial, Helvetica, sans-serif; margin:10px 20px;">Lorem ipsum dolor site amet</p></div> 
+<div class="dois"></div> 
+<div class="tres"></div> 
+</body>
+</html>

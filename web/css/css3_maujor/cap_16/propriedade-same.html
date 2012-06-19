@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 0;
+	}
+dt, dl { margin:0;}
+dd { margin: 5px 0; }
+dl { 
+display:".a.b.c." 
+      * 250px 5px 250px 5px 250px *;
+	}
+dt:nth-of-type(1) { position: a;}
+dt:nth-of-type(2) { position: b;}
+dt:nth-of-type(3) { position: c;}
+dd { position: same; }
+dl::slot(a) { background: orange; }
+dl::slot(b) { background: yellow; }
+dl::slot(c) { background: lime; }
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+<dl> 
+	<dt>Canvas</dt>
+		<dd>O elemento canvas é usado para renderização de gráficos, jogos e imagens com uso de scripts.</dd>
+		<dd>A área de canvas pode ser definida tanto por atributos como por regra CSS.</dd>
+	
+	<dt>Audio</dt>
+		<dd>O elemento audio destina-se a incorporar um som ou stream de áudio em uma página web</dd>
+	<dt>Vídeo</dt>
+		<dd>Este elemento destina-se a incorporar um vídeo ou um filme em uma página web</dd>
+</dl>	
+
+</body>
+</html>

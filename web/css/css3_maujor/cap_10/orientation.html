@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {font:16px Arial, Sans-serif;}
+.oculto {display:none;}
+.dest {font-weight: bold;}
+@media screen and (orientation: portrait) {
+	body { background: #000; color: lime;}
+	.oculto {display: block; color: red;}
+}
+</style>
+</head>
+<body>
+<h1>Media Queries</h1>
+<p class="dest">Redimensione a janela do navegador até que a altura seja maior do que a largura</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus. Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh.</p>
+<p class="oculto">Para janelas com altura maior que largura o fundo da página é na cor preta com textos na cor verde (exceto este texto que é na cor vermelha).</p> 
+<script type="text/javascript" src="css3-mediaqueries.js"></script>
+</body>
+</html>

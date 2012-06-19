@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {margin: 90px 0 0 90px;}
+div {
+	float:left;
+	width: 150px; 
+	height: 150px;
+	line-height: 120px;
+	font: bold 120px sans-serif;
+	text-align: center;
+	margin-right: 40px; 
+	opacity: .8;
+	-webkit-perspective: 300;
+	}
+</style>
+</head>
+<body>
+<div style="-webkit-perspective-origin: right 300px; border: 1px solid black;">
+  <div style="background: tomato; -webkit-transform: rotateY(45deg)">1</div>
+</div>
+
+<div style="border: 1px solid black;">
+  <div style="background: tomato; -webkit-transform: rotateY(45deg)">2</div>
+</div>
+
+<div style="-webkit-perspective-origin: -500px -200px; border: 1px solid black; ">
+  <div style="background: tomato; -webkit-transform: rotateY(45deg)">3</div>
+</div>
+</body>
+</html>

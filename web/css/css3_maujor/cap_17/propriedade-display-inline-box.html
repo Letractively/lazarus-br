@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 20px;
+	}
+section, article {display: block;}
+#a1, span { padding: 5px 10px;}
+#a1 { 
+	display: -moz-inline-box;  
+	display: -webkit-inline-box;  
+	display: flexbox;  
+	background: yellow;
+	}
+#a2 { background: cyan;}
+
+</style>
+<script src="../modernizr.js"></script>
+</head>
+<body>
+<section>	
+	<article id="a1">
+		<p>Texto no flexbox</p> 
+	</article>
+
+	<span id="a2">
+		Texto no elemento inline
+	</span>
+
+</section>
+</body>
+</html>

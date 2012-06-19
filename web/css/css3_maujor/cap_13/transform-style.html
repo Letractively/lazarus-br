@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif; 
+	margin: 0 0 0 20px;
+	}
+div { 
+	float: left;
+	width: 300px;
+	margin-right: 60px;
+	}
+h2 { 
+	border:1px solid #000;
+	background: #f69;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	}
+p { 
+	border:1px solid #000;
+	background: #ffc;
+	margin:0;
+	text-align:justify;
+	}
+#um h2, #dois h2 { 
+	-webkit-transform-origin: bottom right;
+	-webkit-transform: rotate(-30deg);
+}
+#dois p {-webkit-transform-style: preserve-3d;}
+</style>
+</head>
+<body>
+<div id="um">
+	<h2>Sem dúvidas, eu &#9829; CSS!</h2>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus. Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh. Suspendisse potenti.</p> 
+</div>
+<div id="dois">
+	<h2>Sem dúvidas, eu &#9829; CSS!</h2>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus. Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh. Suspendisse potenti.</p> 
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font:14px/1 sans-serif; 
+	margin:20px 0 0 20px;
+	}
+body {
+	font:14px sans-serif; 
+	margin:20px 0 0 20px;
+	}
+div {
+	width: 150px;
+	margin:50px;
+	background:#ccc;
+	padding: 10px 20px;
+	text-align:center;
+	}
+h2 {
+	display:table-cell;
+	vertical-align:middle;
+	}
+#um {
+	-moz-transform: scale(1.5) translate(240px, -6px); /* Firefox */
+	-webkit-transform: scale(1.5) translate(240px, -6px); /* Chrome e Safari */
+	-o-transform: scale(1.5) translate(240px, -6px); /* Opera */
+	-ms-transform: scale(1.5) translate(240px, -6px); /* IE9+ */
+	transform: scale(1.5) translate(240px, -6px); /* Suporte nativo */
+	}
+#dois{
+	-moz-transform:  translate(240px, -6px) scale(1.5); /* Firefox */
+	-webkit-transform: translate(240px, -6px) scale(1.5); /* Chrome e Safari */
+	-o-transform: translate(240px, -6px) scale(1.5); /* Opera */
+	-ms-transform: translate(240px, -6px) scale(1.5); /* IE9+ */
+	transform: translate(240px, -6px) scale(1.5); /* Suporte nativo */
+	}
+#tres { 
+	-moz-transform: matrix(1.5, 0, 0, 1.5, 240px, -6px); /* Firefox */ 
+	-webkit-transform: matrix(1.5, 0, 0, 1.5, 240, -6); /* Chrome e Safari */
+	-o-transform: matrix(1.5, 0, 0, 1.5, 240, -6); /* Opera */
+	-ms-transform: matrix(1.5, 0, 0, 1.5, 240, -6); /* IE9+ */
+	transform: matrix(1.5, 0, 0, 1.5, 240, -6); /* Suporte nativo */
+	} 
+#quatro { 
+	-moz-transform: matrix(1.5, 0, .57, 1.5, 240px, -6px); /* Firefox */ 
+	-webkit-transform: matrix(1.5, 0, .57, 1.5, 240, -6); /* Chrome e Safari */
+	-o-transform: matrix(1.5, 0, .57, 1.5, 240, -6); /* Opera */
+	-ms-transform: matrix(1.5, 0, .57, 1.5, 240, -6); /* IE9+ */
+	transform: matrix(1.5, 0, .57, 1.5, 240, -6); /* Suporte nativo */
+} 
+#cinco { 
+	-moz-transform: matrix(1.5, 0, 0, 1.5, 0, 0) matrix(1, 0, 0, 1, 240px, -6px); /* Firefox */  
+	-webkit-transform: matrix(1.5, 0, 0, 1.5, 0, 0) matrix(1, 0, 0, 1, 240, -6); /* Chrome e Safari */ 
+	-o-transform: matrix(1.5, 0, 0, 1.5, 0, 0) matrix(1, 0, 0, 1, 240, -6); /* Opera */ 
+	-ms-transform: matrix(1.5, 0, 0, 1.5, 0, 0) matrix(1, 0, 0, 1, 240, -6); /* IE9+ */ 
+	transform: matrix(1.5, 0, 0, 1.5, 0, 0) matrix(1, 0, 0, 1, 240, -6); /* Suporte nativo */ 
+}
+</style>
+</head>
+<body>
+<div id="um">
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+<div id="dois">
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+<div id="tres">
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+<div id="quatro">
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+<div id="cinco">
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+</body>
+</html>

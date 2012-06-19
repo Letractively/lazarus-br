@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+div {font-size:14px;
+	width: 900px;
+	height: 100px;
+	border: 5px solid yellow;
+	border-radius: 10px;
+	background: black;
+	}
+div { 
+    -moz-animation-name: alongar, aumentar; 
+	-moz-animation-duration: 8s; 
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: 4;
+	-moz-animation-direction: alternate;
+
+    -webkit-animation-name: alongar, aumentar; 
+	-webkit-animation-duration: 8s; 
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 4;
+	-webkit-animation-direction: alternate;
+}
+@-moz-keyframes alongar {
+    0% { width: 100px; }
+	50% { height: 200px;}
+	100% { width: 920px; }
+}
+@-webkit-keyframes alongar {
+    0% { width: 100px; }
+	50% { height: 200px;}
+	100% { width: 920px; }
+}
+@keyframes alongar {
+    0% { width: 100px; }
+	50% { height: 200px;}
+	100% { width: 920px; }
+}
+@-moz-keyframes aumentar {
+	0% { font-size:14px; }
+	25% { font-size: 18px; }
+	50% { font-size: 22px; }
+	75% { font-size: 26px; }
+	100% { font-size: 30px; }
+}
+@-webkit-keyframes aumentar {
+	0% { font-size:14px; }
+	25% { font-size: 18px; }
+	50% { font-size: 22px; }
+	75% { font-size: 26px; }
+	100% { font-size: 30px; }
+}
+keyframes aumentar {
+	0% { font-size:14px; }
+	25% { font-size: 18px; }
+	50% { font-size: 22px; }
+	75% { font-size: 26px; }
+	100% { font-size: 30px; }
+}
+h2{
+	margin:0;color:lime;
+	}
+</style>
+</head>
+<body>
+<div>
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+</body>
+</html>

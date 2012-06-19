@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font:14px sans-serif;
+	margin:10px;
+	}
+header, nav, footer {display: block;}
+#tudo {
+display:	"aaaaa" 
+			"b.c.d" 
+			"eeeee"
+	 120px 5px 400px 5px 150px; 
+	}
+
+#topo { position: a; }
+#nav { position: b; }
+#principal { position: c; }
+#aux { position: d; }
+#rodape { position: e; }
+#tudo::slot(a) { background: orange; }
+#tudo::slot(b) { background: yellow; }
+#tudo::slot(c) { background: aliceblue; }
+#tudo::slot(d) { background: burlywood; }
+#tudo::slot(e) { background: gray; }
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+<div id="tudo">
+<header id="topo">
+	<h1>Topo</h1>
+</header>
+
+<nav id="nav">
+<ul>
+	<li><a href="#">Link A</a></li>
+	<li><a href="#">Link B</a></li>
+	<li><a href="#">Link C</a></li>
+</ul
+>
+</nav>
+
+<div id="principal">
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p> 
+	<p>Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus.</p>
+	<p> Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh. Suspendisse potenti. Donec ullamcorper cursus dolor.</p> 
+</div>
+
+<aside id="aux">
+	<p>Pellentesque sapien. Sed purus sapien, eleifend ac, volutpat ac, molestie eget, massa.</p>
+</aside>
+
+<footer id="rodape">
+	<p>Rodapé</p>
+</footer>
+
+</div> <!-- fim da div#tudo -->
+</body>
+</html>

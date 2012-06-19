@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+div {
+	width:200px;
+	padding:5px 0;
+	text-align:center;
+	border:3px solid;
+	border-color:red;
+	border-radius:10px;
+	font: bold 14px Arial,sans-serif;
+	display:block;
+	background:gray;
+	color: white;
+	margin:5px 0;
+	}
+.tr1 {
+	width:800px;
+	-moz-transition: width 2s linear; 
+	-webkit-transition:	width 2s linear;
+	-o-transition: width 2s linear;
+	transition: width 2s linear;
+	}
+.tr2 {
+	width:800px;
+	-moz-transition: width 2s ease; 
+	-webkit-transition:	width 2s ease;
+	-o-transition: width 2s ease;
+	transition: width 2s ease;
+	}
+.tr3 {
+	width:800px;
+	-moz-transition: width 2s ease-in; 
+	-webkit-transition:	width 2s ease-in;
+	-o-transition: width 2s ease-in;
+	transition: width 2s ease-in;
+	}
+.tr4 {
+	width:800px;
+	-moz-transition: width 2s ease-out; 
+	-webkit-transition:	width 2s ease-out;
+	-o-transition: width 2s ease-out;;
+	transition: width 2s ease-out;
+	}
+.tr5 {
+	width:800px;
+	-moz-transition: width 2s ease-in-out; 
+	-webkit-transition:	width 2s ease-in-out;
+	-o-transition: width 2s ease-in-out;
+	transition: width 2s ease-in-out;
+	}
+.tr6 {
+	width:800px;
+	-moz-transition: width 2s cubic-bezier(1.0, 0.6, 0, 1.0);
+	-webkit-transition:	width 2s cubic-bezier(1.0, 0.6, 0, 1.0);
+	-o-transition: width 2s cubic-bezier(1.0, 0.6, 0, 1.0);
+	transition: width 2s cubic-bezier(1.0, 0.6, 0, 1.0);
+	}
+.tr7 {
+	width:800px;
+	-moz-transition: width 2s linear 2s;
+	-webkit-transition:	width 2s linear 2s;
+	-o-transition: width 2s linear 2s;
+	transition: width 2s linear 2s;
+}
+h2 {margin:0;}
+</style>
+</head>
+<body>
+<div>
+	<h2>linear</h2>
+</div>
+<div>
+	<h2>ease</h2>
+</div>
+<div>
+	<h2>ease-in</h2>
+</div>
+<div>
+	<h2>ease-out</h2>
+</div>
+<div>
+	<h2>ease-in-out</h2>
+</div>
+
+<div>
+	<h2>cubic-bezier</h2>
+</div>
+
+<div>
+	<h2>DELAY</h2>
+</div>
+
+<button type="button">IR</button>
+<button type="button">RESET</button>
+<script>
+var boxes = document.getElementsByTagName('div');
+var botao = document.getElementsByTagName('button');
+
+	botao[0].onclick = function() {
+	
+		for (var i=0; i<boxes.length; i++) {
+			boxes[i].className = 'tr'+(i+1);
+		}
+	}
+
+	botao[1].onclick = function() {
+	
+		for (var j=0; j<boxes.length; j++) {
+			boxes[j].removeAttribute('class');
+			boxes[j].removeAttribute('style');
+		}
+	}
+</script>
+</body>
+</html>

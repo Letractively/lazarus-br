@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {margin: 20px 0 0 20px;}
+#um, #dois { 
+	float:left;
+	width: 210px; 
+	height: 260px;
+	margin-right: 40px; 
+	border:1px solid black;
+	}
+#um div, #dois div { 
+	float:left;
+	width: 80px; 
+	height: 100px;
+	margin: 15px 10px 10px 10px; 
+	border-radius: 10px;
+	background: turquoise;
+	}
+#um div {
+  -webkit-transform: perspective(300) rotateY(60deg);
+}
+#dois {
+  -webkit-perspective: 300;
+}
+#dois div {
+  -webkit-transform: rotateY(60deg);
+}
+</style>
+</head>
+<body>
+
+<div id="um">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div id="dois">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+</body>
+</html>
