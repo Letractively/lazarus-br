@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="libs/jeasyui/themes/gray/easyui.css">
+	<link rel="stylesheet" href="libs/jeasyui/themes/icon.css">
+	<link rel="stylesheet" href="libs/jeasyui/demo/demo.css">
+	<link rel="stylesheet" href="css/crud.css"/>
+	<script type="text/javascript" src="libs/jeasyui/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="libs/jeasyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="libs/crud.js"></script>
+</head>
+<body>
+<noscript>
+<h2>JavaScript must be enabled in order for you to use this demo in standard view. However, it seems JavaScript is either disabled or not supported by your browser. To use standard view, enable JavaScript by changing your browser options, then try again.</h2>
+</noscript>
+<div id="main">
+	<table id="dg"></table>
+	<div id="dlg" class="easyui-dialog">
+		<div class="ftitle">Person information</div>
+		<form id="fm" method="post" novalidate>
+			<div class="fitem">
+				<label>Name:</label>
+				<input name="name" class="easyui-validatebox" maxlength=50 required>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
