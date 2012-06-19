@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {margin: 20px 0 0 20px;}
+div {
+	width: 200px; 
+	height: 300px;
+	margin-right: 40px; 
+	}
+#um { 
+	float:left;
+	-webkit-perspective: 600;
+	position: relative;
+	}
+#dois { 
+	float:left;
+	-webkit-backface-visibility: hidden;
+	position: relative;
+	}
+#um div, #dois div { 
+	position: absolute;
+	font: bold 200px sans-serif;
+	color: white;
+	line-height: 300px;
+	text-align: center;
+	border-radius: 10px;
+	}
+</style>
+</head>
+<body>
+
+<div id="um">
+  <div style="background: green;">1</div>
+  <div style="background: magenta; -webkit-transform: rotateY(180deg)">2</div>
+</div>
+
+<div id="dois">
+  <div style="background: green;">1</div>
+  <div style="background: magenta; -webkit-transform: rotateY(180deg)">2</div>
+</div>
+
+</body>
+</html>

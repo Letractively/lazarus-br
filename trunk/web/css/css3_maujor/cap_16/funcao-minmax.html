@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 0;
+	}
+section, article {display: block;}
+h1, p { margin:0;}
+
+section { 
+display:".ac." 
+		".bc."  
+      * minmax(230px, 350px) 150px *;
+	}
+section article:first-child { position: a; padding: 10px 20px;}
+section article:nth-child(2) { position: b; padding: 10px 20px;}
+section article:last-child { position: c; padding: 10px 20px;}
+
+section::slot(a) { background: orange; }
+section::slot(b) { background: yellow; }
+section::slot(c) { background: lime; }
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+<section>
+	<article>
+		<h1>Titulo 1</h1>
+		<p>Texto da seção 1 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada.</p> 
+	</article>
+
+	<article>
+		<h1>Título 2</h1>
+		<p>Texto da seção 2 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam in eros. Aliquam mattis est et arcu. Duis scelerisque tempus diam. Morbi accumsan, dui sed auctor tincidunt, orci wisi imperdiet lacus, ut tincidunt arcu wisi vitae erat.</p>
+	</article>
+
+	<article>
+		<h1>Título 3</h1>
+		<p>Texto da seção 3 - Aliquam ligula nulla,.</p>
+	</article>
+</section>
+</body>
+</html>

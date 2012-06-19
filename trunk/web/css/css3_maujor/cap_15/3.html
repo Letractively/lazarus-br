@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {overflow: hidden;background-color: aliceblue;}
+h1 {width:800px; height:500px;
+	margin:0;
+	color: red;
+	position:absolute;border: 10px solid marron;
+    -moz-animation: pulsate 1s infinite alternate;
+    -webkit-animation: pulsate 1s ease-in-out infinite;
+    -o-animation: pulsate 1s ease-in-out infinite;
+    -ms-animation: pulsate 1s ease-in-out infinite;
+    animation: pulsate 1s ease-in-out infinite;
+}
+@-moz-keyframes pulsate {
+    0% { font-size: 800px}
+    40% { font-size: 840px}    
+    80% { font-size: 880px}
+    100% { font-size: 900px}
+}
+@-webkit-keyframes pulsate {
+    0% { font-size: 800px}
+    40% { font-size: 840px}    
+    80% { font-size: 880px}
+    100% { font-size: 900px}
+}
+</style>
+
+</head>
+<body>
+<h1>&#9829;</h1>
+<script>
+$('button').eq(0).click(function() {
+	if ( $('div').hasClass('animar') ) {
+		$('div').removeClass(); 
+		$(this).html('<span>ANIMAR</span>').css('background','green'); 
+	} else {
+		$('div').addClass('animar');
+		$(this).html('<span>RESET</span>').css('background','red');
+	}
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {margin: 20px 0 0 50px;}
+div { 
+	float:left;
+	width: 100px; 
+	height: 130px;
+	}
+body>div:nth-of-type(n){
+	-webkit-perspective:300;
+	margin: 0 80px 40px 0;
+	border:1px solid black;
+	}
+div div {
+	background: lightblue; 
+	}
+div:nth-child(1) div {
+	-webkit-transform: rotate(45deg);
+	}
+div:nth-child(2) div {
+	-webkit-transform: rotateX(45deg);
+	}
+div:nth-child(3) div {
+	-webkit-transform: rotateY(45deg);
+	}
+div:nth-child(4) div {
+	-webkit-transform: rotateZ(45deg);
+	}
+div:nth-child(5) div {
+	-webkit-transform: rotate3d(1,1,1,45deg);
+	}
+div:nth-child(6) div {
+	-webkit-transform: rotate3d(-1,-1,-1,45deg);
+	}
+</style>
+</head>
+<body>
+
+<div>
+	<div></div>
+</div>
+
+<div>
+	<div></div>
+</div>
+
+<div>
+	<div></div>
+</div>
+
+<div>
+	<div></div>
+</div>
+
+<div>
+	<div></div>
+</div>
+
+<div>
+	<div></div>
+</div>
+
+</body>
+</html>

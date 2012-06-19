@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 0;
+	}
+fieldset { width: 340px;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 4px 4px 6px black;	
+	padding:10px 20px;
+	background: aliceblue; 
+	margin: 50px auto; 
+	display:".ab." / 30px
+			".cd." / 30px
+			".ef." / 30px
+			".gh." / 30px
+			".ij." / 30px
+		 * 140px 200px *;
+	}
+label:nth-of-type(1){ position: a; }
+input:nth-of-type(1){ position: b; }
+label:nth-of-type(2){ position: c; }
+input:nth-of-type(2){ position: d; }
+label:nth-of-type(3){ position: e; }
+input:nth-of-type(3){ position: f; }
+label:nth-of-type(4){ position: g; }
+form select{ position: h; }
+input:nth-of-type(4){ position: i; width: 60px;}
+input:nth-of-type(5){ position: j; width: 60px;}
+input:nth-of-type(4), input:nth-of-type(5) { 
+	background: orange; 
+	border-radius: 8px;
+	}
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+<form action="#" method="get">
+<fieldset>
+	<label for="nome">Nome:</label>
+	<input  type="text" name="nome" id="nome" />
+	<label for=sbnome>Sobrenome:</label>
+	<input  type="text" name="sbnome" id="sbnome" />
+	<label for="idade">Idade:</label>
+	<input  type="text" name="idade" id="idade" />
+	<label for="fruta">Fruta preferida:</label>
+	<select name="fruta" id="fruta">
+		<option value=" " >Escolha uma fruta</option>
+		<option value="abacate" >Abacate</option>
+		<option value="abacaxi">Abacaxi</option>
+		<option value="framboesa">Framboesa</option>
+		<option value="goiaba">Goiaba</option>
+		<option value="otra">Outra</option>
+	</select>
+	<input type=submit value="Enviar" id="enviar" />
+	<input type=reset value="Limpar" id="limpar" />
+</fieldset>
+</form>
+</body>
+</html>

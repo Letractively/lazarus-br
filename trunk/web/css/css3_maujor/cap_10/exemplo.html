@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor - Media Queries</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+body {
+	font: 16px/1.2 sans-serif;
+	margin: 0;
+	padding: 0;
+	background: #000;
+	}
+p { margin: 5px;}
+#topo p, #nav p, #principal p:first-child, #aux p:first-child, #rodape p { 
+	color:#fff;
+	font-weight: bold; 
+	text-shadow: 2px 2px 2px #000;
+	}
+ul {margin: 0 0 0 5px; padding:0; list-style: none;}
+#tudo {
+	max-width: 1000px;
+	margin: 0 auto;
+	background: url(nav-3col.gif) 18% repeat-y,
+	url(aux-3col.gif) 82% repeat-y;
+	background-color: #ccc;
+	}
+#topo {
+	height: 60px;
+	padding-top:1px;
+	background: #c60;
+	}
+#nav {
+	width: 18%;
+	float: left;
+	background: #9cf;
+	}
+#principal {
+	width: 64%;
+	float: left;
+	background: #ffe;
+	}
+#aux {
+	width: 18%;
+	float: right;
+	background: #fc9;
+	}
+#rodape {
+	height: 30px;
+	clear: both;
+	background: #9c3;
+	}
+@media screen and (max-width: 760px) and (min-width: 400px) {
+	#aux {  float:left; }
+	#principal { width: 82%; float:right; }
+	#nav{  background: #fc9; }
+	#tudo { background: url(aux-2col.gif) 18% repeat-y; }
+	}
+@media screen and (max-width: 400px) {
+	#tudo { background-image: none }
+	#principal, #nav, #aux { width: 100%; float:none; }
+	ul li { display:inline; }
+	}
+</style>
+</head>
+<body>
+<div id="tudo">
+	<div id="topo"><p>TOPO</p></div>
+	<div id="nav">
+		<p>NAV</p>
+		<ul>
+		<li>Link 1</li>
+		<li>Link 2</li>
+		<li>Link 3</li>
+		<li>Link 4</li>
+		</ul>
+	</div> <!-- Fim div#nav -->
+	<div id="principal">
+		<p>PRINCIPAL</p>
+		<p>Esta página é interativa e destina-se a demonstrar as funcionalidades previstas nas <a href="http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/" rel="external nofollow">especificações CSS3 para Media Queries</a>.<br />
+	  Redimensione a janela do seu navegador em movimentos horizontais de modo a obter largura mínima e máxima.  Observe a mudança dinâmica de layout para 3, 2 e 1 coluna dependendo da resolução (largura do navegador).</p>
+		<p>O layout se acomoda ao tamanho da janela sem necessidade de alterar a marcação HTML.</p>
+		<p>Examine o código fonte da página (as regras CSS estão incorporadas ao documento) para mais detalhes.</p>
+		<p>A finalidade desta página é <em>somente demonstrar o funcionamento de Media Queries</em></p>
+		<p>Nota: Usamos o <a href="http://t.co/LqNYpRVW" rel="external nofollow">script css3-mediaqueries.js</a> nesta página. Assim ela funciona nos IE8 e anteriores que não suportam nativamente Media Queries. Usamos também, <strong>propositadamente</strong>, <a href="http://www.w3.org/TR/css3-background/">múltiplos backgrounds</a> para a <a href="http://www.maujor.com/tutorial/lay2col-faux-colunm.php">técnica faux-columns</a> nos layouts de 2 e 3 colunas, mas como múltiplos backgrounds não funcionam nos IE8 e anteriores as colunas NAV e AUX não têm sua cor estendida até o rodapé como acontece no Firefox.</p>
+	</div> <!-- Fim div#principal -->
+	<div id="aux">
+		<p>AUX</p>
+		<p>Lorem ipsum dolor sit amet.</p> 
+	</div> <!-- Fim div#aux -->
+	<div id="rodape">
+		<p>RODAPÉ</p>
+	</div> <!-- Fim div#rodape -->
+</div> <!-- Fim div#tudo -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="css3-mediaqueries.js"></script>
+<![endif]-->
+</body>
+</html>

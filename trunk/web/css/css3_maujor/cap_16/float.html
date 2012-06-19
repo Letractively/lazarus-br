@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body { overflow:hidden;
+	font: 14px sans-serif;
+	display: "a";
+	   }
+body::slot(a) { background: yellow; vertical-align: middlle; }
+#a { position: a; width: 280px; padding: 10px;}
+#flt {
+	width: 80px;
+	height: 100px;
+	background: cyan;
+	float: right;
+	}
+#a p + p { clear: right; }
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+	<div id="a">
+		<div id="flt">FLOAT</div>
+		<p>Suspendisse potenti. Donec ullamcorper cursus dolor. Duis vitae ipsum.</p>
+		<p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada mi, id rhoncus augue lorem eget elit. Ut sollicitudin sodales purus. Phasellus libero felis, blandit nec, commodo ut, imperdiet ut, nibh.</p> 
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: 14px sans-serif;
+	margin: 0;
+	}
+section, article {display: block;}
+h1, p { margin:0;}
+section { 
+display:"a@"  
+       100px 100px;
+	}
+#a2 { position: a;}
+section::slot(a) { background: orange; }
+
+
+</style>
+<script src="../modernizr.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery.tpl_layout1.1.6.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.setTemplateLayout();
+});
+</script>
+</head>
+<body>
+<section>
+	<article id="a1">
+		<h1>Titulo 1</h1>
+		<p>Texto da seção 1 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eleifend, purus quis laoreet faucibus, ante augue malesuada.</p> 
+	</article>
+
+	<article id="a2">
+		<h1>Título 2</h1>
+		<p>Texto da seção 2 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam in eros. Aliquam mattis est et arcu. Duis scelerisque tempus diam. Morbi accumsan, dui sed auctor tincidunt, orci wisi imperdiet lacus, ut tincidunt arcu wisi vitae erat.</p>
+	</article>
+
+	<article id="a3">
+		<h1>Título 3</h1>
+		<p>Texto da seção 3 - Aliquam ligula nulla,.</p>
+	</article>
+</section>
+</body>
+</html>

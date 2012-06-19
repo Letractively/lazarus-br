@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<head>
+<title>Livro CSS3 do Maujor</title>
+<style>
+div {  
+	border: 2px solid #000;
+	}
+div#a, div#b { 
+	width: 300px;
+	margin-bottom:20px;
+	}
+div#a {
+	position: relative;
+	left:10px;
+	top:15px;
+	z-index: 25; 
+	width: 350px;
+	height: 200px;
+	background: #ddd;
+	opacity: 0.8; /* CSS3 */
+	/* regras proprietarias para opacidade - no validam e esto aqui para fins de clareza do exemplo */ 
+	-moz-opacity: 0.8;
+	filter: alpha(opacity=80);
+	}
+div#b {
+	position: relative;
+	top:-230px;
+	z-index: 20; 
+	height: 200px;
+	}
+div.a-um {  
+	position:absolute;
+	left: 65px;
+	top:20px;
+	width: 200px;
+	height: 80px;
+	background: #cff;
+	}
+div.a-dois {  
+	position:absolute;
+	left: 120px;
+	top:70px;
+	width: 110px;
+	height: 120px;
+	background: #6f9;
+	opacity: 0.8; /* CSS3 */
+	/* regras proprietarias para opacidade - no validam e esto aqui para fins de clareza do exemplo */ 
+	-moz-opacity: 0.8;
+	filter: alpha(opacity=80);
+	}
+div.a-tres {  
+	position:absolute;
+	left: 165px;
+	top:90px;
+	width: 90px;
+	height: 60px;
+	background: #fcf;
+	opacity: 0.8; /* CSS3 */
+	/* regras proprietarias para opacidade - no validam e esto aqui para fins de clareza do exemplo */ 
+	-moz-opacity: 0.8;
+	filter: alpha(opacity=80);
+	}
+div.b-um {  
+	position:absolute;
+	left: 145px;
+	top:130px;
+	width: 200px;
+	height: 120px;
+	background: #ffd1d1;
+	}
+div.b-dois {  
+	position:absolute;
+	left: 215px;
+	top:170px;
+	width: 50px;
+	height: 60px;
+	background: #ccc;
+	}
+</style>
+</head>
+<body>
+	<div id="a">
+		DIV A
+		<div class="a-um">DIV A-um</div>	
+		<div class="a-dois">DIV A-dois</div>	
+		<div class="a-tres">DIV A-tres</div>	
+	</div>
+	
+	<div id="b">
+		DIV B
+		<div class="b-um">DIV B-um</div>	
+		<div class="b-dois">DIV B-dois</div>	
+	</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: bold 14px sans-serif; 
+	margin: 15px;
+	}
+div {
+	color: #fff;
+	width: 200px;
+	height: 150px;
+	border: 1px solid #000;
+	float: left;
+	margin: 0 15px 15px 0;
+	}
+#um {
+	background: -moz-linear-gradient(45deg, black, white);
+	background: -webkit-linear-gradient(45deg, black, white);
+	background: -o-linear-gradient(45deg, black, white);
+	background: linear-gradient(45deg, black, white);
+	}
+#dois {
+	background: -moz-linear-gradient(left, black, white);
+	background: -webkit-linear-gradient(left, black, white);
+	background: -o-linear-gradient(left, black, white);
+	background: linear-gradient(to left, black, white);
+	}
+#tres {
+	background: -moz-linear-gradient(top right, black, white);
+	background: -webkit-linear-gradient(top right, black, white);
+	background: -o-linear-gradient(top right, black, white);
+	background: linear-gradient(to top right, black, white);
+	}
+#quatro {
+	background: -moz-linear-gradient(-50grad, black, white);
+	background: -webkit-linear-gradient(-50grad, black, white);
+	background: -o-linear-gradient(-50grad, black, white);
+	background: linear-gradient(-50grad, black, white);
+	}
+#cinco {
+	background: -moz-linear-gradient(black, white);
+	background: -webkit-linear-gradient(black, white);
+	background: -o-linear-gradient(black, white);
+	background: linear-gradient(black, white);
+	}
+#seis {
+	background: -moz-linear-gradient(bottom left, black, white);
+	background: -webkit-linear-gradient(bottom left, black, white);
+	background: -o-linear-gradient(bottom left, black, white);
+	background: linear-gradient(to bottom left, black, white);
+	}
+</style>
+</head>
+<body>
+
+<div id="um">(45deg, black, white)</div>
+<div id="dois">(to left, black, white);</div>
+<div id="tres">(to top right, black, white);</div>
+<div id="quatro">(-50grad, black, white);</div>
+<div id="cinco">(black, white);</div>
+<div id="seis">(to bottom left, black, white);</div>
+
+</body>
+</html>

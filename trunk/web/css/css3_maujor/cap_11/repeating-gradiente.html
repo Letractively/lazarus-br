@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font: bold 14px sans-serif; 
+	margin: 15px;
+	}
+div {
+	color: #fff;
+	width: 200px;
+	height: 150px;
+	border: 2px solid #000;
+	float: left;
+	margin: 30px 15px 15px 0;
+	}
+#um {
+	background: -moz-linear-gradient(left, black, white 10px, black 20px);
+	background: -webkit-linear-gradient(left, black, white 10px, black 20px);
+	background: linear-gradient(left, black, white 10px, black 20px);
+	}
+#dois {
+	background: -moz-repeating-linear-gradient(left, black, white 10px, black 20px);
+	background: -webkit-repeating-linear-gradient(left, black, white 10px, black 20px);
+	background: repeating-linear-gradient(left, black, white 10px, black 20pxe);
+	}
+#tres {
+	background: -moz-radial-gradient(black, white 10px, black 20px);
+	background: -webkit-repeating-radial-gradient(black, white 10px, black 20px);
+	background: repeating-radial-gradient(black, white 10px, black 20px);
+	}
+#quatro {
+	background: -moz-repeating-radial-gradient(black, white 10px, black 20px);
+	background: -webkit-repeating-radial-gradient(black, white 10px, black 20px);
+	background: repeating-radial-gradient(black, white 10px, black 20px);
+	}
+#cinco {
+	background: -moz-repeating-linear-gradient(top left, black, white 2px, black 5px, white 20px);
+	background: -webkit-repeating-linear-gradient(top left, black, white 2px, black 5px, white 20px);
+	background: repeating-linear-gradient(top left, black, white 2px, black 5px, white 20px);
+	}
+#seis {
+	background: -moz-repeating-radial-gradient(center right, black, white 2px, black 5px, white 20px);
+	background: -webkit-repeating-radial-gradient(bottom left, black, white);
+	background: repeating-radial-gradient(to bottom left, black, white);
+	}
+</style>
+</head>
+<body>
+
+<div id="um"></div>
+<div id="dois"></div>
+<div id="tres"></div>
+<div id="quatro"></div>
+<div id="cinco">(</div>
+<div id="seis"></div>
+
+</body>
+</html>

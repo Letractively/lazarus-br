@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Livro CSS3 do Maujor</title>
+<style>
+body {
+	font:14px/1 sans-serif; 
+	margin:20px 0 0 20px;
+	}
+body {
+	font:14px sans-serif; 
+	margin:20px 0 0 20px;
+	}
+div {
+	width: 150px;
+	margin:50px;
+	background:#ccc;
+	padding: 10px 20px;
+	text-align:center;
+}
+h2 {
+	display:table-cell;
+	vertical-align:middle;
+	}
+#um {
+	-moz-transform: matrix(.87,.5,-.5,.87,0,0); /* Firefox */
+	-webkit-transform: matrix(1,0,.57,1,0,0); /* Chrome e Safari */
+	-o-transform: matrix(1,0,.57,1,0,0); /* Opera */
+	-ms-transform: matrix(1,0,.57,1,0,0); /* IE9+ */
+	transform: matrix(1,0,.57,1,0,0); /* Suporte nativo */
+}
+</style>
+</head>
+<body>
+<div>
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+
+<div id="um">
+	<h2>Sem dúvidas Eu &#9829; CSS!</h2>
+</div>
+</body>
+</html>
