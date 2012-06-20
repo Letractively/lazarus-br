@@ -4,9 +4,9 @@
 */
 
 // Mude para a URL de sua preferência.
-var rootURL = 'http://localhost/cgi-bin/jdo.lws';
+var rootURL = 'http://localhost/cgi-bin/project1';
 
-// Aqui eu desabilito o submit do form.
+// Aqui eu desabilito o submit do form, pois preciso forçar uma validação dos dados.
 $('form').submit(function() {
 	return false;
 });
@@ -18,7 +18,7 @@ $('#save').click(function() {
 	return false;
 });
 
-// Aqui eu serializo o formulário (de uma forma meio medieval, mas isso é só um exemplo brow! :) ). A saída dessa função é, por exemplo: { "name": "CHIMBICA" }
+// Aqui eu serializo o formulário (de uma forma meio medieval, mas isso é só um exemplo brow! :) ). A saída desta função é, por exemplo: { "name": "CHIMBICA" }
 function formToJSON() {
 	return JSON.stringify({
 		"name": $('#name').val()
