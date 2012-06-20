@@ -8,9 +8,6 @@ uses
   Forms, Controls, StdCtrls, ExtCtrls, FPJSON;
 
 type
-
-  { TfrmPerson }
-
   TfrmPerson = class(TForm)
     btnOK: TButton;
     btnCancel: TButton;
@@ -26,8 +23,6 @@ implementation
 
 {$R *.lfm}
 
-{ TfrmPerson }
-
 class function TfrmPerson.Execute(json: TJSONObject): Boolean;
 begin
   with Self.Create(nil) do
@@ -35,9 +30,7 @@ begin
       edtName.Text := json['name'].AsString;
       Result := ShowModal = mrOk;
       if Result then
-        json['name'].AsString := edtName.Text
-      else
-        json.Free;
+        json['name'].AsString := edtName.Text;
     finally
       Free;
     end;

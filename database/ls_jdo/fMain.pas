@@ -5,13 +5,10 @@ unit fMain;
 interface
 
 uses
-  Forms, ExtCtrls, StdCtrls, LSGrids, JDO, JDOConsts, FPJSON, Dialogs,
-  Controls, PQConnection, Classes;
+  Forms, ExtCtrls, StdCtrls, LSGrids, JDO, FPJSON, Dialogs, Controls,
+  PQConnection;
 
 type
-
-  { TfrmMain }
-
   TfrmMain = class(TForm)
     btnAdd: TButton;
     btnEdit: TButton;
@@ -25,14 +22,12 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure gridDblClick(Sender: TObject);
   public
     db: TJDODataBase;
-    q: TJDOQuery;
-    procedure operation(json: TJSONData; const operation: TJDOSQLOperation);
-    procedure notify(const notifyType: TJDONotifyTypes);
+    sql: TJDOSQL;
     procedure refreshGrid;
+    procedure operation(const op: TJDOStatementType; data: TJSONData);
   end;
 
 var
@@ -45,19 +40,12 @@ implementation
 uses
   fPerson;
 
-{ TfrmMain }
-
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-  db := TJDODataBase.Create('db.cfg');
-  q := TJDOQuery.Create(db, 'person');
-  q.OnNotify := @notify;
+  db := TJDODataBase.Create(Self, 'db.cfg');
+  sql := TJDOSQL.Create(Self, db.Query, 'person');
+  sql.OrderBy := 'name';
   refreshGrid;
-end;
-
-procedure TfrmMain.FormDestroy(Sender: TObject);
-begin
-  DB.Free;
 end;
 
 procedure TfrmMain.gridDblClick(Sender: TObject);
@@ -67,40 +55,43 @@ end;
 
 procedure TfrmMain.btnAddClick(Sender: TObject);
 var
-  json: TJSONObject;
+  o: TJSONObject;
 begin
-  json := TJSONObject.Create(['name', ES]);
-  if TfrmPerson.Execute(json) then
-  begin
-    operation(json, soInsert);
-    refreshGrid;
-    grid.SelectLastRow;
+  o := TJSONObject.Create(['name', ES]);
+  try
+    if TfrmPerson.Execute(o) then
+    begin
+      operation(jstInsert, o);
+      refreshGrid;
+      grid.Select(2, o['name'].AsString);
+    end;
+  finally
+    o.Free;
   end;
 end;
 
 procedure TfrmMain.btnEditClick(Sender: TObject);
 var
-  json: TJSONObject;
+  o: TJSONObject;
 begin
-  json := grid.SelectedRow.Clone as TJSONObject;
-  if TfrmPerson.Execute(json) then
+  o := grid.SelectedRow;
+  if TfrmPerson.Execute(o) then
   begin
-    operation(json, soUpdate);
-    grid.SetBookmark;
+    operation(jstUpdate, o);
     refreshGrid;
-    grid.GetBookmark;
+    grid.Select(2, o['name'].AsString);
   end;
 end;
 
 procedure TfrmMain.btnDeleteClick(Sender: TObject);
 var
-  json: TJSONArray;
+  a: TJSONArray;
 begin
   if MessageDlg('Delete person(s)?', mtConfirmation, mbYesNo, 0) = mrYes then
   begin
-    json := grid.SelectedRows.Clone as TJSONArray;
+    a := grid.SelectedRows;
+    operation(jstDelete, a);
     grid.SetBookmark;
-    operation(json, soDelete);
     refreshGrid;
     grid.GetBookmark;
   end;
@@ -111,53 +102,42 @@ begin
   refreshGrid;
 end;
 
-procedure TfrmMain.operation(json: TJSONData; const operation: TJDOSQLOperation);
-begin
-  db.StartTrans;
-  try
-    q.Fields.Clear;
-    case operation of
-      soSelect: q.Open;
-      soInsert:
-      begin
-        q.AddField('name', ftStr);
-        q.Insert(json as TJSONObject);
-      end;
-      soUpdate:
-      begin
-        q.AddField('id', ftInt);
-        q.AddField('name', ftStr);
-        q.Update(json as TJSONObject);
-      end;
-      soDelete:
-      begin
-        q.AddField('id', ftInt);
-        q.Delete(json as TJSONArray);
-      end;
-    end;
-    db.Commit;
-  except
-    db.Rollback;
-    raise;
-  end;
-end;
-
 procedure TfrmMain.refreshGrid;
-begin
-  operation(nil, soSelect);
-  grid.LoadFromJSONString(q.AsJSON, False, False);
-end;
-
-{$HINTS OFF}
-procedure TfrmMain.notify(const notifyType: TJDONotifyTypes);
 var
   b: Boolean;
 begin
-  b := q.Count > 0;
+  operation(jstSelect, nil);
+  b := db.Query.RecordCount > 0;
   btnEdit.Enabled := b;
   btnDelete.Enabled := b;
 end;
-{$HINTS ON}
+
+procedure TfrmMain.operation(const op: TJDOStatementType; data: TJSONData);
+begin
+  case op of
+    jstSelect:
+      begin
+        sql.Compose(jstSelect);
+        grid.LoadFromJSONString(db.Query.JSON, False, False);
+      end;
+    jstInsert:
+      begin
+        sql.Compose(jstInsert, True);
+        db.Query.SetJSONObject(data as TJSONObject);
+      end;
+    jstUpdate:
+      begin
+        sql.Compose(jstUpdate, True);
+        db.Query.SetJSONObject(data as TJSONObject);
+      end;
+    jstDelete:
+      begin
+        sql.Compose(jstDelete, True);
+        db.Query.SetJSONArray(data as TJSONArray);
+      end;
+  end;
+  db.Query.Commit;
+end;
 
 end.
 

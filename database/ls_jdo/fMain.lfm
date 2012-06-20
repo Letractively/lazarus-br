@@ -7,9 +7,8 @@ object frmMain: TfrmMain
   ClientHeight = 240
   ClientWidth = 320
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
   Position = poDesktopCenter
-  LCLVersion = '0.9.30.4'
+  LCLVersion = '1.1'
   object client: TPanel
     Left = 0
     Height = 206
