@@ -33,15 +33,14 @@
     </RunParams>
     <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="LCL"/>
-        <MinVersion Major="1" Valid="True"/>
+        <PackageName Value="LazSolutionsDT"/>
       </Item1>
       <Item2>
-        <PackageName Value="JDORT"/>
+        <PackageName Value="LCL"/>
+        <MinVersion Major="1" Valid="True"/>
       </Item2>
       <Item3>
-        <PackageName Value="LazSolutionsDT"/>
-        <MinVersion Minor="2" Release="9" Build="20" Valid="True"/>
+        <PackageName Value="JDORT"/>
       </Item3>
     </RequiredPackages>
     <Units Count="3">
@@ -52,7 +51,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="11"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="53"/>
       </Unit0>
       <Unit1>
         <Filename Value="fMain.pas"/>
@@ -66,7 +65,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="53"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -77,14 +76,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="fPerson"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="18" Y="40"/>
-        <UsageCount Value="49"/>
+        <TopLine Value="6"/>
+        <CursorPos X="47" Y="33"/>
+        <UsageCount Value="53"/>
       </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="9"/>
+    <Version Value="11"/>
     <PathDelim Value="\"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
