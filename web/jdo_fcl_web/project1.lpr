@@ -13,81 +13,69 @@ uses
   FPJSON,
   JDO;
 
-resourcestring
-  SCouldNotInsert = 'ERROR: Could not insert.';
-
 type
-
-  { TCGI }
-
   TCGI = class(TCGIHandler)
   private
-    FDB: TJDODataBase;
-    FQuery: TJDOQuery;
+    db: TJDODataBase;
+    sql: TJDOSQL;
+    procedure CreateFieldDefs;
   public
     constructor Create(AOwner: TComponent); override;
-    destructor Destroy; override;
     procedure HandleRequest(ARequest: TRequest; AResponse: TResponse); override;
   end;
-
-  { TCGIApp }
 
   TCGIApp = class(TCustomCGIApplication)
   public
     function InitializeWebHandler: TWebHandler; override;
   end;
 
-  { TCGIApp }
-
   function TCGIApp.InitializeWebHandler: TWebHandler;
   begin
     Result := TCGI.Create(Self);
   end;
 
-  { TCGI }
+  procedure TCGI.CreateFieldDefs;
+  begin
+    db.Query.Close;
+    db.Query.SQL.Text := 'select * from person where 1=2';
+    db.Query.Open;
+    db.Query.Close;
+  end;
 
   constructor TCGI.Create(AOwner: TComponent);
   begin
     inherited Create(AOwner);
-    FDB := TJDODataBase.Create('db.cfg');
-    FQuery := TJDOQuery.Create(FDB, 'person');
-  end;
-
-  destructor TCGI.Destroy;
-  begin
-    FDB.Free;
-    inherited Destroy;
+    db := TJDODataBase.Create(Self, 'db.cfg');
+    sql := TJDOSQL.Create(Self, db.Query, 'person');
+    // Necessário para a geração automática de SQL.
+    CreateFieldDefs;
   end;
 
   procedure TCGI.HandleRequest(ARequest: TRequest; AResponse: TResponse);
   var
-    J: TJSONObject;
-    P: TJSONParser;
+    o: TJSONObject;
+    p: TJSONParser;
   begin
     // Aqui eu informo o content-type de saída.
     AResponse.ContentType := 'application/json';
-    P := TJSONParser.Create(ARequest.Content);
+    p := TJSONParser.Create(ARequest.Content);
     try
-      FDB.StartTrans;
       try
         (* Faço o parse do meu form HTML. Lembrando que o registro que vem
           do form é, por exemplo: { "nome": "CHIMBICA" } *)
-        J := P.Parse as TJSONObject;
-        // Informo os campos para a query processar o registro.
-        FQuery.AddField('name', ftStr);
-        // Tento persistir o JSON, em casso de sucesso retorno um JSON genérico para o ajax, caso dê erro ...
-        if FQuery.Insert(J) then
-          AResponse.Content := '{ "error": null }'
-        else
-          // ... abro uma exceção, que é necessária para o ajax mostrar a mensagem na tela.
-          raise Exception.Create(SCouldNotInsert);
-        FDB.Commit;
+        o := p.Parse as TJSONObject;
+        // Aqui gero o SQL para insert.
+        sql.Compose(jstInsert, True);
+        // Persisto os dados JSON.
+        db.Query.SetJSONObject(o);
+        db.Query.Commit;
+        AResponse.Content := '{ "success": true }';
       except
-        FDB.Rollback;
-        raise;
+        on E: Exception do
+          AResponse.Content := E.Message;
       end;
     finally
-      P.Free;
+      p.Free;
     end;
   end;
 
