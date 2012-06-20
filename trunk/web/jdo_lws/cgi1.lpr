@@ -9,20 +9,12 @@ uses
   SysUtils,
   PQConnection;
 
-resourcestring
-  SCouldNotInsert = 'ERROR: Could not insert.';
-
-const
-  JSON_ERROR_NULL = '{ "error": null }';
-
 type
-
-  { TCGI }
-
   TCGI = class(TLWSCGI)
   private
-    FDB: TJDODataBase;
-    FQuery: TJDOQuery;
+    db: TJDODataBase;
+    sql: TJDOSQL;
+    procedure CreateFieldDefs;
   protected
     procedure Init; override;
     procedure Finit; override;
@@ -30,16 +22,27 @@ type
     procedure Request; override;
   end;
 
+  procedure TCGI.CreateFieldDefs;
+  begin
+    with db.Query do
+    begin
+      Close;
+      SQL.Text := 'select * from person where 1=2';
+      Open;
+      Close;
+    end;
+  end;
+
   procedure TCGI.Init;
   begin
-    FDB := TJDODataBase.Create('db.cfg');
-    FQuery := TJDOQuery.Create(FDB, 'person');
-    FQuery.FreeObjects := False;
+    db := TJDODataBase.Create(nil, 'db.cfg');
+    sql := TJDOSQL.Create(db, db.Query, 'person');
+    CreateFieldDefs;
   end;
 
   procedure TCGI.Finit;
   begin
-    FDB.Free;
+    db.Free;
   end;
 
   procedure TCGI.Respond;
@@ -51,20 +54,16 @@ type
 
   procedure TCGI.Request;
   begin
-    FDB.StartTrans;
     try
-      // Informo os campos para a query processar o registro.
-      FQuery.AddField('name', ftStr);
-      // Tento persistir o JSON, em caso de sucesso retorno um JSON genérico para o ajax, caso dê erro ...
-      if FQuery.Insert(Fields) then
-        Contents.Text := JSON_ERROR_NULL
-      else
-        // ... abro uma exceção, que é necessária para o ajax mostrar a mensagem na tela.
-        raise Exception.Create(SCouldNotInsert);
-      FDB.Commit;
+      // Gero o SQL para "insert".
+      sql.Compose(jstInsert, True);
+      // Persisto os dados JSON.
+      db.Query.SetJSONObject(Fields);
+      db.Query.Commit;
+      Contents.Text := '{ "success": true }';
     except
-      FDB.Rollback;
-      raise;
+      on E: Exception do
+        Contents.Text := E.Message;
     end;
   end;
 
