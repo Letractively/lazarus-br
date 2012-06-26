@@ -1,0 +1,11 @@
+$ su
+# zypper in apache2
+# zypper in apache2-mod_fcgid
+
+Abra o arquivo "/etc/apache2/conf.d/mod_fcgid.conf" e descomente a linha "#AddHandler fcgid-script .fcgi".
+
+# a2enmod suexec
+# a2enmod fcgid
+# chkconfig --add apache2
+# /etc/init.d/apache2 start
+# /etc/init.d/apache2 restart
