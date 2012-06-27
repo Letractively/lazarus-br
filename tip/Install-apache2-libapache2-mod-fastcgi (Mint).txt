@@ -1,0 +1,4 @@
+﻿$ sudo su
+# apt-get install apache2
+# apt-get install libapache2-mod-fastcgi
+# /etc/init.d/apache2 restart
