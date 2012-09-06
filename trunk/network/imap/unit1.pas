@@ -33,9 +33,9 @@ var
 begin
   sl := TStringList.Create;
   imap := TImapSend.Create;
-  imap.UserName := 'test@silvioprog.com.br';
-  imap.Password := 'Abc$123654';
-  imap.TargetHost := 'imap.silvioprog.com.br';
+  imap.UserName := 'test@host.com';
+  imap.Password := 'password';
+  imap.TargetHost := 'imap.host.com.br';
   if imap.Login then
   begin
     Memo1.Clear;
