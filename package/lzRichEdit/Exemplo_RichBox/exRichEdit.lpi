@@ -53,11 +53,10 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPrincipal"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="22" Y="195"/>
+        <TopLine Value="516"/>
+        <CursorPos X="27" Y="533"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -74,9 +73,9 @@
         <Filename Value="..\..\..\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1034"/>
-        <CursorPos X="14" Y="1048"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="1597"/>
+        <CursorPos X="23" Y="1618"/>
+        <UsageCount Value="11"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\..\..\fpc\2.4.0\source\rtl\objpas\sysutils\finah.inc"/>
@@ -127,8 +126,8 @@
         <Filename Value="..\..\..\lcl\stdctrls.pp"/>
         <UnitName Value="StdCtrls"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1358"/>
-        <CursorPos X="29" Y="751"/>
+        <TopLine Value="741"/>
+        <CursorPos X="26" Y="752"/>
         <UsageCount Value="10"/>
       </Unit10>
       <Unit11>
@@ -926,7 +925,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="34" Y="109"/>
-        <UsageCount Value="109"/>
+        <UsageCount Value="112"/>
       </Unit113>
       <Unit114>
         <Filename Value="..\..\..\lcl\controls.pp"/>
@@ -1070,10 +1069,12 @@
       <Unit132>
         <Filename Value="..\richbox.pas"/>
         <UnitName Value="RichBox"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="152"/>
-        <CursorPos X="14" Y="90"/>
-        <UsageCount Value="19"/>
+        <TopLine Value="40"/>
+        <CursorPos X="16" Y="104"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
       </Unit132>
       <Unit133>
         <Filename Value="..\trichbox.inc"/>
@@ -1092,10 +1093,13 @@
       <Unit135>
         <Filename Value="..\interfaces\win32\win32wsrichbox.pas"/>
         <UnitName Value="Win32WSRichBox"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="643"/>
+        <TopLine Value="81"/>
         <CursorPos X="1" Y="660"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit135>
       <Unit136>
         <Filename Value="..\tparaattributes.inc"/>
@@ -1191,9 +1195,9 @@
         <Filename Value="..\..\..\fpc\2.5.1\fpcsrc\packages\winunits-base\src\activex.pp"/>
         <UnitName Value="ActiveX"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="3168"/>
-        <CursorPos X="14" Y="3196"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="1"/>
+        <CursorPos X="55" Y="5"/>
+        <UsageCount Value="11"/>
       </Unit148>
       <Unit149>
         <Filename Value="..\..\..\lcl\widgetset\wsstdctrls.pp"/>
@@ -1230,10 +1234,12 @@
         <Filename Value="richole.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RichOle"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="3" Y="8"/>
-        <UsageCount Value="73"/>
+        <CursorPos X="49" Y="72"/>
+        <UsageCount Value="76"/>
+        <Loaded Value="True"/>
       </Unit153>
       <Unit154>
         <Filename Value="..\..\..\fpc\2.5.1\fpcsrc\rtl\win\wininc\base.inc"/>
@@ -1253,17 +1259,19 @@
         <Filename Value="richolebox.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RichOleBox"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="104"/>
-        <CursorPos X="17" Y="114"/>
-        <UsageCount Value="72"/>
+        <TopLine Value="1"/>
+        <CursorPos X="6" Y="7"/>
+        <UsageCount Value="75"/>
+        <Loaded Value="True"/>
       </Unit156>
       <Unit157>
         <Filename Value="..\..\..\fpc\2.5.1\fpcsrc\rtl\win\wininc\defines.inc"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="4753"/>
+        <TopLine Value="4833"/>
         <CursorPos X="6" Y="4844"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="10"/>
       </Unit157>
       <Unit158>
         <Filename Value="..\..\..\fpc\2.5.1\fpcsrc\rtl\inc\systemh.inc"/>
@@ -1475,22 +1483,98 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="36" Y="13"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="38"/>
       </Unit185>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="22" HistoryIndex="21">
       <Position1>
-        <Filename Value="uprincipal.pas"/>
-        <Caret Line="178" Column="1" TopLine="165"/>
+        <Filename Value="richolebox.pas"/>
+        <Caret Line="64" Column="6" TopLine="55"/>
       </Position1>
       <Position2>
-        <Filename Value="uprincipal.pas"/>
-        <Caret Line="178" Column="1" TopLine="165"/>
+        <Filename Value="richolebox.pas"/>
+        <Caret Line="56" Column="66" TopLine="54"/>
       </Position2>
       <Position3>
-        <Filename Value="uprincipal.pas"/>
-        <Caret Line="195" Column="22" TopLine="185"/>
+        <Filename Value="richolebox.pas"/>
+        <Caret Line="60" Column="1" TopLine="54"/>
       </Position3>
+      <Position4>
+        <Filename Value="richolebox.pas"/>
+        <Caret Line="78" Column="5" TopLine="67"/>
+      </Position4>
+      <Position5>
+        <Filename Value="richolebox.pas"/>
+        <Caret Line="112" Column="35" TopLine="104"/>
+      </Position5>
+      <Position6>
+        <Filename Value="richolebox.pas"/>
+        <Caret Line="104" Column="20" TopLine="102"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="287" Column="50" TopLine="268"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="289" Column="32" TopLine="271"/>
+      </Position8>
+      <Position9>
+        <Filename Value="richole.pas"/>
+        <Caret Line="123" Column="10" TopLine="115"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="321" Column="26" TopLine="321"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="336" Column="34" TopLine="318"/>
+      </Position11>
+      <Position12>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="318" Column="8" TopLine="301"/>
+      </Position12>
+      <Position13>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="324" Column="10" TopLine="309"/>
+      </Position13>
+      <Position14>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="330" Column="14" TopLine="312"/>
+      </Position14>
+      <Position15>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="305" Column="17" TopLine="294"/>
+      </Position15>
+      <Position16>
+        <Filename Value="richole.pas"/>
+        <Caret Line="25" Column="18" TopLine="14"/>
+      </Position16>
+      <Position17>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="123" Column="18" TopLine="121"/>
+      </Position17>
+      <Position18>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="431" Column="18" TopLine="426"/>
+      </Position18>
+      <Position19>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="124" Column="30" TopLine="113"/>
+      </Position19>
+      <Position20>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="291" Column="33" TopLine="273"/>
+      </Position20>
+      <Position21>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="298" Column="39" TopLine="287"/>
+      </Position21>
+      <Position22>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="533" Column="27" TopLine="516"/>
+      </Position22>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

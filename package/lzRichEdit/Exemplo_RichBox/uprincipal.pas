@@ -82,6 +82,7 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure HTMLClick(Sender: TObject);
     procedure CBFontSelect(Sender: TObject);
     procedure CBSizeChange(Sender: TObject);
@@ -133,6 +134,12 @@ type
   public
     { public declarations }
     property FileName: string read FFileName write SetFileName;
+  public
+    {$IFDEF Windows}
+      RichEditOle: IRichEditOle;
+      RichEditOleCallback: IRichEditOleCallback;
+    {$ENDIF}
+
   end;
 
 var
@@ -271,28 +278,31 @@ begin
 end;
 {$IFDEF WINDOWS}
 procedure TForm1.CreateOLEObjectInterface;
-var
-  RichEditOleCallback: IRichEditOleCallback;
 begin
   RichEditOleCallback := TRichEditOleCallback.Create(lzRichEdit1);
-  RichEdit_SetOleCallback(lzRichEdit1.Handle, RichEditOleCallback);
+
+   if not RichEdit_GetOleInterface(lzRichEdit1.Handle, RichEditOle) then
+     raise Exception.Create('Unable to get interface');
+   if not RichEdit_SetOleCallback(lzRichEdit1.Handle, RichEditOlecallback) then
+         raise Exception.Create('Unable to set callback');
+
 end;
 
 procedure TForm1.CloseOLEObjects;
-var I, ObjCount: integer;
-    REObject: TREObject;
-    RichEditOle: IRichEditOle;
+var
+I, ObjCount: Integer;
+ReObject: TReObject;
+
 begin
-  RichEdit_GetOleInterface(lzRichEdit1.Handle, RichEditOle);
-  if not Assigned(RichEditOle) then Exit;
-  fillchar(REObject, sizeof(REObject), 0);
-  REObject.cbStruct:= sizeof(REObject);
-  ObjCount:= RichEditOle.GetObjectCount;
-  for I:= 0 to ObjCount do begin
-    if RichEditOle.GetObject(i, REObject, REO_GETOBJ_ALL_INTERFACES) = S_OK then
-      REObject.poleobj.Close(OLECLOSE_NOSAVE);
-  end;
-  RichEditOle:= nil;
+
+if not Assigned(RichEditOle) then Exit;
+  FillChar(ReObject, SizeOf(ReObject), 0);
+  ReObject.cbStruct := SizeOf(ReObject);
+  ObjCount := RichEditOle.GetObjectCount;
+  for I := 1 to RicheditOle.GetObjectCount do
+    if RichEditOle.GetObject(I, ReObject, REO_GETOBJ_POLEOBJ) = S_OK then
+      ReObject.poleobj.CLOSE(OLECLOSE_NOSAVE);
+
 end;
 {$ENDIF}
 procedure TForm1.ToolButton12Click(Sender: TObject);
@@ -388,6 +398,11 @@ begin
 end;
 
 procedure TForm1.HTMLClick(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
 
 end;
