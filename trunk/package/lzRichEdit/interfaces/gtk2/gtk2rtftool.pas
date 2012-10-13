@@ -501,6 +501,7 @@ begin
          FLastFontParams.Size:= FFontParams.Size;
          FLastFontParams.Color:= FFontParams.Color;
          FLastFontParams.Style:= FFontParams.Style;
+
        end;
 end;
 
@@ -517,7 +518,9 @@ end;
 procedure TRTFRead.DoWrite;
 var
   C: TUTF8char;
-  L: integer;
+  IFontParams: TRSFontAttributes;
+  FNome:TFontName;
+  FStyle: TFontStyles;
 begin
   C := UnicodeToUTF8(FRTFParser.RTFMajor);
   if FIsPict then
@@ -530,12 +533,26 @@ begin
       FRTFParser.SkipGroup;
       AplIndent;
       C := chr($0);
+      //AplATributs;
+      FNome:=  FLastFontParams.Name;
+      FStyle:= FLastFontParams.Style;
+      //--
+      FFontParams.Name:= 'Symbol';
+      FFontParams.Style:= [fsBold];
+      FFontParams.Color:= FLastFontParams.Color;
+      FFontParams.Size:= FLastFontParams.Size;
+      //--
+      AplATributs;
+      //--
+      FFontParams.Name:= FNome;
+      FFontParams.Style:= FStyle;
+      FFontParams.Color:= FLastFontParams.Color;
+      FFontParams.Size:= FLastFontParams.Size;
+
     end;
     if (FSkipGroup = -1) and (C <> chr($0)) then
     begin
       InsertPosLastChar(C);
-      L:= GetLenText;
-
       AplATributs;
     end;
   end;
@@ -588,7 +605,11 @@ begin
     rtfTab:
     begin
       if (FSkipGroup = -1) then
-        InsertPosLastChar(#9);
+         begin
+           InsertPosLastChar(#9);
+           AplATributs;
+         end;
+
     end;
     rtfOptDest:
     begin
@@ -612,22 +633,22 @@ begin
     rtfQuadLeft:
     begin
       FAlign := taLeftJustify;
-      AplIndent;
+      AplATributs;
     end;
     rtfQuadRight:
     begin
       FAlign := taRightJustify;
-      AplIndent;
+      AplATributs;
     end;
     rtfQuadJust:
     begin
       FAlign := taLeftJustify;
-      AplIndent;
+      AplATributs;
     end;
     rtfQuadCenter:
     begin
       FAlign := taCenter;
-      AplIndent;
+      AplATributs;
     end;
     rtfFirstIndent:
     begin
@@ -691,11 +712,15 @@ begin
     end;
     rtfUnderline:
     begin
-      Styles(fsUnderline);
+      //Styles(fsUnderline);
+      if not(fsUnderline in FFontParams.Style) then
+      FFontParams.Style := FFontParams.Style + [fsUnderline];
     end;
     rtfNoUnderline:
     begin
-      Styles(fsUnderline);
+      //Styles(fsUnderline);
+      if (fsUnderline in FFontParams.Style) then
+      FFontParams.Style := FFontParams.Style - [fsUnderline];
     end;
     rtfForeColor:
     begin
@@ -795,6 +820,7 @@ begin
   FFontParams.Style:=[];
   FFontParams.Color:=$0;
   AplATributs;
+
 
 end;
 
@@ -1059,7 +1085,7 @@ begin
       //Propriedades do Texto
 
       //--
-      FontAttributes.Name:='Arial';
+      FontAttributes.Name:='Sans';
       FontAttributes.Size:=10;
       FontAttributes.Style:=[];
       FontAttributes.Color:=clWindowText;

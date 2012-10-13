@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 99
   Width = 736
   Caption = 'ExRichEdit'
-  ClientHeight = 520
+  ClientHeight = 515
   ClientWidth = 736
   Constraints.MinHeight = 430
   Constraints.MinWidth = 500
@@ -51,22 +51,22 @@ object Form1: TForm1
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '0.9.31'
+  LCLVersion = '0.9.30.2RC2'
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
     Left = 3
-    Height = 459
+    Height = 454
     Top = 56
     Width = 728
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 441
+    ClientHeight = 450
     ClientWidth = 724
     Color = clBtnFace
     ParentColor = False
     TabOrder = 0
     object lzRichEdit1: TlzRichEdit
       Left = 3
-      Height = 429
+      Height = 438
       Top = 6
       Width = 712
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -121,11 +121,11 @@ object Form1: TForm1
     end
     object CBFont: TComboBox
       Left = 9
-      Height = 23
+      Height = 31
       Hint = 'Fonte'
       Top = 2
       Width = 151
-      ItemHeight = 15
+      ItemHeight = 0
       OnChange = CBFontSelect
       ParentShowHint = False
       ShowHint = True
@@ -148,11 +148,11 @@ object Form1: TForm1
     end
     object CBSize: TComboBox
       Left = 164
-      Height = 23
+      Height = 31
       Hint = 'Tamanho da Fonte'
       Top = 2
       Width = 52
-      ItemHeight = 15
+      ItemHeight = 0
       OnChange = CBSizeChange
       ParentShowHint = False
       ShowHint = True
@@ -1928,4 +1928,4 @@ object Form1: TForm1
     left = 632
     top = 1
   end
-end
+end
