@@ -25,45 +25,40 @@ type
   TReObject = _reobject;
 
 const
-// Flags to specify which interfaces should be returned in the structure above
+
   REO_GETOBJ_NO_INTERFACES	= $00000000;
   REO_GETOBJ_POLEOBJ		= $00000001;
   REO_GETOBJ_PSTG		= $00000002;
   REO_GETOBJ_POLESITE		= $00000004;
   REO_GETOBJ_ALL_INTERFACES	= $00000007;
-// Place object at selection
+
   REO_CP_SELECTION = $FFFFFFFF;
 
-// Use character position to specify object instead of index
   REO_IOB_SELECTION             = $FFFFFFFF;
   REO_IOB_USE_CP                = $FFFFFFFE;
 
-  // Object flags
-    REO_NULL			= $00000000;	// No flags
-    REO_READWRITEMASK	        = $0000003F;	// Mask out RO bits
-    REO_DONTNEEDPALETTE	        = $00000020;	// Object doesn't need palette
-    REO_BLANK			= $00000010;	// Object is blank
-    REO_DYNAMICSIZE		= $00000008;	// Object defines size always
-    REO_INVERTEDSELECT	        = $00000004;	// Object drawn all inverted if sel
-    REO_BELOWBASELINE	        = $00000002;	// Object sits below the baseline
-    REO_RESIZABLE		= $00000001;	// Object may be resized
-    REO_LINK			= $80000000;	// Object is a link (RO)
-    REO_STATIC			= $40000000;	// Object is static (RO)
-    REO_SELECTED		= $08000000;	// Object selected (RO)
-    REO_OPEN			= $04000000;	// Object open in its server (RO)
-    REO_INPLACEACTIVE	        = $02000000;	// Object in place active (RO)
-    REO_HILITED			= $01000000;	// Object is to be hilited (RO)
-    REO_LINKAVAILABLE	        = $00800000;	// Link believed available (RO)
-    REO_GETMETAFILE		= $00400000;	// Object requires metafile (RO)
+    REO_NULL			= $00000000;
+    REO_READWRITEMASK	        = $0000003F;
+    REO_DONTNEEDPALETTE	        = $00000020;
+    REO_BLANK			= $00000010;
+    REO_DYNAMICSIZE		= $00000008;
+    REO_INVERTEDSELECT	        = $00000004;
+    REO_BELOWBASELINE	        = $00000002;
+    REO_RESIZABLE		= $00000001;
+    REO_LINK			= $80000000;
+    REO_STATIC			= $40000000;
+    REO_SELECTED		= $08000000;
+    REO_OPEN			= $04000000;
+    REO_INPLACEACTIVE	        = $02000000;
+    REO_HILITED			= $01000000;
+    REO_LINKAVAILABLE	        = $00800000;
+    REO_GETMETAFILE		= $00400000;
 
-// flags for IRichEditOle::GetClipboardData(),
-// IRichEditOleCallback::GetClipboardData() and
-// IRichEditOleCallback::QueryAcceptData()
-  RECO_PASTE			= $00000000;	// paste from clipboard
-  RECO_DROP			= $00000001;	// drop
-  RECO_COPY			= $00000002;	// copy to the clipboard
-  RECO_CUT			= $00000003;	// cut to the clipboard
-  RECO_DRAG			= $00000004;	// drag
+  RECO_PASTE			= $00000000;
+  RECO_DROP			= $00000001;
+  RECO_COPY			= $00000002;
+  RECO_CUT			= $00000003;
+  RECO_DRAG			= $00000004;
 
   OLECLOSE_SAVEIFDIRTY = 0;
   OLECLOSE_NOSAVE = 1;

@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 325
+  Left = 294
   Height = 540
-  Top = 151
+  Top = 99
   Width = 736
   Caption = 'ExRichEdit'
   ClientHeight = 520
@@ -74,6 +74,7 @@ object Form1: TForm1
       OnClick = lzRichEdit1Click
       ScrollBars = ssAutoBoth
       TabOrder = 0
+      WantTabs = True
     end
   end
   object ToolBar1: TToolBar
