@@ -626,7 +626,7 @@ end;
 function TRTFParser.GetChar: integer;
 
 var
-  c: byte;
+  c: byte=0;
 
 begin
   if FStream.Read(c, 1) <> 0 then
@@ -819,7 +819,7 @@ var
   sp: PRTFStyle;
   sep, sepLast: PRTFStyleElt;
   bp: string[rtfBufSiz];
-  I: integer;
+//  I: integer;
 
 begin
   while True do
@@ -840,7 +840,7 @@ begin
     FstyleList := sp;
     if not CheckCM(rtfGroup, rtfBeginGroup) then
       Error('SSErr - missing {');
-    I := 0;
+    //I := 0;
     GetToken;
     while (fRTFClass = rtfControl) or (FTokenClass = rtfControl) or (FRTFClass = rtfGroup) do
     begin

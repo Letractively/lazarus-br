@@ -10,7 +10,7 @@ uses
 
 
 procedure InsertImage(TextView: TWinControl; Image:TPicture; Pos:Integer);
-procedure GetImage(TextView: TWinControl; BMP: TBitmap; Pos:Integer);
+//procedure GetImage(TextView: TWinControl; BMP: TBitmap; Pos:Integer);
 implementation
 
 procedure InsertImage(TextView: TWinControl; Image:TPicture; Pos:Integer);
