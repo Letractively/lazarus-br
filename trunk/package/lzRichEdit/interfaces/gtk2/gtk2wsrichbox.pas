@@ -63,7 +63,6 @@ type
     TabCount: Integer;
   end;
 
-
   { TGtk2WSCustomRichBox }
 
   TGtk2WSCustomRichBox = class(TWSCustomRichBox)

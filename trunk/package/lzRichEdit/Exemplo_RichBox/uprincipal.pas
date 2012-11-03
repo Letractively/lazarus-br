@@ -9,7 +9,7 @@ uses
   ComCtrls, Menus, ExtCtrls, Buttons, LCLProc,
   LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre,
   RichBox{$IFDEF LINUX}, GTKTextImage, UGetFontLinux{$ENDIF}
-  {$IFDEF WINDOWS}, RichOleBox, RichOle{$ENDIF};
+  {$IFDEF WINDOWS}, RichOleBox, RichOle{$ENDIF}, RTF2HTML;
 
 type
 
@@ -75,7 +75,9 @@ type
     ToolButton26: TToolButton;
     ToolButton27: TToolButton;
     ToolButton28: TToolButton;
+    ToolButton29: TToolButton;
     ToolButton3: TToolButton;
+    ToolButton30: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
@@ -111,6 +113,7 @@ type
     procedure ToolButton21Click(Sender: TObject);
     procedure ToolButton22Click(Sender: TObject);
     procedure ToolButton2Click(Sender: TObject);
+    procedure ToolButton30Click(Sender: TObject);
     procedure ToolButton3Click(Sender: TObject);
     procedure ToolButton6Click(Sender: TObject);
     procedure ToolButton8Click(Sender: TObject);
@@ -247,6 +250,50 @@ begin
   else
     lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style + [fsItalic];
   GetTextStatus;
+end;
+
+procedure TForm1.ToolButton30Click(Sender: TObject);
+var
+  Rtf2HTML:TRtf2HTML;
+  S : TMemoryStream;
+begin
+  //--Salvar Como HTML
+  Sdlg.Title := 'Salvar HTML';
+  Sdlg.Filter := 'HTML (*.html)|*.html';
+  Sdlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
+
+  if Sdlg.Execute then
+  begin
+    //--
+    if ExtractFileExt(Sdlg.FileName) = '' then
+    begin
+        Sdlg.FileName := Sdlg.FileName + '.html'
+    end;
+    //--
+    if FileExists(Sdlg.FileName) then
+    begin
+      if (MessageDlg('Salvar HTML', Sdlg.FileName + ' já existe. ' +
+        #10 + 'deseja substituí-lo?', mtWarning, [mbYes, mbNo], 0) <> 6) then
+        Exit;
+      if (FileIsReadOnly(Sdlg.FileName)) then
+      begin
+        MessageDlg('Salvar HTML', 'O arquivo ' + Sdlg.FileName +
+          ' é somente leitura.',
+          mtWarning, [mbOK], 0);
+        ToolButton30Click(Sender);
+        Exit;
+      end;
+    end;
+    //--
+    S := TMemoryStream.Create;
+    lzRichEdit1.SaveToStream(S);
+    //--
+    Rtf2HTML:= TRtf2HTML.Create;
+    Rtf2HTML.SunFontSize:= 5;
+    Rtf2HTML.Convert(S, ExtractFileDir(Sdlg.FileName), ExtractFileName(Sdlg.FileName));
+    Rtf2HTML.Free;
+  end;
+
 end;
 
 procedure TForm1.ToolButton3Click(Sender: TObject);
@@ -463,6 +510,7 @@ begin
   CBFont.Items.Assign(FontList);
   FontList.Free;
 {$ENDIF}
+CBFont.Items.Add('Sans');
 
 I2 := 1;
   I3 := 7;

@@ -35,12 +35,150 @@ unit Gtk2RTFTool;
 interface
 
 uses
-  Classes, SysUtils, Controls,Graphics, LCLType, LCLProc, IntfGraphics,
+  Classes, SysUtils, Controls, Graphics, LCLType, LCLProc, IntfGraphics,
   GraphType, gtk2, glib2, gdk2, pango, Gtk2Proc, Gtk2Def, gdk2pixbuf, Gtk2Globals,
-  Gtk2WSControls,
-  RTFPars_lzRichEdit;
+  {Gtk2WSControls,}
+  RTFPars_lzRichEdit, FastImage;
 
-const BulletCode=$2022;
+const
+  UnicodeBulletCode = $2022;
+
+
+
+  //************Nome de Fontes *******
+  type
+    TFNameC=record
+      CharPos:Int64;
+      FontName:Integer;
+    end;
+
+    { TFontNameC }
+
+    TFontNameC= class(TObject)
+  private
+    FFNameC: array of TFNameC;
+  public
+    function Count:Cardinal;
+    procedure Add(FName:Integer; chPos:Int64);
+    function Get(Index: Integer): TFNameC;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  //*********************************************
+  //************Tamanho de Fontes *******
+  type
+    TFSizeC=record
+      CharPos:Int64;
+      FontSize:Integer;
+    end;
+
+    { TFontSizeC }
+
+    TFontSizeC= class(TObject)
+  private
+    FFSizeC: array of TFSizeC;
+  public
+    function Count:Cardinal;
+    procedure Add(FSize:Integer; chPos:Int64);
+    function Get(Index: Integer): TFSizeC;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  //*********************************************
+  //************Cor de Fontes *******
+  type
+    TFColorC=record
+      CharPos:Int64;
+      FontColor:TColor;
+    end;
+
+
+
+    { TFontColorC }
+
+    TFontColorC= class(TObject)
+  private
+    FFColorC: array of TFColorC;
+  public
+    function Count:Cardinal;
+    procedure Add(FColor:TColor; chPos:Int64);
+    function Get(Index: Integer): TFColorC;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  //*********************************************
+
+  //************Estilo de Fontes *******
+  type
+    TFStylesC=record
+      CharPos:Int64;
+      FontSTyles:TFontStyles;
+    end;
+
+
+    { TFontStylesC }
+
+    TFontStylesC= class(TObject)
+  private
+    FFStylesC: array of TFStylesC;
+  public
+    function Count:Cardinal;
+    procedure Add(FStyle:TFontStyles; chPos:Int64);
+    function Get(Index: Integer): TFStylesC;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  //*********************************************
+
+  //************Alinhamento de Parágrafos *******
+  type
+    TAlignC=record
+      CharPos:Int64;
+      Alignment:TAlignment;
+    end;
+
+
+    { TParAlignmentC }
+
+    TParAlignmentC= class(TObject)
+  private
+    FAlignC: array of TAlignC;
+  public
+    function Count:Cardinal;
+    procedure Add(Al:TAlignment; chPos:Int64);
+    function Get(Index: Integer): TAlignC;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  //*********************************************
+  //************Recuos de Parágrafos *******
+  type
+    TIndentC=record
+      CharPos:Int64;
+      LeftIndent:Integer;
+      RightIndent: Integer;
+      FirstIndent:Integer;
+    end;
+
+
+
+    { TParIndentC }
+
+    TParIndentC= class(TObject)
+  private
+    FIndentC: array of TIndentC;
+  public
+    function Count:Cardinal;
+    function Add(chPos:Int64):Integer;
+    procedure AddLeftIdent(LeftIndent:Integer; chPos:Int64);
+    procedure AddRightIndent(RightIndent:Integer; chPos:Int64);
+    procedure AddFirstIndent(FirstIndent:Integer; chPos:Int64);
+
+    function Get(Index: Integer): TIndentC;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  //*********************************************
 
 type
 
@@ -53,116 +191,124 @@ type
     HEX: string;
   end;
 
-TRSFontAttributes=record
-  Charset: TFontCharset;
-  Color: TColor;
-  Name: TFontName;
-  Pitch: TFontPitch;
-  fProtected: Boolean;
-  Size: Integer;
-  Style: TFontStyles;
-end;
+  TRSFontAttributes = record
+    Charset: TFontCharset;
+    Color: TColor;
+    Name: TFontName;
+    Pitch: TFontPitch;
+    fProtected: boolean;
+    Size: integer;
+    Style: TFontStyles;
+  end;
 
-TRSParaAttributes=record
-  Alignment: TAlignment;
-  FirstIndent: Integer;
-  LeftIndent: Integer;
-  RightIndent: Integer;
-  Tab: Integer;
-  TabCount: Integer;
-end;
+  TRSParaAttributes = record
+    Alignment: TAlignment;
+    FirstIndent: integer;
+    LeftIndent: integer;
+    RightIndent: integer;
+    Tab: integer;
+    TabCount: integer;
+  end;
 
-{ TRTFSave }
+  { TRTFSave }
 
-TRTFSave = class(TObject)
-protected
-  FTextView: TWinControl;
-  FRTFout: TStringList;
-  Ffonttbl: TStringList;
-  Fcolortbl: TStringList;
-  FFontAttributes: TRSFontAttributes;
-private
-  function AddFont(FontName: string): integer;
-  function AddColor(Color: TColor): integer;
-  function GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer): boolean;
-  function GetText(var S:String):boolean;
-  function GetFontAttributes(const Position:Integer; var FontAttributes: TRSFontAttributes): boolean;
-  function GetParaAttributes(const Position:Integer; var ParaAttributes: TRSParaAttributes): boolean;
-  function Start:Boolean;
-  function GetImage(BMP: TBitmap; Position:Integer):boolean;
-public
-  procedure SaveToStream(Stream: TStream);
-  constructor Create(TextView: TWinControl);
-  destructor Destroy; override;
-end;
+  TRTFSave = class(TObject)
+  protected
+    FTextView: TWinControl;
+    FRTFout: TStringList;
+    Ffonttbl: TStringList;
+    Fcolortbl: TStringList;
+    FFontAttributes: TRSFontAttributes;
+  private
+    function AddFont(FontName: string): integer;
+    function AddColor(Color: TColor): integer;
+    function GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer): boolean;
+    function GetText(var S: string): boolean;
+    function GetFontAttributes(const Position: integer;
+      var FontAttributes: TRSFontAttributes): boolean;
+    function GetParaAttributes(const Position: integer;
+      var ParaAttributes: TRSParaAttributes): boolean;
+    function Start: boolean;
+    function GetImage(Picture: TPicture; Position: integer): boolean;
+  public
+    procedure SaveToStream(Stream: TStream);
+    constructor Create(TextView: TWinControl);
+    destructor Destroy; override;
+  end;
 
+  { TRTFRead }
 
-{ TRTFRead }
+  TRTFRead = class
+  private
+    FRTFParser: TRTFParser;
+    FTextView: TWinControl;
+    RTFPict: TRTFPict;
+    FIsPict: boolean;
+    FGroups: integer;
+    FSkipGroup: integer;
+    //--
+    FGFontAttributes: array of TRSFontAttributes;
+    //--
+    {FGUl:Integer;
+    FGcf:Integer;
+    FGB:Integer;
+    FGI:Integer;}
+    //--
+    FParAlignmentC: TParAlignmentC;
+    FParIndentC: TParIndentC;
+    FFontNameC: TFontNameC;
+    FFontSizeC: TFontSizeC;
+    FFontColorC: TFontColorC;
+    FFontStylesC: TFontStylesC;
+    //--
+    FFontStyles:TFontStyles;
+    //--
+    Buffer: PGtkTextBuffer;
+    //--
 
-TRTFRead = class
-private
-  FRTFParser: TRTFParser;
-  FTextView: TWinControl;
-  RTFPict: TRTFPict;
-  FIsPict: boolean;
-  FGroups: integer;
-  FSkipGroup: integer;
-  //--
-  FLastCharFontParams: Integer;
-  FLastFontParams: TRSFontAttributes;
-  FFontParams: TRSFontAttributes;
-  //--
-  FLastCharAlign: Integer;
-  FLastAlign: TAlignment;
-  FAlign: TAlignment;
-  //--
-  FLastCharLeftIndent: Integer;
-  FLastLeftIndent: Integer;
-  FLeftIndent: integer;
-
-  FLastCharRightIndent:Integer;
-  FLastRightIndent:Integer;
-  FRightIndent: integer;
-
-  FLastCharFirstIndent:Integer;
-  FLastFirstIndent:Integer;
-  FFirstIndent: integer;
-  //--
-
-  //--
-  Buffer: PGtkTextBuffer;
-private
-  function GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer): boolean;
-  function GetText(var S:String):boolean;
-  function GetLenText:Integer;
-  procedure InsertPosLastChar(C:TUTF8Char);
-  function GetRealTextBuf:String;
-  procedure SetFormat(const iSelStart, iSelLength: integer; TextBuffer: PGtkTextBuffer; Tag: Pointer);
-  procedure SetFirstIndent(Pos:Integer; Value: Longint; LPos:Integer=1);
-  procedure SetLeftIndent(Pos:Integer; Value: Longint; LPos:Integer=1);
-  procedure SetRightIndent(Pos:Integer; Value: Longint; LPos:Integer=1);
-  procedure SetAlignment(Pos:Integer; Value: TAlignment; LPos:Integer=1);
-  procedure SetTextAttributes(Pos:Integer; Value: TRSFontAttributes; LPos:Integer=1);
-  procedure InsertImage(Image: TPicture);
-  procedure AplATributs;
-private
-  procedure DoGroup;
-  procedure DoWrite;
-  procedure DoCtrl;
-  //--
-  procedure AplIndent;
-  //--
-  procedure DoSpecialChar;
-  procedure DoParAttr;
-  procedure DoCharAttr;
-  procedure DoPictAttr;
-  procedure DoBeginPict;
-  procedure DoEndPict;
-public
-  procedure LoadFromStream(Stream: TStream);
-  constructor Create(TextView: TWinControl);
-  destructor Destroy; override;
-end;
+  private
+    function GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer): boolean;
+    function GetText(var S: string): boolean;
+    function GetLenText: integer;
+    procedure InsertPosLastChar(C: TUTF8Char);
+    function GetRealTextBuf: string;
+    procedure SetFormat(const iSelStart, iSelEnd: integer;
+      TextBuffer: PGtkTextBuffer; Tag: Pointer);
+    //--
+    procedure SetFirstIndent(CharStart: integer; Value: Integer; CharEnd: integer);
+    procedure SetLeftIndent(CharStart: integer; Value: Integer; CharEnd: integer);
+    procedure SetRightIndent(CharStart: integer; Value: Integer; CharEnd: integer);
+    procedure SetAlignment(CharStart: integer; Value: TAlignment; CharEnd: integer);
+    procedure SetFontName(CharStart: integer; Value: TFontName; CharEnd: integer);
+    procedure SetFontSize(CharStart: integer; Value: Integer; CharEnd: integer);
+    procedure SetFontStyles(CharStart: integer; Value: TFontStyles; CharEnd: integer);
+    procedure SetFontColor(CharStart: integer; Value: TColor; CharEnd: integer);
+    //--
+    procedure SetTextAttributes(Pos: integer; Value: TRSFontAttributes; LPos: integer = 1);
+    procedure InsertImage(Image: TPicture);
+  private
+    procedure DoGroup;
+    procedure DoWrite;
+    procedure DoCtrl;
+    //--
+    procedure DoSpecialChar;
+    procedure DoParAttr;
+    procedure DoCharAttr;
+    procedure DoPictAttr;
+    procedure DoBeginPict;
+    procedure DoEndPict;
+  private
+    procedure SetAlignmentC;
+    procedure SetIndentC;
+    procedure SetFontNameC;
+    procedure SetFontSizeC;
+    procedure SetStylesC;
+    procedure SetColorC;
+  public
+    procedure LoadFromStream(Stream: TStream);
+    constructor Create(TextView: TWinControl);
+    destructor Destroy; override;
+  end;
 
 
 function PNGToRTF(PNG: TPortableNetworkGraphic): string;
@@ -174,20 +320,20 @@ implementation
 function PNGToRTF(PNG: TPortableNetworkGraphic): string;
 var
   MemoryStream: TMemoryStream;
-  I, Len: integer;
+  I:Int64=0;
+  Len: integer=0;
   Buf: byte = $0;
 begin
-  Result := '{\pict\pngblip\picw' + IntToStr(PNG.Width * 15) +
-    '\pich' + IntToStr(PNG.Height * 15) + '\picwgoal' +
-    IntToStr(PNG.Width * 15) + '\pichgoal' + IntToStr(PNG.Height * 15) +
-    UnicodeToUTF8($A);
+  Result := '{\pict\pngblip\picw' + IntToStr(PNG.Width * 15) + '\pich' +
+    IntToStr(PNG.Height * 15) + '\picwgoal' + IntToStr(PNG.Width * 15) +
+    '\pichgoal' + IntToStr(PNG.Height * 15) + UnicodeToUTF8($A);
   //--
   MemoryStream := TMemoryStream.Create;
   PNG.SaveToStream(MemoryStream);
   MemoryStream.Seek(0, soBeginning);
   Len := 0;
   //--
-  for I := 0 to MemoryStream.Size do
+ { for I := 0 to MemoryStream.Size do
   begin
     if Len = 39 then
     begin
@@ -197,7 +343,21 @@ begin
     MemoryStream.Read(Buf, 1);
     Result := Result + LowerCase(IntToHex(Buf, 2));
     Len := Len + 1;
+  end;}
+  //--
+  while I <= MemoryStream.Size do
+  begin
+    if Len = 39 then
+    begin
+      Result := Result + UnicodeToUTF8($A);
+      Len := 0;
+    end;
+    MemoryStream.Read(Buf, 1);
+    Result := Result + LowerCase(IntToHex(Buf, 2));
+    Len := Len + 1;
+    Inc(I);
   end;
+
   //--
   MemoryStream.Free;
   Result := Result + '}';
@@ -206,54 +366,367 @@ end;
 function RTFToBMP(const S: string; DataType: integer; var Picture: TPicture;
   Width: integer; Height: integer): boolean;
 var
-    MStream: TMemoryStream;
-    Pict: TPicture;
-    I: integer = 1;
-    B: byte = 0;
-    L: integer;
-    S2: string;
+  MStream: TMemoryStream;
+  Pict: TPicture;
+  I: integer = 1;
+  B: byte = 0;
+  L: integer;
+  S2: string;
 begin
-    Result := False;
-    MStream := TMemoryStream.Create;
+  Result := False;
+  MStream := TMemoryStream.Create;
+  MStream.Seek(0, soBeginning);
+  L := UTF8Length(S);
+  while True do
+  begin
+    S2 := S[I] + S[I + 1];
+    if (S2 <> '') then
+      B := StrToInt('$' + trim(S2))
+    else
+      B := $0;
+    MStream.Write(B, 1);
+    I := I + 2;
+    if (I > L) then
+      Break;
+  end;
+
+  if DataType = 18 then
+  begin
     MStream.Seek(0, soBeginning);
-    L := UTF8Length(S);
-    while True do
+    if (Width = 0) and (Height = 0) then
+      Picture.PNG.LoadFromStream(MStream)
+    else
     begin
-      S2 := S[I] + S[I + 1];
-      if (S2 <> '') then
-        B := StrToInt('$' + trim(S2))
-      else
-        B := $0;
-      MStream.Write(B, 1);
-      I := I + 2;
-      if (I > L) then
-        Break;
+      Pict := TPicture.Create;
+      Pict.PNG.LoadFromStream(MStream);
+      //--
+      Picture.PNG.Width := Width div 15;
+      Picture.PNG.Height := Height div 15;
+      Picture.PNG.Clear;
+      Picture.PNG.Clear;
+      //--
+      Picture.PNG.Canvas.CopyRect(Rect(0, 0, Width div 15, Height div 15),
+        Pict.PNG.Canvas,
+        Rect(0, 0, Pict.PNG.Width, Pict.PNG.Height));
+      Pict.Free;
     end;
+    Result := True;
+  end;
 
-    if DataType = 18 then
+  MStream.Free;
+end;
+
+{ TFontColorC }
+
+function TFontColorC.Count: Cardinal;
+begin
+  Result:= Length(FFColorC);
+end;
+
+procedure TFontColorC.Add(FColor: TColor; chPos: Int64);
+var
+  I:Integer=0;
+begin
+  {for I:= 0 to Count -1 do
     begin
-      MStream.Seek(0, soBeginning);
-      if (Width = 0) and (Height = 0) then
-        Picture.PNG.LoadFromStream(MStream)
-      else
+      if FFColorC[I].CharPos = chPos then
+        begin
+          FFColorC[I].FontColor:= FColor;
+          Exit;
+        end;
+    end;}
+  while I < Count do
+  begin
+    if FFColorC[I].CharPos = chPos then
       begin
-        Pict := TPicture.Create;
-        Pict.PNG.LoadFromStream(MStream);
-        //--
-        Picture.PNG.Width := Width div 15;
-        Picture.PNG.Height := Height div 15;
-        Picture.PNG.Clear;
-        Picture.PNG.Clear;
-        //--
-        Picture.PNG.Canvas.CopyRect(Rect(0, 0, Width div 15, Height div 15),
-          Pict.PNG.Canvas,
-          Rect(0, 0, Pict.PNG.Width, Pict.PNG.Height));
-        Pict.Free;
+        FFColorC[I].FontColor:= FColor;
+        Exit;
       end;
-      Result := True;
-    end;
+  Inc(I);
+  end;
 
-    MStream.Free;
+  SetLength(FFColorC, Count + 1);
+  FFColorC[Count -1].FontColor:= FColor;
+  FFColorC[Count -1].CharPos:= chPos;
+end;
+
+function TFontColorC.Get(Index: Integer): TFColorC;
+begin
+  Result.CharPos:= FFColorC[Index].CharPos;
+  Result.FontColor:= FFColorC[Index].FontColor;
+end;
+
+constructor TFontColorC.Create;
+begin
+  SetLength(FFColorC, 0);
+end;
+
+destructor TFontColorC.Destroy;
+begin
+  SetLength(FFColorC, 0);
+  inherited Destroy;
+end;
+
+{ TFontStylesC }
+
+function TFontStylesC.Count: Cardinal;
+begin
+  Result:=Length(FFStylesC);
+end;
+
+procedure TFontStylesC.Add(FStyle: TFontStyles; chPos: Int64);
+var
+  I:Integer=0;
+begin
+  {for I:= 0 to Count -1 do
+    begin
+      if FFStylesC[I].CharPos = chPos then
+        begin
+          FFStylesC[I].FontSTyles:= FStyle;
+          Exit;
+        end;
+    end;}
+while I < Count do
+  begin
+      if FFStylesC[I].CharPos = chPos then
+        begin
+          FFStylesC[I].FontSTyles:= FStyle;
+          Exit;
+        end;
+  Inc(I);
+  end;
+
+  SetLength(FFStylesC, Count + 1);
+  FFStylesC[Count -1].FontSTyles:= FStyle;
+  FFStylesC[Count -1].CharPos:= chPos;
+end;
+
+function TFontStylesC.Get(Index: Integer): TFStylesC;
+begin
+  Result.CharPos:= FFStylesC[Index].CharPos;
+  Result.FontSTyles:= FFStylesC[Index].FontSTyles;
+end;
+
+constructor TFontStylesC.Create;
+begin
+  SetLength(FFStylesC, 0);
+end;
+
+destructor TFontStylesC.Destroy;
+begin
+  SetLength(FFStylesC, 0);
+  inherited Destroy;
+end;
+
+{ TFontSizeC }
+
+function TFontSizeC.Count: Cardinal;
+begin
+  Result:=Length(FFSizeC);
+end;
+
+procedure TFontSizeC.Add(FSize: Integer; chPos: Int64);
+var
+  I:Integer=0;
+begin
+  {for I:= 0 to Count -1 do
+    begin
+      if FFSizeC[I].CharPos = chPos then
+        begin
+          FFSizeC[I].FontSize:= FSize;
+          Exit;
+        end;
+    end;}
+
+  while I < Count do
+  begin
+      if FFSizeC[I].CharPos = chPos then
+        begin
+          FFSizeC[I].FontSize:= FSize;
+          Exit;
+        end;
+  Inc(I);
+  end;
+
+  SetLength(FFSizeC, Count + 1);
+  FFSizeC[Count -1].FontSize:= FSize;
+  FFSizeC[Count -1].CharPos:= chPos;
+end;
+
+function TFontSizeC.Get(Index: Integer): TFSizeC;
+begin
+  Result.CharPos:= FFSizeC[Index].CharPos;
+  Result.FontSize:= FFSizeC[Index].FontSize;
+end;
+
+constructor TFontSizeC.Create;
+begin
+  SetLength(FFSizeC, 0);
+end;
+
+destructor TFontSizeC.Destroy;
+begin
+  SetLength(FFSizeC, 0);
+  inherited Destroy;
+end;
+
+{ TFontNameC }
+
+function TFontNameC.Count: Cardinal;
+begin
+  Result:= Length(FFNameC);
+end;
+
+procedure TFontNameC.Add(FName: Integer; chPos: Int64);
+var
+  I:Integer=0;
+begin
+  {for I:= 0 to Count -1 do
+    begin
+      if FFNameC[I].CharPos = chPos then
+        begin
+          FFNameC[I].FontName:= FName;
+          Exit;
+        end;
+    end;}
+  while I < Count do
+  begin
+      if FFNameC[I].CharPos = chPos then
+        begin
+          FFNameC[I].FontName:= FName;
+          Exit;
+        end;
+  Inc(I);
+  end;
+  SetLength(FFNameC, Count + 1);
+  FFNameC[Count -1].FontName:= FName;
+  FFNameC[Count -1].CharPos:= chPos;
+end;
+
+function TFontNameC.Get(Index: Integer): TFNameC;
+begin
+  Result.CharPos:= FFNameC[Index].CharPos;
+  Result.FontName:= FFNameC[Index].FontName;
+end;
+
+constructor TFontNameC.Create;
+begin
+  SetLength(FFNameC, 0);
+end;
+
+destructor TFontNameC.Destroy;
+begin
+  SetLength(FFNameC, 0);
+  inherited Destroy;
+end;
+
+{ TParIndentC }
+
+function TParIndentC.Count: Cardinal;
+begin
+  Result:= Length(FIndentC);
+end;
+
+function TParIndentC.Add(chPos: Int64): Integer;
+var
+  I:Integer=0;
+begin
+  {for I:= 0 to Count -1 do
+    if FIndentC[I].CharPos = chPos then
+      begin
+        Result:= I;
+        Exit;
+      end;}
+  //--
+
+  while I < Count do
+  begin
+    if FIndentC[I].CharPos = chPos then
+      begin
+        Result:= I;
+        Exit;
+      end;
+  Inc(I);
+  end;
+
+  SetLength(FIndentC, Count + 1);
+  FIndentC[Count -1].CharPos:= chPos;
+  Result:= Count -1;
+end;
+
+procedure TParIndentC.AddLeftIdent(LeftIndent: Integer; chPos: Int64);
+var
+  Index: Integer;
+begin
+  Index:= Add(chPos);
+  FIndentC[Index].LeftIndent:= LeftIndent;
+end;
+
+procedure TParIndentC.AddRightIndent(RightIndent: Integer; chPos: Int64);
+var
+  Index: Integer;
+begin
+  Index:= Add(chPos);
+  FIndentC[Index].RightIndent:= RightIndent;
+end;
+
+procedure TParIndentC.AddFirstIndent(FirstIndent: Integer; chPos: Int64);
+var
+  Index: Integer;
+begin
+  Index:= Add(chPos);
+  FIndentC[Index].FirstIndent:= FirstIndent;
+end;
+
+function TParIndentC.Get(Index: Integer): TIndentC;
+begin
+  Result.CharPos:= FIndentC[Index].CharPos;
+  Result.LeftIndent:= FIndentC[Index].LeftIndent;
+  Result.RightIndent:= FIndentC[Index].RightIndent;
+  Result.FirstIndent:= FIndentC[Index].FirstIndent;
+
+end;
+
+constructor TParIndentC.Create;
+begin
+  SetLength(FIndentC, 0);
+end;
+
+destructor TParIndentC.Destroy;
+begin
+  SetLength(FIndentC, 0);
+  inherited Destroy;
+end;
+
+{ TParAlignmentC }
+
+function TParAlignmentC.Count: Cardinal;
+begin
+  Result:= Length(FAlignC);
+end;
+
+procedure TParAlignmentC.Add(Al: TAlignment; chPos: Int64);
+begin
+  SetLength(FAlignC, Count + 1);
+  FAlignC[Count - 1].Alignment:= Al;
+  FAlignC[Count - 1].CharPos:= chPos;
+end;
+
+function TParAlignmentC.Get(Index: Integer): TAlignC;
+begin
+  Result.CharPos:= FAlignC[Index].CharPos;
+  Result.Alignment:= FAlignC[Index].Alignment;
+end;
+
+constructor TParAlignmentC.Create;
+begin
+  SetLength(FAlignC, 0);
+end;
+
+destructor TParAlignmentC.Destroy;
+begin
+  SetLength(FAlignC, 0);
+  inherited Destroy;
 end;
 
 { TRTFRead }
@@ -262,7 +735,7 @@ function TRTFRead.GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer): boolean;
 var
   AWidget: PGtkWidget;
 begin
-  Result:= False;
+  Result := False;
   //--
   AWidget := PGtkWidget(FTextView.Handle);
   AWidget := GetWidgetInfo(AWidget, False)^.CoreWidget;
@@ -273,34 +746,29 @@ begin
   if not (Assigned(TextBuffer)) then
     Exit;
   //--
-  Result:= True;
+  Result := True;
 end;
 
-function TRTFRead.GetText(var S: String): boolean;
+function TRTFRead.GetText(var S: string): boolean;
 var
   iterStart, iterEnd: TGtkTextIter;
 begin
-  Result:= False;
+  Result := False;
 
   gtk_text_buffer_get_start_iter(Buffer, @iterStart);
   gtk_text_buffer_get_end_iter(Buffer, @iterEnd);
   S := gtk_text_buffer_get_slice(Buffer, @iterStart, @iterEnd, gboolean(False));
 
-  Result:= True;
+  Result := True;
 end;
 
-function TRTFRead.GetLenText: Integer;
-var
-  Position: integer;
-  iterStart: TGtkTextIter;
-  Ch: TUTF8Char;
+function TRTFRead.GetLenText: integer;
 begin
-  Result:= gtk_text_buffer_get_char_count(Buffer);
+  Result := gtk_text_buffer_get_char_count(Buffer);
 end;
 
 procedure TRTFRead.InsertPosLastChar(C: TUTF8Char);
 var
-  Position: integer;
   iterStart: TGtkTextIter;
   Ch: TUTF8Char;
 begin
@@ -309,74 +777,119 @@ begin
   gtk_text_buffer_insert(Buffer, @iterStart, @Ch[1], Length(Ch));
 end;
 
-function TRTFRead.GetRealTextBuf: String;
+function TRTFRead.GetRealTextBuf: string;
 begin
-  Result:='';
+  Result := '';
   GetText(Result);
 end;
 
-procedure TRTFRead.SetFormat(const iSelStart, iSelLength: integer;
+procedure TRTFRead.SetFormat(const iSelStart, iSelEnd: integer;
   TextBuffer: PGtkTextBuffer; Tag: Pointer);
 var
   iterStart, iterEnd: TGtkTextIter;
 begin
   gtk_text_buffer_get_iter_at_offset(TextBuffer, @iterStart, iSelStart);
-  gtk_text_buffer_get_iter_at_offset(TextBuffer, @iterEnd, iSelStart + iSelLength);
+  gtk_text_buffer_get_iter_at_offset(TextBuffer, @iterEnd, iSelEnd);
   gtk_text_buffer_apply_tag(TextBuffer, tag, @iterStart, @iterEnd);
 end;
 
-procedure TRTFRead.SetFirstIndent(Pos: Integer; Value: Longint; LPos:Integer=1);
+procedure TRTFRead.SetFirstIndent(CharStart: integer; Value: Integer; CharEnd: integer);
 var
   Tag: Pointer = nil;
 begin
   //--
-  Tag := gtk_text_buffer_create_tag(buffer, nil, 'indent', [Value * 37,
-    'indent-set', gboolean(gTRUE), nil]);
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'indent',
+    [Value, 'indent-set', gboolean(gTRUE), nil]);
 
-  SetFormat(Pos, LPos, Buffer, Tag);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
 end;
 
-procedure TRTFRead.SetLeftIndent(Pos: Integer; Value: Longint; LPos:Integer=1);
+procedure TRTFRead.SetLeftIndent(CharStart: integer; Value: Integer; CharEnd: integer);
 var
   Tag: Pointer = nil;
 begin
-  //--
-
-  Tag := gtk_text_buffer_create_tag(buffer, nil, 'left_margin', [Value * 37,
-    'left_margin-set', gboolean(gTRUE), nil]);
-  SetFormat(Pos, LPos, Buffer, Tag);
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'left_margin',
+    [Value, 'left_margin-set', gboolean(gTRUE), nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
 end;
 
-procedure TRTFRead.SetRightIndent(Pos: Integer; Value: Longint; LPos:Integer=1);
+procedure TRTFRead.SetRightIndent(CharStart: integer; Value: Integer; CharEnd: integer);
 var
   Tag: Pointer = nil;
 begin
-  //--
-
-  Tag := gtk_text_buffer_create_tag(buffer, nil, 'right_margin', [Value *
-    37, 'right_margin-set', gboolean(gTRUE), nil]);
-  SetFormat(Pos, LPos, Buffer, Tag);
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'right_margin',
+    [Value, 'right_margin-set', gboolean(gTRUE), nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
 end;
 
-procedure TRTFRead.SetAlignment(Pos: Integer; Value: TAlignment; LPos:Integer=1);
+procedure TRTFRead.SetAlignment(CharStart: integer; Value: TAlignment; CharEnd: integer);
 const
-  GTKJustification: array [TAlignment] of integer = (GTK_JUSTIFY_LEFT, GTK_JUSTIFY_RIGHT, GTK_JUSTIFY_CENTER);
+  GTKJustification: array [TAlignment] of integer =
+    (GTK_JUSTIFY_LEFT, GTK_JUSTIFY_RIGHT, GTK_JUSTIFY_CENTER);
 var
   Tag: Pointer = nil;
-  StartLine, EndLine:Integer;
 begin
-  //--
-    StartLine:=Pos;
-    EndLine:= 1;
-  //--
-
-  Tag := gtk_text_buffer_create_tag(buffer, nil,
-    'justification', [GTKJustification[Value], 'justification-set',
-    gboolean(gTRUE), nil]);
-  SetFormat(Pos, LPos, Buffer, Tag);
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'justification',
+    [GTKJustification[Value], 'justification-set', gboolean(gTRUE), nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
 end;
 
-procedure TRTFRead.SetTextAttributes(Pos: Integer; Value: TRSFontAttributes; LPos:Integer=1);
+procedure TRTFRead.SetFontName(CharStart: integer; Value: TFontName;
+  CharEnd: integer);
+var
+  Tag: Pointer = nil;
+begin
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'family',
+    [@Value[1], 'family-set', gTRUE, nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
+end;
+
+procedure TRTFRead.SetFontSize(CharStart: integer; Value: Integer;
+  CharEnd: integer);
+var
+  Tag: Pointer = nil;
+begin
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'size-points',
+    [double(Value), nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
+end;
+
+procedure TRTFRead.SetFontStyles(CharStart: integer; Value: TFontStyles;
+  CharEnd: integer);
+var
+  Tag: Pointer = nil;
+const
+  PangoUnderline: array [boolean] of integer = (PANGO_UNDERLINE_NONE, PANGO_UNDERLINE_SINGLE);
+  PangoBold: array [boolean] of integer = (PANGO_WEIGHT_NORMAL, PANGO_WEIGHT_BOLD);
+  PangoItalic: array [boolean] of integer = (PANGO_STYLE_NORMAL, PANGO_STYLE_ITALIC);
+
+begin
+  //--
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'underline',
+    [PangoUnderline[fsUnderline in Value], 'underline-set',
+    gboolean(gTRUE), 'weight', PangoBold[fsBold in Value],
+    'weight-set', gboolean(gTRUE), 'style', PangoItalic[fsItalic in Value],
+    'style-set', gboolean(gTRUE), 'strikethrough', gboolean(fsStrikeOut in Value),
+    'strikethrough-set', gboolean(gTRUE), nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
+end;
+
+procedure TRTFRead.SetFontColor(CharStart: integer; Value: TColor;
+  CharEnd: integer);
+var
+  FontColor: TGDKColor;
+  Tag: Pointer = nil;
+begin
+  FontColor := TColortoTGDKColor(Value);
+
+  Tag := gtk_text_buffer_create_tag(buffer, nil, 'foreground-gdk',
+    [@FontColor, 'foreground-set', gboolean(gTRUE), nil]);
+  SetFormat(CharStart, CharEnd, Buffer, Tag);
+end;
+
+
+procedure TRTFRead.SetTextAttributes(Pos: integer; Value: TRSFontAttributes;
+  LPos: integer = 1);
 var
   FontFamily: string;
   FontColor: TGDKColor;
@@ -394,16 +907,13 @@ begin
   if (FontFamily = '') then
     FontFamily := #0;
   //--
-
   Tag := gtk_text_buffer_create_tag(buffer, nil, 'family',
-    [@FontFamily[1], 'family-set', gTRUE, 'size-points',
-    double(Value.Size), 'foreground-gdk', @FontColor,
-    'foreground-set', gboolean(gTRUE), 'underline',
-    PangoUnderline[fsUnderline in Value.Style], 'underline-set',
+    [@FontFamily[1], 'family-set', gTRUE, 'size-points', double(Value.Size),
+    'foreground-gdk', @FontColor, 'foreground-set', gboolean(gTRUE),
+    'underline', PangoUnderline[fsUnderline in Value.Style], 'underline-set',
     gboolean(gTRUE), 'weight', PangoBold[fsBold in Value.Style],
-    'weight-set', gboolean(gTRUE), 'style',
-    PangoItalic[fsItalic in Value.Style], 'style-set',
-    gboolean(gTRUE), 'strikethrough', gboolean(fsStrikeOut in Value.Style),
+    'weight-set', gboolean(gTRUE), 'style', PangoItalic[fsItalic in Value.Style],
+    'style-set', gboolean(gTRUE), 'strikethrough', gboolean(fsStrikeOut in Value.Style),
     'strikethrough-set', gboolean(gTRUE), nil]);
 
   SetFormat(Pos, LPos, Buffer, Tag);
@@ -414,7 +924,6 @@ var
   iPosition: TGtkTextIter;
   GDIObj: PGDIObject = nil;
   pixbuf: PGDKPixBuf = nil;
-  scaled: PGDKPixBuf = nil;
   pixmap: PGdkDrawable = nil;
   bitmap: PGdkBitmap = nil;
   iWidth, iHeight: integer;
@@ -431,8 +940,8 @@ begin
     begin
       bitmap := GDIObj^.GDIBitmapObject;
       gdk_drawable_get_size(bitmap, @iWidth, @iHeight);
-      pixbuf := CreatePixbufFromDrawable(bitmap, nil, False,
-        0, 0, 0, 0, iWidth, iHeight);
+      pixbuf := CreatePixbufFromDrawable(bitmap, nil, False, 0,
+        0, 0, 0, iWidth, iHeight);
     end;
     gbPixmap:
     begin
@@ -441,8 +950,8 @@ begin
       begin
         gdk_drawable_get_size(pixmap, @iWidth, @iHeight);
         bitmap := CreateGdkMaskBitmap(Image.Bitmap.Handle, 0);
-        pixbuf := CreatePixbufFromImageAndMask(pixmap, 0, 0,
-          iWidth, iHeight, nil, Bitmap);
+        pixbuf := CreatePixbufFromImageAndMask(pixmap, 0, 0, iWidth,
+          iHeight, nil, Bitmap);
       end;
     end;
     gbPixbuf:
@@ -455,72 +964,47 @@ begin
     gtk_text_buffer_insert_pixbuf(buffer, @iPosition, pixbuf);
 end;
 
-procedure TRTFRead.AplATributs;
-var
-  L:Integer;
-begin
-  L:= GetLenText;
-  if (FLeftIndent <> FLastLeftIndent) then
-    begin
-      SetLeftIndent(FLastCharLeftIndent, FLastLeftIndent div 568, L - 1);
-      FLastCharLeftIndent:= L-1;
-      FLastLeftIndent:= FLeftIndent;
-    end;
-
-  if (FRightIndent <> FLastRightIndent) then
-    begin
-      SetRightIndent(FLastCharRightIndent, FLastRightIndent div 568, L - 1);
-      FLastCharRightIndent:= L-1;
-      FLastRightIndent:= FRightIndent;
-    end;
-
-  if (FFirstIndent <> FLastFirstIndent) then
-    begin
-      SetFirstIndent(FLastCharFirstIndent, FLastFirstIndent div 568, L - 1);
-      FLastCharFirstIndent:= L-1;
-      FLastFirstIndent:= FFirstIndent;
-    end;
-
-  if (FAlign <> FLastAlign) then
-    begin
-      SetAlignment(FLastCharAlign, FLastAlign, L - 1);
-      FLastCharAlign:= L-1;
-      FLastAlign:= FAlign;
-    end;
-
-
-  if (FFontParams.Name <> FLastFontParams.Name) or
-     (FFontParams.Size <> FLastFontParams.Size) or
-     (FFontParams.Color <> FLastFontParams.Color) or
-     (FFontParams.Style <> FLastFontParams.Style) then
-       begin
-         SetTextAttributes(FLastCharFontParams, FLastFontParams, L - 1);
-         FLastCharFontParams:= L - 1;
-
-         FLastFontParams.Name:= FFontParams.Name;
-         FLastFontParams.Size:= FFontParams.Size;
-         FLastFontParams.Color:= FFontParams.Color;
-         FLastFontParams.Style:= FFontParams.Style;
-
-       end;
-end;
-
 procedure TRTFRead.DoGroup;
 begin
   if (FRTFParser.RTFMajor = rtfBeginGroup) then
-    FGroups := FGroups + 1
+  begin
+    FGroups := FGroups + 1;
+    SetLength(FGFontAttributes, FGroups);
+    if (FGroups > 1) then
+      begin
+        FGFontAttributes[FGroups -1].Name := FGFontAttributes[FGroups -2].Name;
+        FGFontAttributes[FGroups -1].Color := FGFontAttributes[FGroups -2].Color;
+        FGFontAttributes[FGroups -1].Size := FGFontAttributes[FGroups -2].Size;
+        FGFontAttributes[FGroups -1].Style := [];
+        //--
+        FFontStyles:= [];
+      end;
+    {FFontStylesC.Add(FGFontAttributes[FGroups -1].Style, GetLenText);
+    FFontNameC.Add(StrToInt(FGFontAttributes[FGroups -1].Name), GetLenText);
+    FFontSizeC.Add(FGFontAttributes[FGroups -1].Size, GetLenText);
+    FFontColorC.Add(FGFontAttributes[FGroups -1].Color, GetLenText);}
+  end
   else
+  if (FRTFParser.RTFMajor = rtfEndGroup) then
+    begin
     FGroups := FGroups - 1;
+    SetLength(FGFontAttributes, FGroups);
+    if (FGroups > 0) then
+      begin
+        FFontStylesC.Add(FGFontAttributes[FGroups -1].Style, GetLenText);
+        FFontNameC.Add(StrToInt(FGFontAttributes[FGroups -1].Name), GetLenText);
+        FFontSizeC.Add(FGFontAttributes[FGroups -1].Size, GetLenText);
+        FFontColorC.Add(FGFontAttributes[FGroups -1].Color, GetLenText);
+       end;
+
+    end;
+
   if (FGroups < FSkipGroup) then
-    FSkipGroup := -1;
-end;
+    FSkipGroup := -1;end;
 
 procedure TRTFRead.DoWrite;
 var
   C: TUTF8char;
-  IFontParams: TRSFontAttributes;
-  FNome:TFontName;
-  FStyle: TFontStyles;
 begin
   C := UnicodeToUTF8(FRTFParser.RTFMajor);
   if FIsPict then
@@ -529,31 +1013,16 @@ begin
   begin
     if (FSkipGroup = -1) and (FRTFParser.RTFMajor = 183) then
     begin
-      InsertPosLastChar(UnicodeToUTF8(BulletCode));
-      FRTFParser.SkipGroup;
-      AplIndent;
+      InsertPosLastChar(UnicodeToUTF8(UnicodeBulletCode));
       C := chr($0);
-      //AplATributs;
-      FNome:=  FLastFontParams.Name;
-      FStyle:= FLastFontParams.Style;
-      //--
-      FFontParams.Name:= 'Symbol';
-      FFontParams.Style:= [fsBold];
-      FFontParams.Color:= FLastFontParams.Color;
-      FFontParams.Size:= FLastFontParams.Size;
-      //--
-      AplATributs;
-      //--
-      FFontParams.Name:= FNome;
-      FFontParams.Style:= FStyle;
-      FFontParams.Color:= FLastFontParams.Color;
-      FFontParams.Size:= FLastFontParams.Size;
-
     end;
+
     if (FSkipGroup = -1) and (C <> chr($0)) then
     begin
+      if C = #194 + #149 then
+         C:= UnicodeToUTF8(UnicodeBulletCode);
+
       InsertPosLastChar(C);
-      AplATributs;
     end;
   end;
 
@@ -569,31 +1038,6 @@ begin
   end;
 end;
 
-procedure TRTFRead.AplIndent;
-var
-  I, L: integer;
-  S: string;
-begin
-  S := GetRealTextBuf;
-  L:= GetLenText;
-
-  for I := L downto 0 do
-  begin
-    if (UTF8Copy(S, (I), 1) = UnicodeToUTF8($A)) or (I = 0) then
-    begin
-      if (FLeftIndent > 0) then
-        SetLeftIndent(L - 1, FLeftIndent div 568);
-      if (FRightIndent > 0) then
-        SetRightIndent(L - 1, FRightIndent div 568);
-      if (FFirstIndent > 0) then
-        SetFirstIndent(L - 1, FFirstIndent div 568);
-      SetAlignment(L - 1,  FAlign);
-      Break;
-    end;
-  end;
-
-end;
-
 procedure TRTFRead.DoSpecialChar;
 begin
   case FRTFParser.rtfMinor of
@@ -605,10 +1049,9 @@ begin
     rtfTab:
     begin
       if (FSkipGroup = -1) then
-         begin
-           InsertPosLastChar(#9);
-           AplATributs;
-         end;
+      begin
+        InsertPosLastChar(#9);
+      end;
 
     end;
     rtfOptDest:
@@ -622,114 +1065,121 @@ end;
 
 procedure TRTFRead.DoParAttr;
 begin
-  case FRTFParser.rtfMinor of
-    rtfParDef:
-    begin
-      FAlign := taLeftJustify;
-      FLeftIndent := 0;
-      FRightIndent := 0;
-      FFirstIndent:= 0;
-    end;
-    rtfQuadLeft:
-    begin
-      FAlign := taLeftJustify;
-      AplATributs;
-    end;
-    rtfQuadRight:
-    begin
-      FAlign := taRightJustify;
-      AplATributs;
-    end;
-    rtfQuadJust:
-    begin
-      FAlign := taLeftJustify;
-      AplATributs;
-    end;
-    rtfQuadCenter:
-    begin
-      FAlign := taCenter;
-      AplATributs;
-    end;
-    rtfFirstIndent:
-    begin
-      FFirstIndent:= FRTFParser.rtfParam;
-      AplIndent;
-    end;
-    rtfLeftIndent:
-    begin
-      FLeftIndent := FRTFParser.rtfParam;
-      AplIndent;
-    end;
-    rtfRightIndent:
-    begin
-      FRightIndent := FRTFParser.rtfParam;
-      AplIndent;
-    end;
-
+//--
+case FRTFParser.rtfMinor of
+  rtfParDef:begin
+    FParIndentC.AddFirstIndent(0, GetLenText);
+    FParIndentC.AddLeftIdent(0, GetLenText);
+    FParIndentC.AddRightIndent(0, GetLenText);
+    if (FGroups <= 1) then
+      begin
+      FParAlignmentC.Add(taLeftJustify, GetLenText);
+      FFontColorC.Add(clWindowText, GetLenText);
+      end;
   end;
+  rtfQuadLeft: FParAlignmentC.Add(taLeftJustify, GetLenText);
+  rtfQuadRight:FParAlignmentC.Add(taRightJustify, GetLenText);
+  rtfQuadJust:FParAlignmentC.Add(taLeftJustify, GetLenText);
+  rtfQuadCenter:FParAlignmentC.Add(taCenter, GetLenText);
+  rtfFirstIndent:FParIndentC.AddFirstIndent(FRTFParser.rtfParam div 568 * 37, GetLenText);
+  rtfLeftIndent:FParIndentC.AddLeftIdent(FRTFParser.rtfParam div 568 * 37, GetLenText);
+  rtfRightIndent:FParIndentC.AddRightIndent(FRTFParser.rtfParam div 568 * 37, GetLenText);
+end;
 end;
 
 procedure TRTFRead.DoCharAttr;
-var
-  c: PRTFColor;
-  f: PRTFFont;
-
-  function Styles(S: TFontStyle): boolean;
-  begin
-    if (s in FFontParams.Style) then
-      FFontParams.Style := FFontParams.Style - [S]
-    else
-      FFontParams.Style := FFontParams.Style + [S];
-
-    Result := (S in FFontParams.Style);
-  end;
-
 begin
   case FRTFParser.rtfMinor of
     rtfBold:
     begin
-      Styles(fsBold);
+      if (FRTFParser.rtfParam <> rtfNoParam) then
+        begin
+          if (fsBold in FFontStyles) then
+            FFontStyles := FFontStyles - [fsBold];
+          //FGB:= -1;
+        end
+      else
+        begin
+          if not(fsBold in FFontStyles) then
+            FFontStyles := FFontStyles + [fsBold];
+          //FGB:= FGroups;
+        end;
+      FFontStylesC.Add(FFontStyles, GetLenText);
+      FGFontAttributes[FGroups -1].Style:= FFontStyles;
     end;
     rtfItalic:
     begin
-      Styles(fsItalic);
+      if (FRTFParser.rtfParam <> rtfNoParam) then
+        begin
+          if (fsItalic in FFontStyles) then
+            FFontStyles := FFontStyles - [fsItalic];
+            //FGI:= -1;
+        end
+      else
+        begin
+          if not(fsItalic in FFontStyles) then
+            FFontStyles := FFontStyles + [fsItalic];
+            //FGI:= FGroups;
+        end;
+      FFontStylesC.Add(FFontStyles, GetLenText);
+      FGFontAttributes[FGroups -1].Style:= FFontStyles;
     end;
     rtfStrikeThru:
     begin
-      Styles(fsStrikeOut);
+      if (FRTFParser.rtfParam <> rtfNoParam) then
+        begin
+          if (fsStrikeOut in FFontStyles) then
+            FFontStyles := FFontStyles - [fsStrikeOut];
+        end
+      else
+        begin
+          if not(fsStrikeOut in FFontStyles) then
+            FFontStyles := FFontStyles + [fsStrikeOut];
+        end;
+      FFontStylesC.Add(FFontStyles, GetLenText);
+      FGFontAttributes[FGroups -1].Style:= FFontStyles;
     end;
     rtfFontNum:
     begin
-      f := FRTFParser.Fonts[FRTFParser.rtfParam];
-      if (f = nil) then
-        FFontParams.Name := 'Sans'
-      else
-        FFontParams.Name := f^.rtfFName;
+      FFontNameC.Add(FRTFParser.rtfParam, GetLenText);
+      FGFontAttributes[FGroups -1].Name:= IntToStr(FRTFParser.rtfParam);
     end;
     rtfFontSize:
     begin
-      FFontParams.Size := FRTFParser.rtfParam div 2;
+      FFontSizeC.Add(FRTFParser.rtfParam div 2, GetLenText);
+      FGFontAttributes[FGroups -1].Size:= FRTFParser.rtfParam div 2;
     end;
     rtfUnderline:
     begin
-      //Styles(fsUnderline);
-      if not(fsUnderline in FFontParams.Style) then
-      FFontParams.Style := FFontParams.Style + [fsUnderline];
+      if not(fsUnderline in FFontStyles) then
+        begin
+          FFontStyles := FFontStyles + [fsUnderline];
+          //FGUl:= FGroups;
+        end;
+      FFontStylesC.Add(FFontStyles, GetLenText);
+      FGFontAttributes[FGroups -1].Style:= FFontStyles;
     end;
     rtfNoUnderline:
     begin
-      //Styles(fsUnderline);
-      if (fsUnderline in FFontParams.Style) then
-      FFontParams.Style := FFontParams.Style - [fsUnderline];
+      if (fsUnderline in FFontStyles) then
+        begin
+          FFontStyles := FFontStyles - [fsUnderline];
+          //FGUl:= -1;
+        end;
+      FFontStylesC.Add(FFontStyles, GetLenText);
+      FGFontAttributes[FGroups -1].Style:= FFontStyles;
     end;
     rtfForeColor:
     begin
-      C := FRTFParser.Colors[FRTFParser.rtfParam];
-      if (C = nil) or (FRTFParser.rtfParam = 0) then
-        FFontParams.Color := clWindowText
+      //FGcf:= FGroups;
+      if (FRTFParser.Colors[FRTFParser.rtfParam] = nil) or
+      (FRTFParser.rtfParam = 0) then
+        FFontColorC.Add(clWindowText, GetLenText)
       else
-        FFontParams.Color :=
-          RGBToColor(C^.rtfCRed, C^.rtfCGreen, C^.rtfCBlue);
+      FFontColorC.Add(RGBToColor(FRTFParser.Colors[FRTFParser.rtfParam]^.rtfCRed,
+                                 FRTFParser.Colors[FRTFParser.rtfParam]^.rtfCGreen,
+                                 FRTFParser.Colors[FRTFParser.rtfParam]^.rtfCBlue), GetLenText);
+    FGFontAttributes[FGroups -1].Color:= FFontColorC.Get(FFontColorC.Count -1).FontColor;
     end;
   end;
 end;
@@ -762,7 +1212,6 @@ procedure TRTFRead.DoEndPict;
 var
   Picture: TPicture;
   R: boolean = False;
-  L:Integer;
 begin
   FIsPict := False;
   Picture := TPicture.Create;
@@ -774,22 +1223,188 @@ begin
     R := RTFToBMP(RTFPict.HEX, RTFPict.PictType, Picture, RTFPict.WG, RTFPict.HG);
 
   if R then
-  begin
-
     InsertImage(Picture);
-    //--
-    L:= GetLenText;
-      if (FLeftIndent > 0) then
-        SetLeftIndent(L - 1, FLeftIndent div 568);
-      if (FRightIndent > 0) then
-        SetRightIndent(L - 1, FRightIndent div 568);
-      if (FFirstIndent > 0) then
-        SetFirstIndent(L - 1, FFirstIndent div 568);
-      SetAlignment(L - 1,  FAlign);
-    SetTextAttributes(L - 1, FFontParams);
-  end;
 
   Picture.Free;
+end;
+
+procedure TRTFRead.SetAlignmentC;
+var
+  I:Integer=0;
+  ChStart:Integer = 0;
+  ChEnd:Integer = 0;
+begin
+  {for I:=0 to FParAlignmentC.Count -1 do
+    begin
+      ChStart:= FParAlignmentC.Get(I).CharPos;
+      if ((I + 1) < (FParAlignmentC.Count -1)) then
+        ChEnd:= FParAlignmentC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+      SetAlignment(ChStart, FParAlignmentC.Get(I).Alignment, ChEnd);
+    end;}
+while I < FParAlignmentC.Count do
+begin
+  ChStart:= FParAlignmentC.Get(I).CharPos;
+  if ((I + 1) < (FParAlignmentC.Count -1)) then
+    ChEnd:= FParAlignmentC.Get(I + 1).CharPos
+  else
+    ChEnd:= GetLenText;
+  //--
+  SetAlignment(ChStart, FParAlignmentC.Get(I).Alignment, ChEnd);
+ Inc(I)
+end;
+end;
+
+procedure TRTFRead.SetIndentC;
+var
+  I:Integer=0;
+  ChStart:Integer = 0;
+  ChEnd:Integer = 0;
+begin
+  {for I:=0 to FParIndentC.Count -1 do
+    begin
+      ChStart:= FParIndentC.Get(I).CharPos;
+      if ((I + 1) < (FParIndentC.Count -1)) then
+        ChEnd:= FParIndentC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+      SetFirstIndent(ChStart, FParIndentC.Get(I).FirstIndent, ChEnd);
+      SetLeftIndent(ChStart, FParIndentC.Get(I).LeftIndent, ChEnd);
+      SetRightIndent(ChStart, FParIndentC.Get(I).RightIndent, ChEnd);
+    end;}
+  while I < FParIndentC.Count do
+  begin
+      ChStart:= FParIndentC.Get(I).CharPos;
+      if ((I + 1) < (FParIndentC.Count -1)) then
+        ChEnd:= FParIndentC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+      SetFirstIndent(ChStart, FParIndentC.Get(I).FirstIndent, ChEnd);
+      SetLeftIndent(ChStart, FParIndentC.Get(I).LeftIndent, ChEnd);
+      SetRightIndent(ChStart, FParIndentC.Get(I).RightIndent, ChEnd);
+   Inc(I)
+  end;
+end;
+
+procedure TRTFRead.SetFontNameC;
+var
+  I:Integer=0;
+  ChStart:Integer = 0;
+  ChEnd:Integer = 0;
+begin
+  {for I:=0 to FFontNameC.Count -1 do
+    begin
+      ChStart:= FFontNameC.Get(I).CharPos;
+      if ((I + 1) < (FFontNameC.Count -1)) then
+        ChEnd:= FFontNameC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+        SetFontName(ChStart, FRTFParser.Fonts[FFontNameC.Get(I).FontName]^.rtfFName, ChEnd);
+    end;}
+  while I < FFontNameC.Count do
+  begin
+      ChStart:= FFontNameC.Get(I).CharPos;
+      if ((I + 1) < (FFontNameC.Count -1)) then
+        ChEnd:= FFontNameC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+        SetFontName(ChStart, FRTFParser.Fonts[FFontNameC.Get(I).FontName]^.rtfFName, ChEnd);
+   Inc(I)
+  end;
+end;
+
+procedure TRTFRead.SetFontSizeC;
+var
+  I:Integer=0;
+  ChStart:Integer = 0;
+  ChEnd:Integer = 0;
+begin
+  {for I:=0 to FFontSizeC.Count -1 do
+    begin
+      ChStart:= FFontSizeC.Get(I).CharPos;
+      if ((I + 1) < (FFontSizeC.Count -1)) then
+        ChEnd:= FFontSizeC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+        SetFontSize(ChStart,FFontSizeC.Get(I).FontSize , ChEnd);
+    end;}
+  while I < FFontSizeC.Count do
+  begin
+      ChStart:= FFontSizeC.Get(I).CharPos;
+      if ((I + 1) < (FFontSizeC.Count -1)) then
+        ChEnd:= FFontSizeC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+        SetFontSize(ChStart,FFontSizeC.Get(I).FontSize , ChEnd);
+   Inc(I)
+  end;
+end;
+
+procedure TRTFRead.SetStylesC;
+var
+  I:Integer=0;
+  ChStart:Integer = 0;
+  ChEnd:Integer = 0;
+begin
+  {for I:=0 to FFontStylesC.Count -1 do
+    begin
+      ChStart:= FFontStylesC.Get(I).CharPos;
+      if ((I + 1) < (FFontStylesC.Count -1)) then
+        ChEnd:= FFontStylesC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+        SetFontStyles(ChStart,FFontStylesC.Get(I).FontSTyles , ChEnd);
+    end;}
+  while I < FFontStylesC.Count do
+  begin
+      ChStart:= FFontStylesC.Get(I).CharPos;
+      if ((I + 1) < (FFontStylesC.Count -1)) then
+        ChEnd:= FFontStylesC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+        SetFontStyles(ChStart,FFontStylesC.Get(I).FontSTyles , ChEnd);
+   Inc(I)
+  end;
+end;
+
+procedure TRTFRead.SetColorC;
+var
+  I:Integer=0;
+  ChStart:Integer = 0;
+  ChEnd:Integer = 0;
+begin
+  {for I:=0 to FFontColorC.Count -1 do
+    begin
+      ChStart:= FFontColorC.Get(I).CharPos;
+      if ((I + 1) < (FFontColorC.Count -1)) then
+        ChEnd:= FFontColorC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+      SetFontColor(ChStart, FFontColorC.Get(I).FontColor , ChEnd);
+    end;}
+
+  while I < FFontColorC.Count do
+  begin
+      ChStart:= FFontColorC.Get(I).CharPos;
+      if ((I + 1) < (FFontColorC.Count -1)) then
+        ChEnd:= FFontColorC.Get(I + 1).CharPos
+      else
+        ChEnd:= GetLenText;
+      //--
+      SetFontColor(ChStart, FFontColorC.Get(I).FontColor , ChEnd);
+   Inc(I)
+  end;
 end;
 
 procedure TRTFRead.LoadFromStream(Stream: TStream);
@@ -797,6 +1412,21 @@ begin
   //--
   FGroups := 0;
   FSkipGroup := -1;
+  FFontStyles:= [];
+  //--
+  SetLength(FGFontAttributes, 1);
+  FGFontAttributes[0].Color:= clWindowText;
+  FGFontAttributes[0].Size:= 10;
+  FGFontAttributes[0].Name:='0';
+  FGFontAttributes[0].Style:=[];
+  //--
+  //--
+  FParAlignmentC:= TParAlignmentC.Create;
+  FParIndentC:= TParIndentC.Create;
+  FFontNameC:= TFontNameC.Create;
+  FFontSizeC:= TFontSizeC.Create;
+  FFontStylesC:= TFontStylesC.Create;
+  FFontColorC:= TFontColorC.Create;
   //--
   FRTFParser := TRTFParser.Create(Stream);
   FRTFParser.classcallbacks[rtfText] := @DoWrite;
@@ -805,21 +1435,25 @@ begin
   FRTFParser.OnRTFBeginPict := @DoBeginPict;
   FRTFParser.OnRTFEndPict := @DoEndPict;
   FRTFParser.StartReading;
-  FRTFParser.Free;
+
   //--
-  FLeftIndent:= -1;
-  FRightIndent:= -1;
-  FFirstIndent:= -1;
+  SetAlignmentC;
+  SetIndentC;
+  SetFontNameC;
+  SetFontSizeC;
+  SetStylesC;
+  SetColorC;
 
-  if (FAlign= taLeftJustify) then
-   FAlign:= taRightJustify
-  else FAlign:= taLeftJustify;
-
-  FFontParams.Name:='0';
-  FFontParams.Size:=0;
-  FFontParams.Style:=[];
-  FFontParams.Color:=$0;
-  AplATributs;
+  //--
+  FParAlignmentC.Free;
+  FParIndentC.Free;
+  FFontNameC.Free;
+  FFontSizeC.Free;
+  FFontStylesC.Free;
+  FFontColorC.Free;
+  //--
+  FRTFParser.Free;
+  SetLength(FGFontAttributes, 0);
 
 
 end;
@@ -830,24 +1464,6 @@ begin
   FTextView := TextView;
   FIsPict := False;
   GetGTKTextBuffer(Buffer);
-  //--
-  FLastCharLeftIndent:=0;
-  FLastLeftIndent:=0;
-
-  FLastCharRightIndent:=0;
-  FLastRightIndent:=0;
-
-  FLastCharFirstIndent:=0;
-  FLastFirstIndent:=0;
-  //--
-  FLastCharAlign:= 0;
-  FLastAlign:= taLeftJustify;
-  //--
-  FLastCharFontParams:=0;
-  FLastFontParams.Name:='';
-  FLastFontParams.Size:=0;
-  FLastFontParams.Color:=$0;
-  FLastFontParams.Style:=[];
 end;
 
 destructor TRTFRead.Destroy;
@@ -858,9 +1474,20 @@ end;
 { TRTFSave }
 
 function TRTFSave.AddFont(FontName: string): integer;
+var
+I:Integer=0;
 begin
-  if Ffonttbl.Find(FontName, Result) then
-    Exit;
+  //if Ffonttbl.Find(FontName, Result) then
+  //  Exit;
+  While I < Ffonttbl.Count do
+    begin
+      if (UTF8LowerCase(Ffonttbl[I]) = UTF8LowerCase(FontName)) then
+        begin
+          Result:= I;
+          Exit;
+        end;
+      Inc(I);
+    end;
   Result := Ffonttbl.Add(FontName);
 end;
 
@@ -868,21 +1495,30 @@ function TRTFSave.AddColor(Color: TColor): integer;
 var
   R, G, B: byte;
   Par: string;
+
+  I: Integer=0;
 begin
   R := Red(Color);
   G := Green(Color);
   B := Blue(Color);
   Par := '\red' + IntToStr(R) + '\green' + IntToStr(G) + '\blue' + IntToStr(B);
-  if FColortbl.Find(Par, Result) then
-    Exit;
+  While I < FColortbl.Count do
+    begin
+      if (UTF8LowerCase(FColortbl[I]) = UTF8LowerCase(Par)) then
+        begin
+          Result:= I;
+          Exit;
+        end;
+      Inc(I);
+    end;
   Result := FColortbl.Add(Par);
 end;
 
-function TRTFSave.GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer):boolean;
+function TRTFSave.GetGTKTextBuffer(var TextBuffer: PGtkTextBuffer): boolean;
 var
   AWidget: PGtkWidget;
 begin
-  Result:= False;
+  Result := False;
   //--
   AWidget := PGtkWidget(FTextView.Handle);
   AWidget := GetWidgetInfo(AWidget, False)^.CoreWidget;
@@ -893,15 +1529,15 @@ begin
   if not (Assigned(TextBuffer)) then
     Exit;
   //--
-  Result:= True;
+  Result := True;
 end;
 
-function TRTFSave.GetText(var S: String): boolean;
+function TRTFSave.GetText(var S: string): boolean;
 var
   iterStart, iterEnd: TGtkTextIter;
-  Buffer: PGtkTextBuffer=nil;
+  Buffer: PGtkTextBuffer = nil;
 begin
-  Result:= False;
+  Result := False;
   if not (GetGTKTextBuffer(Buffer)) then
     Exit;
 
@@ -909,17 +1545,17 @@ begin
   gtk_text_buffer_get_end_iter(Buffer, @iterEnd);
   S := gtk_text_buffer_get_slice(Buffer, @iterStart, @iterEnd, gboolean(False));
 
-  Result:= True;
+  Result := True;
 end;
 
-function TRTFSave.GetFontAttributes(const Position: Integer;
+function TRTFSave.GetFontAttributes(const Position: integer;
   var FontAttributes: TRSFontAttributes): boolean;
 var
   Buffer: PGtkTextBuffer = nil;
   Attributes: PGtkTextAttributes;
   iPosition: TGtkTextIter;
 begin
-  Result:= False;
+  Result := False;
   //--
   if not (GetGTKTextBuffer(Buffer)) then
     Exit;
@@ -948,24 +1584,24 @@ begin
       Include(FontAttributes.Style, fsUnderline);
     //--
     if (pango_font_description_get_weight(Attributes^.font) = PANGO_WEIGHT_BOLD) then
-      Include(FontAttributes.Style,fsBold);
+      Include(FontAttributes.Style, fsBold);
     if (pango_font_description_get_style(Attributes^.font) = PANGO_STYLE_ITALIC) then
-      Include(FontAttributes.Style,fsItalic);
+      Include(FontAttributes.Style, fsItalic);
     //--
-    Result:= True;
+    Result := True;
   end;
   gtk_text_attributes_unref(Attributes);
 
 end;
 
-function TRTFSave.GetParaAttributes(const Position: Integer;
+function TRTFSave.GetParaAttributes(const Position: integer;
   var ParaAttributes: TRSParaAttributes): boolean;
 var
   Buffer: PGtkTextBuffer = nil;
   Attributes: PGtkTextAttributes;
   iPosition: TGtkTextIter;
 begin
-  Result:= False;
+  Result := False;
   //--
   if not (GetGTKTextBuffer(Buffer)) then
     Exit;
@@ -986,26 +1622,28 @@ begin
       GTK_JUSTIFY_CENTER: ParaAttributes.Alignment := taCenter;
     end;
     //--
-    ParaAttributes.LeftIndent  := Attributes^.left_margin div 37;
+    ParaAttributes.LeftIndent := Attributes^.left_margin div 37;
     ParaAttributes.RightIndent := Attributes^.right_margin div 37;
     ParaAttributes.FirstIndent := Attributes^.indent div 37;
     //--
 
-    Result:= True;
+    Result := True;
   end;
   gtk_text_attributes_unref(Attributes);
 end;
 
-function TRTFSave.Start: Boolean;
+function TRTFSave.Start: boolean;
 var
   S: String='';
   TextLen, I: Integer;
-  IChar: Integer;
+  IChar: Integer=1;
   CharLen: Integer;
   UChar: TUTF8Char;
   Line: String;
   LineCount: Integer=0;
   CodChar: Cardinal;
+  TmpCodChar: Cardinal;
+  TmpChar: TUTF8Char;
   NPara:Boolean=True;
   ParaAttributes: TRSParaAttributes;
   FontAttributes: TRSFontAttributes;
@@ -1023,14 +1661,30 @@ begin
   //--
   FRTFout.Text:= '\pard';
   //--
-  for IChar:=1 to  TextLen do
-    begin
+//  for IChar:=1 to  TextLen do
+  while IChar <= TextLen do
+  begin
       UChar:= UTF8Copy(S, IChar, 1);
       CodChar:= UTF8CharacterToUnicode(@UChar[1], CharLen);
+      if CodChar = $0 then
+      begin
+        UChar:= '';
+      end;
+
       //--
       //Novo Parágrafo
       if (CodChar=$A) then
         begin
+          //--
+            if (fsBold in  FFontAttributes.Style) then
+            FRTFout[FRTFout.Count -1]:= FRTFout[FRTFout.Count -1] + '\b0';
+            if (fsItalic in  FFontAttributes.Style) then
+            FRTFout[FRTFout.Count -1]:= FRTFout[FRTFout.Count -1] + '\i0';
+            if (fsUnderline in  FFontAttributes.Style) then
+            FRTFout[FRTFout.Count -1]:= FRTFout[FRTFout.Count -1] + '\ulnone';
+            //--
+            FFontAttributes.Style:= [];
+          //--
           FRTFout[FRTFout.Count -1]:= FRTFout[FRTFout.Count -1] + '\par';
           FRTFout.Add('\pard');
           //--
@@ -1061,6 +1715,24 @@ begin
                taCenter: FRTFout[LineCount]:= FRTFout[LineCount] + '\qc';
           end;
 
+
+          //Verifica se é um marcador
+          if (TextLen > IChar) and (UTF8Copy(S, IChar + 1, 1) = UnicodeToUTF8(UnicodeBulletCode)) or
+             (IChar=1) and (UTF8Copy(S, 1, 1) = UnicodeToUTF8(UnicodeBulletCode)) then
+            begin
+               //Insere o código para marcador em RTF
+              //FRTFout[LineCount]:= FRTFout[LineCount] + '{\pntext\f' + IntToStr(AddFont('Symbol')) + '\''B7\tab}{\*\pn\pnlvlblt\pnf' + IntToStr(AddFont('Symbol')) + '\pnindent0{\pntxtb\''B7}}';
+              {if ParaAttributes.LeftIndent >0 then
+                ParaAttributes.LeftIndent:= ParaAttributes.LeftIndent -1;}
+
+              if (TextLen > IChar + 2) and (UTF8Copy(S, IChar + 2, 1) = UnicodeToUTF8($9))then
+                begin
+                  UTF8Delete(S, IChar + 2, 1);
+                  UTF8Insert(UnicodeToUTF8($0), S, IChar + 2);
+                end;
+
+            end;
+
           //Parâmetros de identação
           if (ParaAttributes.LeftIndent > 0) then
           FRTFout[LineCount]:= FRTFout[LineCount] + '\li' + IntToStr(ParaAttributes.LeftIndent * 568);
@@ -1072,8 +1744,8 @@ begin
           FRTFout[LineCount]:= FRTFout[LineCount] + '\fi' + IntToStr(ParaAttributes.FirstIndent * 568);
 
           //Verifica se é um marcador
-          if (TextLen > IChar) and (UTF8Copy(S, IChar + 1, 1) = UnicodeToUTF8(BulletCode)) or
-             (IChar=1) and (UTF8Copy(S, 1, 1) = UnicodeToUTF8(BulletCode)) then
+          if (TextLen > IChar) and (UTF8Copy(S, IChar + 1, 1) = UnicodeToUTF8(UnicodeBulletCode)) or
+             (IChar=1) and (UTF8Copy(S, 1, 1) = UnicodeToUTF8(UnicodeBulletCode)) then
             begin
                //Insere o código para marcador em RTF
               FRTFout[LineCount]:= FRTFout[LineCount] + '{\pntext\f' + IntToStr(AddFont('Symbol')) + '\''B7\tab}{\*\pn\pnlvlblt\pnf' + IntToStr(AddFont('Symbol')) + '\pnindent0{\pntxtb\''B7}}';
@@ -1129,7 +1801,7 @@ begin
        if FFontAttributes.Style <> FontAttributes.Style then Space:= true;
        FFontAttributes.Style := FontAttributes.Style;
        //-------
-       if (CodChar= BulletCode) or (CodChar= $A) then
+       if (CodChar= UnicodeBulletCode) or (CodChar= $A) then
         begin
           UChar:='';
           CodChar:=$0;
@@ -1139,7 +1811,7 @@ begin
        if CodChar = $FFFC then
         begin
           Picture.Clear;
-          GetImage(Picture.Bitmap, IChar -1);
+          GetImage(Picture, IChar -1);
           FRTFout[LineCount]:= FRTFout[LineCount] + PNGToRTF(Picture.PNG);
           UChar:= '';
           CodChar:=$0;
@@ -1175,6 +1847,7 @@ begin
 
        FRTFout[LineCount]:= FRTFout[LineCount] + UChar;
     NPara:= False;
+    Inc(IChar);
     end;
 
   //Finaliza paragrafo
@@ -1183,10 +1856,17 @@ begin
  //Finaliza a montágem do arquivo
  Line := '{\rtf1\ansi\deff0\adeflang1025{\fonttbl ';
 
-  for I := 0 to (Ffonttbl.Count - 1) do
+  {for I := 0 to (Ffonttbl.Count - 1) do
   begin
     Line := Line + '{\f' + IntToStr(I) + '\fswiss ' + Ffonttbl[I] + ';}';
+  end;}
+  I:=0;
+  While I < Ffonttbl.Count do
+  begin
+  Line := Line + '{\f' + IntToStr(I) + '\fswiss ' + Ffonttbl[I] + ';}';
+  Inc(I);
   end;
+
   Line := Line + '}';
 
   Line := Line + UnicodeToUTF8($A);
@@ -1194,9 +1874,15 @@ begin
   if (Fcolortbl.Count > 1) then
   begin
     Line := Line + '{\colortbl ';
-    for I := 1 to (Fcolortbl.Count - 1) do
+    {for I := 1 to (Fcolortbl.Count - 1) do
     begin
       Line := Line + ';' + Fcolortbl[I];
+    end;}
+    I:=1;
+    While I < Fcolortbl.Count do
+    begin
+      Line := Line + ';' + Fcolortbl[I];
+      Inc(I);
     end;
     Line := Line + ';}' + UnicodeToUTF8($A);
   end;
@@ -1209,15 +1895,16 @@ begin
   Result:= True;
 end;
 
-function TRTFSave.GetImage(BMP: TBitmap; Position:Integer): boolean;
+function TRTFSave.GetImage(Picture: TPicture; Position: integer): boolean;
 var
   Buffer: PGtkTextBuffer = nil;
   iPosition: TGtkTextIter;
   pixbuf: PGDKPixBuf = nil;
-  BitmapData: TLazIntfImage = nil;
   Width, Height, rowstride, n_channels, i, j: integer;
-  pixels, p: Pguchar;
-  RawImageDescription: TRawImageDescription;
+  //Alpha:Boolean =  false;
+  pixels: Pguchar = nil;
+  p: Pguchar = nil;
+  FastImage: TFastImage;
 begin
 
   //--
@@ -1241,33 +1928,63 @@ begin
   Height := gdk_pixbuf_get_height(pixbuf);
   rowstride := gdk_pixbuf_get_rowstride(pixbuf);
   pixels := gdk_pixbuf_get_pixels(pixbuf);
+  //Alpha :=   gdk_pixbuf_get_has_alpha(pixbuf);
+  //--
 
-  BMP.Height := Height;
-  BMP.Width := Width;
-  BMP.PixelFormat := pf32bit;
-  BMP.Transparent := True;
-  //--
-  BitmapData := BMP.CreateIntfImage;
-  RawImageDescription := BitmapData.DataDescription;
-  AddAlphaToDescription(RawImageDescription, 32);
-  BitmapData.DataDescription := RawImageDescription;
-  //--
   try
-    for i := 0 to Width - 1 do
+
+    FastImage := TFastImage.Create;
+    FastImage.SetSize(Width, Height);
+
+    {for i := 0 to Width - 1 do
       for J := 0 to Height - 1 do
       begin
         p := pixels + j * rowstride + i * n_channels;
-        PByteArray(BitmapData.PixelData)^[(((J * Width) + i) * 4)] := Ord((p + 2)^);
-        PByteArray(BitmapData.PixelData)^[(((J * Width) + i) * 4) + 1] := Ord((p + 1)^);
-        PByteArray(BitmapData.PixelData)^[(((J * Width) + i) * 4) + 2] := Ord((p + 0)^);
-        PByteArray(BitmapData.PixelData)^[(((J * Width) + i) * 4) + 3] := Ord((P + 3)^);
+        if n_channels = 4 then
+          //FastImage.Color[i + 1, j + 1]:= RGBAToFastPixel(Ord((p + 2)^), Ord((p + 1)^), Ord((p + 0)^), Ord((P + 3)^))
+          FastImage.Color[i + 1, j + 1] :=
+            RGBAToFastPixel(Ord((p + 0)^), Ord((p + 1)^), Ord((p + 2)^), Ord((P + 3)^))
+
+
+        else
+          //FastImage.Color[i + 1, j + 1] := RGBAToFastPixel(Ord((p + 2)^), Ord((p + 1)^), Ord((p + 0)^), $FF);
+        FastImage.Color[i + 1, j + 1] :=
+          RGBAToFastPixel(Ord((p + 0)^), Ord((p + 1)^), Ord((p + 2)^), $FF);
+
+      end;}
+
+      I:=0;
+      J:=0;
+
+      While I < Width do
+      begin
+        While J < Height do
+        //for J := 0 to Height - 1 do
+        begin
+          p := pixels + j * rowstride + i * n_channels;
+          if n_channels = 4 then
+            //FastImage.Color[i + 1, j + 1]:= RGBAToFastPixel(Ord((p + 2)^), Ord((p + 1)^), Ord((p + 0)^), Ord((P + 3)^))
+            FastImage.Color[i + 1, j + 1] :=
+              RGBAToFastPixel(Ord((p + 0)^), Ord((p + 1)^), Ord((p + 2)^), Ord((P + 3)^))
+          else
+            //FastImage.Color[i + 1, j + 1] := RGBAToFastPixel(Ord((p + 2)^), Ord((p + 1)^), Ord((p + 0)^), $FF);
+          FastImage.Color[i + 1, j + 1] :=
+            RGBAToFastPixel(Ord((p + 0)^), Ord((p + 1)^), Ord((p + 2)^), $FF);
+
+          Inc(J);
+        end;
+        J:=0;
+        Inc(I);
       end;
-    BMP.LoadFromIntfImage(BitmapData);
+
+      FastImage.FastImageToPicture(Picture);
   finally
-    BitmapData.Free;
+    FastImage.Free;
+
   end;
-  //--
+
   Result := True;
+
 end;
 
 procedure TRTFSave.SaveToStream(Stream: TStream);
@@ -1279,10 +1996,10 @@ end;
 constructor TRTFSave.Create(TextView: TWinControl);
 begin
   inherited Create;
-  Ffonttbl:= TStringList.Create;
-  Fcolortbl:= TStringList.Create;
-  FRTFout:= TStringList.Create;
-  FTextView:= TextView;
+  Ffonttbl := TStringList.Create;
+  Fcolortbl := TStringList.Create;
+  FRTFout := TStringList.Create;
+  FTextView := TextView;
 end;
 
 destructor TRTFSave.Destroy;

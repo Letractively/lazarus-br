@@ -1,7 +1,7 @@
 object frmSobre: TfrmSobre
-  Left = 431
+  Left = 414
   Height = 199
-  Top = 317
+  Top = 153
   Width = 447
   BorderIcons = [biSystemMenu]
   Caption = 'Sobre'
@@ -51,24 +51,24 @@ object frmSobre: TfrmSobre
     0000000000000000000000000000000000000000000081810000FFFF0000FFFF
     0000
   }
-  LCLVersion = '0.9.30.2'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '0.9.30.2RC1'
   object Button1: TButton
     Left = 365
     Height = 25
-    Top = 162
+    Top = 168
     Width = 75
     Caption = 'Fechar'
     OnClick = Button1Click
     TabOrder = 0
   end
-  object RichBox1: TRichBox
+  object lzRichEdit1: TlzRichEdit
     Left = 8
-    Height = 144
-    Top = 8
+    Height = 153
+    Top = 7
     Width = 432
-    Lines.Strings = (
-      'RichBox1'
-    )
+    ReadOnly = True
     TabOrder = 1
   end
-end
+end

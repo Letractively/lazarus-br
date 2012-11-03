@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  SysUtils, Forms, UPrincipal, ULocalizar, UParagrafo, USobre, lazrichedit;
+  SysUtils, Forms, UPrincipal, ULocalizar, UParagrafo, USobre, lazrichedit,
+  RTF2HTML;
 
 {$R *.res}
 
