@@ -5,12 +5,10 @@ unit PrincipalFrm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Dialogs, StdCtrls, ExtCtrls;
+  HttpUtils, RUtils, HttpSend, SynaUtil, Classes, SysUtils, Forms, Dialogs,
+  StdCtrls, ExtCtrls, FPJSON, LCLIntf;
 
 type
-
-  { TPrincipalForm }
-
   TPrincipalForm = class(TForm)
     ConsultarButton: TButton;
     CPFEdit: TEdit;
@@ -25,32 +23,28 @@ type
     procedure FormShow(Sender: TObject);
     procedure ObterCaptchaButtonClick(Sender: TObject);
   private
-    FCookieCaptcha: string;
-    FCookieConsultaPublica: string;
+    FGuid: string;
+    FState: string;
+    FCookie: string;
   public
+    procedure Prepara;
     procedure ObtemCaptcha;
-    procedure ConsultaPublica;
-    procedure ConsultaPublicaExibir;
+    procedure Consultar;
   end;
 
 const
-  CURLDominio = 'http://www.receita.fazenda.gov.br/';
-  CURLConsultaPublica = CURLDominio +
-    'aplicacoes/atcta/cpf/ConsultaPublica.asp';
-  CURLCaptcha = CURLDominio +
-    'scripts/srf/intercepta/captcha.aspx?opt=image&v=%d';
-  CFormulario = 'txtCPF=%s&idLetra=%s&Enviar=Consultar';
-  CTagInicio = 'Nome da Pessoa Física:';
-  CTagFim = '</span>';
+  URL_DOMINIO = 'http://api.silvioprog.com.br/cpf.brook/';
+  URL_PREPARA = URL_DOMINIO + 'prepara';
+  URL_CAPTCHA = URL_DOMINIO + 'captcha/%s';
+  URL_CONSULTA = URL_DOMINIO + 'consulta/%s';
+  FORMULARIO = 'cookie=%s&state=%s&captcha=%s';
 
 resourcestring
-  SErroConsultaPublica =
-    'Não foi possível obter dados iniciais do site da Receita Federal.';
-  SErroConsultaPublicaExibir =
-    'Não foi possível consultar os dados do CPF "%s".';
+  SErroPrepara = 'Não foi possível obter dados iniciais.';
   SErroCaptcha = 'Não foi possível obter o Captcha.';
-  SAvisoCPFVazio = 'Por favor, informe um CPF.';
-  SAvisoCaptchaVazio =
+  SErroConsulta = 'Não foi possível consultar os dados do CPF "%s".';
+  SErroCPFVazio = 'Por favor, informe um CPF.';
+  SErroCaptchaVazio =
     'Por favor, informa os caracteres exibidos na imagem.' + LineEnding +
     'Caso não esteja vendo os caractes, clique em "Obter nova imagem".';
 
@@ -61,15 +55,10 @@ implementation
 
 {$R *.lfm}
 
-uses
-  LSHTTPSend, LSUtils, HTTPSend, LCLIntf;
-
-{ TPrincipalForm }
-
 procedure TPrincipalForm.ObterCaptchaButtonClick(Sender: TObject);
 begin
+  Prepara;
   ObtemCaptcha;
-  ConsultaPublica;
 end;
 
 procedure TPrincipalForm.CPFEditKeyPress(Sender: TObject; var Key: char);
@@ -81,97 +70,108 @@ end;
 
 procedure TPrincipalForm.ConsultarButtonClick(Sender: TObject);
 begin
-  ConsultaPublicaExibir;
+  Consultar;
 end;
 
 procedure TPrincipalForm.CaptchaEditKeyPress(Sender: TObject; var Key: char);
 begin
   if Key = #13 then
   begin
-    ConsultaPublicaExibir;
+    Consultar;
     Key := #0;
   end;
 end;
 
 procedure TPrincipalForm.FormShow(Sender: TObject);
 begin
+  Prepara;
   ObtemCaptcha;
-  ConsultaPublica;
+end;
+
+procedure TPrincipalForm.Prepara;
+var
+  VHttp: THttpSend;
+  VJSON: TJSONObject = nil;
+begin
+  VHttp := THttpSend.Create;
+  try
+    if HttpRequest(VHttp, 'GET', URL_PREPARA) then
+    begin
+      GetJSONObject(VHttp.Document, VJSON);
+      FGuid := VJSON['guid'].AsString;
+      FState := VJSON['state'].AsString;
+      FCookie := VJSON['cookie'].AsString;
+    end
+    else
+      ShowMessage(SErroPrepara);
+  finally
+    FreeAndNil(VJSON);
+    VHttp.Free;
+  end;
 end;
 
 procedure TPrincipalForm.ObtemCaptcha;
 var
-  VManequim: string = '';
-  VHTTPSend: THTTPSend;
+  VHttp: THttpSend;
+  VImage: TMemoryStream;
+  VJSON: TJSONObject = nil;
 begin
-  VHTTPSend := THTTPSend.Create;
+  VHttp := THttpSend.Create;
+  VImage := TMemoryStream.Create;
   try
-    if LSHTTPGetPictureEx(VHTTPSend, Format(CURLCaptcha, [LSGetTime]),
-      CaptchaImage.Picture, VManequim, VManequim) then
-      FCookieCaptcha := Trim(VHTTPSend.Cookies.Text)
+    CaptchaImage.Picture.Clear;
+    if HttpRequest(VHttp, 'GET', Format(URL_CAPTCHA, [FGuid])) then
+    begin
+      GetJSONObject(VHttp.Document, VJSON);
+      Base64ToStream(VJSON['image'].AsString, VImage);
+      VImage.Position := 0;
+      CaptchaImage.Picture.LoadFromStream(VImage);
+    end
     else
       ShowMessage(SErroCaptcha);
   finally
-    VHTTPSend.Free;
+    VImage.Free;
+    FreeAndNil(VJSON);
+    VHttp.Free;
   end;
 end;
 
-procedure TPrincipalForm.ConsultaPublica;
+procedure TPrincipalForm.Consultar;
 var
-  VHTTPSend: THTTPSend;
-  VManequim: TStringList;
-begin
-  VHTTPSend := THTTPSend.Create;
-  VManequim := TStringList.Create;
-  try
-    if not LSHTTPGetTextEx(VHTTPSend, CURLConsultaPublica, VManequim) then
-      ShowMessage(SErroConsultaPublica)
-    else
-      FCookieConsultaPublica := Trim(VHTTPSend.Cookies.Text);
-  finally
-    VManequim.Free;
-    VHTTPSend.Free;
-  end;
-end;
-
-procedure TPrincipalForm.ConsultaPublicaExibir;
-var
-  VCookies: TStrings;
-  VStream: TMemoryStream;
-  VArquivoSaida: string;
+  VHttp: THttpSend;
+  VJSON: TJSONObject = nil;
 begin
   if Trim(CPFEdit.Text) = '' then
   begin
-    ShowMessage(SAvisoCPFVazio);
+    ShowMessage(SErroCPFVazio);
     CPFEdit.SetFocus;
     Exit;
   end;
   if Trim(CaptchaEdit.Text) = '' then
   begin
-    ShowMessage(SAvisoCaptchaVazio);
+    ShowMessage(SErroCaptchaVazio);
     CaptchaEdit.SetFocus;
     Exit;
   end;
-  VCookies := TStringList.Create;
-  VStream := TMemoryStream.Create;
+  VHttp := THttpSend.Create;
   try
-    VCookies.Add(FCookieConsultaPublica);
-    VCookies.Add(FCookieCaptcha);
-    if LSHTTPPostURL(CURLConsultaPublica, Format(CFormulario,
-      [CPFEdit.Text, CaptchaEdit.Text]), VCookies, VStream) then
+    WriteStrToStream(VHttp.Document,
+      Format(FORMULARIO, [FCookie, FState, CaptchaEdit.Text]));
+    VHttp.MimeType := 'application/x-www-form-urlencoded';
+    if HttpRequest(VHttp, 'POST', Format(URL_CONSULTA, [CPFEdit.Text])) then
     begin
-      VArquivoSaida := GetTempDir + 'receita.html';
-      VStream.SaveToFile(VArquivoSaida);
-      OpenDocument(VArquivoSaida);
+      GetJSONObject(VHttp.Document, VJSON);
+      ShowMessageFmt('Nome: %s' + LineEnding + 'Situação: %s',
+        [VJSON['name'].AsString, VJSON['status'].AsString]);
     end
     else
-      ShowMessage(Format(SErroConsultaPublicaExibir, [CPFEdit.Text]));
+      ShowMessage(Format(SErroConsulta, [CPFEdit.Text]));
   finally
     CPFEdit.Clear;
     CaptchaEdit.Clear;
     CaptchaImage.Picture.Clear;
-    VCookies.Free;
-    VStream.Free;
+    FreeAndNil(VJSON);
+    VHttp.Free;
   end;
 end;
 

@@ -8,15 +8,15 @@ object PrincipalForm: TPrincipalForm
   ClientWidth = 583
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '0.9.31'
+  LCLVersion = '1.1'
   object ObterCaptchaButton: TButton
     AnchorSideLeft.Control = CaptchaImage
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = CaptchaImage
     AnchorSideTop.Side = asrBottom
-    Left = 327
+    Left = 336
     Height = 25
-    Top = 127
+    Top = 91
     Width = 132
     AutoSize = True
     BorderSpacing.Top = 3
@@ -28,21 +28,18 @@ object PrincipalForm: TPrincipalForm
     AnchorSideLeft.Control = CPFEdit
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = CPFEdit
-    Left = 293
-    Height = 90
-    Top = 34
-    Width = 200
+    Left = 292
+    Height = 55
+    Top = 33
+    Width = 220
     BorderSpacing.Left = 10
-    Constraints.MaxHeight = 90
-    Constraints.MaxWidth = 200
-    Constraints.MinHeight = 90
-    Constraints.MinWidth = 200
+    Center = True
   end
   object CPFLabel: TLabel
     Left = 112
-    Height = 16
+    Height = 15
     Top = 37
-    Width = 22
+    Width = 21
     Caption = '&CPF'
     FocusControl = CPFEdit
     ParentColor = False
@@ -52,9 +49,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = CPFLabel
     AnchorSideTop.Side = asrCenter
-    Left = 137
+    Left = 136
     Height = 23
-    Top = 34
+    Top = 33
     Width = 146
     BorderSpacing.Left = 3
     OnKeyPress = CPFEditKeyPress
@@ -65,9 +62,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = CaptchaEdit
     AnchorSideRight.Side = asrBottom
-    Left = 206
+    Left = 205
     Height = 25
-    Top = 86
+    Top = 85
     Width = 77
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -81,9 +78,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = CPFEdit
     AnchorSideRight.Side = asrBottom
-    Left = 203
+    Left = 202
     Height = 23
-    Top = 60
+    Top = 59
     Width = 80
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 3
@@ -95,9 +92,9 @@ object PrincipalForm: TPrincipalForm
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = CaptchaEdit
     Left = 55
-    Height = 16
+    Height = 15
     Top = 63
-    Width = 145
+    Width = 144
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 3
     Caption = 'Digite os caracteres ao lado'
