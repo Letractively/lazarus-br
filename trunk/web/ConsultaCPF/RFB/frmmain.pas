@@ -8,6 +8,9 @@ uses
   RFB, Classes, SysUtils, Forms, Dialogs, StdCtrls, ExtCtrls, FPJSON, LCLIntf;
 
 type
+
+  { TfrMain }
+
   TfrMain = class(TForm)
     btQuery: TButton;
     edDocument: TEdit;
@@ -19,12 +22,15 @@ type
     procedure edCaptchaKeyPress(Sender: TObject; var Key: char);
     procedure edDocumentKeyPress(Sender: TObject; var Key: char);
     procedure btQueryClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btGetCaptchaClick(Sender: TObject);
   private
     FGuid: string;
     FState: string;
     FCookie: string;
+    FRFB: TRFB;
   end;
 
 var
@@ -33,6 +39,16 @@ var
 implementation
 
 {$R *.lfm}
+
+procedure TfrMain.FormCreate(Sender: TObject);
+begin
+  FRFB := TRFB.Create;
+end;
+
+procedure TfrMain.FormDestroy(Sender: TObject);
+begin
+  FRFB.Free;
+end;
 
 procedure TfrMain.btGetCaptchaClick(Sender: TObject);
 var
