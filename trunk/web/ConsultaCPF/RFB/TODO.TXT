@@ -1,1 +1,0 @@
-Criar o tipo TRFB, visando facilitar o uso deste recurso em códigos de terceiros.

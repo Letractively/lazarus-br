@@ -8,14 +8,25 @@ uses
   HttpUtils, RUtils, HttpSend, SynaUtil, FPJSON, Classes, SysUtils;
 
 type
-
-  { TRFB }
-
   TRFB = class(TObject)
+  private
+    FCaptcha: string;
+    FDocument: string;
+    FGuid: string;
+    FPersonName: string;
+    FPersonStatus: string;
+    FQueriedDocument: string;
+    FState: string;
+    FCookie: string;
   public
     procedure Prepare;
-    procedure GetCaptcha;
+    procedure GetCaptcha(out AImage: TStream);
     procedure Query;
+    property Document: string read FDocument write FDocument;
+    property Captcha: string read FCaptcha write FCaptcha;
+    property PersonName: string read FPersonName;
+    property PersonStatus: string read FPersonStatus;
+    property QueriedDocument: string read FQueriedDocument;
   end;
 
 const
@@ -34,14 +45,9 @@ var
     'Por favor, informe corretamente os caracteres exibidos na imagem ao lado.' +
     LineEnding + 'Caso não esteja vendo os caractes, clique em "Obter nova imagem".';
 
-procedure RFBPrepare(out AGuid, AState, ACookie: string);
-procedure RFBGetCaptcha(out AImage: TStream; const AGuid: string);
-procedure RFBQuery(out AJSON: TJSONObject; const ACookie, AState, ACaptcha,
-  ADocument: string);
-
 implementation
 
-procedure RFBPrepare(out AGuid, AState, ACookie: string);
+procedure TRFB.Prepare;
 var
   VHttp: THttpSend;
   VJSON: TJSONObject = nil;
@@ -51,9 +57,9 @@ begin
     if HttpRequest(VHttp, 'GET', API_PREPARE_URL) then
     begin
       GetJSONObject(VHttp.Document, VJSON);
-      AGuid := VJSON['guid'].AsString;
-      AState := VJSON['state'].AsString;
-      ACookie := VJSON['cookie'].AsString;
+      FGuid := VJSON['guid'].AsString;
+      FState := VJSON['state'].AsString;
+      FCookie := VJSON['cookie'].AsString;
     end
     else
       raise Exception.Create(SAPIPrepareError);
@@ -63,7 +69,7 @@ begin
   end;
 end;
 
-procedure RFBGetCaptcha(out AImage: TStream; const AGuid: string);
+procedure TRFB.GetCaptcha(out AImage: TStream);
 var
   VHttp: THttpSend;
   VJSON: TJSONObject = nil;
@@ -71,7 +77,7 @@ begin
   VHttp := THttpSend.Create;
   AImage := TMemoryStream.Create;
   try
-    if HttpRequest(VHttp, 'GET', Format(API_CAPTCHA_URL, [AGuid])) then
+    if HttpRequest(VHttp, 'GET', Format(API_CAPTCHA_URL, [FGuid])) then
     begin
       GetJSONObject(VHttp.Document, VJSON);
       Base64ToStream(VJSON['image'].AsString, AImage);
@@ -85,40 +91,29 @@ begin
   end;
 end;
 
-procedure RFBQuery(out AJSON: TJSONObject; const ACookie, AState, ACaptcha,
-  ADocument: string);
+procedure TRFB.Query;
 var
   VHttp: THttpSend;
+  VJSON: TJSONObject = nil;
 begin
   VHttp := THttpSend.Create;
   try
     WriteStrToStream(VHttp.Document,
-      Format(API_QUERY_FORM, [ACookie, AState, ACaptcha]));
+      Format(API_QUERY_FORM, [FCookie, FState, FCaptcha]));
     VHttp.MimeType := 'application/x-www-form-urlencoded';
-    if HttpRequest(VHttp, 'POST', Format(API_QUERY_URL, [ADocument])) then
-      GetJSONObject(VHttp.Document, AJSON)
+    if HttpRequest(VHttp, 'POST', Format(API_QUERY_URL, [FDocument])) then
+    begin
+      GetJSONObject(VHttp.Document, VJSON);
+      FPersonName := VJSON['name'].AsString;
+      FPersonStatus := VJSON['status'].AsString;
+      FQueriedDocument := VJSON['querieddocument'].AsString;
+    end
     else
-      raise Exception.CreateFmt(SAPIQueryError, [ADocument]);
+      raise Exception.CreateFmt(SAPIQueryError, [FDocument]);
   finally
+    FreeAndNil(VJSON);
     VHttp.Free;
   end;
-end;
-
-{ TRFB }
-
-procedure TRFB.Prepare;
-begin
-  { TODO: }
-end;
-
-procedure TRFB.GetCaptcha;
-begin
-  { TODO: }
-end;
-
-procedure TRFB.Query;
-begin
-  { TODO: }
 end;
 
 end.
