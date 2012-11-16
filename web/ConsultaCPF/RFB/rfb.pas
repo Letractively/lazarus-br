@@ -7,6 +7,17 @@ interface
 uses
   HttpUtils, RUtils, HttpSend, SynaUtil, FPJSON, Classes, SysUtils;
 
+type
+
+  { TRFB }
+
+  TRFB = class(TObject)
+  public
+    procedure Prepare;
+    procedure GetCaptcha;
+    procedure Query;
+  end;
+
 const
   API_DOMAIN_URL = 'http://api.silvioprog.com.br/rfb.brook/cpf/';
   API_PREPARE_URL = API_DOMAIN_URL + 'prepare';
@@ -91,6 +102,23 @@ begin
   finally
     VHttp.Free;
   end;
+end;
+
+{ TRFB }
+
+procedure TRFB.Prepare;
+begin
+  { TODO: }
+end;
+
+procedure TRFB.GetCaptcha;
+begin
+  { TODO: }
+end;
+
+procedure TRFB.Query;
+begin
+  { TODO: }
 end;
 
 end.

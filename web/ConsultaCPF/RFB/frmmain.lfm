@@ -6,6 +6,8 @@ object frMain: TfrMain
   Caption = 'Consulta CPF'
   ClientHeight = 192
   ClientWidth = 583
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '1.1'
