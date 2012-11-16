@@ -5,7 +5,7 @@ unit frmMain;
 interface
 
 uses
-  RFB, Classes, SysUtils, Forms, Dialogs, StdCtrls, ExtCtrls, FPJSON, LCLIntf;
+  RFB, Classes, SysUtils, Forms, Dialogs, StdCtrls, ExtCtrls, LCLIntf;
 
 type
 
@@ -27,9 +27,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btGetCaptchaClick(Sender: TObject);
   private
-    FGuid: string;
-    FState: string;
-    FCookie: string;
     FRFB: TRFB;
   end;
 
@@ -54,9 +51,9 @@ procedure TfrMain.btGetCaptchaClick(Sender: TObject);
 var
   VImage: TStream = nil;
 begin
-  RFBPrepare(FGuid, FState, FCookie);
+  FRFB.Prepare;
   try
-    RFBGetCaptcha(VImage, FGuid);
+    FRFB.GetCaptcha(VImage);
     imCaptcha.Picture.Clear;
     imCaptcha.Picture.LoadFromStream(VImage);
   finally
@@ -72,8 +69,6 @@ begin
 end;
 
 procedure TfrMain.btQueryClick(Sender: TObject);
-var
-  VJSON: TJSONObject = nil;
 begin
   if Trim(edDocument.Text) = '' then
   begin
@@ -87,18 +82,15 @@ begin
     edCaptcha.SetFocus;
     Exit;
   end;
-  try
-    RFBQuery(VJSON, FCookie, FState, edCaptcha.Text, edDocument.Text);
-    ShowMessageFmt('Nome: %s' + LineEnding + 'Situação: %s' + LineEnding +
-      'Documento: %s', [VJSON['name'].AsString, VJSON['status'].AsString,
-      VJSON['querieddocument'].AsString]);
-    edDocument.Clear;
-    btGetCaptcha.SetFocus;
-    edCaptcha.Clear;
-    imCaptcha.Picture.Clear;
-  finally
-    FreeAndNil(VJSON);
-  end;
+  FRFB.Captcha := edCaptcha.Text;
+  FRFB.Document := edDocument.Text;
+  FRFB.Query;
+  ShowMessageFmt('Nome: %s' + LineEnding + 'Situação: %s' + LineEnding +
+    'Documento: %s', [FRFB.PersonName, FRFB.PersonStatus, FRFB.QueriedDocument]);
+  edDocument.Clear;
+  btGetCaptcha.SetFocus;
+  edCaptcha.Clear;
+  imCaptcha.Picture.Clear;
 end;
 
 procedure TfrMain.edCaptchaKeyPress(Sender: TObject; var Key: char);
