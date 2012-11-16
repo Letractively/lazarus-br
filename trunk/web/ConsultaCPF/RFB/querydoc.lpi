@@ -42,7 +42,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="3">
       <Unit0>
         <Filename Value="querydoc.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -64,6 +64,12 @@
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="rfb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RFB"/>
+        <UsageCount Value="20"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
