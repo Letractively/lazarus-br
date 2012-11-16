@@ -1,2 +1,0 @@
-O projeto "consultacpf" será excluído e descontinuado. A partir de 17/11/2012
-estará funcionando o projeto "querydoc", disponível na pasta RFB.

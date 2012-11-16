@@ -33,7 +33,7 @@ type
   end;
 
 const
-  API_DOMAIN_URL = 'http://api.silvioprog.com.br/rfb/cpf/';
+  API_DOMAIN_URL = 'http://api.silvioprog.com.br/rfb.brook/cpf/';
   API_PREPARE_URL = API_DOMAIN_URL + 'prepare';
   API_CAPTCHA_URL = API_DOMAIN_URL + 'captcha/%s';
   API_QUERY_URL = API_DOMAIN_URL + 'query/%s';
