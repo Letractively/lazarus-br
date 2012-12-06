@@ -1,0 +1,199 @@
+object Form1: TForm1
+  Left = 259
+  Height = 308
+  Top = 129
+  Width = 451
+  Caption = 'Form1'
+  ClientHeight = 308
+  ClientWidth = 451
+  LCLVersion = '1.1'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 100
+    Top = 0
+    Width = 451
+    Align = alTop
+    Color = clWindow
+    Columns = <>
+    DataSource = Datasource1
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 20
+    Top = 100
+    Width = 451
+    Align = alTop
+    AutoSize = True
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 20
+    ClientWidth = 451
+    DataSource = Datasource1
+    Options = []
+    TabOrder = 1
+  end
+  object DBNavigator2: TDBNavigator
+    Left = 0
+    Height = 20
+    Top = 252
+    Width = 451
+    Align = alTop
+    AutoSize = True
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 20
+    ClientWidth = 451
+    DataSource = Datasource2
+    Options = []
+    TabOrder = 2
+  end
+  object DBGrid2: TDBGrid
+    Left = 0
+    Height = 132
+    Top = 120
+    Width = 451
+    Align = alTop
+    Color = clWindow
+    Columns = <>
+    DataSource = Datasource2
+    TabOrder = 3
+  end
+  object Button1: TButton
+    Left = 372
+    Height = 25
+    Top = 278
+    Width = 75
+    Caption = 'Open'
+    OnClick = Button1Click
+    TabOrder = 4
+  end
+  object Button2: TButton
+    Left = 8
+    Height = 25
+    Top = 278
+    Width = 75
+    Caption = 'Apply'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+  object PQConnection1: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'postgres'
+    KeepConnection = False
+    Password = 'postgres'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '127.0.0.1'
+    LogEvents = []
+    left = 40
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select ID, NAME from PERSON'
+      'order by ID'
+    )
+    UpdateSQL.Strings = (
+      'update person'
+      'set'
+      '  NAME = :NAME'
+      'where'
+      '  ID = :OLD_ID'
+    )
+    InsertSQL.Strings = (
+      'insert into person'
+      '  (ID, NAME)'
+      'values'
+      '  (:ID, :NAME)'
+    )
+    DeleteSQL.Strings = (
+      'delete from person'
+      'where'
+      '  ID = :OLD_ID'
+    )
+    Params = <>
+    left = 152
+    top = 56
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = PQConnection1
+    left = 124
+  end
+  object Datasource1: TDatasource
+    DataSet = SQLQuery1
+    left = 248
+    top = 56
+  end
+  object SQLQuery2: TSQLQuery
+    FieldDefs = <>
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from phone'
+      'where personid = :id'
+    )
+    UpdateSQL.Strings = (
+      'update phone'
+      'set'
+      '  NUMBER = :NUMBER,'
+      '  PERSONID = :PERSONID'
+      'where'
+      '  ID = :OLD_ID'
+    )
+    InsertSQL.Strings = (
+      'insert into phone'
+      '  (PERSONID, NUMBER)'
+      'values'
+      '  (:PERSONID, :NUMBER)'
+    )
+    DeleteSQL.Strings = (
+      'delete from phone'
+      'where'
+      '  ID = :OLD_ID and'
+      '  PERSONID = :OLD_PERSONID'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    DataSource = Datasource1
+    left = 152
+    top = 184
+  end
+  object Datasource2: TDatasource
+    DataSet = SQLQuery2
+    left = 248
+    top = 184
+  end
+end
