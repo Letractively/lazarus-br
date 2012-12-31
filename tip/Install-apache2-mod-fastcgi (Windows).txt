@@ -1,0 +1,12 @@
+﻿Baixe a última versão estável do Apache aqui:
+
+http://httpd.apache.org/download.cgi
+
+No arquivo httpd.conf, adicione:
+
+LoadModule fastcgi_module modules/mod_fastcgi-2.4.6-AP22.dll
+<IfModule mod_fastcgi.c>
+  FastCgiServer "cgi-bin\cgi1.exe" -idle-timeout 60 -processes 5
+</IfModule>
+
+Enjoy!
