@@ -1,0 +1,20 @@
+object Form1: TForm1
+  Left = 238
+  Height = 240
+  Top = 150
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '1.1'
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Inc'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end
