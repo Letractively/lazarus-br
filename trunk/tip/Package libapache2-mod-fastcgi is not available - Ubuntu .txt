@@ -1,0 +1,34 @@
+Written by Guillermo Garron .
+
+Date: 2013-01-22 18:50:13 -0400
+
+Today while trying to install php-fpm to work with Apache in an Ubuntu server I’ve got this:
+
+sudo apt-get install libapache2-mod-fastcgi
+The error was:
+
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package libapache2-mod-fastcgi is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or is only available from another source
+
+E: Package 'libapache2-mod-fastcgi' has no installation candidate
+The problem was that multiverse repository was not enable in my apt sources, and there is where libapache2-mod-fastcgi is.
+
+So I had to:
+
+sudo vim /etc/apt/sources.list
+And add these lines at the end:
+
+deb http://us.archive.ubuntu.com/ubuntu/ quantal multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ quantal multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ quantal-updates multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ quantal-updates multiverse
+Change quantal, for the version of Ubuntu you are running. Then:
+
+sudo apt-get update && sudo apt-get install libapache2-mod-fastcgi
+
+
+======
+Source: http://www.garron.me/bits/cant-install-fastcgi-ubuntu-server-package-libapache2-mod-fastcgi-is-not-available.html
