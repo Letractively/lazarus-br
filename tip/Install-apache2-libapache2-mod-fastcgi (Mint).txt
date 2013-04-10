@@ -1,7 +1,7 @@
 ﻿$ sudo su
 # apt-get install apache2
 # apt-get install libapache2-mod-fastcgi
-# /etc/init.d/apache2 restart
+# /etc/init.d/apache2 restart ## ou service apache2 restart
 
 Se der erro :
 
@@ -11,4 +11,14 @@ E: Package 'libapache2-mod-fastcgi' has no installation candidate
 # apt-get -f upgrade
 # apt-get install -f
 
-E tenta instalar novamente.
+E tenta instalar novamente. Caso dê mais erros, habilite todos os repositórios em /etc/apt/sources.list.
+
+No meu caso ainda configurei o arquivo "/etc/apache2/mods-available/fastcgi.conf" para:
+
+<IfModule mod_fastcgi.c>
+  AddHandler fastcgi-script .fcgi .fbf
+  #FastCgiWrapper /usr/lib/apache2/suexec
+  FastCgiIpcDir /var/lib/apache2/fastcgi
+</IfModule>
+
+Ou seja, arquivos *.fbf são reconhecidos como FastCGI.
