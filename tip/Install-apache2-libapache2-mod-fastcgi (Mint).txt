@@ -2,3 +2,13 @@
 # apt-get install apache2
 # apt-get install libapache2-mod-fastcgi
 # /etc/init.d/apache2 restart
+
+Se der erro :
+
+E: Package 'libapache2-mod-fastcgi' has no installation candidate
+
+# apt-get -f update
+# apt-get -f upgrade
+# apt-get install -f
+
+E tenta instalar novamente.
