@@ -1,0 +1,1 @@
+Exemplo que mostra como converter um arquivo qualquer em um txt em hexadecimal.
