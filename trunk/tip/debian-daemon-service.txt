@@ -1,0 +1,51 @@
+Linux (Debian)
+
+. Download, configure, and "Save As" - the sample script located at Service Script (http://aurawin.com/lazarus/debian-service.sh)
+. SVC_ALIAS is the long description of your application
+. SVC_FILENAME is the actual file name of your compiled service application
+. SVC_DIR is the place your you copied the service application
+. SVC_SERVICE_SCRIPT is the final name of the service.sh when you "Save As" the customized debian-service.sh script
+
+Place your script in the /etc/init.d/ folder start the service by running "sudo service Name_Of_Your_Script start".
+
+In order to auto-run the service at startup you can try update-rc.d or else will need a third party tool that will do this.
+
+Option 1
+
+sudo update-rc.d Name_Of_Your_Script defaults
+
+Option 2
+
+sudo apt-get install chkconfig
+sudo chkconfig --add Name_Of_Your_Script
+sudo chkconfig --level 2345 Name_Of_Your_Script on
+
+Linux (Fedora)
+
+Presently, linux flavors are trending away from differing daemon launching and into a unified service model.
+Fedora uses systemd and with that commands to start/stop services are the same as on debian.
+
+. From the command prompt sudo gedit
+. Copy and Paste
+
+[Unit]
+Description=Long description of your application
+After=network.target
+ 
+[Service]
+Type=simple
+ExecStart=complete_path_and_file_name -r
+RemainAfterExit=yes
+TimeoutSec=25
+ 
+[Install]
+WantedBy=multi-user.target
+
+. Edit the following values
+  . Description - Long Description of your service application
+  . ExecStart - complete-path_and_file_name is the name of your compiled service application with its complete path
+. Save As Dialog
+  . Navigate to /lib/systemd/system/
+  . Name the file the name_of_your_service.service
+
+A sample systemd config file can be found Service (http://aurawin.com/lazarus/fedora.service).
