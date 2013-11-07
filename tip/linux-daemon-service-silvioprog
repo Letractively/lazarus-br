@@ -1,0 +1,29 @@
+#! /bin/sh
+
+DAEMON_PATH="/bin/"
+DAEMON_EXE="project1"
+
+case "$1" in
+  start)
+    echo -n "Starting "$DAEMON_EXE" daemon... "
+    start-stop-daemon -S -b -x $DAEMON_PATH$DAEMON_EXE -- -r
+	echo
+    ;;
+  stop)
+    echo -n "Shutting down "$DAEMON_EXE" daemon... "
+	start-stop-daemon -K -x $DAEMON_PATH$DAEMON_EXE -- -r
+	echo
+    ;;
+  status)
+    status $DAEMON_PATH$DAEMON_EXE
+    ;;
+  restart|reload|force-reload)
+	echo "Error: argument '$1' not supported." >&2
+	exit 3
+	;;
+  *)
+    echo $"Usage: $0 {start|stop|status|restart}"
+    exit 1
+esac
+
+exit 0
