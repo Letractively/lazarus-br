@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 DAEMON_PATH="/bin/"
 DAEMON_EXE="project1"
@@ -11,7 +11,7 @@ case "$1" in
     ;;
   stop)
     echo -n "Shutting down "$DAEMON_EXE" daemon... "
-	start-stop-daemon -K -x $DAEMON_PATH$DAEMON_EXE -- -r
+	start-stop-daemon -K -x $DAEMON_PATH$DAEMON_EXE
 	echo
     ;;
   status)
