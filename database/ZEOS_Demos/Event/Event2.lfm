@@ -1,0 +1,51 @@
+object dmEvents: TdmEvents
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 94
+  HorizontalOffset = 250
+  VerticalOffset = 161
+  Width = 153
+  object ZConnection1: TZConnection
+    Protocol = 'firebird-2.1'
+    Database = 'C:\ZEOS_Demos_en\Data\EVENTS.FDB'
+    User = 'SYSDBA'
+    Password = 'masterkey'
+    Properties.Strings = (
+      'Dialect=1'
+    )
+    TransactIsolationLevel = tiReadCommitted
+    Connected = True
+    left = 24
+  end
+  object ZIBEventAlerter1: TZIBEventAlerter
+    AutoRegister = True
+    Connection = ZConnection1
+    Events.Strings = (
+      'a'
+    )
+    Registered = False
+    OnEventAlert = ZIBEventAlerter1EventAlert
+    left = 32
+    top = 48
+  end
+  object ZStoredProc1: TZQuery
+    Connection = ZConnection1
+    AutoCalcFields = False
+    SQL.Strings = (
+      'EXECUTE PROCEDURE EVENTDEMO (:event)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'event'
+        ParamType = ptUnknown
+      end>
+    left = 104
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'event'
+        ParamType = ptUnknown
+      end>
+  end
+end

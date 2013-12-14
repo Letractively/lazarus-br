@@ -1,0 +1,102 @@
+object frmMasterDetail: TfrmMasterDetail
+  Left = 253
+  Height = 433
+  Top = 161
+  Width = 624
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'ZEOS Master/Detail Sample (using TZTable or TZQuery)'
+  ClientHeight = 433
+  ClientWidth = 624
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object gbxCustomer: TGroupBox
+    Left = 8
+    Height = 361
+    Top = 64
+    Width = 605
+    Caption = ' Customer '
+    ClientHeight = 343
+    ClientWidth = 601
+    Font.Color = clNavy
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object gbxOrders: TGroupBox
+      Left = 11
+      Height = 214
+      Top = 120
+      Width = 581
+      Caption = ' Orders '
+      ClientHeight = 196
+      ClientWidth = 577
+      TabOrder = 1
+      object dbgOrders: TDBGrid
+        Left = 11
+        Height = 184
+        Top = 4
+        Width = 555
+        Columns = <>
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Color = clBlack
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        OnEnter = dbgOrdersEnter
+      end
+    end
+    object dbgCustomer: TDBGrid
+      Left = 11
+      Height = 110
+      Top = 6
+      Width = 579
+      Columns = <>
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 0
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      OnEnter = dbgCustomerEnter
+    end
+  end
+  object navMasterDetail: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 624
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 624
+    TabOrder = 1
+  end
+  object rbTZQuery: TRadioButton
+    Left = 366
+    Height = 19
+    Top = 35
+    Width = 125
+    Caption = 'M/D using TZQuery'
+    Checked = True
+    OnClick = rbTZQueryClick
+    State = cbChecked
+    TabOrder = 3
+  end
+  object rbTZTable: TRadioButton
+    Left = 502
+    Height = 19
+    Top = 35
+    Width = 122
+    Caption = 'M/D using TZTable'
+    OnClick = rbTZTableClick
+    TabOrder = 2
+    TabStop = False
+  end
+end

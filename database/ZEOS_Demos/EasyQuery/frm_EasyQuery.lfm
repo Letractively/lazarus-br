@@ -1,0 +1,160 @@
+object frmEasyQuery: TfrmEasyQuery
+  Left = 250
+  Height = 277
+  Top = 161
+  Width = 575
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Easy Query Demo'
+  ClientHeight = 277
+  ClientWidth = 575
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Label2: TLabel
+    Left = 247
+    Height = 16
+    Top = 33
+    Width = 85
+    Caption = 'ADDRESS_LINE1'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 247
+    Height = 16
+    Top = 73
+    Width = 85
+    Caption = 'ADDRESS_LINE2'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 247
+    Height = 16
+    Top = 113
+    Width = 26
+    Caption = 'CITY'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 247
+    Height = 16
+    Top = 153
+    Width = 96
+    Caption = 'STATE_PROVINCE'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 247
+    Height = 16
+    Top = 233
+    Width = 56
+    Caption = 'COUNTRY'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 247
+    Height = 16
+    Top = 194
+    Width = 80
+    Caption = 'POSTAL_CODE'
+    ParentColor = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 10
+    Height = 236
+    Top = 33
+    Width = 226
+    Columns = <    
+      item
+        Width = 194
+        FieldName = 'CUSTOMER'
+      end>
+    DataSource = dmEasyQuery.dsCustomer
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 0
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+  end
+  object DBEdit1: TDBEdit
+    Left = 246
+    Height = 23
+    Top = 48
+    Width = 320
+    DataField = 'ADDRESS_LINE1'
+    DataSource = dmEasyQuery.dsCustomer
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object DBEdit2: TDBEdit
+    Left = 246
+    Height = 23
+    Top = 88
+    Width = 320
+    DataField = 'ADDRESS_LINE2'
+    DataSource = dmEasyQuery.dsCustomer
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object DBEdit3: TDBEdit
+    Left = 246
+    Height = 23
+    Top = 128
+    Width = 255
+    DataField = 'CITY'
+    DataSource = dmEasyQuery.dsCustomer
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object DBEdit4: TDBEdit
+    Left = 246
+    Height = 23
+    Top = 168
+    Width = 125
+    DataField = 'STATE_PROVINCE'
+    DataSource = dmEasyQuery.dsCustomer
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object DBEdit5: TDBEdit
+    Left = 246
+    Height = 23
+    Top = 209
+    Width = 86
+    DataField = 'POSTAL_CODE'
+    DataSource = dmEasyQuery.dsCustomer
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 5
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 575
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 575
+    DataSource = dmEasyQuery.dsCustomer
+    TabOrder = 6
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 246
+    Height = 23
+    Top = 248
+    Width = 145
+    DataField = 'COUNTRY'
+    DataSource = dmEasyQuery.dsCustomer
+    KeyField = 'COUNTRY'
+    ListField = 'COUNTRY'
+    ListFieldIndex = 0
+    ListSource = dmEasyQuery.dsCountry
+    LookupCache = False
+    TabOrder = 7
+  end
+end

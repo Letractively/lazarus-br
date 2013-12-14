@@ -1,0 +1,179 @@
+object frmEvents: TfrmEvents
+  Left = 256
+  Height = 318
+  Top = 161
+  Width = 426
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Event Alerter Demo'
+  ClientHeight = 318
+  ClientWidth = 426
+  OnDestroy = FormDestroy
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object GroupBox1: TGroupBox
+    Left = 16
+    Height = 105
+    Top = 12
+    Width = 193
+    Caption = 'Database Connection'
+    ClientHeight = 87
+    ClientWidth = 189
+    Font.Color = clNavy
+    Font.Height = -13
+    Font.Name = 'System'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object btnOpenDatabase: TButton
+      Left = 34
+      Height = 25
+      Top = 12
+      Width = 125
+      Caption = '&Open Database'
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      OnClick = btnOpenDatabaseClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object btnCloseDatabase: TButton
+      Left = 34
+      Height = 25
+      Top = 48
+      Width = 125
+      Caption = '&Close Database'
+      Enabled = False
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      OnClick = btnCloseDatabaseClick
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 16
+    Height = 185
+    Top = 120
+    Width = 193
+    Caption = 'Event Registration'
+    ClientHeight = 167
+    ClientWidth = 189
+    Enabled = False
+    TabOrder = 1
+    object btnRegisterEvents: TButton
+      Left = 34
+      Height = 25
+      Top = 128
+      Width = 125
+      Caption = '&Register Events'
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      OnClick = btnRegisterEventsClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object moRegister: TMemo
+      Left = 20
+      Height = 97
+      Top = 16
+      Width = 153
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 220
+    Height = 185
+    Top = 120
+    Width = 193
+    Caption = 'Events Received'
+    ClientHeight = 167
+    ClientWidth = 189
+    Enabled = False
+    TabOrder = 2
+    object btnClearEvents: TButton
+      Left = 32
+      Height = 25
+      Top = 128
+      Width = 125
+      Caption = 'Clear &Event Log'
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      OnClick = btnClearEventsClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object lbReceived: TListBox
+      Left = 18
+      Height = 97
+      Top = 16
+      Width = 153
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ItemHeight = 0
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object GroupBox4: TGroupBox
+    Left = 220
+    Height = 105
+    Top = 12
+    Width = 193
+    Caption = 'Generate Events'
+    ClientHeight = 87
+    ClientWidth = 189
+    Enabled = False
+    TabOrder = 3
+    object Label1: TLabel
+      Left = 18
+      Height = 14
+      Top = 20
+      Width = 29
+      Caption = 'Event'
+      Enabled = False
+      FocusControl = ebEvent
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnGenerateEvent: TButton
+      Left = 34
+      Height = 25
+      Top = 48
+      Width = 125
+      Caption = '&Generate Event'
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      OnClick = btnGenerateEventClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object ebEvent: TEdit
+      Left = 52
+      Height = 21
+      Top = 16
+      Width = 121
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+end

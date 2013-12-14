@@ -1,0 +1,775 @@
+object dmMasterDetail: TdmMasterDetail
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 199
+  HorizontalOffset = 251
+  VerticalOffset = 161
+  Width = 309
+  object conDBDemos: TZConnection
+    Protocol = 'firebird-2.1'
+    HostName = 'localhost'
+    Database = 'C:\ZEOS_Demos_en\Data\Dbdemos.fdb'
+    User = 'sysdba'
+    Password = 'masterkey'
+    ReadOnly = True
+    left = 24
+    top = 8
+  end
+  object qryCustomer: TZQuery
+    Connection = conDBDemos
+    AutoCalcFields = False
+    UpdateObject = updCustomer
+    SQL.Strings = (
+      'SELECT      custno, company, addr1, city, state, zip, country'
+      'FROM         customer'
+      'ORDER BY 2'
+    )
+    Params = <>
+    Options = [doCalcDefaults, doAlwaysDetailResync]
+    left = 96
+    top = 8
+    object qryCustomerCUSTNO: TFloatField
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'CUSTNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object qryCustomerCOMPANY: TStringField
+      DisplayWidth = 26
+      FieldKind = fkData
+      FieldName = 'COMPANY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryCustomerADDR1: TStringField
+      DisplayWidth = 23
+      FieldKind = fkData
+      FieldName = 'ADDR1'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryCustomerCITY: TStringField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'CITY'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object qryCustomerSTATE: TStringField
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'STATE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCustomerZIP: TStringField
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'ZIP'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qryCustomerCOUNTRY: TStringField
+      DisplayWidth = 18
+      FieldKind = fkData
+      FieldName = 'COUNTRY'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qryOrders: TZQuery
+    Connection = conDBDemos
+    AutoCalcFields = False
+    UpdateObject = updOrders
+    OnNewRecord = qryOrdersNewRecord
+    SQL.Strings = (
+      'SELECT      orderno, custno, saledate, empno, itemstotal, freight, amountpaid'
+      'FROM         orders'
+      'WHERE      custno = :custno'
+      'ORDER BY 1'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'custno'
+        ParamType = ptUnknown
+      end>
+    DataSource = dsCustomerQuery
+    left = 99
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'custno'
+        ParamType = ptUnknown
+      end>
+    object qryOrdersORDERNO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ORDERNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object qryOrdersCUSTNO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUSTNO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object qryOrdersSALEDATE: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SALEDATE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryOrdersITEMSTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ITEMSTOTAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object qryOrdersFREIGHT: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FREIGHT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object qryOrdersAMOUNTPAID: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AMOUNTPAID'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object qryOrdersEMPNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EMPNO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsCustomerQuery: TDatasource
+    DataSet = qryCustomer
+    left = 248
+    top = 8
+  end
+  object dsOrdersQuery: TDatasource
+    DataSet = qryOrders
+    OnStateChange = dsOrdersQueryStateChange
+    left = 248
+    top = 56
+  end
+  object updCustomer: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'delete from customer'
+      'where'
+      '  customer.CUSTNO = :OLD_CUSTNO'
+    )
+    InsertSQL.Strings = (
+      'insert into customer'
+      '  (customer.CUSTNO, customer.COMPANY, customer.ADDR1, '
+      'customer.CITY, customer.STATE, '
+      '   customer.ZIP, customer.COUNTRY)'
+      'values'
+      '  (:CUSTNO, :COMPANY, :ADDR1, :CITY, :STATE, :ZIP, :COUNTRY)'
+    )
+    ModifySQL.Strings = (
+      'update customer set'
+      '  customer.CUSTNO = :CUSTNO,'
+      '  customer.COMPANY = :COMPANY,'
+      '  customer.ADDR1 = :ADDR1,'
+      '  customer.CITY = :CITY,'
+      '  customer.STATE = :STATE,'
+      '  customer.ZIP = :ZIP,'
+      '  customer.COUNTRY = :COUNTRY'
+      'where'
+      '  customer.CUSTNO = :OLD_CUSTNO'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    left = 168
+    top = 8
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CUSTNO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'COMPANY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ADDR1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CITY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'STATE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ZIP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'COUNTRY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_CUSTNO'
+        ParamType = ptUnknown
+      end>
+  end
+  object updOrders: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'delete from orders'
+      'where'
+      '  orders.ORDERNO = :OLD_ORDERNO'
+    )
+    InsertSQL.Strings = (
+      'insert into orders'
+      '  (orders.ORDERNO, orders.CUSTNO, orders.SALEDATE, '
+      '   orders.EMPNO, orders.ITEMSTOTAL, orders.FREIGHT, '
+      '   orders.AMOUNTPAID)'
+      'values'
+      '  (:ORDERNO, :CUSTNO, :SALEDATE, :EMPNO, :ITEMSTOTAL, '
+      '   :FREIGHT, :AMOUNTPAID)'
+    )
+    ModifySQL.Strings = (
+      'update orders set'
+      '  orders.ORDERNO = :ORDERNO,'
+      '  orders.CUSTNO = :CUSTNO,'
+      '  orders.SALEDATE = :SALEDATE,'
+      '  orders.ITEMSTOTAL = :ITEMSTOTAL,'
+      '  orders.FREIGHT = :FREIGHT,'
+      '  orders.AMOUNTPAID = :AMOUNTPAID'
+      'where'
+      '  orders.ORDERNO = :OLD_ORDERNO'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    left = 168
+    top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ORDERNO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUSTNO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'SALEDATE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ITEMSTOTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FREIGHT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AMOUNTPAID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_ORDERNO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'EMPNO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tblCustomer: TZTable
+    Connection = conDBDemos
+    SortedFields = 'COMPANY'
+    AutoCalcFields = False
+    TableName = 'CUSTOMER'
+    IndexFieldNames = 'COMPANY Asc'
+    Options = [doCalcDefaults, doAlwaysDetailResync]
+    left = 99
+    top = 104
+    object tblCustomerCUSTNO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUSTNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblCustomerCOMPANY: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'COMPANY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tblCustomerADDR1: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'ADDR1'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tblCustomerCITY: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'CITY'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblCustomerSTATE: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'STATE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblCustomerZIP: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ZIP'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tblCustomerCOUNTRY: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'COUNTRY'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblCustomerADDR2: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'ADDR2'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tblCustomerPHONE: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'PHONE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblCustomerFAX: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'FAX'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblCustomerTAXRATE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TAXRATE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 0
+    end
+    object tblCustomerCONTACT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CONTACT'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblCustomerLASTINVOICEDATE: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LASTINVOICEDATE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tblOrders: TZTable
+    Connection = conDBDemos
+    SortedFields = 'CUSTNO'
+    AutoCalcFields = False
+    OnNewRecord = tblOrdersNewRecord
+    TableName = 'ORDERS'
+    MasterFields = 'CUSTNO'
+    IndexFieldNames = 'CUSTNO Asc'
+    left = 99
+    top = 152
+    object tblOrdersORDERNO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ORDERNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblOrdersCUSTNO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUSTNO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblOrdersSALEDATE: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SALEDATE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblOrdersITEMSTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ITEMSTOTAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblOrdersFREIGHT: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FREIGHT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblOrdersAMOUNTPAID: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AMOUNTPAID'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblOrdersSHIPDATE: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SHIPDATE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblOrdersEMPNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EMPNO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblOrdersSHIPTOCONTACT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SHIPTOCONTACT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblOrdersSHIPTOADDR1: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'SHIPTOADDR1'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tblOrdersSHIPTOADDR2: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'SHIPTOADDR2'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tblOrdersSHIPTOCITY: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'SHIPTOCITY'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblOrdersSHIPTOSTATE: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SHIPTOSTATE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblOrdersSHIPTOZIP: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SHIPTOZIP'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tblOrdersSHIPTOCOUNTRY: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SHIPTOCOUNTRY'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tblOrdersSHIPTOPHONE: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'SHIPTOPHONE'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblOrdersSHIPVIA: TStringField
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'SHIPVIA'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 7
+    end
+    object tblOrdersPO: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'PO'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblOrdersTERMS: TStringField
+      DisplayWidth = 6
+      FieldKind = fkData
+      FieldName = 'TERMS'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 6
+    end
+    object tblOrdersPAYMENTMETHOD: TStringField
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'PAYMENTMETHOD'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 7
+    end
+    object tblOrdersTAXRATE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TAXRATE'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 0
+    end
+  end
+  object dsCustomerTable: TDatasource
+    DataSet = tblCustomer
+    left = 248
+    top = 104
+  end
+  object dsOrdersTable: TDatasource
+    DataSet = tblOrders
+    OnStateChange = dsOrdersTableStateChange
+    left = 248
+    top = 152
+  end
+end
