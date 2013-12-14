@@ -1,0 +1,264 @@
+object dmEasyQuery: TdmEasyQuery
+  OldCreateOrder = False
+  Height = 103
+  HorizontalOffset = 252
+  VerticalOffset = 160
+  Width = 234
+  object conEmployee: TZConnection
+    Protocol = 'firebird-2.1'
+    HostName = 'localhost'
+    Database = 'C:\ZEOS_Demos_en\Data\Employee.fdb'
+    User = 'sysdba'
+    Password = 'masterkey'
+    TransactIsolationLevel = tiReadCommitted
+    left = 24
+  end
+  object qryCustomer: TZQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    UpdateObject = updCustomer
+    AfterPost = qryCustomerAfterPost
+    SQL.Strings = (
+      'SELECT      *'
+      'FROM         customer'
+      'ORDER BY customer'
+    )
+    Params = <>
+    left = 104
+    object qryCustomerCUST_NO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUST_NO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCustomerCUSTOMER: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'CUSTOMER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object qryCustomerCONTACT_FIRST: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'CONTACT_FIRST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object qryCustomerCONTACT_LAST: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CONTACT_LAST'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCustomerPHONE_NO: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PHONE_NO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCustomerADDRESS_LINE1: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'ADDRESS_LINE1'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryCustomerADDRESS_LINE2: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'ADDRESS_LINE2'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryCustomerCITY: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'CITY'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object qryCustomerSTATE_PROVINCE: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'STATE_PROVINCE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object qryCustomerCOUNTRY: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'COUNTRY'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object qryCustomerPOSTAL_CODE: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'POSTAL_CODE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object qryCustomerON_HOLD: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'ON_HOLD'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+  end
+  object updCustomer: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'delete from customer'
+      'where'
+      '  customer.CUST_NO = :OLD_CUST_NO'
+    )
+    InsertSQL.Strings = (
+      'insert into customer'
+      '  (customer.CUSTOMER, customer.ADDRESS_LINE1, '
+      'customer.ADDRESS_LINE2, customer.CITY, '
+      '   customer.STATE_PROVINCE, customer.COUNTRY, '
+      'customer.POSTAL_CODE)'
+      'values'
+      '  (:CUSTOMER, :ADDRESS_LINE1, :ADDRESS_LINE2, :CITY, '
+      ':STATE_PROVINCE, :COUNTRY, '
+      '   :POSTAL_CODE)'
+    )
+    ModifySQL.Strings = (
+      'update customer set'
+      '  customer.CUSTOMER = :CUSTOMER,'
+      '  customer.ADDRESS_LINE1 = :ADDRESS_LINE1,'
+      '  customer.ADDRESS_LINE2 = :ADDRESS_LINE2,'
+      '  customer.CITY = :CITY,'
+      '  customer.STATE_PROVINCE = :STATE_PROVINCE,'
+      '  customer.COUNTRY = :COUNTRY,'
+      '  customer.POSTAL_CODE = :POSTAL_CODE'
+      'where'
+      '  customer.CUST_NO = :OLD_CUST_NO'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    left = 24
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CUSTOMER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ADDRESS_LINE1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ADDRESS_LINE2'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CITY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'STATE_PROVINCE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'COUNTRY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'POSTAL_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_CUST_NO'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsCustomer: TDatasource
+    DataSet = qryCustomer
+    left = 104
+    top = 56
+  end
+  object dsCountry: TDatasource
+    DataSet = roqryCountry
+    left = 184
+    top = 56
+  end
+  object roqryCountry: TZReadOnlyQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    SQL.Strings = (
+      'SELECT       country '
+      'FROM          country '
+      'ORDER BY 1'
+    )
+    Params = <>
+    left = 184
+    object roqryCountryCOUNTRY: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'COUNTRY'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 15
+    end
+  end
+end

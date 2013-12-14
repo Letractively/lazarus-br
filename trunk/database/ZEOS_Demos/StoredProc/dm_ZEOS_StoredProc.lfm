@@ -1,0 +1,350 @@
+object dmStoredProc: TdmStoredProc
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 255
+  HorizontalOffset = 252
+  VerticalOffset = 161
+  Width = 330
+  object conEmployee: TZConnection
+    Protocol = 'firebird-2.1'
+    HostName = 'localhost'
+    Database = 'C:\ZEOS_Demos_en\Data\Employee.fdb'
+    User = 'SYSDBA'
+    Password = 'masterkey'
+    Properties.Strings = (
+      'dialect=3'
+    )
+    left = 40
+    top = 1
+  end
+  object spDepBudget: TZStoredProc
+    Connection = conEmployee
+    AutoCalcFields = False
+    Params = <    
+      item
+        DataType = ftFloat
+        Name = 'TOT'
+        ParamType = ptResult
+      end    
+      item
+        DataType = ftString
+        Name = 'DNO'
+        ParamType = ptInput
+      end>
+    StoredProcName = 'DEPT_BUDGET'
+    left = 40
+    top = 153
+    ParamData = <    
+      item
+        DataType = ftFloat
+        Name = 'TOT'
+        ParamType = ptResult
+      end    
+      item
+        DataType = ftString
+        Name = 'DNO'
+        ParamType = ptInput
+      end>
+    object spDepBudgetTOT: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOT'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '#,.00'
+      MaxValue = 0
+      MinValue = 0
+    end
+  end
+  object dsDepartment: TDatasource
+    DataSet = qryRODepartment
+    OnDataChange = dsDepartmentDataChange
+    left = 40
+    top = 106
+  end
+  object dsDepBudget: TDatasource
+    DataSet = spDepBudget
+    left = 40
+    top = 203
+  end
+  object qryRODepartment: TZReadOnlyQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    SQL.Strings = (
+      'SELECT      dept_no, department'
+      'FROM         department'
+      'ORDER BY 2'
+    )
+    Params = <>
+    Properties.Strings = (
+      'SELECT      dept_no, department '
+      'FROM         department'
+      'ORDER BY department'
+    )
+    left = 40
+    top = 56
+    object qryRODepartmentDEPT_NO: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'DEPT_NO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 3
+    end
+    object qryRODepartmentDEPARTMENT: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'DEPARTMENT'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 25
+    end
+  end
+  object qryROEmployee: TZReadOnlyQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    SQL.Strings = (
+      'SELECT emp_no, last_name || '', '' || first_name  AS Name'
+      'FROM employee'
+      'ORDER BY last_name, first_name'
+    )
+    Params = <>
+    left = 128
+    top = 57
+    object qryROEmployeeEMP_NO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EMP_NO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryROEmployeeNAME: TStringField
+      DisplayWidth = 37
+      FieldKind = fkData
+      FieldName = 'NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = True
+      Size = 37
+    end
+  end
+  object qryROProject: TZReadOnlyQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    SQL.Strings = (
+      'SELECT proj_id, proj_name '
+      'FROM project'
+      'ORDER BY proj_name'
+    )
+    Params = <>
+    left = 128
+    top = 153
+    object qryROProjectPROJ_ID: TStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'PROJ_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 5
+    end
+    object qryROProjectPROJ_NAME: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PROJ_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object dsEmployee: TDatasource
+    DataSet = qryROEmployee
+    left = 128
+    top = 106
+  end
+  object dsProject: TDatasource
+    DataSet = qryROProject
+    left = 128
+    top = 203
+  end
+  object dsEmployeeProjects: TDatasource
+    AutoEdit = False
+    DataSet = qryEmployeeProjects
+    left = 243
+    top = 203
+  end
+  object qryROCheckEmployeeProject: TZReadOnlyQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    SQL.Strings = (
+      'SELECT COUNT (emp_no)'
+      'FROM    employee_project'
+      'WHERE :emp_no = emp_no AND'
+      '               :proj_id   = proj_id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'emp_no'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'proj_id'
+        ParamType = ptUnknown
+      end>
+    left = 243
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'emp_no'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'proj_id'
+        ParamType = ptUnknown
+      end>
+    object qryROCheckEmployeeProjectCOUNT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COUNT'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+  end
+  object updEmployeeProject: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM employee_project'
+      'WHERE emp_no = :old_emp_no AND'
+      '               proj_id = :old_proj_id'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    left = 243
+    top = 106
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'old_emp_no'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'old_proj_id'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryEmployeeProjects: TZQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    UpdateObject = updEmployeeProject
+    SQL.Strings = (
+      'SELECT p.proj_name, '
+      '               e.last_name || '', '' || e.first_name AS Name,'
+      '               ep.emp_no, ep.proj_id '
+      'FROM    employee_project ep, employee e, project p '
+      'WHERE e.emp_no = ep.emp_no AND'
+      '               p.proj_id = ep.proj_id'
+      'ORDER BY 1, 2'
+    )
+    Params = <>
+    left = 243
+    top = 153
+    object qryEmployeeProjectsPROJ_NAME: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PROJ_NAME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryEmployeeProjectsNAME: TStringField
+      DisplayWidth = 37
+      FieldKind = fkData
+      FieldName = 'NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = True
+      Size = 37
+    end
+    object qryEmployeeProjectsEMP_NO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EMP_NO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryEmployeeProjectsPROJ_ID: TStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'PROJ_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 5
+    end
+  end
+  object spAddEmployeeProject: TZReadOnlyQuery
+    Connection = conEmployee
+    AutoCalcFields = False
+    SQL.Strings = (
+      'EXECUTE PROCEDURE ADD_EMP_PROJ (:emp_no, :proj_id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'emp_no'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'proj_id'
+        ParamType = ptUnknown
+      end>
+    left = 243
+    top = 6
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'emp_no'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'proj_id'
+        ParamType = ptUnknown
+      end>
+  end
+end

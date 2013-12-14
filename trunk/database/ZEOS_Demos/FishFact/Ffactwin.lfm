@@ -1,0 +1,264 @@
+object Form1: TForm1
+  Left = 256
+  Height = 300
+  Top = 163
+  Width = 500
+  Caption = 'FISH FACTS'
+  ClientHeight = 300
+  ClientWidth = 500
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object Panel1: TPanel
+    Left = 6
+    Height = 217
+    Hint = 'Scroll grid below to see other fish'
+    Top = 8
+    Width = 259
+    ClientHeight = 217
+    ClientWidth = 259
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    object DBLabel1: TDBText
+      Left = 4
+      Height = 22
+      Top = 184
+      Width = 246
+      AutoSize = False
+      DataField = 'Common_Name'
+      DataSource = dsBiolife
+      Font.Color = clRed
+      Font.Height = -19
+      Font.Name = 'MS Serif'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBImage1: TDBImage
+      Left = 2
+      Height = 168
+      Hint = 'Scroll grid below to see other fish'
+      Top = 8
+      Width = 248
+      DataField = 'GRAPHIC'
+      DataSource = dsBiolife
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Height = 72
+    Top = 228
+    Width = 500
+    Align = alBottom
+    BevelInner = bvRaised
+    BorderStyle = bsSingle
+    ClientHeight = 68
+    ClientWidth = 496
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object DBGrid1: TDBGrid
+      Left = 12
+      Height = 53
+      Hint = 'Scroll up/down to see other fish!'
+      Top = 8
+      Width = 386
+      Columns = <>
+      DataSource = dsBiolife
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 0
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+    end
+    object BitBtn1: TBitBtn
+      Left = 424
+      Height = 29
+      Hint = 'Close Fish Facts'
+      Top = 20
+      Width = 57
+      Caption = 'E&xit'
+      Kind = bkClose
+      TabOrder = 1
+    end
+  end
+  object Panel2: TPanel
+    Left = 275
+    Height = 22
+    Top = 8
+    Width = 223
+    ClientHeight = 22
+    ClientWidth = 223
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 7
+      Height = 14
+      Top = 4
+      Width = 57
+      Caption = 'About the'
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBLabel2: TDBText
+      Left = 67
+      Height = 1
+      Top = 4
+      Width = 1
+      DataField = 'Common_Name'
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object Panel3: TPanel
+    Left = 276
+    Height = 193
+    Top = 32
+    Width = 223
+    BevelOuter = bvLowered
+    ClientHeight = 193
+    ClientWidth = 223
+    TabOrder = 3
+    object DBMemo1: TDBMemo
+      Left = 3
+      Height = 183
+      Top = 2
+      Width = 217
+      BorderStyle = bsNone
+      Color = clSilver
+      DataField = 'Notes'
+      DataSource = dsBiolife
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      ScrollBars = ssVertical
+      TabOrder = 0
+    end
+  end
+  object conDemos: TZConnection
+    Protocol = 'firebird-2.1'
+    HostName = 'localhost'
+    Database = 'C:\ZEOS_Demos_en\Data\Dbdemos.fdb'
+    User = 'sysdba'
+    Password = 'masterkey'
+    ReadOnly = True
+    left = 59
+    top = 64
+  end
+  object tblBiolife: TZTable
+    Connection = conDemos
+    AutoCalcFields = False
+    TableName = 'BIOLIFE'
+    left = 119
+    top = 64
+    object tblBiolifeSPECIESNO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SPECIESNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblBiolifeCATEGORY: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object tblBiolifeCOMMON_NAME: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'COMMON_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tblBiolifeSPECIESNAME: TStringField
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'SPECIESNAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object tblBiolifeLENGTHCM: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LENGTHCM'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblBiolifeLENGTH_IN: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LENGTH_IN'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object tblBiolifeNOTES: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTES'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object tblBiolifeGRAPHIC: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'GRAPHIC'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+  end
+  object dsBiolife: TDatasource
+    DataSet = tblBiolife
+    left = 184
+    top = 64
+  end
+end

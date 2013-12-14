@@ -1,0 +1,169 @@
+object frmSrotedProc: TfrmSrotedProc
+  Left = 250
+  Height = 322
+  Top = 159
+  Width = 377
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Employee StoredProc Sample'
+  ClientHeight = 322
+  ClientWidth = 377
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object pcStoredProc: TPageControl
+    Left = 10
+    Height = 302
+    Top = 10
+    Width = 361
+    ActivePage = tsSPWithResultset
+    TabIndex = 0
+    TabOrder = 0
+    object tsSPWithResultset: TTabSheet
+      Caption = 'StoredProc with resultset'
+      ClientHeight = 274
+      ClientWidth = 353
+      object lblDepartment: TLabel
+        Left = 10
+        Height = 16
+        Top = 9
+        Width = 64
+        Caption = 'Department'
+        ParentColor = False
+      end
+      object lblBudget: TLabel
+        Left = 189
+        Height = 16
+        Top = 230
+        Width = 39
+        Caption = 'Budget'
+        ParentColor = False
+      end
+      object dbgDepartments: TDBGrid
+        Left = 10
+        Height = 240
+        Top = 24
+        Width = 174
+        Columns = <        
+          item
+            FieldName = 'DEPARTMENT'
+          end>
+        DataSource = dmStoredProc.dsDepartment
+        FixedCols = 0
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Options = [dgRowSelect]
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Color = clNavy
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+      end
+      object dbeBudget: TDBEdit
+        Left = 189
+        Height = 21
+        Top = 243
+        Width = 153
+        DataField = 'TOT'
+        DataSource = dmStoredProc.dsDepBudget
+        CharCase = ecNormal
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 1
+        TabStop = False
+        OnEnter = dbeBudgetEnter
+      end
+    end
+    object tsSPWithoutResultset: TTabSheet
+      Caption = 'StoredProc without resultset'
+      ClientHeight = 276
+      ClientWidth = 353
+      ImageIndex = 1
+      object lblProjekte: TLabel
+        Left = 10
+        Height = 14
+        Top = 9
+        Width = 40
+        Caption = 'Projects'
+        ParentColor = False
+      end
+      object lblMitarbeiter: TLabel
+        Left = 179
+        Height = 14
+        Top = 8
+        Width = 47
+        Caption = 'Employee'
+        ParentColor = False
+      end
+      object dbgMitarbeiter: TDBGrid
+        Left = 180
+        Height = 103
+        Top = 24
+        Width = 164
+        Columns = <        
+          item
+            Width = 133
+            FieldName = 'NAME'
+          end>
+        DataSource = dmStoredProc.dsEmployee
+        Options = [dgIndicator, dgRowSelect]
+        TabOrder = 1
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+      end
+      object dbgProjekte: TDBGrid
+        Left = 10
+        Height = 103
+        Top = 24
+        Width = 165
+        Columns = <        
+          item
+            Width = 134
+            FieldName = 'PROJ_NAME'
+          end>
+        DataSource = dmStoredProc.dsProject
+        Options = [dgIndicator, dgRowSelect]
+        TabOrder = 0
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+      end
+      object dbgEmployeeProject: TDBGrid
+        Left = 9
+        Height = 103
+        Top = 163
+        Width = 335
+        Columns = <        
+          item
+            Title.Caption = 'Project'
+            Width = 137
+            FieldName = 'PROJ_NAME'
+          end        
+          item
+            Title.Caption = 'Member'
+            Width = 177
+            FieldName = 'NAME'
+          end>
+        DataSource = dmStoredProc.dsEmployeeProjects
+        FixedCols = 0
+        Options = [dgTitles, dgColLines, dgRowSelect, dgConfirmDelete, dgMultiselect]
+        TabOrder = 3
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+      end
+      object btnAddEmpProj: TButton
+        Left = 10
+        Height = 25
+        Top = 133
+        Width = 334
+        Caption = 'Add Project Member'
+        Default = True
+        OnClick = btnAddEmpProjClick
+        TabOrder = 2
+      end
+    end
+  end
+end

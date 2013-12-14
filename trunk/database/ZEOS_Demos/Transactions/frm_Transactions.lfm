@@ -1,0 +1,294 @@
+object Form1: TForm1
+  Left = 249
+  Height = 433
+  Top = 159
+  Width = 378
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'ZEOS Transaction Demo'
+  ClientHeight = 433
+  ClientWidth = 378
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poDesktopCenter
+  LCLVersion = '0.9.29'
+  object btnAutoCommit: TSpeedButton
+    Left = 262
+    Height = 27
+    Top = 41
+    Width = 104
+    AllowAllUp = True
+    Caption = 'Auto Commit'
+    Color = clBtnFace
+    Down = True
+    Flat = True
+    Font.Color = clGreen
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    GroupIndex = 1
+    NumGlyphs = 0
+    OnClick = btnAutoCommitClick
+    ParentFont = False
+  end
+  object pnlNavigator: TPanel
+    Left = 11
+    Height = 26
+    Top = 10
+    Width = 355
+    ClientHeight = 26
+    ClientWidth = 355
+    TabOrder = 0
+    object btnCommit: TSpeedButton
+      Left = 252
+      Height = 24
+      Top = 1
+      Width = 47
+      Caption = 'Commit'
+      Color = clBtnFace
+      Enabled = False
+      Flat = True
+      Font.Color = clGreen
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      NumGlyphs = 0
+      OnClick = btnCommitClick
+      ParentFont = False
+    end
+    object BtnRollback: TSpeedButton
+      Left = 298
+      Height = 24
+      Top = 1
+      Width = 57
+      Caption = 'Rollback'
+      Color = clBtnFace
+      Enabled = False
+      Flat = True
+      Font.Color = clGreen
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      NumGlyphs = 0
+      OnClick = BtnRollbackClick
+      ParentFont = False
+    end
+    object navNamen: TDBNavigator
+      Left = 1
+      Height = 24
+      Top = 1
+      Width = 250
+      BevelOuter = bvNone
+      ClientHeight = 24
+      ClientWidth = 250
+      DataSource = dsNamen
+      Flat = True
+      TabOrder = 0
+    end
+  end
+  object pnlFelder: TPanel
+    Left = 10
+    Height = 47
+    Top = 73
+    Width = 357
+    ClientHeight = 47
+    ClientWidth = 357
+    TabOrder = 1
+    object lblRecNo: TLabel
+      Left = 6
+      Height = 16
+      Top = 6
+      Width = 36
+      Caption = 'RecNo'
+      FocusControl = dbeRecNo
+      ParentColor = False
+    end
+    object lblName: TLabel
+      Left = 69
+      Height = 16
+      Top = 6
+      Width = 33
+      Caption = 'Name'
+      FocusControl = dbeName
+      ParentColor = False
+    end
+    object dbeRecNo: TDBEdit
+      Left = 6
+      Height = 21
+      Top = 20
+      Width = 59
+      DataField = 'RecNo'
+      DataSource = dsNamen
+      CharCase = ecNormal
+      Color = clSkyBlue
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 0
+    end
+    object dbeName: TDBEdit
+      Left = 70
+      Height = 23
+      Top = 20
+      Width = 281
+      DataField = 'Name'
+      DataSource = dsNamen
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object pnlGrid: TPanel
+    Left = 10
+    Height = 174
+    Top = 125
+    Width = 357
+    Caption = 'pnlGrid'
+    ClientHeight = 174
+    ClientWidth = 357
+    TabOrder = 2
+    object dbgNamen: TDBGrid
+      Left = 6
+      Height = 161
+      Top = 6
+      Width = 345
+      Columns = <      
+        item
+          Color = clSkyBlue
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Width = 50
+          FieldName = 'RecNo'
+        end      
+        item
+          Width = 260
+          FieldName = 'Name'
+        end>
+      DataSource = dsNamen
+      TabOrder = 0
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+    end
+  end
+  object pnlMonitor: TPanel
+    Left = 10
+    Height = 117
+    Top = 304
+    Width = 357
+    ClientHeight = 117
+    ClientWidth = 357
+    TabOrder = 3
+    object memMonitor: TMemo
+      Left = 6
+      Height = 105
+      Top = 6
+      Width = 345
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -12
+      Font.Name = 'Courier New'
+      ParentFont = False
+      ScrollBars = ssBoth
+      TabOrder = 0
+      TabStop = False
+    end
+  end
+  object conTest: TZConnection
+    Protocol = 'firebird-2.1'
+    HostName = 'localhost'
+    Database = 'C:\ZEOS_Demos_en\Data\Test.fdb'
+    User = 'sysdba'
+    Password = 'masterkey'
+    TransactIsolationLevel = tiReadCommitted
+    SQLHourGlass = True
+    left = 73
+    top = 205
+  end
+  object qryNamen: TZQuery
+    Connection = conTest
+    SortedFields = 'Name'
+    AutoCalcFields = False
+    UpdateObject = updNamen
+    AfterPost = qryNamenAfterPost
+    AfterDelete = qryNamenAfterDelete
+    OnNewRecord = qryNamenNewRecord
+    SQL.Strings = (
+      'SELECT * FROM namen'
+    )
+    Params = <>
+    IndexFieldNames = 'Name Asc'
+    left = 73
+    top = 255
+    object qryNamenName: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'Name'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryNamenRECNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'RECNO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object updNamen: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM namen'
+      'WHERE recno = :old_recno'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO namen (recno, name)'
+      'VALUES (:recno, :name)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE namen'
+      'SET name = :name'
+      'WHERE recno = :old_recno'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    left = 133
+    top = 255
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'Name'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'old_RecNo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RecNo'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsNamen: TDatasource
+    DataSet = qryNamen
+    left = 192
+    top = 255
+  end
+  object monTest: TZSQLMonitor
+    Active = True
+    MaxTraceCount = 100
+    OnLogTrace = monTestLogTrace
+    left = 73
+    top = 312
+  end
+end
