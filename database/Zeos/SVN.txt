@@ -1,1 +1,1 @@
-svn://zeos.firmos.at/zeos/trunk
+http://svn.code.sf.net/p/zeoslib/code-0/trunk/
