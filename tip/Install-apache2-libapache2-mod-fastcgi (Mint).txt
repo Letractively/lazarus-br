@@ -11,7 +11,7 @@ E: Package 'libapache2-mod-fastcgi' has no installation candidate
 # apt-get -f upgrade
 # apt-get install -f
 
-E tenta instalar novamente. Caso dê mais erros, habilite todos os repositórios em /etc/apt/sources.list.
+E tenta instalar novamente. Caso dê mais erros, habilite todos os repositórios em /etc/apt/sources.list, atualize (apt-get update) e desative-os novamente.
 
 No meu caso ainda configurei o arquivo "/etc/apache2/mods-available/fastcgi.conf" para:
 
