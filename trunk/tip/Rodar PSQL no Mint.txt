@@ -1,0 +1,9 @@
+Caso dê o erro:
+
+psql: could not connect to server: No such file or directory
+    Is the server running locally and accepting
+    connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+
+Criar este link (criando a pasta "/var/run/postgresql" caso não exista):
+
+ln -s /tmp/.s.PGSQL.5432 /var/run/postgresql/.s.PGSQL.5432
