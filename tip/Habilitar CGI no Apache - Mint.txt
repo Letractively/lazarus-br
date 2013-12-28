@@ -1,0 +1,32 @@
+O primeiro passo é habilitar o módulo do CGI através de um link simbólico.
+
+# cd /etc/apache2/mods-enabled
+# ln -s ../mods-available/cgi.load cgi.load
+
+O segundo é habilitar a extensão.
+
+# vi /etc/apache2/mods-enabled/mime.conf
+
+Remova o # da linha AddHandler cgi-script .cgi e reinicie o Apache.
+
+# /etc/init.d/apache restart
+
+No seu Virtual Host, adicione a linha Include conf-available/server-cgi-bin.conf. Segue o exemplo de um arquivo.
+
+<VirtualHost *:80>  
+   ServerName aplicacao  
+   DocumentRoot /var/www/aplicacao/public  
+   <Directory /var/www/aplicacao/public>  
+      Options FollowSymLinks Indexes MultiViews  
+      AllowOverride All  
+      Require all granted  
+   </Directory>  
+   Include conf-available/server-cgi-bin.conf  
+</VirtualHost>
+
+OBS: A configuração acima foi feita no Ubuntu 13.10.
+
+Espero que a dica tenha sido útil.
+Grande abraço e até a próxima.
+
+Fonte: http://www.codegeo.com.br/2013/10/habilitando-cgi-no-virtual-host-com.html
