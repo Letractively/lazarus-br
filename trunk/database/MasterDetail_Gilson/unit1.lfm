@@ -1,0 +1,120 @@
+object Form1: TForm1
+  Left = 276
+  Height = 427
+  Top = 146
+  Width = 735
+  Caption = 'Form1'
+  ClientHeight = 427
+  ClientWidth = 735
+  LCLVersion = '1.3'
+  object DBGrid1: TDBGrid
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 3
+    Height = 184
+    Top = 3
+    Width = 729
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 3
+    BorderSpacing.Top = 3
+    BorderSpacing.Right = 3
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object DBGrid2: TDBGrid
+    AnchorSideLeft.Control = DBGrid1
+    AnchorSideTop.Control = DBGrid1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = DBGrid1
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Button1
+    Left = 3
+    Height = 206
+    Top = 190
+    Width = 729
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Top = 3
+    BorderSpacing.Bottom = 3
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource2
+    TabOrder = 1
+  end
+  object Button1: TButton
+    AnchorSideTop.Control = DBGrid2
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = DBGrid2
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 632
+    Height = 25
+    Top = 399
+    Width = 100
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Bottom = 3
+    Caption = 'Open'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from Notas'
+    )
+    Params = <>
+    left = 180
+    top = 47
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLite3Connection1
+    left = 280
+    top = 49
+  end
+  object SQLQuery2: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from NOTAS_ITENS'
+      'where ID_NOTA'#9'= :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptInput
+      end>
+    DataSource = DataSource1
+    left = 220
+    top = 248
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = '.\db\base.db'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    LogEvents = []
+    Options = []
+    left = 425
+    top = 109
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 237
+    top = 129
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    left = 332
+    top = 246
+  end
+end
