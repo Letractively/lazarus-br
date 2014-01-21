@@ -1,4 +1,4 @@
-O primeiro passo é habilitar o módulo do CGI através de um link simbólico.
+﻿O primeiro passo é habilitar o módulo do CGI através de um link simbólico.
 
 # cd /etc/apache2/mods-enabled
 # ln -s ../mods-available/cgi.load cgi.load
@@ -9,9 +9,9 @@ O segundo é habilitar a extensão.
 
 Remova o # da linha AddHandler cgi-script .cgi e reinicie o Apache.
 
-# /etc/init.d/apache restart
+# /etc/init.d/apache2 restart
 
-No seu Virtual Host, adicione a linha Include conf-available/server-cgi-bin.conf. Segue o exemplo de um arquivo.
+No seu Virtual Host (geralmente em /etc/apache2/sites-available/000-default.conf), adicione a linha Include conf-available/server-cgi-bin.conf. Segue o exemplo de um arquivo.
 
 <VirtualHost *:80>  
    ServerName aplicacao  
