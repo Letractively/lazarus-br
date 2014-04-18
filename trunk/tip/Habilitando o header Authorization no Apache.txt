@@ -1,0 +1,35 @@
+No Windows, abra o arquivo "conf/httpd.conf" e adicione a seguinte linha no final dele:
+
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+No Linux, primeiro habilite o módulo env:
+
+# a2enmod env
+
+Depois, para HTTP, abra o arquivo:
+
+# vi /etc/apache2/sites-enabled/000-default.conf
+
+e adicione a linha "SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1", ficando assim:
+
+<VirtualHost *:80>
+...
+	SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+</VirtualHost>
+
+Para HTTPS:
+
+# /etc/apache2/sites-enabled# vi /etc/apache2/sites-enabled/default-ssl.conf
+
+<IfModule mod_ssl.c>
+	<VirtualHost _default_:443>
+...
+		SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+	</VirtualHost>
+</IfModule>
+
+Reinicie o Apache:
+
+# service apache2 restart
+
+Enjoy!
