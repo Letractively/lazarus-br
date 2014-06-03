@@ -1,0 +1,73 @@
+object Form1: TForm1
+  Left = 259
+  Height = 240
+  Top = 155
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  LCLVersion = '1.2.2.0'
+  object edTotal: TEdit
+    Left = 74
+    Height = 23
+    Top = 104
+    Width = 80
+    Color = clBtnFace
+    ReadOnly = True
+    TabOrder = 3
+    Text = '1200,00'
+  end
+  object Label1: TLabel
+    Left = 35
+    Height = 15
+    Top = 104
+    Width = 27
+    Caption = 'Total'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 29
+    Height = 15
+    Top = 24
+    Width = 33
+    Caption = 'Meses'
+    ParentColor = False
+  end
+  object edMeses: TEdit
+    Left = 74
+    Height = 23
+    Top = 24
+    Width = 80
+    TabOrder = 0
+    Text = '10'
+  end
+  object edParcela: TEdit
+    Left = 74
+    Height = 23
+    Top = 64
+    Width = 80
+    Color = clBtnFace
+    ReadOnly = True
+    TabOrder = 1
+    Text = '120'
+  end
+  object Label3: TLabel
+    Left = 24
+    Height = 15
+    Top = 64
+    Width = 38
+    Caption = 'Parcela'
+    ParentColor = False
+  end
+  object btCalcular: TButton
+    Left = 192
+    Height = 25
+    Top = 62
+    Width = 75
+    Caption = 'Calcular'
+    Default = True
+    OnClick = btCalcularClick
+    TabOrder = 2
+  end
+end
