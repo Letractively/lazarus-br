@@ -1,0 +1,10 @@
+server {
+	listen 81;
+	location /project1 {
+		gzip off;
+		fastcgi_pass 127.0.0.1:9000;
+		fastcgi_split_path_info ^((?U).+project1)(/?.+)$;
+		fastcgi_param PATH_INFO $fastcgi_path_info;
+		include fastcgi_params;
+	}
+}
