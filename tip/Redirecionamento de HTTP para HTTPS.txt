@@ -1,0 +1,7 @@
+<VirtualHost *:80>
+	# Isso redireciona TUDO de HTTP para HTTPS, ex: http://foo >> https://foo, http://foo/bar >> https://foo/bar, http://foo/bar/?query >> https://foo/bar/?query!
+        RedirectMatch 301 (.*) https://duallsistemas.com.br$1
+
+        ServerAdmin suporte@duallsistemas.com.br
+        DocumentRoot /var/www
+...
