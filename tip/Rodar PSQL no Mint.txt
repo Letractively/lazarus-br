@@ -1,4 +1,10 @@
-Caso dê o erro:
+Se o PSQL ainda não estiver instalado, faça (supondo que esteja na verão 8.4):
+
+ln -s '/opt/PostgreSQL/8.4/bin/psql' /usr/bin/psql
+
+E pronto, o PSQL está instalado.
+
+Quando for usá-lo, caso dê o erro:
 
 psql: could not connect to server: No such file or directory
     Is the server running locally and accepting
