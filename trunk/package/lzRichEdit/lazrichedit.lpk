@@ -16,7 +16,7 @@
       </Other>
     </CompilerOptions>
     <Description Value="Controle para trabalhar com Textos formatados e Imagens, e salvar arquivos no Formato Rich Text."/>
-    <License Value="LGPL"/>
+    <License Value="modified LGPL"/>
     <Version Minor="1" Release="5"/>
     <Files Count="11">
       <Item1>
