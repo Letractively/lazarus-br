@@ -5,7 +5,8 @@ unit RTF2HTML;
 interface
 
 uses
-  Classes, SysUtils, RTFPars_lzRichEdit, LCLType, LCLProc, Dialogs, Graphics;
+  Classes, SysUtils, RTFPars_lzRichEdit, LCLType, LCLProc, Dialogs, Graphics,
+  Forms, Process, UTF8Process;
 
 type
 
@@ -14,7 +15,7 @@ type
     W,
     H,
     WG,
-    HG: integer;
+    HG : integer;
     HEX: string;
   end;
 
@@ -27,50 +28,50 @@ type
     Size: Integer;
     Style: TFontStyles;
   end;
-{ TRtf2HTML }
 
-TRtf2HTML = class(TObject)
-private
-FRTFParser: TRTFParser;
-FRTFPict: TRTFPict;
-FIsPict: boolean;
-FGroups: integer;
-FSkipGroup:Integer;
-FAlign: TAlignment;
-FFirstIndent: Integer;
-FLeftIndent: Integer;
-FRightIndent: Integer;
-FFontParams: TRSFontAttributes;
-FLastFontParams: TRSFontAttributes;
-FBullet:Boolean;
-//--
-FSpan:String;
-FCloseSPan:boolean;
-FParZero:Boolean;
-//--
-FDirectory:String;
-FFileNum:Integer;
-private
-procedure DoGroup;
-procedure DoWrite;
-procedure DoCtrl;
-procedure DoSpecialChar;
-procedure DoParAttr;
-procedure DoCharAttr;
-procedure DoPictAttr;
-procedure DoBeginPict;
-procedure DoEndPict;
-public
-  SunFontSize:Integer;
-private
-FHTML:String;
-FPar: String;
-public
-function Convert(RTFStream: TStream; DirectoryHTML: String; HTMLFileName:String): Boolean;
-end;
+  { TRtf2HTML }
 
-function SaveMedia(const S: string; DataType: integer; FileName:String): boolean;
+  TRtf2HTML = class(TObject)
+  private
+    FRTFParser: TRTFParser;
+    FRTFPict: TRTFPict;
+    FIsPict: boolean;
+    FGroups: integer;
+    FSkipGroup:Integer;
+    FAlign: TAlignment;
+    FFirstIndent: Integer;
+    FLeftIndent: Integer;
+    FRightIndent: Integer;
+    FFontParams: TRSFontAttributes;
+    FLastFontParams: TRSFontAttributes;
+    FBullet:Boolean;
+    //--
+    FSpan:String;
+    FCloseSPan:boolean;
+    FParZero:Boolean;
+    //--
+    FDirectory:String;
+    FFileNum:Integer;
+  private
+    procedure DoGroup;
+    procedure DoWrite;
+    procedure DoCtrl;
+    procedure DoSpecialChar;
+    procedure DoParAttr;
+    procedure DoCharAttr;
+    procedure DoPictAttr;
+    procedure DoBeginPict;
+    procedure DoEndPict;
+  public
+    SunFontSize:Integer;
+  private
+    FHTML:String;
+    FPar: String;
+  public
+    function Convert(RTFStream: TStream; DirectoryHTML: String; HTMLFileName:String): Boolean;
+  end;
 
+  function SaveMedia(const S: string; DataType: integer; FileName:String): boolean;
 
 implementation
 
@@ -423,18 +424,17 @@ end;
 
 procedure TRtf2HTML.DoPictAttr;
 begin
+  // FRTFPict.W := FRTFPict.W div 2;
   if (FRTFParser.rtfMajor = rtfPictAttr) and (FRTFParser.rtfMinor in
     [rtfMacQD .. rtfpngblip]) then
     case FRTFParser.rtfMinor of
       rtfPicWid: FRTFPict.W := FRTFParser.rtfParam;
       rtfPicHt: FRTFPict.H := FRTFParser.rtfParam;
-      rtfPicGoalWid: FRTFPict.WG := FRTFParser.rtfParam;
-      rtfPicGoalHt: FRTFPict.HG := FRTFParser.rtfParam;
+      rtfPicGoalWid: FRTFPict.WG := FRTFParser.rtfParam div 15;  // <<<<<<<<<<<
+      rtfPicGoalHt: FRTFPict.HG := FRTFParser.rtfParam div 15;   // <<<<<<<<<<<
       rtfpngblip: FRTFPict.PictType := rtfpngblip;
       rtfWinMetafile: FRTFPict.PictType := rtfWinMetafile;
-
     end;
-
 end;
 
 procedure TRtf2HTML.DoBeginPict;
@@ -449,26 +449,50 @@ begin
 end;
 
 procedure TRtf2HTML.DoEndPict;
+  procedure ConvertMedia(AFileName, OutputName :string);
+  var
+    Proc :TProcessUTF8;
+    appname :string;
+  begin
+    appname := ExtractFilePath(Application.Exename) + 'convert.exe';
+    Proc := TProcessUTF8.Create(Application);
+    try
+      Proc.Options := [poWaitOnExit, poNoConsole];
+      Proc.Executable := appname;
+      Proc.Parameters.Add(AFilename);
+      Proc.Parameters.Add(OutputName);
+      Proc.Execute;
+    finally
+      Proc.Free;
+    end;
+  end;
 var
   R: boolean = False;
   L:Integer;
   FileName:String;
-  PFileType: array [0..18] of String = ('', '.wmf', '.bmp', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '.png');
-
+  PFileType: array [0..18] of String = ('', '.wmf', '.bmp', '', '', '', '', '',
+    '', '', '', '', '', '', '', '', '', '', '.png');
+  ConvertedFileName :string;
 begin
   FIsPict := False;
+
   FileName:=  FDirectory + 'img' + IntToStr(FFileNum) + PFileType[FRTFPict.PictType];
+  ConvertedFileName := FDirectory + 'img' + IntToStr(FFileNum) + '.png';
 
   if (SaveMedia(FRTFPict.HEX, FRTFPict.PictType, FileName)) then
     Inc(FFileNum);
 
-  if (FRTFPict.WG = 0) and (FRTFPict.HG = 0) or (FRTFPict.WG = FRTFPict.W) and
-    (FRTFPict.HG = FRTFPict.H) then
-      FPar:= FPar + '<img src="' + ExtractFileName(FileName) + '">'
+  if ((FRTFPict.WG = 0) and (FRTFPict.HG = 0)) or ((FRTFPict.WG = FRTFPict.W) and
+    (FRTFPict.HG = FRTFPict.H)) then
+      FPar := FPar + '<img src="' + ExtractFileName(ConvertedFileName) + '">'
   else
-    FPar:= FPar + '<img src="' + ExtractFileName(FileName) + '" style=width:' + IntToStr(FRTFPict.WG) + 'px; height:' + IntToStr(FRTFPict.HG) + 'px">';
+    FPar:= FPar + '<img src="' + ExtractFileName(ConvertedFileName) + '" style="width:' + IntToStr(FRTFPict.WG) + 'px; height:' + IntToStr(FRTFPict.HG) + 'px">';
 
-FParZero:= false;
+  // Converts images by ImageMagick
+  ConvertMedia(FileName, ConvertedFileName);
+  DeleteFile(FileName);
+
+  FParZero:= False;
 end;
 
 function TRtf2HTML.Convert(RTFStream: TStream; DirectoryHTML: String; HTMLFileName:String): Boolean;
@@ -536,4 +560,4 @@ begin
 end;
 
 end.
-
+
