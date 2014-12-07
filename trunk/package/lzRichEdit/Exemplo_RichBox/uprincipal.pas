@@ -209,7 +209,6 @@ type
     procedure tbUndoClick(Sender: TObject);
     procedure tbItalicClick(Sender: TObject);
     procedure tbExportClick(Sender: TObject);
-    procedure ToolButton1Click(Sender :TObject);
     procedure ToolButton31Click(Sender :TObject);
     procedure tbStrikeOutClick(Sender :TObject);
     procedure tbUnderlineClick(Sender: TObject);
@@ -420,17 +419,6 @@ begin
     Rtf2HTML.Free;
   end;
 
-end;
-
-procedure TfrmMain.ToolButton1Click(Sender :TObject);
-begin
-  lzRichEdit1.Clear ;
-lzRichEdit1.SelStart := 0 ;
-lzRichEdit1.SelLength := 5 ;
-lzRichEdit1.SelAttributes.Color:= clRed ;
-lzRichEdit1.SelAttributes.Style:= [fsBold] ;
-lzRichEdit1.SelAttributes.Name:= 'Comic Sans MS';
-lzRichEdit1.Text := lzRichEdit1.Text + 'AAAAA';
 end;
 
 function GetFileNameHandle(const FileName: String): HGLOBAL;
