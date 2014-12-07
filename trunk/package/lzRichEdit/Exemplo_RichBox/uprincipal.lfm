@@ -483,12 +483,6 @@ object frmMain: TfrmMain
       ParentShowHint = False
       ShowHint = True
     end
-    object ToolButton1: TToolButton
-      Left = 314
-      Top = 2
-      Caption = 'ToolButton1'
-      ImageIndex = 1
-    end
   end
   object MainMenu: TMainMenu
     Images = ImageList1
