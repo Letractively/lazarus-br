@@ -2,6 +2,7 @@
 lzRichEdit
 
 Copyright (C) 2010 Elson Junio elsonjunio@yahoo.com.br
+                   Additions by Antônio Galvão
 
 This is the file COPYING.modifiedLGPL, it applies to several units in the
 Lazarus sources distributed by members of the Lazarus Development Team.
@@ -37,11 +38,31 @@ unit RichBox;
 interface
 
 uses
-  Classes, SysUtils, LResources, StdCtrls, Graphics, LCLType, LCLProc;
+  Classes, SysUtils, LResources, StdCtrls, Graphics, LCLType, LCLProc,
+  Printers;
 
 type
 
-TNumberingStyle=( nsNone, nsBullets);
+TNumberingStyle = (nsNone, nsBullets);
+
+TRichEditAlignment = (traLeft, traRight, traCenter, traJustify);    // added
+
+TMargins = TRect;                                                   // added
+
+TSearchType = (stWholeWord, stMatchCase);                           // added
+TSearchTypes = set of TSearchType;                                  // added
+
+TCaretCoordinates = record
+  Column,                                                           // added
+  Line :integer;
+end;
+
+TZoomFactor = 1..64;                                                // added
+
+TZoomPair = record
+  Numerator,
+  Denominator :TZoomFactor;
+end;
 
 TCustomRichBox = class;
 
@@ -53,6 +74,8 @@ TTextAttributes = class(TPersistent)
  private
    function GetColor: TColor;
    procedure SetColor(Value: TColor);
+   function GetBackColor :TColor;              // added
+   procedure SetBackColor(Value: TColor);      // added
    function GetName: TFontName;
    procedure SetName(Value: TFontName);
    function GetSize: Integer;
@@ -69,6 +92,7 @@ TTextAttributes = class(TPersistent)
    constructor Create(AOwner: TCustomRichBox);
    procedure Assign(Source: TPersistent); override;
    property Charset: TFontCharset read GetCharset write SetCharset;
+   property BackColor: TColor read GetBackColor write SetBackColor;   // added
    property Color: TColor read GetColor write SetColor;
    property Name: TFontName read GetName write SetName;
    property Pitch: TFontPitch read GetPitch write SetPitch;
@@ -82,8 +106,10 @@ TParaAttributes = class(TPersistent)
 private
   FRichBox: TCustomRichBox;
 private
-  function GetAlignment: TAlignment;
-  procedure SetAlignment(Value: TAlignment);
+  function GetAlignment: {$IFNDEF WINDOWS}TAlignment{$ELSE}
+    TRichEditAlignment{$ENDIF};                           // modified
+  procedure SetAlignment(Value: {$IFNDEF WINDOWS}TAlignment{$ELSE}
+    TRichEditAlignment{$ENDIF} );                         // modified
   function GetFirstIndent: LongInt;
   procedure SetFirstIndent(Value:LongInt);
   function GetLeftIndent:LongInt;
@@ -97,36 +123,67 @@ private
   function GetTabCount: Integer;
   procedure SetTabCount(Value: Integer);
 public
-    constructor Create(AOwner: TCustomRichBox);
-    procedure Assign(Source: TPersistent); override;
-    property Alignment: TAlignment read GetAlignment write SetAlignment;
-    property FirstIndent: Longint read GetFirstIndent write SetFirstIndent;
-    property LeftIndent: Longint read GetLeftIndent write SetLeftIndent;
-    property Numbering: TNumberingStyle read GetNumbering write SetNumbering;
-    property RightIndent: Longint read GetRightIndent write SetRightIndent;
-    property Tab[Index: Byte]: Longint read GetTab write SetTab;
-    property TabCount: Integer read GetTabCount write SetTabCount;
+  constructor Create(AOwner: TCustomRichBox);
+  procedure Assign(Source: TPersistent); override;
+  property Alignment: {$IFNDEF WINDOWS}TAlignment{$ELSE} TRichEditAlignment
+   {$ENDIF} read GetAlignment write SetAlignment;                   // modified
+  property FirstIndent: Longint read GetFirstIndent write SetFirstIndent;
+  property LeftIndent: Longint read GetLeftIndent write SetLeftIndent;
+  property Numbering: TNumberingStyle read GetNumbering write SetNumbering;
+  property RightIndent: Longint read GetRightIndent write SetRightIndent;
+  property Tab[Index: Byte]: Longint read GetTab write SetTab;
+  property TabCount: Integer read GetTabCount write SetTabCount;
 end;
 
 { TCustomRichBox }
 TCustomRichBox = class(TCustomMemo)
   private
+    FBackgroundColor :TColor;
+    FDefaultExtension :string;
     FSelAttributes: TTextAttributes;
     FParagraph: TParaAttributes;
     FPlainText: Boolean;
+    function GetCaretCoordinates :TCaretCoordinates;                  // added
+    function GetCaretPoint :Classes.TPoint;                           // added
+    function GetScrollPoint :Classes.TPoint;                          // added
+    procedure SetColor(AValue : TColor);
+    procedure SetScrollPoint(AValue :Classes.TPoint);                 // added
   protected
     class procedure WSRegisterClass; override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
+    function FindText(const SearchStr: string; StartPos, Length: Integer;
+      Options: TSearchTypes; Backwards :boolean): Integer;            // added
+    function GetFirsVisibleLine :integer;                             // added
     function GetRealTextBuf: String;
     function GetRealtextSel: String;
-    procedure SaveToStream(Stream: TStream);
+    procedure GetRTFSelection(intoStream :TStream);                   // added
+    function GetWordAtPoint(X, Y :integer) :string;                   // added
+    function GetWordAtPos(Pos :integer): string;                      // added
+    function GetZoomState :TZoomPair;                                 // added
+    procedure Loaded; override;                                       // added
+    procedure LoadFromFile(AFileName: string);                        // added
     procedure LoadFromStream(Stream: TStream);
+    procedure Print(const DocumentTitle: string; Margins :TMargins);  // added
+    procedure PutRTFSelection(sourceStream: TStream);                 // added
+    procedure Redo;                                                   // added
+    procedure SaveToFile(AFileName: string);                          // added
+    procedure SaveToStream(Stream: TStream);
+    procedure ScrollLine(Delta :integer);                             // added
+    procedure ScrollToCaret;                                          // added
+    procedure SetZoomState(AValue :TZoomPair);                        // added
   public
-    property Paragraph: TParaAttributes read FParagraph;
-    property SelAttributes: TTextAttributes read FSelAttributes;
-    property PlainText:Boolean read FPlainText write FPlainText default False;
+    property CaretCoordinates :TCaretCoordinates read GetCaretCoordinates;   // added
+    property CaretPoint :Classes.TPoint read GetCaretPoint;                  // added
+    property Color :TColor read FBackgroundColor write SetColor;
+    property Paragraph : TParaAttributes read FParagraph;
+    property PlainText :Boolean read FPlainText write FPlainText default False;
+    property ScrollPoint :Classes.TPoint read GetScrollPoint write SetScrollPoint; // added
+    property SelAttributes :TTextAttributes read FSelAttributes;
+  published
+    property DefaultExtension :string read FDefaultExtension
+      write FDefaultExtension;                                               // added
   end;
 
 { TCustomRichBox }
@@ -195,6 +252,7 @@ procedure Register;
 implementation
 uses
   WSRichBox;
+
 procedure Register;
 begin
   RegisterComponents('Common Controls', [TlzRichEdit]);

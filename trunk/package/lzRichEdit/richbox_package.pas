@@ -8,8 +8,8 @@ interface
 
 uses
     RichBox, WSRichBoxFactory, WSRichBox, 
-{$IFDEF WINDOWS}Win32WSRichBox,Win32WSRichBoxFactory,{$ENDIF} 
-{$IFDEF LINUX}Gtk2WSRichBox, Gtk2WSRichBoxFactory, Gtk2RTFTool,{$ENDIF} 
+{$IFDEF LCLWIN32}Win32WSRichBox,Win32WSRichBoxFactory,{$ENDIF} 
+{$IFDEF LCLGTK2}Gtk2WSRichBox, Gtk2WSRichBoxFactory, Gtk2RTFTool,{$ENDIF} 
   LazarusPackageIntf;
 
 implementation
