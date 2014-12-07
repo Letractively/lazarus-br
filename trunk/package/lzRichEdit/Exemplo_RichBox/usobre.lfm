@@ -52,8 +52,7 @@ object frmSobre: TfrmSobre
     0000
   }
   OnCreate = FormCreate
-  OnShow = FormShow
-  LCLVersion = '0.9.30.2RC1'
+  LCLVersion = '1.2.6.0'
   object Button1: TButton
     Left = 365
     Height = 25
@@ -68,7 +67,12 @@ object frmSobre: TfrmSobre
     Height = 153
     Top = 7
     Width = 432
+    Color = clWindow
+    Lines.Strings = (
+      'Elson Junio'
+      'Antõnio Galvão'
+    )
     ReadOnly = True
     TabOrder = 1
   end
-end
+end

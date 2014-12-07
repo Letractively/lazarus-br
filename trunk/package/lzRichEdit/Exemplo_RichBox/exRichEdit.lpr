@@ -8,17 +8,17 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   SysUtils, Forms, UPrincipal, ULocalizar, UParagrafo, USobre, lazrichedit,
-  RTF2HTML;
+  printer4lazarus, RTF2HTML, JvHtmlParser;
 
 {$R *.res}
 
 begin
   SetHeapTraceOutput(ExtractFilePath(ParamStr(0)) + 'heaptrclog.trc'); // Aqui
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TfrmLocalizar, frmLocalizar);
   Application.CreateForm(TfrmParagrafo, frmParagrafo);
   Application.CreateForm(TfrmSobre, frmSobre);
   Application.Run;
 end.
-
+

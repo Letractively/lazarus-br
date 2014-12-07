@@ -1,3 +1,43 @@
+{
+lzRichEdit
+
+Copyright (C) 2010 Elson Junio elsonjunio@yahoo.com.br
+                   Additions by Antônio Galvão
+
+This is the file COPYING.modifiedLGPL, it applies to several units in the
+Lazarus sources distributed by members of the Lazarus Development Team.
+All files contains headers showing the appropriate license. See there if this
+modification can be applied.
+
+These files are distributed under the Library GNU General Public License
+(see the file COPYING.LGPL) with the following modification:
+
+As a special exception, the copyright holders of this library give you
+permission to link this library with independent modules to produce an
+executable, regardless of the license terms of these independent modules,
+and to copy and distribute the resulting executable under terms of your choice,
+provided that you also meet, for each linked independent module, the terms
+and conditions of the license of that module. An independent module is a
+module which is not derived from or based on this library. If you modify this
+library, you may extend this exception to your version of the library, but
+you are not obligated to do so. If you do not wish to do so, delete this
+exception statement from your version.
+
+
+If you didn't receive a copy of the file COPYING.LGPL, contact:
+      Free Software Foundation, Inc.,
+      675 Mass Ave
+      Cambridge, MA  02139
+      USA
+}
+
+{ Image conversion from WMF to PNG is made by Convert.exe from ImageMagick
+  which is distribuited under the Apache 2.0 license.
+
+  You can use Apache 2.0 licensed source code in your project as long as you
+  include the copy of the license in your distribution and provide attribution
+  in an applicable way in your distribution. }
+
 unit UPrincipal;
 
 {$mode objfpc}{$H+}
@@ -5,70 +45,98 @@ unit UPrincipal;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ComCtrls, Menus, ExtCtrls, Buttons, LCLProc,
-  LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre,
-  RichBox{$IFDEF LINUX}, GTKTextImage, UGetFontLinux{$ENDIF}
-  {$IFDEF WINDOWS}, RichOleBox, RichOle{$ENDIF}, RTF2HTML;
+  {windows, }Classes, SysUtils, FileUtil, UTF8Process, PrintersDlgs, Forms,
+  Controls, Graphics, Dialogs, StdCtrls, ComCtrls, Menus, ExtCtrls, Buttons,
+  LCLProc, LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre, RichBox
+  {$IFDEF LINUX}, GTKTextImage, UGetFontLinux {$ENDIF} {$IFDEF WINDOWS},
+  RichOleBox, RichOle, Windows {$ENDIF}, RTF2HTML, CLIPBRD;
 
 type
 
-  { TForm1 }
+  { TfrmMain }
 
-  TForm1 = class(TForm)
-    ColorButton1: TColorButton;
+  TfrmMain = class(TForm)
+    Button1 :TButton;
+    cbForeColor: TColorButton;
     CBFont: TComboBox;
     CBSize: TComboBox;
+    cbBackColor :TColorButton;
     FDlg: TFontDialog;
+    FindDlg :TFindDialog;
     GroupBox1: TGroupBox;
     ImageList1: TImageList;
     lzRichEdit1: TlzRichEdit;
-    MainMenu1: TMainMenu;
-    MenuItem1: TMenuItem;
-    MenuItem11: TMenuItem;
-    MenuItem12: TMenuItem;
-    MenuItem13: TMenuItem;
+    lzRichEdit2 :TlzRichEdit;
+    MainMenu: TMainMenu;
+    MenuItem1 :TMenuItem;
+    MenuItem5 :TMenuItem;
+    miScrollLinePlus5 :TMenuItem;
+    miScrollLineMinus5 :TMenuItem;
+    miZoom100 :TMenuItem;
+    miZoom300 :TMenuItem;
+    miZoom500 :TMenuItem;
+    miZoom150 :TMenuItem;
+    miZoom10 :TMenuItem;
+    MenuItem2 :TMenuItem;
+    miZoom25 :TMenuItem;
+    miZoom50 :TMenuItem;
+    miZoom75 :TMenuItem;
+    miZoom200 :TMenuItem;
+    mi500 :TMenuItem;
+    mi100 :TMenuItem;
+    miScrollBy :TMenuItem;
+    miPrint :TMenuItem;
+    MenuItem3 :TMenuItem;
+    miExport :TMenuItem;
+    miFile: TMenuItem;
+    miQuit: TMenuItem;
+    miEdit: TMenuItem;
+    miUndo: TMenuItem;
     MenuItem14: TMenuItem;
-    MenuItem15: TMenuItem;
-    MenuItem16: TMenuItem;
-    MenuItem17: TMenuItem;
+    miCut: TMenuItem;
+    miCopy: TMenuItem;
+    miPaste: TMenuItem;
     MenuItem18: TMenuItem;
-    MenuItem19: TMenuItem;
-    MenuItem2: TMenuItem;
+    miSelectAll: TMenuItem;
+    miNew: TMenuItem;
     MenuItem20: TMenuItem;
-    MenuItem21: TMenuItem;
-    MenuItem22: TMenuItem;
-    MenuItem23: TMenuItem;
-    MenuItem24: TMenuItem;
-    MenuItem25: TMenuItem;
-    MenuItem26: TMenuItem;
-    MenuItem27: TMenuItem;
-    MenuItem29: TMenuItem;
-    MenuItem3: TMenuItem;
+    miFind: TMenuItem;
+    miImage: TMenuItem;
+    miFormat: TMenuItem;
+    miFont: TMenuItem;
+    miBullets: TMenuItem;
+    miParagraph: TMenuItem;
+    miAbout: TMenuItem;
+    miHelp: TMenuItem;
+    miOpen: TMenuItem;
     MenuItem4: TMenuItem;
-    MenuItem5: TMenuItem;
-    MenuItem6: TMenuItem;
-    MenuItem7: TMenuItem;
+    miInsert: TMenuItem;
+    miSave: TMenuItem;
+    miSaveAs: TMenuItem;
     MenuItem8: TMenuItem;
+    miRedo :TMenuItem;
     Odlg: TOpenDialog;
+    PSDlg :TPageSetupDialog;
     SDlg: TSaveDialog;
+    SpeedButton1 :TSpeedButton;
+    StatusBar :TStatusBar;
     ToolBar1: TToolBar;
     ToolBar2: TToolBar;
-    ToolButton1: TToolButton;
+    tbBold: TToolButton;
     ToolButton10: TToolButton;
     ToolButton11: TToolButton;
-    ToolButton12: TToolButton;
-    ToolButton13: TToolButton;
-    ToolButton14: TToolButton;
-    ToolButton15: TToolButton;
-    ToolButton16: TToolButton;
-    ToolButton17: TToolButton;
-    ToolButton18: TToolButton;
-    ToolButton19: TToolButton;
-    ToolButton2: TToolButton;
+    tbNew: TToolButton;
+    tbOpen: TToolButton;
+    tbSave: TToolButton;
+    tbPrint: TToolButton;
+    tbVisualizarImpressao: TToolButton;
+    tbFind: TToolButton;
+    tbCut: TToolButton;
+    tbCopy: TToolButton;
+    tbItalic: TToolButton;
     ToolButton20: TToolButton;
-    ToolButton21: TToolButton;
-    ToolButton22: TToolButton;
+    tbPaste: TToolButton;
+    tbUndo: TToolButton;
     ToolButton23: TToolButton;
     ToolButton24: TToolButton;
     ToolButton25: TToolButton;
@@ -76,50 +144,82 @@ type
     ToolButton27: TToolButton;
     ToolButton28: TToolButton;
     ToolButton29: TToolButton;
-    ToolButton3: TToolButton;
-    ToolButton30: TToolButton;
+    tbUnderline: TToolButton;
+    tbExport: TToolButton;
+    ToolButton31 :TToolButton;
+    tbStrikeOut :TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
-    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure HTMLClick(Sender: TObject);
+    procedure Button1Click(Sender :TObject);
+    procedure cbBackColorColorChanged(Sender :TObject);
     procedure CBFontSelect(Sender: TObject);
+    procedure cbForeColorColorChanged(Sender :TObject);
     procedure CBSizeChange(Sender: TObject);
-    procedure ColorButton1ChangeBounds(Sender: TObject);
+    procedure FindDlgClose(Sender :TObject);
+    procedure FindDlgFind(Sender :TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure GroupBox1Click(Sender :TObject);
     procedure lzRichEdit1Change(Sender: TObject);
     procedure lzRichEdit1Click(Sender: TObject);
     procedure lzRichEdit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
-    procedure MenuItem11Click(Sender: TObject);
-    procedure MenuItem19Click(Sender: TObject);
-    procedure MenuItem22Click(Sender: TObject);
-    procedure MenuItem24Click(Sender: TObject);
-    procedure MenuItem26Click(Sender: TObject);
-    procedure MenuItem27Click(Sender: TObject);
-    procedure MenuItem7Click(Sender: TObject);
+    procedure lzRichEdit1MouseDown(Sender :TObject; Button :TMouseButton;
+      Shift :TShiftState; X, Y :Integer);
+    procedure lzRichEdit1MouseMove(Sender :TObject; Shift :TShiftState; X,
+      Y :Integer);
+    procedure mi100Click(Sender :TObject);
+    procedure mi500Click(Sender :TObject);
+    procedure miExportClick(Sender :TObject);
+    procedure miPrintClick(Sender :TObject);
+    procedure miQuitClick(Sender: TObject);
+    procedure miScrollLineMinus5Click(Sender :TObject);
+    procedure miScrollLinePlus5Click(Sender :TObject);
+    procedure miSelectAllClick(Sender: TObject);
+    procedure miImageClick(Sender: TObject);
+    procedure miFontClick(Sender: TObject);
+    procedure miParagraphClick(Sender: TObject);
+    procedure miAboutClick(Sender: TObject);
+    procedure miZoom100Click(Sender :TObject);
+    procedure miZoom10Click(Sender :TObject);
+    procedure miZoom150Click(Sender :TObject);
+    procedure miZoom200Click(Sender :TObject);
+    procedure miZoom25Click(Sender :TObject);
+    procedure miZoom300Click(Sender :TObject);
+    procedure miZoom500Click(Sender :TObject);
+    procedure miZoom50Click(Sender :TObject);
+    procedure miZoom75Click(Sender :TObject);
+    procedure SpeedButton1Click(Sender :TObject);
+    procedure tbOpenClick(Sender: TObject);
+    procedure tbSaveClick(Sender: TObject);
+    procedure miSaveAsClick(Sender: TObject);
+    procedure miRedoClick(Sender :TObject);
     procedure ToolButton11Click(Sender: TObject);
-    procedure ToolButton12Click(Sender: TObject);
-    procedure ToolButton13Click(Sender: TObject);
-    procedure ToolButton14Click(Sender: TObject);
-    procedure ToolButton17Click(Sender: TObject);
-    procedure ToolButton18Click(Sender: TObject);
-    procedure ToolButton19Click(Sender: TObject);
-    procedure ToolButton1Click(Sender: TObject);
-    procedure ToolButton21Click(Sender: TObject);
-    procedure ToolButton22Click(Sender: TObject);
-    procedure ToolButton2Click(Sender: TObject);
-    procedure ToolButton30Click(Sender: TObject);
-    procedure ToolButton3Click(Sender: TObject);
+    procedure tbNewClick(Sender: TObject);
+    procedure tbFindClick(Sender: TObject);
+    procedure tbCutClick(Sender: TObject);
+    procedure tbCopyClick(Sender: TObject);
+    procedure tbBoldClick(Sender: TObject);
+    procedure tbPasteClick(Sender: TObject);
+    procedure tbUndoClick(Sender: TObject);
+    procedure tbItalicClick(Sender: TObject);
+    procedure tbExportClick(Sender: TObject);
+    procedure ToolButton31Click(Sender :TObject);
+    procedure tbStrikeOutClick(Sender :TObject);
+    procedure tbUnderlineClick(Sender: TObject);
     procedure ToolButton6Click(Sender: TObject);
     procedure ToolButton8Click(Sender: TObject);
     procedure ToolButton9Click(Sender: TObject);
   private
     { private declarations }
+    fstream :tmemorystream;
+    FFirstChange :boolean;
+    procedure ResetZoomMenuItems;
+    procedure UnCheckAllZoomMenuItems;
   private
   {$IFDEF Windows}
     //Suporte a Objeto Ole
@@ -130,51 +230,48 @@ type
     { protected declarations }
     FFileName: string;
     FSetColor: boolean;
+    FPlainText :boolean;
   protected
     { protected declarations }
     procedure SetFileName(S: string);
     procedure GetTextStatus;
   public
     { public declarations }
+    FTextEncoding :integer;
     property FileName: string read FFileName write SetFileName;
   public
     {$IFDEF Windows}
       RichEditOle: IRichEditOle;
       RichEditOleCallback: IRichEditOleCallback;
     {$ENDIF}
-
   end;
 
 var
-  Form1: TForm1;
+  frmMain: TfrmMain;
 
 implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TfrmMain }
 
-procedure TForm1.ToolButton13Click(Sender: TObject);
+procedure TfrmMain.tbOpenClick(Sender: TObject);
 var
   S: TMemoryStream;
+  sl :tstringlist;
 begin
   //-- Abrir
   Odlg.Title := 'Abrir...';
-  Odlg.Filter := 'Rich Text (*.rtf)|*.rtf|Texto (*.txt)|*.txt';
+  Odlg.Filter := 'Rich Text (*' + lzRichEdit1.DefaultExtension {.rtf} + ')|*.rtf|Texto (*.txt)|*.txt';
   Odlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
   if Odlg.Execute then
   begin
-    if not (FileExists(Odlg.FileName)) then
+    if not (FileExistsUTF8(Odlg.FileName)) then
     begin
-      MessageDlg('Erro ao Abrir', 'O arquivo especificado não existe.',
+      MessageDlg('Error on Open', 'Specified file does not exist.',
         mtError, [mbOK], 0);
       Exit;
     end;
-
-    if UTF8LowerCase(ExtractFileExt(Odlg.FileName)) = '.rtf' then
-      lzRichEdit1.PlainText := False
-    else
-      lzRichEdit1.PlainText := True;
     //--
     if not (FileIsReadOnly(Odlg.FileName)) then
       FileName := Odlg.FileName
@@ -182,48 +279,75 @@ begin
       FileName := '';
     //--
     lzRichEdit1.Clear;
-    S := TMemoryStream.Create;
-    S.LoadFromFile(Odlg.FileName);
-    S.Seek(0 ,soBeginning);
-    lzRichEdit1.LoadFromStream(S);
-    S.Free;
+    lzRichEdit1.LoadFromFile(Utf8ToAnsi(Odlg.FileName));
+
+    { lzRichEdit1.PlainText retorna de LoadFromFile com o valor correto e
+      esse valor é guardado em FPlainText para ser usado em Save. }
+
+    FPlainText := lzRichEdit1.PlainText;
+
+    { If you don't have problems with BOM chars, comment the 3 lines below. }
+    if FPlainText then
+      if Copy(lzRichEdit1.Text, 1, 3) = #239#187#191 then
+        lzRichEdit1.Text := Copy(lzRichEdit1.Text, 4, Length(lzRichEdit1.Text) - 3);
+
     //--
   end;
+  lzRichEdit1.Modified := False;
+  FileName := Odlg.FileName;
+
+  // Reset zoom
+  ResetZoomMenuItems;
 end;
 
-procedure TForm1.ToolButton14Click(Sender: TObject);
+procedure TfrmMain.tbSaveClick(Sender: TObject);
 var
   S: TFileStream;
 begin
+  lzRichEdit1.PlainText := FPlainText;
+
   if (FileName = '') then
   begin
-    MenuItem7Click(Sender);
+    miSaveAsClick(Sender);
     Exit;
   end;
   //--
+  {
   S := TFileStream.Create(FileName, fmCreate);
-  lzRichEdit1.SaveToStream(S);
-  S.Free;
+  try
+    lzRichEdit1.SaveToStream(S);
+  finally
+    S.Free;
+  end;
+  }
+
+  lzRichEdit1.SaveToFile(FileName);
+
+  lzRichEdit1.Modified := False;
 end;
 
-procedure TForm1.ToolButton17Click(Sender: TObject);
+procedure TfrmMain.tbFindClick(Sender: TObject);
 begin
-  frmLocalizar.Execute('', lzRichEdit1);
+  {$IFDEF WINDOWS}
+    FindDlg.Execute;
+  {$ELSE}
+    frmLocalizar.Execute('', lzRichEdit1);
+  {$ENDIF}
 end;
 
-procedure TForm1.ToolButton18Click(Sender: TObject);
+procedure TfrmMain.tbCutClick(Sender: TObject);
 begin
   lzRichEdit1.CutToClipboard;
 end;
 
-procedure TForm1.ToolButton19Click(Sender: TObject);
+procedure TfrmMain.tbCopyClick(Sender: TObject);
 begin
   lzRichEdit1.CopyToClipboard;
 end;
 
-procedure TForm1.ToolButton1Click(Sender: TObject);
-
+procedure TfrmMain.tbBoldClick(Sender: TObject);
 begin
+  //(ActiveControl as TlzRichEdit)
   if (fsBold in lzRichEdit1.SelAttributes.Style) then
     lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style - [fsBold]
   else
@@ -232,17 +356,34 @@ begin
   GetTextStatus;
 end;
 
-procedure TForm1.ToolButton21Click(Sender: TObject);
+procedure TfrmMain.tbPasteClick(Sender: TObject);
+var
+  i :Integer;
+  sl :tstringlist;
 begin
+  sl := tstringlist.create;
+  try
+    clipboard.SupportedFormats(sl);
+    //for i := 0 to Clipboard.FormatCount - 1 do
+    showmessage(sl.text);
+  finally
+    sl.free;
+  end;
+
+
+  //if clipboard.HasFormat(;
+
   lzRichEdit1.PasteFromClipboard;
+
+
 end;
 
-procedure TForm1.ToolButton22Click(Sender: TObject);
+procedure TfrmMain.tbUndoClick(Sender: TObject);
 begin
   lzRichEdit1.Undo;
 end;
 
-procedure TForm1.ToolButton2Click(Sender: TObject);
+procedure TfrmMain.tbItalicClick(Sender: TObject);
 
 begin
   if (fsItalic in lzRichEdit1.SelAttributes.Style) then
@@ -252,7 +393,7 @@ begin
   GetTextStatus;
 end;
 
-procedure TForm1.ToolButton30Click(Sender: TObject);
+procedure TfrmMain.tbExportClick(Sender: TObject);
 var
   Rtf2HTML:TRtf2HTML;
   S : TMemoryStream;
@@ -272,15 +413,15 @@ begin
     //--
     if FileExists(Sdlg.FileName) then
     begin
-      if (MessageDlg('Salvar HTML', Sdlg.FileName + ' já existe. ' +
-        #10 + 'deseja substituí-lo?', mtWarning, [mbYes, mbNo], 0) <> 6) then
+      if (MessageDlg('Save HTML', Sdlg.FileName + ' already exists. ' +  LineEnding +
+        ' Replace it?', mtWarning, [mbYes, mbNo], 0) <> 6) then
         Exit;
       if (FileIsReadOnly(Sdlg.FileName)) then
       begin
-        MessageDlg('Salvar HTML', 'O arquivo ' + Sdlg.FileName +
-          ' é somente leitura.',
+        MessageDlg('Save HTML', 'File ' + Sdlg.FileName +
+          ' is read only.',
           mtWarning, [mbOK], 0);
-        ToolButton30Click(Sender);
+        tbExportClick(Sender);
         Exit;
       end;
     end;
@@ -296,7 +437,155 @@ begin
 
 end;
 
-procedure TForm1.ToolButton3Click(Sender: TObject);
+function GetFileNameHandle(const FileName: String): HGLOBAL;
+var pc: PChar;
+begin
+  Result := GlobalAlloc(GHND, Length(FileName)+1);
+  pc := GlobalLock(Result);
+  CharToOEM(PChar(FileName), pc);
+  GlobalUnlock(Result);
+end;
+
+function RICH_HTML(RICH: TlzRichEdit): string;
+var
+  I,J,MAX_ARRAY: integer;
+  HTML: string;
+  F,FO: array [0..5] of string;
+  STR,LGT: integer;
+  SIZE: integer;
+  COR : string;
+begin
+  HTML := '';
+  STR := RICH.SelStart;
+  LGT := RICH.SelLength;
+  MAX_ARRAY := 5;
+
+  for J := 0 to MAX_ARRAY do
+  begin
+    F[J] := '';
+    FO[J] := '';
+  end;
+
+  for I := 0 to length(RICH.text) do
+  begin
+    RICH.SelStart := I;
+    RICH.SelLength := 1;
+
+    for J := 0 to MAX_ARRAY do
+      FO[J] := F[J];
+
+    if (RICH.SelAttributes.Style - [fsItalic] - [fsUnderline] - [fsStrikeOut] = [fsBold]) then
+      F[0] := '<b>'
+    else
+      F[0] := '</b>';
+
+    if (RICH.SelAttributes.Style - [fsItalic] - [fsBold] - [fsStrikeOut] = [fsUnderline]) then
+      F[1] := '<u>'
+    else
+      F[1] := '</u>';
+
+    if (RICH.SelAttributes.Style - [fsUnderline] - [fsBold] - [fsStrikeOut] = [fsItalic]) then
+      F[2] := '<i>'
+    else
+      F[2] := '</i>';
+
+    if RICH.SelAttributes.size < 10 then
+      SIZE := 1
+    else if RICH.SelAttributes.size < 12 then
+      SIZE := 2
+    else if RICH.SelAttributes.size < 14 then
+      SIZE := 3
+    else if RICH.SelAttributes.size < 18 then
+      SIZE := 4
+    else if RICH.SelAttributes.size < 22 then
+      SIZE := 5
+    else if RICH.SelAttributes.size < 32 then
+      SIZE := 6
+    else
+      SIZE := 7;
+    COR := ColorToString(RICH.SelAttributes.Color);
+    if (COR = 'clWindowText') or (COR = 'clBlack') then
+      COR := '#000000'
+    else if COR = 'clWite' then
+      COR := '#FFFFFF'
+    else if COR = 'clAqua' then
+      COR := '#00FFFF'
+    else if COR = 'clFuchsia' then
+      COR := '#FF00FF'
+    else if COR = 'clBlue' then
+      COR := '#0000FF'
+    else if COR = 'clYellow' then
+      COR := '#FFFF00'
+    else if COR = 'clLime' then
+      COR := '#00FF00'
+    else if COR = 'clRed' then
+      COR := '#FF0000'
+    else if COR = 'clSilver' then
+      COR := '#C0C0C0'
+    else if COR = 'clGray' then
+      COR := '#808080'
+    else if COR = 'clTeal' then
+      COR := '#008080'
+    else if COR = 'clPurple' then
+      COR := '#800080'
+    else if COR = 'clNavy' then
+      COR := '#000080'
+    else if COR = 'clOlive' then
+      COR := '#808000'
+    else if COR = 'clGreen' then
+      COR := '#008000'
+    else if COR = 'clMaroon' then
+      COR := '#800000'
+    else if copy(COR,1,1) = '$' then
+      COR := '#'+copy(COR,length(COR)-1,2)
+                +copy(COR,length(COR)-3,2)
+                +copy(COR,length(COR)-5,2)
+    else
+      COR := '#000000';
+    F[3] := '</font><font face="'+RICH.SelAttributes.Name+'" size='+inttostr(SIZE)+' color="'+COR+'">';
+
+    if RICH.Paragraph.Alignment = traCenter then
+      F[4] := '<center>'
+    else
+      F[4] := '</center>';
+
+    if RICH.Paragraph.Alignment = traRight then
+      F[5] := '<div align="right">'
+    else
+      F[5] := '</div>';
+
+    for J := 0 to MAX_ARRAY do
+      if FO[J] <> F[J] then
+        HTML := HTML + F[J];
+
+    if copy(RICH.text,I+1,1) = #13 then
+      HTML := HTML + '<br>';
+
+    HTML := HTML + copy(RICH.text,I+1,1);
+  end;
+  RICH.SelStart := STR;
+  RICH.SelLength := LGT;
+
+  result := HTML;
+end;
+
+procedure TfrmMain.ToolButton31Click(Sender :TObject);
+begin
+  lzRichEdit1.Paragraph.Alignment:= traJustify;
+  GetTextStatus;
+end;
+
+procedure TfrmMain.tbStrikeOutClick(Sender :TObject);
+begin
+   if (fsStrikeOut in lzRichEdit1.SelAttributes.Style) then
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style - [fsStrikeOut]
+  else
+    lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style + [fsStrikeOut];
+
+  GetTextStatus;
+end;
+
+procedure TfrmMain.tbUnderlineClick(Sender: TObject);
 begin
    if (fsUnderline in lzRichEdit1.SelAttributes.Style) then
     lzRichEdit1.SelAttributes.Style := lzRichEdit1.SelAttributes.Style - [fsUnderline]
@@ -306,25 +595,26 @@ begin
   GetTextStatus;
 end;
 
-procedure TForm1.ToolButton6Click(Sender: TObject);
+procedure TfrmMain.ToolButton6Click(Sender: TObject);
 begin
-  lzRichEdit1.Paragraph.Alignment:= taLeftJustify;
+  lzRichEdit1.Paragraph.Alignment:= traLeft;
   GetTextStatus;
 end;
 
-procedure TForm1.ToolButton8Click(Sender: TObject);
+procedure TfrmMain.ToolButton8Click(Sender: TObject);
 begin
-  lzRichEdit1.Paragraph.Alignment:= taCenter;
+  lzRichEdit1.Paragraph.Alignment:= traCenter;
   GetTextStatus;
 end;
 
-procedure TForm1.ToolButton9Click(Sender: TObject);
+procedure TfrmMain.ToolButton9Click(Sender: TObject);
 begin
-  lzRichEdit1.Paragraph.Alignment:= taRightJustify;
+  lzRichEdit1.Paragraph.Alignment:= traRight;
   GetTextStatus;
 end;
+
 {$IFDEF WINDOWS}
-procedure TForm1.CreateOLEObjectInterface;
+procedure TfrmMain.CreateOLEObjectInterface;
 begin
   RichEditOleCallback := TRichEditOleCallback.Create(lzRichEdit1);
 
@@ -335,7 +625,7 @@ begin
 
 end;
 
-procedure TForm1.CloseOLEObjects;
+procedure TfrmMain.CloseOLEObjects;
 var
 I, ObjCount: Integer;
 ReObject: TReObject;
@@ -352,7 +642,7 @@ if not Assigned(RichEditOle) then Exit;
 
 end;
 {$ENDIF}
-procedure TForm1.ToolButton12Click(Sender: TObject);
+procedure TfrmMain.tbNewClick(Sender: TObject);
 var
   NewProcess: TProcess;
 begin
@@ -366,53 +656,70 @@ begin
   //--
 end;
 
-procedure TForm1.MenuItem7Click(Sender: TObject);
+procedure TfrmMain.miSaveAsClick(Sender: TObject);
 var
   S: TFileStream;
 begin
   //--Salvar Como
   Sdlg.Title := 'Salvar Como';
-  Sdlg.Filter := 'Rich Text (*.rtf)|*.rtf|Texto (*.txt)|*.txt';
+  Sdlg.Filter := 'Rich Text (*' + lzRichEdit1.DefaultExtension {.rtf} + ')|*.rtf|Texto (*.txt)|*.txt';
   Sdlg.Options := [ofEnableSizing, ofViewDetail, ofHideReadOnly];
 
   if Sdlg.Execute then
   begin
     //--
     if ExtractFileExt(Sdlg.FileName) = '' then
-    begin
       if (Sdlg.FilterIndex = 1) then
-        Sdlg.FileName := Sdlg.FileName + '.rtf'
+        Sdlg.FileName := Sdlg.FileName + lzRichEdit1.DefaultExtension  // '.rtf'
       else
         Sdlg.FileName := Sdlg.FileName + '.txt';
-    end;
+
+    { PlainText here. }
+    if (Sdlg.FilterIndex = 1) then
+      lzRichEdit1.PlainText := False
+    else
+      lzRichEdit1.PlainText := True;
+
     //--
-    if FileExists(Sdlg.FileName) then
+    if FileExistsUTF8(Sdlg.FileName) then
     begin
-      if (MessageDlg('Salvar Como', Sdlg.FileName + ' já existe. ' +
-        #10 + 'deseja substituí-lo?', mtWarning, [mbYes, mbNo], 0) <> 6) then
+      if (MessageDlg('Save As', Sdlg.FileName + ' already exists. ' +  LineEnding +
+       'Replace it?', mtWarning, [mbYes, mbNo], 0) <> 6) then
         Exit;
       if (FileIsReadOnly(Sdlg.FileName)) then
       begin
-        MessageDlg('Salvar Como', 'O arquivo ' + Sdlg.FileName +
-          ' é somente leitura.',
+        MessageDlg('Save As', 'File ' + Sdlg.FileName +
+          ' is read only.',
           mtWarning, [mbOK], 0);
-        MenuItem7Click(Sender);
+        miSaveAsClick(Sender);
         Exit;
       end;
     end;
     //--
-    S := TFileStream.Create(Sdlg.FileName, fmCreate);
-    if (UTF8LowerCase(ExtractFileExt(Sdlg.FileName)) = '.rtf') then
-      lzRichEdit1.SaveToStream(S)
+    if not lzRichEdit1.PlainText then
+      lzRichEdit1.SaveToFile(Sdlg.FileName)
     else
-      lzRichEdit1.Lines.SaveToStream(S);
-    S.Free;
+      lzRichEdit1.Lines.SaveToFile(Sdlg.FileName);
     //--
     FileName := Sdlg.FileName;
+
+    { Opens saved file. }
+    lzRichEdit1.Clear;
+    lzRichEdit1.LoadFromFile(Utf8ToAnsi(FileName));
+
+    FPlainText := lzRichEdit1.PlainText;
+
+    // Reset zoom
+    ResetZoomMenuItems;
   end;
 end;
 
-procedure TForm1.ToolButton11Click(Sender: TObject);
+procedure TfrmMain.miRedoClick(Sender :TObject);
+begin
+  lzRichEdit1.Redo;
+end;
+
+procedure TfrmMain.ToolButton11Click(Sender: TObject);
 begin
 
   if lzRichEdit1.Paragraph.Numbering = nsNone then
@@ -427,34 +734,106 @@ begin
   GetTextStatus;
 end;
 
-procedure TForm1.lzRichEdit1Click(Sender: TObject);
+procedure TfrmMain.lzRichEdit1Click(Sender: TObject);
 begin
   GetTextStatus;
 end;
 
-procedure TForm1.ColorButton1ChangeBounds(Sender: TObject);
+procedure TfrmMain.FindDlgClose(Sender :TObject);
 begin
-  lzRichEdit1.SelAttributes.Color:= ColorButton1.ButtonColor;
+  BringToFront;
+end;
+
+procedure TfrmMain.FindDlgFind(Sender :TObject);
+var
+  FoundAt: Longint;
+  StartPos, ToEnd: Integer;
+  mySearchTypes : TSearchTypes;
+  myFindOptions : TFindOptions;
+  Backwards, b :boolean;
+  p :Classes.TPoint;
+begin
+  Backwards := not (frDown in FindDlg.Options);
+
+  mySearchTypes := [];
+  with lzRichEdit1 do
+  begin
+    if frMatchCase in FindDlg.Options then
+       mySearchTypes := mySearchTypes + [stMatchCase];
+    if frWholeWord in FindDlg.Options then
+       mySearchTypes := mySearchTypes + [stWholeWord];
+    { Começa a busca depois da seleção atual se existe alguma.
+      Senão começa no início do texto. }
+    if SelLength <> 0 then
+      StartPos := SelStart + SelLength
+    else
+      StartPos := 0;
+    { ToEnd é o comprimento a partir de StartPos até o fim do texto. }
+    ToEnd := Length(Text) - StartPos;
+    FoundAt :=
+      FindText(FindDlg.FindText, StartPos, ToEnd, mySearchTypes, False );
+    if FoundAt <> -1 then
+    begin
+      SetFocus;
+      SelStart := FoundAt;
+      SelLength := UTF8Length(FindDlg.FindText);
+
+      FindDlg.Position := ClientToScreen(lzRichEdit1.CaretPoint);
+    end
+    else
+    begin
+      p.x := (lzRichEdit1.Left + lzRichEdit1.Width - finddlg.Width) div 2;
+      p.y := (lzRichEdit1.Top + lzRichEdit1.Height - finddlg.height) div 2;
+      FindDlg.Position := ClientToScreen(p);
+      ShowMessage('Text not found');
+    end;
+  end;
+end;
+
+procedure TfrmMain.CBFontSelect(Sender: TObject);
+begin
+  lzRichEdit1.SelAttributes.Name := CBfont.Text;
   GetTextStatus;
 end;
 
-procedure TForm1.CBFontSelect(Sender: TObject);
+procedure TfrmMain.cbForeColorColorChanged(Sender :TObject);
 begin
-  lzRichEdit1.SelAttributes.Name:= CBfont.Text;
+  lzRichEdit1.SelAttributes.Color := cbForeColor.ButtonColor;
   GetTextStatus;
 end;
 
-procedure TForm1.HTMLClick(Sender: TObject);
+procedure TfrmMain.cbBackColorColorChanged(Sender :TObject);
 begin
-
+  lzRichEdit1.SelAttributes.BackColor := cbBackColor.ButtonColor;
+  GetTextStatus;
 end;
 
-procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+procedure TfrmMain.Button1Click(Sender :TObject);
+var
+  str :TMemoryStream;
+  i :Integer;
 begin
-
+  cbfont.SetFocus;
+  str := TMemoryStream.Create;
+  try
+    lzRichEdit1.SelStart := lzRichEdit1.GetTextLen;
+    lzRichEdit2.SelStart := 0;
+    lzRichEdit2.SelLength := Length(lzRichEdit2.Text) + 2;
+    lzRichEdit2.GetRTFSelection(str);
+    str.Position := 0;
+    lzRichEdit1.PutRTFSelection(str);
+    lzRichEdit1.SetFocus;
+    lzRichEdit1.SelStart := lzRichEdit1.GetTextLen;
+    lzRichEdit1.ScrollToCaret;
+  finally
+    str.Free;
+  end;
+  lzRichEdit1.SelLength := 0;
+  lzRichEdit2.Clear;
+  lzrichedit2.setfocus;
 end;
 
-procedure TForm1.CBSizeChange(Sender: TObject);
+procedure TfrmMain.CBSizeChange(Sender: TObject);
 var
   FontSize: integer;
 begin
@@ -463,32 +842,35 @@ begin
     lzRichEdit1.SelAttributes.Size:= FontSize;
   end
   else
-    MessageDlg('Formatar', 'Número inválido', mtInformation, [mbOK], 0);
+    MessageDlg('Format', 'Invalid number', mtInformation, [mbOK], 0);
 
   GetTextStatus;
 end;
 
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure TfrmMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  if MessageDlg('Salvar', 'Deseja Salvar o documento?', mtConfirmation,
-    [mbYes, mbNo], 0) = 6 then
-    ToolButton14Click(Sender);
-{$IFDEF Windows}
-  //Limpa Objetos OLE
-  CloseOLEObjects;
-{$ENDIF}
+  if lzRichEdit1.Modified and false then
+    if MessageDlg('Save', 'Save document?', mtConfirmation,
+      [mbYes, mbNo], 0) = 6
+    then
+      tbSaveClick(Sender);
+
+    {$IFDEF Windows}
+    //Limpa Objetos OLE
+    CloseOLEObjects;
+    {$ENDIF}
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   FSetColor := True;
   {$IFDEF Linux}
-    ToolButton22.Enabled := False;
-    MenuItem13.Enabled := False;
+    tbUndo.Enabled := False;
+    miUndo.Enabled := False;
   {$ENDIF}
 end;
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure TfrmMain.FormShow(Sender: TObject);
 var
   sFont: TFont;
   I, I2, I3: integer;
@@ -531,33 +913,127 @@ I2 := 1;
 
   lzRichEdit1.SetFocus;
   GetTextStatus;
+
+  {Isto não está funcionando no Windows
+  porque depois deste evento ocorre um
+  evento OnChange do RichEdit ao iniciar.}
+  // lzRichEdit1.Modified := False;
+
+  miZoom100.Checked := True;
+
+  if ParamStr(1) <> '' then
+    lzRichEdit1.LoadFromFile(ParamStr(1));
 end;
 
-procedure TForm1.lzRichEdit1Change(Sender: TObject);
+procedure TfrmMain.GroupBox1Click(Sender :TObject);
+begin
+  //
+end;
+
+procedure TfrmMain.lzRichEdit1Change(Sender: TObject);
 begin
   {$IFDEF Linux}
   GetTextStatus;
   {$ENDIF}
+
+  {RichEdit initializes modified because
+  it occurs an OnChange event when it is loaded.}
+  if not FFirstChange then lzRichEdit1.Modified := False;
+  FFirstChange := True;
 end;
 
-procedure TForm1.lzRichEdit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+procedure TfrmMain.lzRichEdit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   GetTextStatus;
 end;
 
-procedure TForm1.MenuItem11Click(Sender: TObject);
+procedure TfrmMain.lzRichEdit1MouseDown(Sender :TObject; Button :TMouseButton;
+  Shift :TShiftState; X, Y :Integer);
+var
+  p :TCaretCoordinates;
+begin
+  p := lzRichEdit1.CaretCoordinates;
+  StatusBar.Panels[0].Text :=  IntToStr(p.Line + 1) +  ' : ' +  IntToStr(p.Column + 1);
+
+  statusbar.Panels[1].Text := lzRichEdit1.GetWordAtPos(lzRichEdit1.SelStart);
+
+  statusbar.Panels[3].text := 'First visible line :  ' +
+                                      IntToStr(lzRichEdit1.GetFirsVisibleLine);
+end;
+
+procedure TfrmMain.lzRichEdit1MouseMove(Sender :TObject; Shift :TShiftState; X,
+  Y :Integer);
+begin
+  statusbar.Panels[2].text := lzRichEdit1.GetWordAtPoint(X, Y);
+end;
+
+procedure ScrollRichEditBy(RichEdit :TlzRichEdit; AValue :integer);
+var
+  p :Classes.TPoint;
+begin
+  p := RichEdit.ScrollPoint;
+  p.y := p.y + 100;
+  RichEdit.ScrollPoint := p;
+end;
+
+procedure TfrmMain.mi100Click(Sender :TObject);
+begin
+  ScrollRichEditBy(lzRichEdit1, 100);
+end;
+
+procedure TfrmMain.mi500Click(Sender :TObject);
+begin
+  ScrollRichEditBy(lzRichEdit1, 500);
+end;
+
+procedure TfrmMain.miExportClick(Sender :TObject);
+begin
+  tbExportClick(Sender);
+end;
+
+procedure TfrmMain.miPrintClick(Sender :TObject);
+var
+  PrintMargins :TRect;
+begin
+  PrintMargins.Left := 2540;
+  PrintMargins.Top := 3000;
+  PrintMargins.Right := 2540;
+  PrintMargins.Bottom := 3000;
+  PSDlg.Margins := PrintMargins;
+
+  if PSDlg.Execute then
+  begin
+    PrintMargins.Left := Round(PSDlg.Margins.Left / 4);
+    PrintMargins.top := Round(PSDlg.Margins.Top / 4);
+    PrintMargins.right := Round(PSDlg.Margins.Right / 4);
+    PrintMargins.bottom := Round(PSDlg.Margins.Bottom / 4);
+    lzRichEdit1.Print(ExtractFileName(FileName), PrintMargins);
+  end;
+end;
+
+procedure TfrmMain.miQuitClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TForm1.MenuItem19Click(Sender: TObject);
+procedure TfrmMain.miScrollLineMinus5Click(Sender :TObject);
+begin
+  lzRichEdit1.ScrollLine(-5);
+end;
+
+procedure TfrmMain.miScrollLinePlus5Click(Sender :TObject);
+begin
+  lzRichEdit1.ScrollLine(5);
+end;
+
+procedure TfrmMain.miSelectAllClick(Sender: TObject);
 begin
   lzRichEdit1.SelectAll;
 end;
 
-procedure TForm1.MenuItem22Click(Sender: TObject);
+procedure TfrmMain.miImageClick(Sender: TObject);
 var
-  P: TPicture;
+  p: TPicture;
 begin
   //-- Inserir Imagem
   Odlg.Title := 'Abrir...';
@@ -574,21 +1050,21 @@ begin
 
   if Odlg.Execute then
   begin
-    P := TPicture.Create;
-    P.LoadFromFile(Odlg.FileName);
+    p := TPicture.Create;
+    p.LoadFromFile(Odlg.FileName);
       {$IFDEF Windows}
-      P.Bitmap.SaveToClipboardFormat(2);
+      p.Bitmap.SaveToClipboardFormat(2);
       lzRichEdit1.PasteFromClipboard;
       {$ENDIF}
       {$IFDEF Linux}
-        InsertImage(lzRichEdit1, P, lzRichEdit1.SelStart);
+        InsertImage(lzRichEdit1, p, lzRichEdit1.SelStart);
       {$ENDIF}
-    P.Free;
+    p.Free;
   end;
 
 end;
 
-procedure TForm1.MenuItem24Click(Sender: TObject);
+procedure TfrmMain.miFontClick(Sender: TObject);
 begin
   FDlg.Title := 'Fonte';
   //--
@@ -606,41 +1082,167 @@ begin
   end;
 end;
 
-procedure TForm1.MenuItem26Click(Sender: TObject);
+procedure TfrmMain.miParagraphClick(Sender: TObject);
 begin
   frmParagrafo.Execute(lzRichEdit1);
 end;
 
-procedure TForm1.MenuItem27Click(Sender: TObject);
+procedure TfrmMain.miAboutClick(Sender: TObject);
 begin
   frmSobre.Show;
 end;
 
-procedure TForm1.SetFileName(S: string);
+procedure TfrmMain.ResetZoomMenuItems;
+begin
+  UnCheckAllZoomMenuItems;
+  miZoom100.Checked := True;
+end;
+
+procedure TfrmMain.UnCheckAllZoomMenuItems;
+begin
+  miZoom10.Checked := False;
+  miZoom25.Checked := False;
+  miZoom50.Checked := False;
+  miZoom75.Checked := False;
+  miZoom100.Checked := False;
+  miZoom150.Checked := False;
+  miZoom200.Checked := False;
+  miZoom300.Checked := False;
+  miZoom500.Checked := False;
+end;
+
+procedure TfrmMain.miZoom100Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 1;
+  zp.Denominator := 1;
+  lzRichEdit1.SetZoomState(zp);
+
+  UnCheckAllZoomMenuItems;
+  miZoom100.Checked := True;
+end;
+
+procedure TfrmMain.miZoom10Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 1;
+  zp.Denominator := 10;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom10.Checked := True;
+end;
+
+procedure TfrmMain.miZoom150Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 48;
+  zp.Denominator := 32;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom150.Checked := True;
+end;
+
+procedure TfrmMain.miZoom200Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 2;
+  zp.Denominator := 1;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom200.Checked := True;
+end;
+
+procedure TfrmMain.miZoom25Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 16;
+  zp.Denominator := 64;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom25.Checked := True;
+end;
+
+procedure TfrmMain.miZoom300Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 3;
+  zp.Denominator := 1;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom300.Checked := True;
+end;
+
+procedure TfrmMain.miZoom500Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 5;
+  zp.Denominator := 1;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom500.Checked := True;
+end;
+
+procedure TfrmMain.miZoom50Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 32;
+  zp.Denominator := 64;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom50.Checked := True;
+end;
+
+procedure TfrmMain.miZoom75Click(Sender :TObject);
+var
+  zp :TZoomPair;
+begin
+  zp.Numerator := 48;
+  zp.Denominator := 64;
+  lzRichEdit1.SetZoomState(zp);
+  UnCheckAllZoomMenuItems;
+  miZoom75.Checked := True;
+end;
+
+procedure TfrmMain.SpeedButton1Click(Sender :TObject);
+begin
+  lzRichEdit2.SelectAll;
+  lzRichEdit2.SelAttributes.Style := [fsbold];
+  lzRichEdit2.SelAttributes.Color := clRed;
+end;
+
+procedure TfrmMain.SetFileName(S: string);
 begin
   FFileName := S;
 end;
 
-procedure TForm1.GetTextStatus;
+procedure TfrmMain.GetTextStatus;
 begin
   //--
   CBFont.Caption := lzRichEdit1.SelAttributes.Name;
   CBSize.Text := IntToStr(lzRichEdit1.SelAttributes.Size);
   FSetColor := False;
-  ColorButton1.ButtonColor := TColor(lzRichEdit1.SelAttributes.Color);
+  cbForeColor.ButtonColor := TColor(lzRichEdit1.SelAttributes.Color);
+  cbBackColor.ButtonColor := TColor(lzRichEdit1.SelAttributes.BackColor);
   FSetColor := True;
-  ToolButton1.Down := (fsBold in lzRichEdit1.SelAttributes.Style);
-  ToolButton2.Down := (fsItalic in lzRichEdit1.SelAttributes.Style);
-  ToolButton3.Down := (fsUnderline in lzRichEdit1.SelAttributes.Style);
+  tbBold.Down := (fsBold in lzRichEdit1.SelAttributes.Style);
+  tbItalic.Down := (fsItalic in lzRichEdit1.SelAttributes.Style);
+  tbUnderline.Down := (fsUnderline in lzRichEdit1.SelAttributes.Style);
   //--
-
-  ToolButton6.Down := (taLeftJustify = lzRichEdit1.Paragraph.Alignment);
-  ToolButton8.Down := (taCenter = lzRichEdit1.Paragraph.Alignment);
-  ToolButton9.Down := (taRightJustify = lzRichEdit1.Paragraph.Alignment);
+  ToolButton6.Down := (traLeft = lzRichEdit1.Paragraph.Alignment);
+  ToolButton8.Down := (traCenter = lzRichEdit1.Paragraph.Alignment);
+  ToolButton9.Down := (traRight = lzRichEdit1.Paragraph.Alignment);
+  ToolButton31.Down := (traJustify = lzRichEdit1.Paragraph.Alignment);
   //--
   ToolButton11.Down := (lzRichEdit1.Paragraph.Numbering=nsBullets);
-  MenuItem25.Checked :=(lzRichEdit1.Paragraph.Numbering=nsBullets);
-
+  miBullets.Checked :=(lzRichEdit1.Paragraph.Numbering=nsBullets);
 end;
 
 end.
