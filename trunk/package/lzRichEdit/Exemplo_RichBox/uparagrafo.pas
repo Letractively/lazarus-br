@@ -109,10 +109,10 @@ begin
 
   //--
   case ComboBox1.ItemIndex of
-    2: TRichBox(RichControl).Paragraph.Alignment := traLeft;
-    1: TRichBox(RichControl).Paragraph.Alignment:= traRight;
-    0: TRichBox(RichControl).Paragraph.Alignment:= traCenter;
-    3: TRichBox(RichControl).Paragraph.Alignment:= traJustify;
+    2: TRichBox(RichControl).Paragraph.Alignment :={$IFNDEF WINDOWS}taLeftJustify{$ELSE}traLeft{$ENDIF};
+    1: TRichBox(RichControl).Paragraph.Alignment:= {$IFNDEF WINDOWS}taRightJustify{$ELSE}traRight{$ENDIF};
+    0: TRichBox(RichControl).Paragraph.Alignment:= {$IFNDEF WINDOWS}taCenter{$ELSE}traCenter{$ENDIF};
+    3: TRichBox(RichControl).Paragraph.Alignment:= {$IFNDEF WINDOWS}taLeftJustify{$ELSE}traJustify{$ENDIF};
   end;
   Close;
 end;
@@ -142,13 +142,14 @@ begin
 
   Edit2.Text:= IntToStr(TRichBox(RichControl).Paragraph.RightIndent);
 
-
-
   case TRichBox(RichControl).Paragraph.Alignment of
-    traLeft: ComboBox1.ItemIndex:= 2;
-    traCenter: ComboBox1.ItemIndex:= 0;
-    traRight: ComboBox1.ItemIndex:= 1;
-    traJustify: ComboBox1.ItemIndex:= 3;
+    {$IFNDEF WINDOWS}taLeftJustify{$ELSE}traLeft{$ENDIF}:
+      ComboBox1.ItemIndex:= 2;
+    {$IFNDEF WINDOWS}taCenter{$ELSE}traCenter{$ENDIF}:
+      ComboBox1.ItemIndex:= 0;
+    {$IFNDEF WINDOWS}taRightJustify{$ELSE}traRight{$ENDIF}:
+      ComboBox1.ItemIndex:= 1;
+    {$IFDEF WINDOWS}traJustify: ComboBox1.ItemIndex:= 3;{$ENDIF}
   end;
   TRichBox(RichControl).Refresh;
   TRichBox(RichControl).SelStart:= SStart;

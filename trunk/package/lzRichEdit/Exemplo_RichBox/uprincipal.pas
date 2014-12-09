@@ -123,7 +123,6 @@ type
     ToolBar1: TToolBar;
     ToolBar2: TToolBar;
     tbBold: TToolButton;
-    ToolButton1 :TToolButton;
     ToolButton10: TToolButton;
     ToolButton11: TToolButton;
     tbNew: TToolButton;
@@ -147,7 +146,7 @@ type
     ToolButton29: TToolButton;
     tbUnderline: TToolButton;
     tbExport: TToolButton;
-    ToolButton31 :TToolButton;
+    tbJustify :TToolButton;
     tbStrikeOut :TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
@@ -209,7 +208,7 @@ type
     procedure tbUndoClick(Sender: TObject);
     procedure tbItalicClick(Sender: TObject);
     procedure tbExportClick(Sender: TObject);
-    procedure ToolButton31Click(Sender :TObject);
+    procedure tbJustifyClick(Sender :TObject);
     procedure tbStrikeOutClick(Sender :TObject);
     procedure tbUnderlineClick(Sender: TObject);
     procedure ToolButton6Click(Sender: TObject);
@@ -421,6 +420,7 @@ begin
 
 end;
 
+{$IFDEF WINDOWS}
 function GetFileNameHandle(const FileName: String): HGLOBAL;
 var pc: PChar;
 begin
@@ -429,6 +429,7 @@ begin
   CharToOEM(PChar(FileName), pc);
   GlobalUnlock(Result);
 end;
+{$ENDIF}
 
 function RICH_HTML(RICH: TlzRichEdit): string;
 var
@@ -553,7 +554,7 @@ begin
   result := HTML;
 end;
 
-procedure TfrmMain.ToolButton31Click(Sender :TObject);
+procedure TfrmMain.tbJustifyClick(Sender :TObject);
 begin
   lzRichEdit1.Paragraph.Alignment:= traJustify;
   GetTextStatus;
@@ -907,6 +908,10 @@ I2 := 1;
 
   if ParamStr(1) <> '' then
     lzRichEdit1.LoadFromFile(ParamStr(1));
+
+  {$IFNDEF WINDOWS}
+  tbJustify.Visible := False;
+  {$ENDIF}
 end;
 
 procedure TfrmMain.GroupBox1Click(Sender :TObject);
@@ -1223,7 +1228,7 @@ begin
   ToolButton6.Down := (traLeft = lzRichEdit1.Paragraph.Alignment);
   ToolButton8.Down := (traCenter = lzRichEdit1.Paragraph.Alignment);
   ToolButton9.Down := (traRight = lzRichEdit1.Paragraph.Alignment);
-  ToolButton31.Down := (traJustify = lzRichEdit1.Paragraph.Alignment);
+  tbJustify.Down := (traJustify = lzRichEdit1.Paragraph.Alignment);
   //--
   ToolButton11.Down := (lzRichEdit1.Paragraph.Numbering=nsBullets);
   miBullets.Checked :=(lzRichEdit1.Paragraph.Numbering=nsBullets);
