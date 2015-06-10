@@ -39,25 +39,25 @@ interface
 
 uses
   Classes, SysUtils, LResources, StdCtrls, Graphics, LCLType, LCLProc,
-  Printers;
+  Printers, dialogs;
 
 type
 
 TNumberingStyle = (nsNone, nsBullets);
 
-TRichEditAlignment = (traLeft, traRight, traCenter, traJustify);    // added
+TRichEditAlignment = (traLeft, traRight, traCenter, traJustify);
 
-TMargins = TRect;                                                   // added
+TMargins = TRect;
 
-TSearchType = (stWholeWord, stMatchCase);                           // added
-TSearchTypes = set of TSearchType;                                  // added
+TSearchType = (stWholeWord, stMatchCase);
+TSearchTypes = set of TSearchType;
 
 TCaretCoordinates = record
-  Column,                                                           // added
+  Column,
   Line :integer;
 end;
 
-TZoomFactor = 1..64;                                                // added
+TZoomFactor = 1..64;
 
 TZoomPair = record
   Numerator,
@@ -74,8 +74,8 @@ TTextAttributes = class(TPersistent)
  private
    function GetColor: TColor;
    procedure SetColor(Value: TColor);
-   function GetBackColor :TColor;              // added
-   procedure SetBackColor(Value: TColor);      // added
+   function GetBackColor :TColor;
+   procedure SetBackColor(Value: TColor);
    function GetName: TFontName;
    procedure SetName(Value: TFontName);
    function GetSize: Integer;
@@ -92,7 +92,7 @@ TTextAttributes = class(TPersistent)
    constructor Create(AOwner: TCustomRichBox);
    procedure Assign(Source: TPersistent); override;
    property Charset: TFontCharset read GetCharset write SetCharset;
-   property BackColor: TColor read GetBackColor write SetBackColor;   // added
+   property BackColor: TColor read GetBackColor write SetBackColor;
    property Color: TColor read GetColor write SetColor;
    property Name: TFontName read GetName write SetName;
    property Pitch: TFontPitch read GetPitch write SetPitch;
@@ -143,47 +143,50 @@ TCustomRichBox = class(TCustomMemo)
     FSelAttributes: TTextAttributes;
     FParagraph: TParaAttributes;
     FPlainText: Boolean;
-    function GetCaretCoordinates :TCaretCoordinates;                  // added
-    function GetCaretPoint :Classes.TPoint;                           // added
-    function GetScrollPoint :Classes.TPoint;                          // added
+    function GetCaretCoordinates :TCaretCoordinates;
+    function GetCaretPoint :Classes.TPoint;
+    function GetScrollPoint :Classes.TPoint;
+    function GetSelText :String;
     procedure SetColor(AValue : TColor);
-    procedure SetScrollPoint(AValue :Classes.TPoint);                 // added
+    procedure SetScrollPoint(AValue :Classes.TPoint);
+    procedure SetSelText(AValue :String);
   protected
+    procedure Loaded; override;
     class procedure WSRegisterClass; override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
     function FindText(const SearchStr: string; StartPos, Length: Integer;
-      Options: TSearchTypes; Backwards :boolean): Integer;            // added
-    function GetFirsVisibleLine :integer;                             // added
-    function GetRealTextBuf: String;
-    function GetRealtextSel: String;
-    procedure GetRTFSelection(intoStream :TStream);                   // added
-    function GetWordAtPoint(X, Y :integer) :string;                   // added
-    function GetWordAtPos(Pos :integer): string;                      // added
-    function GetZoomState :TZoomPair;                                 // added
-    procedure Loaded; override;                                       // added
-    procedure LoadFromFile(AFileName: string);                        // added
+      Options: TSearchTypes; Backwards :boolean): Integer;
+    function GetFirsVisibleLine :integer;
+    function GetRealTextBuf: string;
+    function GetRealtextSel: string;
+    procedure GetRTFSelection(intoStream :TStream);
+    function GetWordAtPoint(X, Y :integer) :string;
+    function GetWordAtPos(Pos :integer): string;
+    function GetZoomState :TZoomPair;
+    procedure LoadFromFile(AFileName: string);
     procedure LoadFromStream(Stream: TStream);
-    procedure Print(const DocumentTitle: string; Margins :TMargins);  // added
-    procedure PutRTFSelection(sourceStream: TStream);                 // added
-    procedure Redo;                                                   // added
-    procedure SaveToFile(AFileName: string);                          // added
+    procedure Print(const DocumentTitle: string; Margins :TMargins);
+    procedure PutRTFSelection(sourceStream: TStream);
+    procedure Redo;
+    procedure SaveToFile(AFileName: string);
     procedure SaveToStream(Stream: TStream);
-    procedure ScrollLine(Delta :integer);                             // added
-    procedure ScrollToCaret;                                          // added
-    procedure SetZoomState(AValue :TZoomPair);                        // added
+    procedure ScrollLine(Delta :integer);
+    procedure ScrollToCaret;
+    procedure SetZoomState(AValue :TZoomPair);
   public
-    property CaretCoordinates :TCaretCoordinates read GetCaretCoordinates;   // added
-    property CaretPoint :Classes.TPoint read GetCaretPoint;                  // added
+    property CaretCoordinates :TCaretCoordinates read GetCaretCoordinates;
+    property CaretPoint :Classes.TPoint read GetCaretPoint;
     property Color :TColor read FBackgroundColor write SetColor;
     property Paragraph : TParaAttributes read FParagraph;
     property PlainText :Boolean read FPlainText write FPlainText default False;
-    property ScrollPoint :Classes.TPoint read GetScrollPoint write SetScrollPoint; // added
+    property ScrollPoint :Classes.TPoint read GetScrollPoint write SetScrollPoint;
     property SelAttributes :TTextAttributes read FSelAttributes;
+    property SelText: string read GetSelText write SetSelText;
   published
     property DefaultExtension :string read FDefaultExtension
-      write FDefaultExtension;                                               // added
+      write FDefaultExtension;
   end;
 
 { TCustomRichBox }

@@ -93,7 +93,8 @@ type
       :Classes.TPoint; virtual;                                         // added
     class procedure GetRTFSelection(const AWinControl: TWinControl; intoStream :TStream); virtual;      // added
     class function GetScrollPoint(const AWinControl: TWinControl)
-      :Classes.TPoint; virtual;                                         // added
+      :Classes.TPoint; virtual; // added
+    class function GetSelText(const AWinControl: TWinControl):string; virtual; // added
     class function GetTextBuf (const AWinControl: TWinControl):string; virtual;
     class function GetTextSel (const AWinControl: TWinControl):string; virtual;
     class function GetWordAtPoint(const AWinControl;
@@ -114,7 +115,9 @@ type
     class procedure SetColor(const AWinControl: TWinControl;
       AValue :TColor); virtual;
     class procedure SetScrollPoint(const AWinControl: TWinControl;
-      AValue :Classes.TPoint); virtual;                                // added
+      AValue :Classes.TPoint); virtual;// added
+    class procedure SetSelText(const AWinControl: TWinControl;
+      AValue :string); virtual;// added
     class procedure SetZoomState(const AWinControl: TWinControl;
       ZoomPair :TZoomPair); virtual;                                   // added
   end;
@@ -363,6 +366,12 @@ begin
 
 end;
 
+class function TWSCustomRichBox.GetSelText(const AWinControl :TWinControl
+  ) :string;
+begin
+
+end;
+
 class function TWSCustomRichBox.GetTextBuf(const AWinControl :TWinControl
   ) :string;
 begin
@@ -433,6 +442,12 @@ end;
 
 class procedure TWSCustomRichBox.SetScrollPoint(const AWinControl :TWinControl;
   AValue :Classes.TPoint);
+begin
+
+end;
+
+class procedure TWSCustomRichBox.SetSelText(const AWinControl :TWinControl;
+  AValue :string);
 begin
 
 end;
