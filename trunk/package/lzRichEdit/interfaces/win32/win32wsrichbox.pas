@@ -56,7 +56,7 @@ type
     //--
     //Funções de Fonte
     class function Font_GetCharset(const AWinControl: TWinControl): TFontCharset; override;
-    class function Font_GetBackColor(const AWinControl: TWinControl): TColor; override; // added
+    class function Font_GetBackColor(const AWinControl: TWinControl): TColor; override;
     class function Font_GetColor(const AWinControl: TWinControl): TColor; override;
     class function Font_GetName(const AWinControl: TWinControl): TFontName; override;
     class function Font_GetPitch(const AWinControl: TWinControl): TFontPitch; override;
@@ -75,7 +75,7 @@ type
     //
     //Procedimentos de Fonte
     class procedure Font_SetCharset(const AWinControl: TWinControl; Value: TFontCharset); override;
-    class procedure Font_SetBackColor(const AWinControl: TWinControl; Value :TColor); override; // added
+    class procedure Font_SetBackColor(const AWinControl: TWinControl; Value :TColor); override;
     class procedure Font_SetColor(const AWinControl: TWinControl; Value: TColor); override;
     class procedure Font_SetName(const AWinControl: TWinControl; Value: TFontName); override;
     class procedure Font_SetPitch(const AWinControl: TWinControl; Value: TFontPitch); override;
@@ -94,41 +94,45 @@ type
     //--
     class function FindText(const AWinControl: TWinControl;
       const SearchStr: string; StartPos, Length: Integer; Options: TSearchTypes;
-      Backwards :boolean): Integer;  override;                        // added
+      Backwards :boolean): Integer;  override;
     class function GetFirstVisibleLine(const AWinControl: TWinControl)
-      :integer; override;                                             // added
+      :integer; override;
     class function GetCaretCoordinates(const AWinControl: TWinControl)
-      :TCaretCoordinates; override;                                   // added
-    class function GetCaretPoint(const AWinControl: TWinControl)      // added
-      :Classes.TPoint; override;                                      // added
+      :TCaretCoordinates; override;
+    class function GetCaretPoint(const AWinControl: TWinControl)
+      :Classes.TPoint; override;
     class procedure GetRTFSelection(const AWinControl: TWinControl;
-      intoStream :TStream); override;                                 // added
+      intoStream :TStream); override;
     class function GetScrollPoint(const AWinControl: TWinControl)
-      :Classes.TPoint; override;                                      // added
+      :Classes.TPoint; override;
+    class function GetSelText(const AWinControl: TWinControl)
+      :string; override;
     class function GetWordAtPoint(const AWinControl;
-      X, Y :integer) :string; override;                               // added
+      X, Y :integer) :string; override;
     class function GetWordAtPos(const AWinControl;
-      Pos :integer):string; override;                                 // added
+      Pos :integer):string; override;
     class function GetZoomState(const AWinControl: TWinControl)
-      :TZoomPair; override;                                           // added
-    class procedure Loaded(const AWinControl: TWinControl); override; // added
+      :TZoomPair; override;
+    class procedure Loaded(const AWinControl: TWinControl); override;
     class procedure LoadFromStream(const AWinControl: TWinControl;
       const Stream: TStream); override;
     class procedure Print(const AWinControl: TWinControl;
-      const DocumentTitle: string; Margins :TMargins); override;      // added
+      const DocumentTitle: string; Margins :TMargins); override;
         class procedure PutRTFSelection(const AWinControl:
-      TWinControl; sourceStream :TStream); override;                   // added
-    class procedure Redo(const AWinControl: TWinControl); override;   // added
+      TWinControl; sourceStream :TStream); override;
+    class procedure Redo(const AWinControl: TWinControl); override;
     class procedure SaveToStream(const AWinControl: TWinControl;
       var Stream: TStream); override;
     class procedure ScrolLine(const AWinControl: TWinControl;
-      Delta :integer); override;                                      // added
-    class procedure ScrollToCaret(const AWinControl: TWinControl); override; // added
+      Delta :integer); override;
+    class procedure ScrollToCaret(const AWinControl: TWinControl); override;
     class procedure SetColor(const AWinControl: TWinControl; AValue :TColor); override;
     class procedure SetScrollPoint(const AWinControl: TWinControl;
-      AValue :Classes.TPoint); override;                              // added
+      AValue :Classes.TPoint); override;
+    class procedure SetSelText(const AWinControl: TWinControl;
+      AValue :string); override;
     class procedure SetZoomState(const AWinControl: TWinControl;
-      ZoomPair :TZoomPair); override;                                 // added
+      ZoomPair :TZoomPair); override;
   end;
 
 {Exceptional}
@@ -171,12 +175,14 @@ end;
 
 procedure F_GetAttributes(const Window: HWND; var FMT: TCHARFORMAT2);
 begin
+  if Window = 0 then Exit;
   InitFMT(FMT);
   SendMessage(Window, EM_GETCHARFORMAT, SCF_SELECTION, LPARAM(@FMT));
 end;
 
 procedure F_SetAttributes(const Window: HWND; var FMT: TCHARFORMAT2);
 begin
+  if Window = 0 then Exit;
   SendMessage(Window, EM_SETCHARFORMAT, SCF_SELECTION, LPARAM(@FMT));
 end;
 //
@@ -188,12 +194,14 @@ end;
 
 procedure P_GetAttributes(const Window: HWND; var PARAFMT: TPARAFORMAT2);
 begin
+  if Window = 0 then Exit;
   InitPARAFMT(PARAFMT);
   SendMessage(Window, EM_GETPARAFORMAT, 0, LPARAM(@PARAFMT));
 end;
 
 procedure P_SetAttributes(const Window: HWND; var PARAFMT: TPARAFORMAT2);
 begin
+  if Window = 0 then Exit;
   SendMessage(Window, EM_SETPARAFORMAT, 0, LPARAM(@PARAFMT));
 end;
 
@@ -366,6 +374,7 @@ class function TWin32WSCustomRichBox.Font_GetCharset(
 var
   FMT: TCHARFORMAT2;
 begin
+  //if not AWinControl.HandleAllocated then Exit;
   F_GetAttributes(AWinControl.Handle, FMT);
   Result := FMT.bCharset;
 end;
@@ -782,12 +791,14 @@ end;
 class function TWin32WSCustomRichBox.GetFirstVisibleLine(
   const AWinControl :TWinControl) :integer;
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Result := Windows.SendMessage(AWinControl.Handle, EM_GETFIRSTVISIBLELINE , 0, 0)
 end;
 
 class function TWin32WSCustomRichBox.GetCaretCoordinates(const AWinControl: TWinControl)
   :TCaretCoordinates;
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Result.Column := 0;
   Result.Line := 0;
   Result.Line := Windows.SendMessage(AWinControl.Handle, EM_LINEFROMCHAR,
@@ -800,6 +811,7 @@ end;
 class function TWin32WSCustomRichBox.GetCaretPoint(
   const AWinControl :TWinControl) :Classes.TPoint;
 begin
+  if not AWinControl.HandleAllocated then Exit;
   if LongInt(Windows.GetCaretPos(Result)) = 0 then
   begin
     Result.X := 0;
@@ -834,6 +846,16 @@ class function TWin32WSCustomRichBox.GetScrollPoint(
   const AWinControl :TWinControl) :Classes.TPoint;
 begin
   Windows.SendMessage(AWinControl.Handle, EM_GETSCROLLPOS, 0, LPARAM(@Result));
+end;
+
+class function TWin32WSCustomRichBox.GetSelText(const AWinControl :TWinControl
+  ) :string;
+var
+  buf :array[0..MAX_PATH] of WideChar;
+begin
+  if not AWinControl.HandleAllocated then Exit;
+  Windows.SendMessageW(AWinControl.Handle, EM_GETSELTEXT, 0, Longint(@buf));
+  Result := buf;
 end;
 
 function GetWord(RichEdit: TlzRichEdit; FirstValue, SecondValue: Integer): string;
@@ -904,6 +926,7 @@ class function TWin32WSCustomRichBox.GetZoomState(const AWinControl :TWinControl
 const
   EM_GETZOOM = WM_USER + 224;
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage((AWinControl as TlzRichEdit).Handle, EM_SETZOOM,
                                WPARAM(@Result.Numerator), LPARAM(@Result.Denominator));
 end;
@@ -913,7 +936,7 @@ const
   TO_ADVANCEDTYPOGRAPHY = $1;
   EM_SETTYPOGRAPHYOPTIONS = (WM_USER + 202);
 begin
-  inherited Loaded(AWinControl);
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SETTYPOGRAPHYOPTIONS,
                       TO_ADVANCEDTYPOGRAPHY, TO_ADVANCEDTYPOGRAPHY);
 end;
@@ -939,25 +962,38 @@ end;
 class procedure TWin32WSCustomRichBox.ScrolLine(const AWinControl :TWinControl;
   Delta :integer);
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_LINESCROLL, 0, Delta);
 end;
 
 class procedure TWin32WSCustomRichBox.ScrollToCaret(
   const AWinControl :TWinControl);
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SCROLLCARET, 0, 0);
 end;
 
 class procedure TWin32WSCustomRichBox.SetColor(const AWinControl :TWinControl;
   AValue :TColor);
 begin
-  Windows.SendMessage(AWinControl.Handle, EM_SETBKGNDCOLOR, 0, ColorToRGB(AValue));
+  // many thanks to WP
+  if not (csLoading in AWinControl.ComponentState) then
+    Windows.SendMessage(AWinControl.Handle, EM_SETBKGNDCOLOR, 0, ColorToRGB(AValue));
 end;
 
 class procedure TWin32WSCustomRichBox.SetScrollPoint(
   const AWinControl :TWinControl; AValue :Classes.TPoint);
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SETSCROLLPOS, 0, Longint(@AValue));
+end;
+
+class procedure TWin32WSCustomRichBox.SetSelText(
+  const AWinControl :TWinControl; AValue :string);
+begin
+  if not AWinControl.HandleAllocated then Exit;
+  Windows.SendMessageW(AWinControl.Handle, EM_REPLACESEL , 1,
+                                          Longint(PChar(widestring(AValue))));
 end;
 
 class procedure TWin32WSCustomRichBox.SetZoomState(
@@ -965,6 +1001,7 @@ class procedure TWin32WSCustomRichBox.SetZoomState(
 const
   EM_SETZOOM = WM_USER + 225;
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SETZOOM,
                                      ZoomPair.Numerator, ZoomPair.Denominator);
 end;
@@ -1008,8 +1045,8 @@ begin
     {----------}
     rc.Left := Margins.Left * 1440 div LogX;
     rc.Top := Margins.Top * 1440 div LogY;
-    rc.right := (PageWidth - Margins.Right)* 1440 div LogX;
-    rc.bottom := (PageHeight - Margins.Bottom) * 1440 div LogY;
+    rc.Right := (PageWidth - Margins.Right)* 1440 div LogX;
+    rc.Bottom := (PageHeight - Margins.Bottom) * 1440 div LogY;
     {----------}
     rcPage := rc;
     Title := DocumentTitle;
@@ -1062,6 +1099,7 @@ class procedure TWin32WSCustomRichBox.Redo(const AWinControl :TWinControl);
 const
   EM_REDO = WM_USER + 84;
 begin
+  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_REDO, 0, 0);
 end;
 
