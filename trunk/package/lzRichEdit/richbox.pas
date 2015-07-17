@@ -39,7 +39,7 @@ interface
 
 uses
   Classes, SysUtils, LResources, StdCtrls, Graphics, LCLType, LCLProc,
-  Printers, dialogs;
+  Printers;
 
 type
 
@@ -151,7 +151,6 @@ TCustomRichBox = class(TCustomMemo)
     procedure SetScrollPoint(AValue :Classes.TPoint);
     procedure SetSelText(AValue :String);
   protected
-    procedure Loaded; override;
     class procedure WSRegisterClass; override;
   public
     constructor Create(AOwner: TComponent); override;
@@ -159,12 +158,13 @@ TCustomRichBox = class(TCustomMemo)
     function FindText(const SearchStr: string; StartPos, Length: Integer;
       Options: TSearchTypes; Backwards :boolean): Integer;
     function GetFirsVisibleLine :integer;
-    function GetRealTextBuf: string;
-    function GetRealtextSel: string;
+    function GetRealTextBuf: String;
+    function GetRealtextSel: String;
     procedure GetRTFSelection(intoStream :TStream);
     function GetWordAtPoint(X, Y :integer) :string;
     function GetWordAtPos(Pos :integer): string;
     function GetZoomState :TZoomPair;
+    procedure Loaded; override;
     procedure LoadFromFile(AFileName: string);
     procedure LoadFromStream(Stream: TStream);
     procedure Print(const DocumentTitle: string; Margins :TMargins);
@@ -183,7 +183,7 @@ TCustomRichBox = class(TCustomMemo)
     property PlainText :Boolean read FPlainText write FPlainText default False;
     property ScrollPoint :Classes.TPoint read GetScrollPoint write SetScrollPoint;
     property SelAttributes :TTextAttributes read FSelAttributes;
-    property SelText: string read GetSelText write SetSelText;
+    property SelText: String read GetSelText write SetSelText;
   published
     property DefaultExtension :string read FDefaultExtension
       write FDefaultExtension;

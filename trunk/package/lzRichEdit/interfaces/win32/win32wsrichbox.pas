@@ -175,14 +175,12 @@ end;
 
 procedure F_GetAttributes(const Window: HWND; var FMT: TCHARFORMAT2);
 begin
-  if Window = 0 then Exit;
   InitFMT(FMT);
   SendMessage(Window, EM_GETCHARFORMAT, SCF_SELECTION, LPARAM(@FMT));
 end;
 
 procedure F_SetAttributes(const Window: HWND; var FMT: TCHARFORMAT2);
 begin
-  if Window = 0 then Exit;
   SendMessage(Window, EM_SETCHARFORMAT, SCF_SELECTION, LPARAM(@FMT));
 end;
 //
@@ -194,14 +192,12 @@ end;
 
 procedure P_GetAttributes(const Window: HWND; var PARAFMT: TPARAFORMAT2);
 begin
-  if Window = 0 then Exit;
   InitPARAFMT(PARAFMT);
   SendMessage(Window, EM_GETPARAFORMAT, 0, LPARAM(@PARAFMT));
 end;
 
 procedure P_SetAttributes(const Window: HWND; var PARAFMT: TPARAFORMAT2);
 begin
-  if Window = 0 then Exit;
   SendMessage(Window, EM_SETPARAFORMAT, 0, LPARAM(@PARAFMT));
 end;
 
@@ -374,7 +370,6 @@ class function TWin32WSCustomRichBox.Font_GetCharset(
 var
   FMT: TCHARFORMAT2;
 begin
-  //if not AWinControl.HandleAllocated then Exit;
   F_GetAttributes(AWinControl.Handle, FMT);
   Result := FMT.bCharset;
 end;
@@ -791,14 +786,12 @@ end;
 class function TWin32WSCustomRichBox.GetFirstVisibleLine(
   const AWinControl :TWinControl) :integer;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Result := Windows.SendMessage(AWinControl.Handle, EM_GETFIRSTVISIBLELINE , 0, 0)
 end;
 
 class function TWin32WSCustomRichBox.GetCaretCoordinates(const AWinControl: TWinControl)
   :TCaretCoordinates;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Result.Column := 0;
   Result.Line := 0;
   Result.Line := Windows.SendMessage(AWinControl.Handle, EM_LINEFROMCHAR,
@@ -811,7 +804,6 @@ end;
 class function TWin32WSCustomRichBox.GetCaretPoint(
   const AWinControl :TWinControl) :Classes.TPoint;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   if LongInt(Windows.GetCaretPos(Result)) = 0 then
   begin
     Result.X := 0;
@@ -853,7 +845,6 @@ class function TWin32WSCustomRichBox.GetSelText(const AWinControl :TWinControl
 var
   buf :array[0..MAX_PATH] of WideChar;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessageW(AWinControl.Handle, EM_GETSELTEXT, 0, Longint(@buf));
   Result := buf;
 end;
@@ -926,7 +917,6 @@ class function TWin32WSCustomRichBox.GetZoomState(const AWinControl :TWinControl
 const
   EM_GETZOOM = WM_USER + 224;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage((AWinControl as TlzRichEdit).Handle, EM_SETZOOM,
                                WPARAM(@Result.Numerator), LPARAM(@Result.Denominator));
 end;
@@ -936,7 +926,8 @@ const
   TO_ADVANCEDTYPOGRAPHY = $1;
   EM_SETTYPOGRAPHYOPTIONS = (WM_USER + 202);
 begin
-  if not AWinControl.HandleAllocated then Exit;
+  //inherited Loaded(AWinControl);
+
   Windows.SendMessage(AWinControl.Handle, EM_SETTYPOGRAPHYOPTIONS,
                       TO_ADVANCEDTYPOGRAPHY, TO_ADVANCEDTYPOGRAPHY);
 end;
@@ -962,14 +953,12 @@ end;
 class procedure TWin32WSCustomRichBox.ScrolLine(const AWinControl :TWinControl;
   Delta :integer);
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_LINESCROLL, 0, Delta);
 end;
 
 class procedure TWin32WSCustomRichBox.ScrollToCaret(
   const AWinControl :TWinControl);
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SCROLLCARET, 0, 0);
 end;
 
@@ -984,14 +973,12 @@ end;
 class procedure TWin32WSCustomRichBox.SetScrollPoint(
   const AWinControl :TWinControl; AValue :Classes.TPoint);
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SETSCROLLPOS, 0, Longint(@AValue));
 end;
 
 class procedure TWin32WSCustomRichBox.SetSelText(
   const AWinControl :TWinControl; AValue :string);
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessageW(AWinControl.Handle, EM_REPLACESEL , 1,
                                           Longint(PChar(widestring(AValue))));
 end;
@@ -1001,7 +988,6 @@ class procedure TWin32WSCustomRichBox.SetZoomState(
 const
   EM_SETZOOM = WM_USER + 225;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_SETZOOM,
                                      ZoomPair.Numerator, ZoomPair.Denominator);
 end;
@@ -1099,7 +1085,6 @@ class procedure TWin32WSCustomRichBox.Redo(const AWinControl :TWinControl);
 const
   EM_REDO = WM_USER + 84;
 begin
-  if not AWinControl.HandleAllocated then Exit;
   Windows.SendMessage(AWinControl.Handle, EM_REDO, 0, 0);
 end;
 

@@ -45,6 +45,15 @@ begin
   TWSCustomRichBoxClass(WidgetSetClass).SetScrollPoint(Self, AValue);
 end;
 
+procedure TCustomRichBox.SetSelText(AValue :String);
+begin
+  {$IFDEF WINDOWS}
+  TWSCustomRichBoxClass(WidgetSetClass).SetSelText(Self, AValue);
+  {$ELSE}
+  inherited SetSelText;
+  {$ENDIF}
+end;
+
 procedure TCustomRichBox.SetZoomState(AValue :TZoomPair);
 begin
   TWSCustomRichBoxClass(WidgetSetClass).SetZoomState(Self, AValue);
@@ -63,6 +72,15 @@ end;
 function TCustomRichBox.GetScrollPoint :Classes.TPoint;
 begin
   Result:= TWSCustomRichBoxClass(WidgetSetClass).GetScrollPoint(Self);
+end;
+
+function TCustomRichBox.GetSelText :String;
+begin
+  {$IFDEF WINDOWS}
+  Result:= TWSCustomRichBoxClass(WidgetSetClass).GetSelText(Self);
+  {$ELSE}
+  inherited GesSelText;
+  {$ENDIF}
 end;
 
 function TCustomRichBox.GetZoomState :TZoomPair;
@@ -134,6 +152,7 @@ procedure TCustomRichBox.Loaded;
 begin
   inherited Loaded;
   TWSCustomRichBoxClass(WidgetSetClass).Loaded(Self);
+  SetColor(FBackgroundColor);
 end;
 
 procedure TCustomRichBox.LoadFromFile(AFileName: string);
