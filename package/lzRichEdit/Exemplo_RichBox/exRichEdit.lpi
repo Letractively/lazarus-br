@@ -7,7 +7,6 @@
       <MainUnit Value="0"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
-      <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
       <StringTable ProductVersion=""/>
@@ -47,9 +46,6 @@
       <Unit0>
         <Filename Value="exRichEdit.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="exRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="28" Y="11"/>
         <UsageCount Value="200"/>
       </Unit0>
@@ -60,79 +56,63 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPrincipal"/>
-        <EditorIndex Value="0"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="446"/>
-        <CursorPos X="5" Y="447"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="799"/>
+        <CursorPos X="30" Y="809"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="C:\lcl\dialogs.pp"/>
-        <UnitName Value="Dialogs"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="26"/>
         <CursorPos X="54" Y="36"/>
         <UsageCount Value="1"/>
       </Unit2>
       <Unit3>
         <Filename Value="C:\lcl\forms.pp"/>
-        <UnitName Value="Forms"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1597"/>
         <CursorPos X="23" Y="1618"/>
         <UsageCount Value="7"/>
       </Unit3>
       <Unit4>
         <Filename Value="C:\fpc\2.4.0\source\rtl\objpas\sysutils\finah.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="22"/>
         <CursorPos X="10" Y="27"/>
         <UsageCount Value="3"/>
       </Unit4>
       <Unit5>
         <Filename Value="C:\fpc\2.4.0\source\rtl\objpas\sysutils\filutilh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="47"/>
         <CursorPos X="11" Y="53"/>
         <UsageCount Value="2"/>
       </Unit5>
       <Unit6>
         <Filename Value="C:\fpc\2.4.0\source\rtl\objpas\classes\classesh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="66"/>
         <CursorPos X="3" Y="76"/>
         <UsageCount Value="2"/>
       </Unit6>
       <Unit7>
         <Filename Value="C:\fpc\2.4.0\source\packages\fcl-process\src\process.pp"/>
-        <UnitName Value="process"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="32" Y="26"/>
         <UsageCount Value="10"/>
       </Unit7>
       <Unit8>
         <Filename Value="C:\RichEdit\lzrichedittypes.pas"/>
-        <UnitName Value="lzRichEditTypes"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="15"/>
         <CursorPos X="40" Y="25"/>
         <UsageCount Value="2"/>
       </Unit8>
       <Unit9>
         <Filename Value="C:\lcl\stdctrls.pp"/>
-        <UnitName Value="StdCtrls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="741"/>
         <CursorPos X="26" Y="752"/>
         <UsageCount Value="6"/>
       </Unit9>
       <Unit10>
         <Filename Value="C:\fpc\2.4.0\source\packages\winunits-base\src\richedit.pp"/>
-        <UnitName Value="richedit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="59"/>
         <CursorPos X="6" Y="69"/>
         <UsageCount Value="3"/>
@@ -144,37 +124,30 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ULocalizar"/>
-        <EditorIndex Value="6"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="3"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="C:\fpc\2.4.3\source\rtl\objpas\sysutils\filutilh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="77"/>
         <CursorPos X="10" Y="89"/>
         <UsageCount Value="2"/>
       </Unit12>
       <Unit13>
         <Filename Value="C:\fpc\2.4.0\source\rtl\objpas\sysutils\sysstrh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="110"/>
         <CursorPos X="10" Y="120"/>
         <UsageCount Value="3"/>
       </Unit13>
       <Unit14>
         <Filename Value="C:\fpc\2.4.0\source\rtl\inc\systemh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="250"/>
         <CursorPos X="3" Y="260"/>
         <UsageCount Value="3"/>
       </Unit14>
       <Unit15>
         <Filename Value="C:\lcl\include\graphic.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="200"/>
         <CursorPos X="29" Y="208"/>
         <UsageCount Value="3"/>
@@ -186,25 +159,18 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UParagrafo"/>
-        <EditorIndex Value="7"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="4"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="..\wslzrichedit.pas"/>
-        <UnitName Value="WSlzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="50"/>
         <CursorPos X="19" Y="60"/>
         <UsageCount Value="8"/>
       </Unit17>
       <Unit18>
         <Filename Value="..\lzrichedit.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="11" Y="199"/>
         <UsageCount Value="7"/>
       </Unit18>
@@ -212,10 +178,6 @@
         <Filename Value="Imagens\usobre.pas"/>
         <ComponentName Value="Form2"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="USobre"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="3"/>
       </Unit19>
       <Unit20>
@@ -225,101 +187,74 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="USobre"/>
-        <EditorIndex Value="5"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="2"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit20>
       <Unit21>
         <Filename Value="..\lzricheditfactory.pas"/>
-        <UnitName Value="lzRichEditFactory"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="19" Y="19"/>
         <UsageCount Value="3"/>
       </Unit21>
       <Unit22>
         <Filename Value="C:\usr\share\lazarus\0.9.29\components\lzRichEdit\lzrichedit.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="3"/>
+        <CursorPos Y="3"/>
         <UsageCount Value="3"/>
       </Unit22>
       <Unit23>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\Windows\win_wslzrichedit.pas"/>
-        <UnitName Value="Win_WSlzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="181"/>
         <CursorPos X="51" Y="403"/>
         <UsageCount Value="3"/>
       </Unit23>
       <Unit24>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\gtk2\gtk2_wslzrichedit.pas"/>
-        <UnitName Value="GTK2_WSlzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="283"/>
         <CursorPos X="7" Y="287"/>
         <UsageCount Value="1"/>
       </Unit24>
       <Unit25>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\lzricheditfactory.pas"/>
-        <UnitName Value="lzRichEditFactory"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="19" Y="23"/>
         <UsageCount Value="3"/>
       </Unit25>
       <Unit26>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\lzrichedit.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="73"/>
         <CursorPos X="37" Y="88"/>
         <UsageCount Value="3"/>
       </Unit26>
       <Unit27>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\lzrichedittypes.pas"/>
-        <UnitName Value="lzRichEditTypes"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="6" Y="3"/>
         <UsageCount Value="7"/>
       </Unit27>
       <Unit28>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\gtk+\gtk\gtktexttag.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="93"/>
         <CursorPos X="17" Y="104"/>
         <UsageCount Value="3"/>
       </Unit28>
       <Unit29>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\widgetset\wscontrols.pp"/>
-        <UnitName Value="WSControls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="109"/>
         <CursorPos X="21" Y="117"/>
         <UsageCount Value="3"/>
       </Unit29>
       <Unit30>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\widgetset\wsstdctrls.pp"/>
-        <UnitName Value="WSStdCtrls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="49"/>
         <CursorPos X="30" Y="54"/>
         <UsageCount Value="3"/>
       </Unit30>
       <Unit31>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\gtk+\gtk\gtkobject.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="4" Y="4"/>
         <UsageCount Value="3"/>
       </Unit31>
       <Unit32>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\interfaces\gtk2\gtk2wscontrols.pp"/>
-        <UnitName Value="Gtk2WSControls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="68"/>
         <CursorPos X="44" Y="76"/>
         <UsageCount Value="3"/>
@@ -327,301 +262,229 @@
       <Unit33>
         <Filename Value="ugetfontlinux.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="UGetFontLinux"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="91"/>
-        <CursorPos X="1" Y="61"/>
+        <CursorPos Y="61"/>
         <UsageCount Value="200"/>
       </Unit33>
       <Unit34>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\rtl\inc\ustringh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="22"/>
         <CursorPos X="34" Y="30"/>
         <UsageCount Value="3"/>
       </Unit34>
       <Unit35>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\interfaces\gtk2\gtk2proc.pp"/>
-        <UnitName Value="Gtk2Proc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="319"/>
         <CursorPos X="65" Y="328"/>
         <UsageCount Value="3"/>
       </Unit35>
       <Unit36>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\interfaces\gtk2\gtk2def.pp"/>
-        <UnitName Value="Gtk2Def"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="456"/>
         <CursorPos X="3" Y="451"/>
         <UsageCount Value="3"/>
       </Unit36>
       <Unit37>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\pango\pango-font.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="183"/>
         <CursorPos X="10" Y="196"/>
         <UsageCount Value="3"/>
       </Unit37>
       <Unit38>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\pango\pango.pas"/>
-        <UnitName Value="pango"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="57"/>
         <CursorPos X="3" Y="70"/>
         <UsageCount Value="3"/>
       </Unit38>
       <Unit39>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\gtk+\gtk\gtktextiter.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="55"/>
         <CursorPos X="41" Y="4"/>
         <UsageCount Value="3"/>
       </Unit39>
       <Unit40>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\wslzrichedit.pas"/>
-        <UnitName Value="WSlzRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="30"/>
+        <CursorPos Y="30"/>
         <UsageCount Value="7"/>
       </Unit40>
       <Unit41>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\gtk2\rtftool.pas"/>
-        <UnitName Value="RTFTool"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="67"/>
         <CursorPos X="34" Y="76"/>
         <UsageCount Value="7"/>
       </Unit41>
       <Unit42>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\gtk+\gtk\gtktextbuffer.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="98"/>
         <CursorPos X="64" Y="106"/>
         <UsageCount Value="9"/>
       </Unit42>
       <Unit43>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\Windows\richole.pas"/>
-        <UnitName Value="RichOle"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="15"/>
-        <CursorPos X="1" Y="30"/>
+        <CursorPos Y="30"/>
         <UsageCount Value="7"/>
       </Unit43>
       <Unit44>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\Windows\lzrichole.pas"/>
-        <UnitName Value="lzRichOle"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="15"/>
-        <CursorPos X="1" Y="30"/>
+        <CursorPos Y="30"/>
         <UsageCount Value="7"/>
       </Unit44>
       <Unit45>
         <Filename Value="rtftool.pas"/>
-        <UnitName Value="RTFTool"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="96"/>
         <CursorPos X="60" Y="110"/>
         <UsageCount Value="76"/>
       </Unit45>
       <Unit46>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\controls.pp"/>
-        <UnitName Value="Controls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="108"/>
         <CursorPos X="38" Y="116"/>
         <UsageCount Value="2"/>
       </Unit46>
       <Unit47>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\rtl\objpas\sysutils\sysstrh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="110"/>
         <CursorPos X="10" Y="118"/>
         <UsageCount Value="1"/>
       </Unit47>
       <Unit48>
         <Filename Value="rtftoolimage.pas"/>
-        <UnitName Value="RTFToolImage"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="145"/>
         <CursorPos X="20" Y="153"/>
         <UsageCount Value="54"/>
       </Unit48>
       <Unit49>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\fcl-base\src\rtfpars.pp"/>
-        <UnitName Value="RTFPars"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="913"/>
         <CursorPos X="51" Y="889"/>
         <UsageCount Value="1"/>
       </Unit49>
       <Unit50>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\rtfview\rtfview.pas"/>
-        <UnitName Value="RTFView"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="496"/>
         <CursorPos X="37" Y="498"/>
         <UsageCount Value="12"/>
       </Unit50>
       <Unit51>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\rtl\objpas\sysutils\datih.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="140"/>
         <CursorPos X="19" Y="148"/>
         <UsageCount Value="10"/>
       </Unit51>
       <Unit52>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\rtl\objpas\sysutils\dati.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="977"/>
         <CursorPos X="43" Y="983"/>
         <UsageCount Value="10"/>
       </Unit52>
       <Unit53>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\rtfview\rtfdata.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="416"/>
-        <CursorPos X="1" Y="418"/>
+        <CursorPos Y="418"/>
         <UsageCount Value="3"/>
       </Unit53>
       <Unit54>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\fcl-base\src\rtfdata.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="453"/>
         <CursorPos X="12" Y="468"/>
         <UsageCount Value="1"/>
       </Unit54>
       <Unit55>
         <Filename Value="rtfpars_lzRichEdit.pp"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="32" Y="1006"/>
         <UsageCount Value="40"/>
       </Unit55>
       <Unit56>
         <Filename Value="rtfdata.inc"/>
-        <EditorIndex Value="4"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="17"/>
-        <Loaded Value="True"/>
       </Unit56>
       <Unit57>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\lclclasses.pp"/>
-        <UnitName Value="LCLClasses"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="39"/>
         <CursorPos X="14" Y="52"/>
         <UsageCount Value="1"/>
       </Unit57>
       <Unit58>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\include\fpimagebitmap.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="138"/>
-        <CursorPos X="1" Y="146"/>
+        <CursorPos Y="146"/>
         <UsageCount Value="2"/>
       </Unit58>
       <Unit59>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\gtk2\rtfpars_lzRichEdit.pp"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="24" Y="1"/>
+        <CursorPos X="24"/>
         <UsageCount Value="3"/>
       </Unit59>
       <Unit60>
         <Filename Value="C:\usr\lib\lazarus\0.9.29\components\lzRichEdit\gtk2\rtfpars_lzRichEdit.pas"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="24" Y="1"/>
+        <CursorPos X="24"/>
         <UsageCount Value="3"/>
       </Unit60>
       <Unit61>
         <Filename Value="C:\svn\graphics32\trunk\Source\GR32.pas"/>
-        <UnitName Value="GR32"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="330"/>
         <CursorPos X="33" Y="334"/>
         <UsageCount Value="3"/>
       </Unit61>
       <Unit62>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\gtk+\gdk-pixbuf\gdk2pixbuf.pas"/>
-        <UnitName Value="gdk2pixbuf"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="175"/>
         <CursorPos X="29" Y="178"/>
         <UsageCount Value="3"/>
       </Unit62>
       <Unit63>
         <Filename Value="C:\usr\share\lazarus\0.9.29\lcl\intfgraphics.pas"/>
-        <UnitName Value="IntfGraphics"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="711"/>
         <CursorPos X="70" Y="719"/>
         <UsageCount Value="6"/>
       </Unit63>
       <Unit64>
         <Filename Value="C:\usr\share\fpcsrc\2.5.1\packages\gtk2\src\glib\gtypes.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="31"/>
         <CursorPos X="4" Y="39"/>
         <UsageCount Value="3"/>
       </Unit64>
       <Unit65>
         <Filename Value="..\lzrichedit.pas"/>
-        <UnitName Value="lzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="78"/>
         <CursorPos X="33" Y="170"/>
         <UsageCount Value="2"/>
       </Unit65>
       <Unit66>
         <Filename Value="C:\share\lazarus\0.9.31\lcl\widgetset\wsstdctrls.pp"/>
-        <UnitName Value="WSStdCtrls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="151"/>
         <CursorPos X="23" Y="161"/>
         <UsageCount Value="6"/>
       </Unit66>
       <Unit67>
         <Filename Value="..\gtk2\gtk2_wslzrichedit.pas"/>
-        <UnitName Value="GTK2_WSlzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="307"/>
         <CursorPos X="37" Y="291"/>
         <UsageCount Value="6"/>
       </Unit67>
       <Unit68>
         <Filename Value="..\Windows\win_wslzrichedit.pas"/>
-        <UnitName Value="Win_WSlzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="610"/>
         <CursorPos X="3" Y="591"/>
         <UsageCount Value="1"/>
       </Unit68>
       <Unit69>
         <Filename Value="..\Windows\lzrichole.pas"/>
-        <UnitName Value="lzRichOle"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="34"/>
         <CursorPos X="22" Y="44"/>
         <UsageCount Value="8"/>
       </Unit69>
       <Unit70>
         <Filename Value="C:\fpc\2.5.1\source\packages\winunits-base\src\richedit.pp"/>
-        <UnitName Value="richedit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="583"/>
         <CursorPos X="17" Y="588"/>
         <UsageCount Value="8"/>
       </Unit70>
       <Unit71>
         <Filename Value="C:\fpc\2.5.1\source\rtl\win\wininc\base.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="143"/>
         <CursorPos X="23" Y="152"/>
         <UsageCount Value="6"/>
@@ -629,69 +492,52 @@
       <Unit72>
         <Filename Value="..\lzrichattribs.inc"/>
         <IsPartOfProject Value="True"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="34" Y="109"/>
         <UsageCount Value="200"/>
       </Unit72>
       <Unit73>
         <Filename Value="C:\fpc\2.5.1\fpcsrc\packages\winunits-base\src\richedit.pp"/>
-        <UnitName Value="richedit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="196"/>
         <CursorPos X="6" Y="161"/>
         <UsageCount Value="9"/>
       </Unit73>
       <Unit74>
         <Filename Value="unit2.pas"/>
-        <UnitName Value="Unit2"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="14" Y="184"/>
         <UsageCount Value="14"/>
       </Unit74>
       <Unit75>
         <Filename Value="C:\usr\share\lazarus\0.9.30.2RC1-0\components\lzRichEdit\lzrichedit.pas"/>
-        <UnitName Value="lzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="18" Y="45"/>
         <UsageCount Value="7"/>
       </Unit75>
       <Unit76>
         <Filename Value="C:\usr\share\lazarus\0.9.30.2RC1-0\components\lzRichEdit\gtk2\rtftool.pas"/>
-        <UnitName Value="RTFTool"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="19"/>
         <CursorPos X="77" Y="30"/>
         <UsageCount Value="1"/>
       </Unit76>
       <Unit77>
         <Filename Value="C:\usr\share\lazarus\0.9.30.2RC1-0\lcl\lclproc.pas"/>
-        <UnitName Value="LCLProc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="319"/>
         <CursorPos X="41" Y="333"/>
         <UsageCount Value="8"/>
       </Unit77>
       <Unit78>
         <Filename Value="C:\usr\share\lazarus\0.9.30.2RC1-0\components\lzRichEdit\lzrichedit.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="111"/>
         <CursorPos X="37" Y="116"/>
         <UsageCount Value="6"/>
       </Unit78>
       <Unit79>
         <Filename Value="lzRichEditToHTML.pas"/>
-        <UnitName Value="lzRichEditToHTML"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="27" Y="7"/>
         <UsageCount Value="12"/>
       </Unit79>
       <Unit80>
         <Filename Value="C:\usr\share\lazarus\0.9.30.2RC1-0\components\lzRichEdit\gtk2\rtfdata.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="72"/>
         <CursorPos X="30" Y="91"/>
         <UsageCount Value="6"/>
@@ -699,86 +545,60 @@
       <Unit81>
         <Filename Value="..\richbox.pas"/>
         <UnitName Value="RichBox"/>
-        <EditorIndex Value="8"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="5"/>
         <UsageCount Value="83"/>
         <Loaded Value="True"/>
       </Unit81>
       <Unit82>
         <Filename Value="..\tcustomrichbox.inc"/>
-        <EditorIndex Value="9"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="6"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit82>
       <Unit83>
         <Filename Value="..\interfaces\win32\win32wsrichbox.pas"/>
         <UnitName Value="Win32WSRichBox"/>
-        <EditorIndex Value="11"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="8"/>
         <UsageCount Value="78"/>
         <Loaded Value="True"/>
       </Unit83>
       <Unit84>
         <Filename Value="..\widgetset\wsrichbox.pas"/>
         <UnitName Value="WSRichBox"/>
-        <EditorIndex Value="10"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="7"/>
         <UsageCount Value="78"/>
         <Loaded Value="True"/>
       </Unit84>
       <Unit85>
         <Filename Value="richeditole.pas"/>
-        <UnitName Value="RichEditOle"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="57" Y="16"/>
         <UsageCount Value="14"/>
       </Unit85>
       <Unit86>
         <Filename Value="C:\fpc\2.5.1\fpcsrc\rtl\inc\objpash.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="278"/>
         <CursorPos X="8" Y="282"/>
         <UsageCount Value="6"/>
       </Unit86>
       <Unit87>
         <Filename Value="C:\fpc\2.5.1\fpcsrc\packages\winunits-base\src\activex.pp"/>
-        <UnitName Value="ActiveX"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="55" Y="5"/>
         <UsageCount Value="7"/>
       </Unit87>
       <Unit88>
         <Filename Value="richole.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="RichOle"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="49" Y="72"/>
         <UsageCount Value="200"/>
       </Unit88>
       <Unit89>
         <Filename Value="richolebox.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="RichOleBox"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="6" Y="7"/>
         <UsageCount Value="200"/>
       </Unit89>
       <Unit90>
         <Filename Value="C:\fpc\2.5.1\fpcsrc\rtl\win\wininc\defines.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="4833"/>
         <CursorPos X="6" Y="4844"/>
         <UsageCount Value="6"/>
@@ -786,55 +606,38 @@
       <Unit91>
         <Filename Value="..\interfaces\gtk2\gtk2wsrichbox.pas"/>
         <UnitName Value="Gtk2WSRichBox"/>
-        <EditorIndex Value="12"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <EditorIndex Value="9"/>
         <UsageCount Value="53"/>
         <Loaded Value="True"/>
       </Unit91>
       <Unit92>
         <Filename Value="gtk2rtftool.pas"/>
-        <UnitName Value="Gtk2RTFTool"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="500"/>
-        <CursorPos X="1" Y="29"/>
+        <CursorPos Y="29"/>
         <UsageCount Value="15"/>
       </Unit92>
       <Unit93>
         <Filename Value="..\interfaces\gtk2\gtk2rtftool.pas"/>
-        <UnitName Value="Gtk2RTFTool"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1979"/>
+        <CursorPos Y="1979"/>
         <UsageCount Value="7"/>
       </Unit93>
       <Unit94>
         <Filename Value="C:\fpcsrc\2.4.4\rtl\objpas\classes\stringl.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1237"/>
         <CursorPos X="3" Y="1243"/>
         <UsageCount Value="6"/>
       </Unit94>
       <Unit95>
         <Filename Value="..\widgetset\wsrichboxfactory.pas"/>
-        <UnitName Value="WSRichBoxFactory"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="18"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
       </Unit95>
       <Unit96>
         <Filename Value="..\interfaces\gtk2\rtfpars_lzrichedit.pas"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
       </Unit96>
       <Unit97>
         <Filename Value="C:\fpcsrc\2.4.4\packages\gtk2\src\gtk+\gtk\gtktextbuffer.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="69"/>
         <CursorPos X="10" Y="83"/>
         <UsageCount Value="6"/>
@@ -842,8 +645,6 @@
       <Unit98>
         <Filename Value="gtktextimage.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="GTKTextImage"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="124"/>
         <CursorPos X="23" Y="124"/>
         <UsageCount Value="200"/>
@@ -852,98 +653,70 @@
         <Filename Value="rtf2html.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RTF2HTML"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="447"/>
-        <CursorPos X="12" Y="455"/>
+        <EditorIndex Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit99>
       <Unit100>
         <Filename Value="..\..\interfaces\gtk2\gtk2rtftool.pas"/>
-        <UnitName Value="Gtk2RTFTool"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="738"/>
-        <CursorPos X="1" Y="747"/>
+        <CursorPos Y="747"/>
         <UsageCount Value="14"/>
       </Unit100>
       <Unit101>
         <Filename Value="..\..\interfaces\gtk2\rtfpars_lzrichedit.pas"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="13"/>
         <CursorPos X="24" Y="31"/>
         <UsageCount Value="7"/>
       </Unit101>
       <Unit102>
         <Filename Value="..\..\..\..\fpc\2.5.1\fpcsrc\rtl\objpas\sysutils\sysstrh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="247"/>
         <CursorPos X="10" Y="266"/>
         <UsageCount Value="7"/>
       </Unit102>
       <Unit103>
         <Filename Value="rtfpars_lzrichedit.pas"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <EditorIndex Value="3"/>
-        <WindowIndex Value="0"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="18"/>
-        <Loaded Value="True"/>
       </Unit103>
       <Unit104>
         <Filename Value="..\..\..\..\fpc\2.5.1\fpcsrc\rtl\objpas\classes\classesh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="84"/>
         <CursorPos X="13" Y="95"/>
         <UsageCount Value="13"/>
       </Unit104>
       <Unit105>
         <Filename Value="..\..\interfaces\gtk2\gtk2wsrichbox.pas"/>
-        <UnitName Value="Gtk2WSRichBox"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="393"/>
         <CursorPos X="42" Y="600"/>
         <UsageCount Value="13"/>
       </Unit105>
       <Unit106>
         <Filename Value="..\..\..\..\lcl\graphics.pp"/>
-        <UnitName Value="Graphics"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="845"/>
         <CursorPos X="15" Y="855"/>
         <UsageCount Value="13"/>
       </Unit106>
       <Unit107>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\components\lzRichEdit\interfaces\gtk2\gtk2wsrichbox.pas"/>
-        <UnitName Value="Gtk2WSRichBox"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="627"/>
         <CursorPos X="3" Y="650"/>
         <UsageCount Value="8"/>
       </Unit107>
       <Unit108>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\components\lzRichEdit\interfaces\gtk2\rtfpars_lzrichedit.pas"/>
-        <UnitName Value="RTFPars_lzRichEdit"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="8"/>
       </Unit108>
       <Unit109>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\components\lzRichEdit\interfaces\gtk2\gtk2rtftool.pas"/>
-        <UnitName Value="Gtk2RTFTool"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1307"/>
         <CursorPos X="40" Y="1320"/>
         <UsageCount Value="15"/>
       </Unit109>
       <Unit110>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\graphics.pp"/>
-        <UnitName Value="Graphics"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="32"/>
         <CursorPos X="15" Y="52"/>
         <UsageCount Value="5"/>
@@ -951,8 +724,6 @@
       </Unit110>
       <Unit111>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\intfgraphics.pas"/>
-        <UnitName Value="IntfGraphics"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="866"/>
         <CursorPos X="56" Y="868"/>
         <UsageCount Value="4"/>
@@ -960,8 +731,6 @@
       </Unit111>
       <Unit112>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\packages\gtk2\src\gtk+\gdk-pixbuf\gdk2pixbuf.pas"/>
-        <UnitName Value="gdk2pixbuf"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="166"/>
         <CursorPos X="35" Y="176"/>
         <UsageCount Value="4"/>
@@ -969,8 +738,6 @@
       </Unit112>
       <Unit113>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\graphtype.pp"/>
-        <UnitName Value="GraphType"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="27"/>
         <CursorPos X="43" Y="39"/>
         <UsageCount Value="3"/>
@@ -978,7 +745,6 @@
       </Unit113>
       <Unit114>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\rtl\inc\heaph.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="76"/>
         <CursorPos X="10" Y="89"/>
         <UsageCount Value="3"/>
@@ -986,7 +752,6 @@
       </Unit114>
       <Unit115>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\rtl\objpas\sysutils\sysutilh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="83"/>
         <CursorPos X="4" Y="95"/>
         <UsageCount Value="9"/>
@@ -994,7 +759,6 @@
       </Unit115>
       <Unit116>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\include\rasterimage.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="585"/>
         <CursorPos X="11" Y="585"/>
         <UsageCount Value="2"/>
@@ -1002,7 +766,6 @@
       </Unit116>
       <Unit117>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\rtl\objpas\classes\classesh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="368"/>
         <CursorPos X="3" Y="380"/>
         <UsageCount Value="9"/>
@@ -1010,8 +773,6 @@
       </Unit117>
       <Unit118>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\packages\fcl-image\src\fpimage.pp"/>
-        <UnitName Value="FPimage"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="18"/>
         <CursorPos X="25" Y="31"/>
         <UsageCount Value="2"/>
@@ -1019,7 +780,6 @@
       </Unit118>
       <Unit119>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\packages\fcl-image\src\fpimage.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="177"/>
         <CursorPos X="3" Y="177"/>
         <UsageCount Value="9"/>
@@ -1027,7 +787,6 @@
       </Unit119>
       <Unit120>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\include\picture.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="804"/>
         <CursorPos X="24" Y="811"/>
         <UsageCount Value="9"/>
@@ -1035,7 +794,6 @@
       </Unit120>
       <Unit121>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\rtl\inc\objpash.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="173"/>
         <CursorPos X="23" Y="185"/>
         <UsageCount Value="9"/>
@@ -1043,7 +801,6 @@
       </Unit121>
       <Unit122>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\rtl\inc\systemh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="521"/>
         <CursorPos X="11" Y="521"/>
         <UsageCount Value="2"/>
@@ -1051,7 +808,6 @@
       </Unit122>
       <Unit123>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\include\lclintfh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="90"/>
         <CursorPos X="26" Y="102"/>
         <UsageCount Value="10"/>
@@ -1059,7 +815,6 @@
       </Unit123>
       <Unit124>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\lcl\include\lclintf.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="157"/>
         <CursorPos X="42" Y="159"/>
         <UsageCount Value="10"/>
@@ -1067,7 +822,6 @@
       </Unit124>
       <Unit125>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.4.4\packages\fcl-image\src\fppalette.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="81"/>
         <CursorPos X="8" Y="88"/>
         <UsageCount Value="2"/>
@@ -1075,163 +829,124 @@
       </Unit125>
       <Unit126>
         <Filename Value="..\..\..\..\usr\lib\lazarus\0.9.30.2\components\Imaging\Source\ImagingNetworkGraphics.pas"/>
-        <UnitName Value="ImagingNetworkGraphics"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="996"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit126>
       <Unit127>
         <Filename Value="..\fastimage.pas"/>
-        <UnitName Value="FastImage"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="87"/>
         <CursorPos X="14" Y="36"/>
         <UsageCount Value="10"/>
       </Unit127>
       <Unit128>
         <Filename Value="newsave.pas"/>
-        <UnitName Value="NewSave"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="31" Y="14"/>
         <UsageCount Value="11"/>
       </Unit128>
       <Unit129>
         <Filename Value="a.res"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="13" Y="1"/>
+        <CursorPos X="13"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit129>
       <Unit130>
         <Filename Value="..\..\..\lcl\lresources.pp"/>
-        <UnitName Value="LResources"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="69"/>
         <CursorPos X="3" Y="56"/>
         <UsageCount Value="10"/>
       </Unit130>
       <Unit131>
         <Filename Value="..\..\..\..\lcl\stdctrls.pp"/>
-        <UnitName Value="StdCtrls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="738"/>
         <CursorPos X="15" Y="749"/>
         <UsageCount Value="10"/>
       </Unit131>
       <Unit132>
         <Filename Value="..\..\..\..\lcl\dialogs.pp"/>
-        <UnitName Value="Dialogs"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="501"/>
         <CursorPos X="10" Y="505"/>
         <UsageCount Value="7"/>
       </Unit132>
       <Unit133>
         <Filename Value="..\..\..\lzRichEdit com nova licença\richbox.pas"/>
-        <UnitName Value="RichBox"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="1"/>
       </Unit133>
       <Unit134>
         <Filename Value="HTML2RTF.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="20" Y="3"/>
         <UsageCount Value="10"/>
       </Unit134>
       <Unit135>
         <Filename Value="..\..\..\printers\printersdlgs.pp"/>
-        <UnitName Value="PrintersDlgs"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="27"/>
         <CursorPos X="54" Y="37"/>
         <UsageCount Value="10"/>
       </Unit135>
       <Unit136>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\objpas\sysutils\finah.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="13"/>
         <CursorPos X="10" Y="23"/>
         <UsageCount Value="10"/>
       </Unit136>
       <Unit137>
         <Filename Value="..\..\..\..\lcl\include\customedit.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="231"/>
         <CursorPos X="41" Y="241"/>
         <UsageCount Value="10"/>
       </Unit137>
       <Unit138>
         <Filename Value="..\..\..\..\lcl\widgetset\wsstdctrls.pp"/>
-        <UnitName Value="WSStdCtrls"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="556"/>
         <CursorPos X="3" Y="560"/>
         <UsageCount Value="10"/>
       </Unit138>
       <Unit139>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\defines.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="4578"/>
         <CursorPos X="6" Y="4588"/>
         <UsageCount Value="7"/>
       </Unit139>
       <Unit140>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\packages\winunits-base\src\richedit.pp"/>
-        <UnitName Value="richedit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="11" Y="36"/>
         <UsageCount Value="7"/>
       </Unit140>
       <Unit141>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\messages.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="146"/>
         <CursorPos X="6" Y="156"/>
         <UsageCount Value="10"/>
       </Unit141>
       <Unit142>
         <Filename Value="..\..\..\synedit\synedit.pp"/>
-        <UnitName Value="SynEdit"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="8601"/>
         <CursorPos X="34" Y="8613"/>
         <UsageCount Value="21"/>
       </Unit142>
       <Unit143>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\struct.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="3570"/>
         <CursorPos X="6" Y="3580"/>
         <UsageCount Value="22"/>
       </Unit143>
       <Unit144>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\inc\wstringh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="30"/>
         <CursorPos X="10" Y="44"/>
         <UsageCount Value="7"/>
       </Unit144>
       <Unit145>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\objpas\sysutils\filutilh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="94"/>
         <CursorPos X="10" Y="110"/>
         <UsageCount Value="7"/>
       </Unit145>
       <Unit146>
         <Filename Value="..\..\..\lazutils\lazutf8.pas"/>
-        <UnitName Value="LazUTF8"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="3139"/>
-        <CursorPos X="1" Y="3153"/>
+        <CursorPos Y="3153"/>
         <UsageCount Value="8"/>
       </Unit146>
       <Unit147>
@@ -1239,45 +954,36 @@
         <ComponentName Value="frmQuestion"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="UQuestion"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="21"/>
         <CursorPos X="9" Y="38"/>
         <UsageCount Value="19"/>
       </Unit147>
       <Unit148>
         <Filename Value="..\..\..\..\lcl\lclproc.pas"/>
-        <UnitName Value="LCLProc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="371"/>
         <CursorPos X="3" Y="381"/>
         <UsageCount Value="10"/>
       </Unit148>
       <Unit149>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="982"/>
         <CursorPos X="3" Y="984"/>
         <UsageCount Value="9"/>
       </Unit149>
       <Unit150>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\objpas\classes\stringl.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="821"/>
         <CursorPos X="3" Y="825"/>
         <UsageCount Value="7"/>
       </Unit150>
       <Unit151>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\base.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="598"/>
         <CursorPos X="106" Y="607"/>
         <UsageCount Value="10"/>
       </Unit151>
       <Unit152>
         <Filename Value="..\..\..\..\lcl\lcltype.pp"/>
-        <UnitName Value="LCLType"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1196"/>
         <CursorPos X="38" Y="1205"/>
         <UsageCount Value="10"/>
@@ -1285,172 +991,134 @@
       <Unit153>
         <Filename Value="rvofficecnv.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="RVOfficeCnv"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="83"/>
         <CursorPos X="22" Y="92"/>
         <UsageCount Value="55"/>
       </Unit153>
       <Unit154>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\ascdef.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="60"/>
         <CursorPos X="10" Y="69"/>
         <UsageCount Value="9"/>
       </Unit154>
       <Unit155>
         <Filename Value="..\..\..\..\lcl\include\wincontrol.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="7228"/>
-        <CursorPos X="1" Y="7237"/>
+        <CursorPos Y="7237"/>
         <UsageCount Value="10"/>
       </Unit155>
       <Unit156>
         <Filename Value="JvHtmlParser.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="JvHtmlParser"/>
-        <EditorIndex Value="1"/>
-        <WindowIndex Value="0"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="121"/>
         <CursorPos X="13" Y="129"/>
         <UsageCount Value="24"/>
-        <Loaded Value="True"/>
       </Unit156>
       <Unit157>
         <Filename Value="jvcl.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="11"/>
         <CursorPos X="79" Y="19"/>
         <UsageCount Value="11"/>
       </Unit157>
       <Unit158>
         <Filename Value="jedi.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="396"/>
         <CursorPos X="5" Y="405"/>
         <UsageCount Value="11"/>
       </Unit158>
       <Unit159>
         <Filename Value="JvComponentBase.pas"/>
-        <UnitName Value="JvComponentBase"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="32"/>
         <CursorPos X="3" Y="41"/>
         <UsageCount Value="11"/>
       </Unit159>
       <Unit160>
         <Filename Value="JvJCLUtils.pas"/>
-        <UnitName Value="JvJCLUtils"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1112"/>
         <CursorPos X="63" Y="1121"/>
         <UsageCount Value="11"/>
       </Unit160>
       <Unit161>
         <Filename Value="jvtypes.pas"/>
-        <UnitName Value="JvTypes"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="616"/>
         <CursorPos X="7" Y="627"/>
         <UsageCount Value="11"/>
       </Unit161>
       <Unit162>
         <Filename Value="JclStrings.pas"/>
-        <UnitName Value="JclStrings"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="64"/>
         <CursorPos X="17" Y="74"/>
         <UsageCount Value="11"/>
       </Unit162>
       <Unit163>
         <Filename Value="jcl.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="297"/>
         <CursorPos X="8" Y="306"/>
         <UsageCount Value="11"/>
       </Unit163>
       <Unit164>
         <Filename Value="JclAnsiStrings.pas"/>
-        <UnitName Value="JclAnsiStrings"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="578"/>
         <CursorPos X="63" Y="590"/>
         <UsageCount Value="11"/>
       </Unit164>
       <Unit165>
         <Filename Value="JclBase.pas"/>
-        <UnitName Value="JclBase"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="408"/>
         <CursorPos X="15" Y="417"/>
         <UsageCount Value="11"/>
       </Unit165>
       <Unit166>
         <Filename Value="JclLogic.pas"/>
-        <UnitName Value="JclLogic"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="396"/>
-        <CursorPos X="1" Y="405"/>
+        <CursorPos Y="405"/>
         <UsageCount Value="10"/>
       </Unit166>
       <Unit167>
         <Filename Value="JclStreams.pas"/>
-        <UnitName Value="JclStreams"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="53"/>
         <CursorPos X="12" Y="62"/>
         <UsageCount Value="11"/>
       </Unit167>
       <Unit168>
         <Filename Value="JclStringConversions.pas"/>
-        <UnitName Value="JclStringConversions"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="336"/>
-        <CursorPos X="1" Y="345"/>
+        <CursorPos Y="345"/>
         <UsageCount Value="11"/>
       </Unit168>
       <Unit169>
         <Filename Value="JclWideStrings.pas"/>
-        <UnitName Value="JclWideStrings"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="546"/>
         <CursorPos X="41" Y="555"/>
         <UsageCount Value="11"/>
       </Unit169>
       <Unit170>
         <Filename Value="JvConsts.pas"/>
-        <UnitName Value="JvConsts"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="141"/>
         <CursorPos X="39" Y="150"/>
         <UsageCount Value="10"/>
       </Unit170>
       <Unit171>
         <Filename Value="mymetafile.pas"/>
-        <UnitName Value="mymetafile"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="182"/>
         <CursorPos X="40" Y="186"/>
         <UsageCount Value="16"/>
       </Unit171>
       <Unit172>
         <Filename Value="..\..\..\..\lcl\include\picture.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="466"/>
         <CursorPos X="28" Y="478"/>
         <UsageCount Value="11"/>
       </Unit172>
       <Unit173>
         <Filename Value="Graphics2.pas"/>
-        <UnitName Value="Graphics2"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="4123"/>
         <CursorPos X="31" Y="4133"/>
         <UsageCount Value="16"/>
       </Unit173>
       <Unit174>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\func.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="805"/>
         <CursorPos X="10" Y="815"/>
         <UsageCount Value="10"/>
@@ -1458,57 +1126,59 @@
       <Unit175>
         <Filename Value="umetafile.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="UMetafile"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
         <UsageCount Value="40"/>
       </Unit175>
       <Unit176>
         <Filename Value="..\..\..\..\fpc\2.6.4\source\rtl\win\wininc\redef.inc"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="857"/>
         <CursorPos X="25" Y="867"/>
         <UsageCount Value="10"/>
       </Unit176>
       <Unit177>
         <Filename Value="..\..\..\lazutils\utf8process.pp"/>
-        <UnitName Value="UTF8Process"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="117"/>
-        <CursorPos X="1" Y="127"/>
+        <CursorPos Y="127"/>
         <UsageCount Value="10"/>
       </Unit177>
       <Unit178>
-        <Filename Value="C:\Users\usuario\Desktop\JVCL348SourceOnly\jvcl\run\JvJCLUtils.pas"/>
-        <UnitName Value="JvJCLUtils"/>
-        <WindowIndex Value="0"/>
+        <Filename Value="..\..\..\JVCL348SourceOnly\jvcl\run\JvJCLUtils.pas"/>
         <TopLine Value="223"/>
         <CursorPos X="19" Y="233"/>
         <UsageCount Value="10"/>
       </Unit178>
       <Unit179>
-        <Filename Value="C:\Users\usuario\Desktop\JVCL348SourceOnly\jvcl\run\JvConsts.pas"/>
-        <UnitName Value="JvConsts"/>
-        <WindowIndex Value="0"/>
+        <Filename Value="..\..\..\JVCL348SourceOnly\jvcl\run\JvConsts.pas"/>
         <TopLine Value="163"/>
         <CursorPos X="14" Y="174"/>
         <UsageCount Value="10"/>
       </Unit179>
       <Unit180>
-        <Filename Value="C:\Users\usuario\Desktop\jcl-2.4.1.4571\jcl-2.4.1.4571\source\common\JclAnsiStrings.pas"/>
-        <UnitName Value="JclAnsiStrings"/>
-        <WindowIndex Value="0"/>
+        <Filename Value="..\..\..\jcl-2.4.1.4571\jcl-2.4.1.4571\source\common\JclAnsiStrings.pas"/>
         <TopLine Value="522"/>
         <CursorPos X="13" Y="527"/>
         <UsageCount Value="10"/>
       </Unit180>
     </Units>
-    <JumpHistory Count="1" HistoryIndex="0">
+    <JumpHistory Count="5" HistoryIndex="4">
       <Position1>
-        <Filename Value="JvHtmlParser.pas"/>
-        <Caret Line="161" Column="7" TopLine="141"/>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="451" Column="11" TopLine="446"/>
       </Position1>
+      <Position2>
+        <Filename Value="rtf2html.pas"/>
+        <Caret Line="449" Column="11" TopLine="448"/>
+      </Position2>
+      <Position3>
+        <Filename Value="rtf2html.pas"/>
+        <Caret Line="6" Column="7"/>
+      </Position3>
+      <Position4>
+        <Filename Value="uprincipal.pas"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uprincipal.pas"/>
+        <Caret Line="335" Column="3" TopLine="333"/>
+      </Position5>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
@@ -1532,12 +1202,6 @@
         </Win32>
       </Options>
     </Linking>
-    <Other>
-      <CompilerMessages>
-        <UseMsgFile Value="True"/>
-      </CompilerMessages>
-      <CompilerPath Value="$(CompPath)"/>
-    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">
@@ -1552,5 +1216,4 @@
       </Item3>
     </Exceptions>
   </Debugging>
-  <EditorMacros Count="0"/>
 </CONFIG>

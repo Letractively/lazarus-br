@@ -45,24 +45,24 @@ unit UPrincipal;
 interface
 
 uses
-  {windows, }Classes, SysUtils, FileUtil, UTF8Process, PrintersDlgs, Forms,
+  Classes, SysUtils, FileUtil, UTF8Process, PrintersDlgs, Forms,
   Controls, Graphics, Dialogs, StdCtrls, ComCtrls, Menus, ExtCtrls, Buttons,
   LCLProc, LCLType, ColorBox, Process, ULocalizar, UParagrafo, USobre, RichBox
   {$IFDEF LINUX}, GTKTextImage, UGetFontLinux {$ENDIF} {$IFDEF WINDOWS},
-  RichOleBox, RichOle, Windows {$ENDIF}, RTF2HTML, CLIPBRD;
+  RichOleBox, RichOle, Windows {$ENDIF}, RTF2HTML, CLIPBRD, RegExpr;
 
 type
 
   { TfrmMain }
 
   TfrmMain = class(TForm)
-    Button1 :TButton;
+    btnSend :TButton;
     cbForeColor: TColorButton;
     CBFont: TComboBox;
     CBSize: TComboBox;
     cbBackColor :TColorButton;
     FDlg: TFontDialog;
-    FindDlg :TFindDialog;
+    FindDialog :TFindDialog;
     GroupBox1: TGroupBox;
     ImageList1: TImageList;
     lzRichEdit1: TlzRichEdit;
@@ -118,7 +118,7 @@ type
     Odlg: TOpenDialog;
     PSDlg :TPageSetupDialog;
     SDlg: TSaveDialog;
-    SpeedButton1 :TSpeedButton;
+    sbFormat :TSpeedButton;
     StatusBar :TStatusBar;
     ToolBar1: TToolBar;
     ToolBar2: TToolBar;
@@ -154,13 +154,15 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
-    procedure Button1Click(Sender :TObject);
+    procedure btnSendClick(Sender :TObject);
     procedure cbBackColorColorChanged(Sender :TObject);
     procedure CBFontSelect(Sender: TObject);
     procedure cbForeColorColorChanged(Sender :TObject);
     procedure CBSizeChange(Sender: TObject);
-    procedure FindDlgClose(Sender :TObject);
-    procedure FindDlgFind(Sender :TObject);
+    procedure FindDialogClose(Sender :TObject);
+    procedure FindDialogFind(Sender :TObject);
+    procedure FindDialogShow(Sender :TObject);
+    //procedure FindDlgFind(Sender :TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -193,7 +195,7 @@ type
     procedure miZoom500Click(Sender :TObject);
     procedure miZoom50Click(Sender :TObject);
     procedure miZoom75Click(Sender :TObject);
-    procedure SpeedButton1Click(Sender :TObject);
+    procedure sbFormatClick(Sender :TObject);
     procedure tbOpenClick(Sender: TObject);
     procedure tbSaveClick(Sender: TObject);
     procedure miSaveAsClick(Sender: TObject);
@@ -216,7 +218,9 @@ type
     procedure ToolButton9Click(Sender: TObject);
   private
     { private declarations }
-    fstream :tmemorystream;
+    FRegexObj: TRegExpr;
+    FExecuted: boolean;
+    FStream :tMemoryStream;
     FFirstChange :boolean;
     procedure ResetZoomMenuItems;
     procedure UnCheckAllZoomMenuItems;
@@ -328,11 +332,9 @@ end;
 
 procedure TfrmMain.tbFindClick(Sender: TObject);
 begin
-  {$IFDEF WINDOWS}
-    FindDlg.Execute;
-  {$ELSE}
-    frmLocalizar.Execute('', lzRichEdit1);
-  {$ENDIF}
+  frmMain.ActiveControl := btnSend;
+  FindDialog.Title := 'Find RegEx';
+  FindDialog.Execute;
 end;
 
 procedure TfrmMain.tbCutClick(Sender: TObject);
@@ -724,11 +726,98 @@ begin
   GetTextStatus;
 end;
 
-procedure TfrmMain.FindDlgClose(Sender :TObject);
+procedure TfrmMain.FindDialogClose(Sender :TObject);
 begin
+  FRegexObj.Free;
+  FExecuted := False;
   BringToFront;
 end;
 
+procedure TfrmMain.FindDialogFind(Sender :TObject);
+var
+  FoundAt: Longint;
+  StartPos, ToEnd: Integer;
+  mySearchTypes : TSearchTypes;
+  myFindOptions : TFindOptions;
+  Backwards, b :boolean;
+  p :Classes.TPoint;
+  CurrentSearch :String;
+  s :String;
+begin
+  mySearchTypes := [];
+  with lzRichEdit1 do
+  begin
+    if frMatchCase in FindDialog.Options then
+       mySearchTypes := mySearchTypes + [stMatchCase];
+    if frWholeWord in FindDialog.Options then
+       mySearchTypes := mySearchTypes + [stWholeWord];
+    { Começa a busca depois da seleção atual se existe alguma.
+      Senão começa no início do texto. }
+    if SelLength <> 0 then
+      StartPos := SelStart + SelLength
+    else
+      StartPos := 0;
+    { ToEnd é o comprimento a partir de StartPos até o fim do texto. }
+    ToEnd := Length(Text) - StartPos;
+
+    FRegexObj.Expression := FindDialog.FindText;
+    if not FExecuted then
+    begin
+      if not FRegexObj.Exec(lzRichEdit1.Text) then
+      begin
+        ShowMessage('Text not found');
+        Exit;
+      end;
+      FRegexObj.Expression := FindDialog.FindText;
+      FindDialog.Title  := 'Searching for "' + FRegexObj.Match[0] + '"';
+      FExecuted := True;
+    end
+    else
+    begin
+      if FRegexObj.SubExprMatchCount > 0 then
+      begin
+        FRegexObj.ExecNext;
+        s :=  FRegexObj.Match[0];
+        if s <> '' then
+          FindDialog.Title  := 'Searching for "' + s + '"';
+      end;
+    end;
+
+    CurrentSearch := Copy(finddialog.title, 16, length(FRegexObj.Match[0]));
+    FoundAt :=
+      FindText(CurrentSearch {FindDialog.FindText}, StartPos, ToEnd, mySearchTypes, False );
+
+    if FoundAt <> -1 then
+    begin
+      SetFocus;
+      SelStart := FoundAt;
+      SelLength := UTF8Length({FindDialog.FindText} CurrentSearch);
+
+      FindDialog.Position := ClientToScreen(
+                           Classes.Point(
+                                         (lzRichEdit1.Left + lzRichEdit1.Width - FindDialog.Width) div 2,
+                                         lzRichEdit1.CaretPoint.Y + lzRichEdit1.Font.Size + 20
+                                         ));
+    end
+    else
+    begin
+      p.x := (lzRichEdit1.Left + lzRichEdit1.Width - FindDialog.Width) div 2;
+      p.y := (lzRichEdit1.Top + lzRichEdit1.Height - FindDialog.height) div 2;
+      FindDialog.Position := ClientToScreen(p);
+      lzRichEdit1.SelStart := lzRichEdit1.SelStart + lzRichEdit1.SelLength;
+      lzRichEdit1.SelLength := 0;
+      FindDialog.CloseDialog;
+      ShowMessage('Search complete');
+    end;
+  end;
+end;
+
+procedure TfrmMain.FindDialogShow(Sender :TObject);
+begin
+  FRegexObj := TRegExpr.Create;
+end;
+
+{
 procedure TfrmMain.FindDlgFind(Sender :TObject);
 var
   FoundAt: Longint;
@@ -738,14 +827,14 @@ var
   Backwards, b :boolean;
   p :Classes.TPoint;
 begin
-  Backwards := not (frDown in FindDlg.Options);
+  Backwards := not (frDown in FindDialog.Options);
 
   mySearchTypes := [];
   with lzRichEdit1 do
   begin
-    if frMatchCase in FindDlg.Options then
+    if frMatchCase in FindDialog.Options then
        mySearchTypes := mySearchTypes + [stMatchCase];
-    if frWholeWord in FindDlg.Options then
+    if frWholeWord in FindDialog.Options then
        mySearchTypes := mySearchTypes + [stWholeWord];
     { Começa a busca depois da seleção atual se existe alguma.
       Senão começa no início do texto. }
@@ -756,24 +845,25 @@ begin
     { ToEnd é o comprimento a partir de StartPos até o fim do texto. }
     ToEnd := Length(Text) - StartPos;
     FoundAt :=
-      FindText(FindDlg.FindText, StartPos, ToEnd, mySearchTypes, False );
+      FindText(FindDialog.FindText, StartPos, ToEnd, mySearchTypes, False );
     if FoundAt <> -1 then
     begin
       SetFocus;
       SelStart := FoundAt;
-      SelLength := UTF8Length(FindDlg.FindText);
+      SelLength := UTF8Length(FindDialog.FindText);
 
-      FindDlg.Position := ClientToScreen(lzRichEdit1.CaretPoint);
+      FindDialog.Position := ClientToScreen(lzRichEdit1.CaretPoint);
     end
     else
     begin
-      p.x := (lzRichEdit1.Left + lzRichEdit1.Width - finddlg.Width) div 2;
-      p.y := (lzRichEdit1.Top + lzRichEdit1.Height - finddlg.height) div 2;
-      FindDlg.Position := ClientToScreen(p);
+      p.x := (lzRichEdit1.Left + lzRichEdit1.Width - FindDialog.Width) div 2;
+      p.y := (lzRichEdit1.Top + lzRichEdit1.Height - FindDialog.height) div 2;
+      FindDialog.Position := ClientToScreen(p);
       ShowMessage('Text not found');
     end;
   end;
 end;
+}
 
 procedure TfrmMain.CBFontSelect(Sender: TObject);
 begin
@@ -793,7 +883,7 @@ begin
   GetTextStatus;
 end;
 
-procedure TfrmMain.Button1Click(Sender :TObject);
+procedure TfrmMain.btnSendClick(Sender :TObject);
 var
   str :TMemoryStream;
   i :Integer;
@@ -983,6 +1073,7 @@ end;
 procedure TfrmMain.miPrintClick(Sender :TObject);
 var
   PrintMargins :TRect;
+  i :Integer;
 begin
   PrintMargins.Left := 2540;
   PrintMargins.Top := 3000;
@@ -993,9 +1084,9 @@ begin
   if PSDlg.Execute then
   begin
     PrintMargins.Left := Round(PSDlg.Margins.Left / 4);
-    PrintMargins.top := Round(PSDlg.Margins.Top / 4);
-    PrintMargins.right := Round(PSDlg.Margins.Right / 4);
-    PrintMargins.bottom := Round(PSDlg.Margins.Bottom / 4);
+    PrintMargins.Top := Round(PSDlg.Margins.Top / 4);
+    PrintMargins.Right := Round(PSDlg.Margins.Right / 4);
+    PrintMargins.Bottom := Round(PSDlg.Margins.Bottom / 4);
     lzRichEdit1.Print(ExtractFileName(FileName), PrintMargins);
   end;
 end;
@@ -1200,7 +1291,7 @@ begin
   miZoom75.Checked := True;
 end;
 
-procedure TfrmMain.SpeedButton1Click(Sender :TObject);
+procedure TfrmMain.sbFormatClick(Sender :TObject);
 begin
   lzRichEdit2.SelectAll;
   lzRichEdit2.SelAttributes.Style := [fsbold];
