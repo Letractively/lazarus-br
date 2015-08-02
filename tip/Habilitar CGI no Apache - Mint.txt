@@ -26,7 +26,7 @@ No seu Virtual Host (geralmente em /etc/apache2/sites-available/000-default.conf
 
 OBS: A configuração acima foi feita no Ubuntu 13.10.
 
-Já para o Ubuntu 14.04, a configuração do diretório é público é (note que já habilita o suporte a CGI):
+Já para o Ubuntu 14.04, a configuração (no arquivo /etc/apache2/apache2.conf) do diretório é público é (note que já habilita o suporte a CGI):
 
 <Directory /var/www/>
 	Options ExecCGI Indexes FollowSymLinks
