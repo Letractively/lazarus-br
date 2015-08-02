@@ -1,4 +1,4 @@
-﻿O primeiro passo é habilitar o módulo do CGI através de um link simbólico.
+ O primeiro passo é habilitar o módulo do CGI através de um link simbólico.
 
 # cd /etc/apache2/mods-enabled
 # ln -s ../mods-available/cgi.load cgi.load
@@ -25,6 +25,14 @@ No seu Virtual Host (geralmente em /etc/apache2/sites-available/000-default.conf
 </VirtualHost>
 
 OBS: A configuração acima foi feita no Ubuntu 13.10.
+
+Já para o Ubuntu 14.04, a configuração do diretório é público é (note que já habilita o suporte a CGI):
+
+<Directory /var/www/>
+	Options ExecCGI Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+</Directory>
 
 Espero que a dica tenha sido útil.
 Grande abraço e até a próxima.
